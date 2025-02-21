@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- トップページ -->
+  <url>
+    <loc>https://kekeke29341.github.io/</loc>
+    <lastmod>2025-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- プロジェクトセクション -->
+  <url>
+    <loc>https://kekeke29341.github.io/#projects</loc>
+    <lastmod>2025-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- お問い合わせセクション -->
+  <url>
+    <loc>https://kekeke29341.github.io/#contact</loc>
+    <lastmod>2025-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 職務経歴書セクション -->
+  <url>
+    <loc>https://kekeke29341.github.io/#resume</loc>
+    <lastmod>2025-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ブログリンク -->
+  <url>
+    <loc>https://note.com/nakano_teppei1</loc>
+    <lastmod>2025-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
+
