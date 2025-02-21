@@ -57,6 +57,7 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
+      width: 100%;
     }
     .button {
       padding: 12px 24px;
@@ -68,6 +69,7 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
+      text-align: center;
     }
     .button:hover {
       background-color: #2563eb;
@@ -120,10 +122,11 @@
       }
       .button {
         width: 100%;
-        text-align: center;
+        box-sizing: border-box;
       }
       .buttons {
         flex-direction: column;
+        align-items: center;
       }
     }
   </style>
