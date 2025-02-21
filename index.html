@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中野哲平 - ポートフォリオ</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    header {
+      width: 100%;
+      height: 200px;
+      position: relative;
+    }
+    .header-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .card, .resume {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+      z-index: 1;
+      animation: fadeIn 0.6s ease-out;
+      margin: 16px 0;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .button {
+      padding: 12px 24px;
+      background-color: #3b82f6;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #2563eb;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    canvas {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      z-index: 0;
+    }
+    .resume h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .resume pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background-color: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      text-align: left;
+    }
+    .blog-link {
+      margin-top: 16px;
+      font-size: 1.2rem;
+    }
+    .blog-link a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    .blog-link a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <canvas id="headerCanvas" class="header-canvas"></canvas>
+  </header>
+
+  <div class="card">
+    <h1>中野哲平</h1>
+    <p><strong>ソフトウェアエンジニア | フルスタック開発者 | 機械学習メイン</strong></p>
+    <p>未踏プロジェクト経験のあるエンジニアです。高度な技術力を駆使して、様々なプロジェクトに取り組んできました。特に自動売買ボットの開発に力を入れており、安定した運用とパフォーマンスを実現しています。</p>
+    <p>また、SAT対策塾の運営も行っており、生徒の成績向上に貢献しています。PythonやReactを活用したアプリケーション開発や、データ分析など幅広い分野に対応可能です。</p>
+    <div class="buttons">
+      <a href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" class="button">開発日記</a>
+      <a href="https://zenn.dev/nakano_teppei" class="button">メモ</a>
+      <a href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" class="button">プロジェクト1</a>
+      <a href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" class="button">プロジェクト2</a>
+    </div>
+    <div class="blog-link">
+      <p>ブログ: <a href="https://note.com/nakano_teppei1" target="_blank">https://note.com/nakano_teppei1</a></p>
+      <p>Qiita: <a href="https://qiita.com/teppei_nakano" target="_blank">https://qiita.com/teppei_nakano</a></p>
+    </div>
+  </div>
+
+  <div class="resume">
+    <h2>職務経歴書</h2>
+    <pre>
+2025年02月15日現在
+氏名：中野　哲平
+
+■ 職務概要
+大学卒業後、大学院に入学し機械学習のモデル開発・ヘルスケアデータへの応用を研究。在学中にNeurlPS、ICMLのWorkshopに論文を投稿し採択されました。その後、大学院時代も含めてを経て約5年間において5つのプロジェクトに従事し主にシステム開発・運用を実施してきました。
+
+■ 得意分野
+- 機械学習モデルのデータパイプラインの作成から実装
+- 機械学習システムの要件定義･設計･開発・導入支援
+- プロジェクトマネジメント業務（最大10名のプロジェクトマネジャー経験あり）
+
+■ 職務経歴
+期間
+担当業務（プロジェクト内容）
+2024年6月
+　　　～
+2025年1月
+(8ヶ月)
+【プロジェクト】　香港における機械学習を活用したブロックチェーン分析事業 
+機械学習によるブロックチェーンデータ分析プラットフォームを開発し、暗号資産の取引監視を行うビジネスを展開。
+【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 85人月 / 9名 / 3社
+【プロジェクト背景】 
+・香港は暗号資産に関する規制が比較的緩やかであり、多くのブロックチェーン関連企業が進出。 
+・透明性と市場監視の需要が高まり、AML（アンチマネーロンダリング）対応を強化する必要性が増加。 
+・DeFiやNFT市場の拡大に伴い、スマートコントラクトのリスク分析と資産の追跡が重要に。
+【担当業務】 
+・機械学習を活用したブロックチェーンの異常検知システムの設計・開発。 
+・トランザクションデータをリアルタイムで分析し、不審な動きを特定するアルゴリズムを構築。 
+ ・ネットワーク分析を活用し、ウォレットアドレス間の関係性を可視化するツールを開発。 
+・取引履歴データを活用し、リスクスコアリングを行うシステムの構築。 
+・スマートコントラクトのコードを解析し、セキュリティリスクを自動検出するAIモデルを実装。 
+・現地のブロックチェーン企業と提携し、業界全体の透明性を向上させるためのデータ共有プロジェクトを推進。
+【実績】 
+・不審な取引の検出精度を従来比35%向上し、AML対応の強化に貢献。 
+・ウォレットアドレスの関係分析により、大規模な不正ネットワークを検出し、法執行機関と連携。 
+・市場における不正取引の特定を自動化し、スマートコントラクトのセキュリティ評価プロセスを簡素化。 
+・香港の暗号資産業界と協力し、規制環境の変化に対応したデータ駆動型のリスク管理戦略を提案。
+
+
+
+
+
+
+勤務先名：カハール株式会社　　　　　　　　　（勤務期間：2021年04月～2024年05月）
+◆事業内容：機械学習モデルの開発と納品
+◆資本金：10百万円　　　　　◆売上高：200百万円 （2023年12月）　　◆従業員数：10名 
+期間
+担当業務（プロジェクト内容）
+2023年1月
+　　　～
+2024年5月
+(14ヶ月)
+【プロジェクト】プライバシー保護を重視したローカルLLMの開発
+保険会社やヘルスケア会社に対して
+機密性の高い環境で利用可能なローカルLLMを設計・開発
+【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 60人月 / 6名 / 2社
+【担当業務】 
+・主要なローカルLLM（Llama（Meta）、Gemma（Google）、Qwen（Alibaba））を評価し、最適なモデル（Llama-3-8B-Instruct）を選定。
+ ・PyTorchを用いたカスタムモデルパイプラインを構築し、Hugging Faceのツールを活用してLoRA（Low-Rank Adaptation）による事前学習・ファインチューニングを実施。 
+・医療用語に特化したデータセットを収集・整備し、医療環境に適したモデルの微調整を行う。 
+・Llama.cppを活用した量子化技術により、リソース制約のあるデバイス向けに推論を最適化。 
+・トークナイザの不整合やライブラリアップデートの問題を解決し、安定した環境を提供。 
+・医療データの要約や質問応答機能を開発し、ベンチマークテストで高い精度を達成。
+【実績】 
+・医療文書の自動要約機能を実装し、専門医のレビュー時間を短縮。
+ ・プライバシーを維持したまま、医療データの分析が可能なシステムを開発し、病院導入を成功。
+ ・オンプレミス環境でのLLM運用を可能にし、外部データ送信が不要なシステムを構築。
+ ・実際の医療現場でのテスト運用を実施し、ユーザーからのフィードバックを基に改善を繰り返し、高い実用性を実現。
+
+
+2022年1月
+　　　～
+2023年12月
+(12ヶ月)
+【プロジェクト】AIを活用したパーソナライズドマーケティングプラットフォーム開発 
+企業のマーケティング戦略を高度化するため、AIによる消費者行動分析およびパーソナライズド広告配信システムを開発。
+【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 70人月 / 7名 / 3社
+【担当業務】 
+・消費者データをリアルタイムで分析し、ターゲットごとに最適な広告を提供するAIエンジンの開発。 
+・機械学習を活用したカスタマーセグメンテーションモデルの設計・実装。
+ ・自然言語処理（NLP）を活用したソーシャルメディア分析ツールを開発し、トレンドや顧客の嗜好を自動抽出。 
+・A/Bテストを自動化するアルゴリズムを構築し、マーケティング施策の効果測定を迅速化。 
+・エッジAI技術を活用し、広告配信の高速化とコスト最適化を実現。 
+・企業向けのダッシュボードを開発し、広告パフォーマンスの可視化とリアルタイムレポート機能を提供。 ・データプライバシーに配慮した設計を行い、GDPRやCCPAへの準拠を確保
+【実績】
+ ・広告クリック率（CTR）を従来比25%向上。 
+・パーソナライズされた広告配信により、コンバージョン率（CVR）を30%以上改善。 
+・企業向けダッシュボードの導入により、マーケティング担当者のデータ分析時間を40%削減。 
+・ソーシャルメディアのトレンド分析精度を向上させ、消費者インサイトの取得を迅速化。このプロジェクトにより、企業のマーケティング施策を高度化し、データドリブンな広告戦略の実現を支援した。
+
+
+2021年1月
+　　　～
+2021年12月
+(12ヶ月)
+【プロジェクト】大規模トランスフォーマーモデルを活用した法律文書検索システム開発 法務・コンプライアンス業務の効率化を目的とし、AIによる法律文書の検索・要約・分析システムを開発。
+【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 75人月 / 7名 / 2社
+【担当業務】 
+・大規模トランスフォーマーモデル（BERT, GPT-3）を活用した法律文書検索アルゴリズムの設計・実装。 
+・法令、判例、契約書、規約などのデータセットを整備し、法的用語に特化したカスタムLLM（法律特化型BERT）を構築。 
+・自然言語処理（NLP）技術を駆使し、質問応答型の検索システムを開発。 
+・類似判例検索のための埋め込みモデルを開発し、法的リサーチの精度向上を実現。
+ ・法律専門家向けのダッシュボードを開発し、検索結果のランキング・要約機能
+ ・データのプライバシーとセキュリティに配慮し、オンプレミス環境での運用を可能に。 
+【実績】 
+・法律文書検索の精度を従来比20%向上し、関連性の高い検索結果を提供。 
+・AIによる要約機能の導入により、法律文書の読解時間を50%以上短縮。 
+・従来のキーワード検索と比較し、トランスフォーマーモデルの導入により検索効率を30%改善。 
+・類似判例検索の導入により、法的リサーチの時間を大幅に削減し、企業のコンプライアンス業務の効率化を実現。
+・企業の契約レビューにおいて、AIによるリスク分析機能を提供し、潜在的な法的リスクの特定を自動化。
+
+    </pre>
+  </div>
+
+  <canvas id="japanCanvas"></canvas>
+
+  <script>
+    // Header Canvas Animation
+    const headerCanvas = document.getElementById('headerCanvas');
+    const headerCtx = headerCanvas.getContext('2d');
+    headerCanvas.width = window.innerWidth;
+    headerCanvas.height = 200;
+
+    let particles = [];
+
+    class Particle {
+      constructor(x, y, size, speedX, speedY) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.speedX = speedX;
+        this.speedY = speedY;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.size > 0.2) this.size -= 0.02;
+      }
+      draw() {
+        headerCtx.fillStyle = 'rgba(59, 130, 246, 0.7)';
+        headerCtx.beginPath();
+        headerCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        headerCtx.fill();
+      }
+    }
+
+    function handleParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        if (particles[i].size <= 0.2) {
+          particles.splice(i, 1);
+          i--;
+        }
+      }
+    }
+
+    function animateHeader() {
+      headerCtx.clearRect(0, 0, headerCanvas.width, headerCanvas.height);
+      handleParticles();
+      requestAnimationFrame(animateHeader);
+    }
+
+    headerCanvas.addEventListener('mousemove', function(event) {
+      for (let i = 0; i < 5; i++) {
+        particles.push(new Particle(event.x, event.y, Math.random() * 5 + 1, Math.random() * 2 - 1, Math.random() * 2 - 1));
+      }
+    });
+
+    animateHeader();
+
+    window.addEventListener('resize', () => {
+      headerCanvas.width = window.innerWidth;
+      headerCanvas.height = 200;
+    });
+
+    // Footer Japan Canvas Animation
+    const canvas = document.getElementById('japanCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = 300;
+
+    let offsetX = 0;
+
+    function drawJapan() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = 'rgba(30, 64, 175, 0.5)';
+      ctx.save();
+      ctx.translate(offsetX, canvas.height / 4);
+
+      ctx.beginPath();
+      ctx.moveTo(50, 50);
+      ctx.lineTo(100, 30);
+      ctx.lineTo(150, 60);
+      ctx.lineTo(200, 40);
+      ctx.lineTo(250, 80);
+      ctx.lineTo(300, 50);
+      ctx.lineTo(350, 90);
+      ctx.lineTo(400, 60);
+      ctx.lineTo(450, 100);
+      ctx.lineTo(500, 80);
+      ctx.lineTo(550, 120);
+      ctx.lineTo(600, 100);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function animate() {
+      offsetX -= 0.5;
+      if (offsetX < -600) offsetX = canvas.width;
+      drawJapan();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = 300;
+    });
+  </script>
+</body>
+</html>
