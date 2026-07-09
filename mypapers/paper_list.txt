@@ -1,0 +1,4 @@
+T. Nakano, K. Ikeda, “Predicting Cancer Heterogeneity from One-shot Biopsy,” ICML Workshop on Computational Biology, 2017.
+T. Nakano, K. Ikeda, “Visualizing Cancer Heterogeneity with Dynamic Flow,” ICML Workshop on Computational Biology, 2017.
+T. Nakano, “Generating Clinical Texts from Conversation,” NIPS Workshop on Machine Learning for Health, 2016.
+T. Nakano, “Early Detection of Hepatorenal Syndrome from Medical Records,” NIPS Clinical Workshop, 2015.

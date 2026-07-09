@@ -3,422 +3,840 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="中野哲平 — 機械学習・ローカルLLM・バイオインフォマティクスを軸に活動するソフトウェアエンジニアのポートフォリオ。">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
-  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/index_en.html">
-  
-  <title>中野哲平 - ポートフォリオ</title>
+  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
+  <title>中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #070b16;
+      --bg-soft: #0d1526;
+      --panel: rgba(20, 30, 52, 0.55);
+      --panel-border: rgba(120, 160, 255, 0.14);
+      --text: #e8edf7;
+      --text-dim: #9aa8c4;
+      --text-faint: #64729180;
+      --accent: #5b8cff;
+      --accent-2: #22d3ee;
+      --accent-3: #a855f7;
+      --accent-bio: #34d399;
+      --radius: 18px;
+      --maxw: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      min-height: 100vh;
-      position: relative;
+      font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      width: 100%;
-      height: 200px;
-      position: relative;
+
+    /* animated background */
+    .bg-fx {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(900px 600px at 15% -5%, rgba(91,140,255,0.22), transparent 60%),
+        radial-gradient(800px 700px at 100% 0%, rgba(168,85,247,0.16), transparent 55%),
+        radial-gradient(700px 700px at 50% 120%, rgba(34,211,238,0.14), transparent 60%),
+        var(--bg);
     }
-    .header-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      opacity: 0.7;
     }
-    .card, .resume {
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 24px;
-      max-width: 800px;
-      width: 90%;
-      text-align: center;
-      z-index: 1;
-      animation: fadeIn 0.6s ease-out;
-      margin: 16px 0;
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .buttons {
+
+    /* nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px clamp(18px, 5vw, 48px);
+      backdrop-filter: blur(14px);
+      background: rgba(7, 11, 22, 0.6);
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 14px var(--accent);
+    }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .lang {
+      border: 1px solid var(--panel-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: var(--text);
+    }
+    .nav-links .lang:hover { border-color: var(--accent); }
+    @media (max-width: 720px) {
+      .nav-links a:not(.lang) { display: none; }
+    }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
+
+    /* hero */
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      width: 100%;
+      padding: 80px 0 60px;
     }
-    .button {
-      padding: 12px 24px;
-      background-color: #3b82f6;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent-2);
+      letter-spacing: 0.06em;
+      border: 1px solid var(--panel-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--panel);
+      width: fit-content;
+      margin-bottom: 26px;
+    }
+    .pulse {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent-bio);
+      box-shadow: 0 0 0 0 rgba(52,211,153,0.6);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); }
+      100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin: 0 0 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 45%, var(--accent-3) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .role {
+      font-size: clamp(1rem, 2.4vw, 1.35rem);
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .hero .role span { color: var(--text-dim); font-weight: 400; }
+    .hero .lede {
+      max-width: 680px;
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 34px;
+    }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
       text-decoration: none;
-      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
       cursor: pointer;
-      transition: background-color 0.3s;
-      text-align: center;
     }
-    .button:hover {
-      background-color: #2563eb;
+    .btn-primary {
+      color: #04060d;
+      background: linear-gradient(120deg, var(--accent-2), var(--accent));
+      box-shadow: 0 8px 30px rgba(91,140,255,0.35);
     }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(91,140,255,0.5); }
+    .btn-ghost {
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
     }
-    canvas {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 300px;
-      z-index: 0;
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+    /* stats strip */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 54px;
     }
-    .resume h2 {
-      font-size: 2rem;
-      margin-bottom: 16px;
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      backdrop-filter: blur(8px);
     }
-    .resume pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      background-color: #f9fafb;
-      padding: 16px;
+    .stat .num {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 800;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+    .stat .lbl { color: var(--text-dim); font-size: 0.82rem; margin-top: 6px; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+    /* sections */
+    section { padding: 74px 0; }
+    .sec-head { margin-bottom: 42px; }
+    .sec-head .kicker {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+      color: var(--accent-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .sec-head h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: 10px 0 0;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .sec-head p { color: var(--text-dim); margin: 12px 0 0; max-width: 640px; }
+
+    /* skills grid */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 880px) { .skills { grid-template-columns: 1fr; } }
+    .skill-card {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .skill-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
+    .skill-card::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(400px 200px at 100% 0%, var(--glow), transparent 70%);
+      opacity: 0.5;
+    }
+    .skill-card .ico {
+      width: 46px; height: 46px;
+      display: grid; place-items: center;
+      border-radius: 12px;
+      background: var(--chip);
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+      position: relative;
+    }
+    .skill-card h3 { margin: 0 0 8px; font-size: 1.2rem; position: relative; }
+    .skill-card p { margin: 0 0 16px; color: var(--text-dim); font-size: 0.92rem; position: relative; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+    .tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      padding: 5px 10px;
       border-radius: 8px;
-      overflow-x: auto;
-      text-align: left;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--panel-border);
+      color: var(--text-dim);
     }
-    .blog-link {
-      margin-top: 16px;
-      font-size: 1.2rem;
+    .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
+    .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
+    .skill-card.ml  { --glow: rgba(168,85,247,0.22); --chip: rgba(168,85,247,0.14); }
+    .skill-card.cx  { --glow: rgba(34,211,238,0.22); --chip: rgba(34,211,238,0.14); }
+    .skill-card.mlops { --glow: rgba(251,146,60,0.22); --chip: rgba(251,146,60,0.14); }
+    .skill-card.pm  { --glow: rgba(244,114,182,0.22); --chip: rgba(244,114,182,0.14); }
+
+    /* timeline */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 14px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--accent-3), transparent);
+      opacity: 0.4;
     }
-    .blog-link a {
-      color: #3b82f6;
+    .tl-item { position: relative; padding: 0 0 34px 52px; }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: 6px; top: 6px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 14px rgba(91,140,255,0.6);
+    }
+    .tl-item.current::before { border-color: var(--accent-bio); box-shadow: 0 0 16px rgba(52,211,153,0.7); }
+    .tl-card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.25s;
+    }
+    .tl-card:hover { border-color: rgba(120,160,255,0.4); }
+    .tl-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 12px; }
+    .tl-period {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent-2);
+    }
+    .tl-badge {
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .tl-badge.now { background: rgba(52,211,153,0.16); color: var(--accent-bio); border: 1px solid rgba(52,211,153,0.3); }
+    .tl-card h3 { margin: 0 0 4px; font-size: 1.22rem; }
+    .tl-org { color: var(--text-dim); font-size: 0.9rem; margin: 0 0 14px; }
+    .tl-card ul { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 0.93rem; }
+    .tl-card ul li { margin-bottom: 7px; }
+    .tl-card ul li strong { color: var(--text); font-weight: 600; }
+    .result-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .result-chips .rc {
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(91,140,255,0.1);
+      border: 1px solid rgba(91,140,255,0.22);
+      color: #b9cbff;
+    }
+    .tl-card.current .rc { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.25); color: #8ef0c6; }
+
+    details.more { margin-top: 14px; }
+    details.more summary {
+      cursor: pointer;
+      color: var(--accent-2);
+      font-size: 0.86rem;
+      font-weight: 600;
+      list-style: none;
+    }
+    details.more summary::-webkit-details-marker { display: none; }
+    details.more summary::before { content: "▸ "; }
+    details.more[open] summary::before { content: "▾ "; }
+    details.more .body { margin-top: 12px; }
+
+    /* highlight callout for AI-driven dev */
+    .callout {
+      background: linear-gradient(135deg, rgba(91,140,255,0.08), rgba(168,85,247,0.08));
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-top: 26px;
+    }
+    .callout h3 { margin: 0 0 14px; font-size: 1.15rem; }
+    .callout .qa { margin-bottom: 18px; }
+    .callout .qa:last-child { margin-bottom: 0; }
+    .callout .q { font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .callout .a { color: var(--text-dim); font-size: 0.93rem; margin: 0; }
+    .callout .q::before { content: "課題 — "; color: var(--accent-3); font-family: "JetBrains Mono", monospace; font-size: 0.82rem; }
+
+    /* publications */
+    .pubs { display: grid; gap: 10px; }
+    .pub {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    .pub .yr { font-family: "JetBrains Mono", monospace; color: var(--accent-2); font-weight: 500; white-space: nowrap; }
+    .pub .cit { flex: 1; color: var(--text-dim); }
+    .pub .cit em { color: var(--text); font-style: normal; font-weight: 500; }
+    .pub .pdf-link {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
       text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .blog-link a:hover {
-      text-decoration: underline;
+    .pub .pdf-link:hover { border-color: var(--accent); background: rgba(91,140,255,0.1); }
+
+    /* education */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 720px) { .edu-grid { grid-template-columns: 1fr; } }
+    .edu-card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 24px;
     }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .button {
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .buttons {
-        flex-direction: column;
-        align-items: center;
-      }
+    .edu-card .deg { font-weight: 600; margin-bottom: 4px; }
+    .edu-card .when { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
+
+    /* links / footer */
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px; }
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .link-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
+    .link-card .arw { color: var(--accent-2); }
+
+    footer {
+      padding: 50px 0 40px;
+      text-align: center;
+      color: var(--text-faint);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--panel-border);
+      margin-top: 40px;
+    }
+    footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; }
+
+    /* reveal animation */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      #particles { display: none; }
     }
   </style>
 </head>
-</head>
 <body>
-  <header>
-    <canvas id="headerCanvas" class="header-canvas"></canvas>
-  </header>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
 
-  <div class="card">
-    <h1>中野哲平</h1>
-    <p><strong>ソフトウェアエンジニア | フルスタック開発者 | 機械学習メイン</strong></p>
-    <p>未踏プロジェクト経験のあるエンジニアです。高度な技術力を駆使して、様々なプロジェクトに取り組んできました。</p>
-    <p>大学卒業後、大学院に入学し機械学習のモデル開発・ヘルスケアデータへの応用を研究。在学中にNeurlPS、ICMLのWorkshopに論文を投稿し採択されました。その後、大学院時代も含めてを経て約5年間において5つのプロジェクトに従事し主にシステム開発・運用を実施してきました。</p>
-    <p>機械学習やAIを活用したシステム開発において、データの前処理、モデルの選定、精度向上、運用までの一連の流れを経験してきました。特に、大規模トランスフォーマーモデルを活用した自然言語処理（NLP）や画像認識技術に取り組み、精度向上や計算コストの最適化を行いました。例えば、医療データの解析プロジェクトでは、自己教師あり学習（Self-Supervised Learning）を活用し、文章要約精度を従来比30%向上させることに成功しました。</p>
-    <div class="buttons">
-      <a href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" class="button">開発日記</a>
-      <a href="https://zenn.dev/nakano_teppei" class="button">メモ</a>
-      <a href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" class="button">プロジェクト1</a>
-      <a href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" class="button">プロジェクト2</a>
+  <nav>
+    <div class="brand"><span class="dot"></span>中野哲平</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#career">Career</a>
+      <a href="#pubs">Papers</a>
+      <a href="english_index.html" class="lang">EN</a>
     </div>
-    <div class="blog-link">
-      <p>ブログ: <a href="https://note.com/nakano_teppei1" target="_blank">https://note.com/nakano_teppei1</a></p>
-      <p>Qiita: <a href="https://qiita.com/teppei_nakano" target="_blank">https://qiita.com/teppei_nakano</a></p>
-      <p>Email: keiohigh2nd@@gmail.com (@マークは1つです) </p>
-    </div>
-    <div class="buttons">
-      <a href="english_index.html" class="button">English</a>
-    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow reveal"><span class="pulse"></span>OPEN TO WORK · ML / LLM / Bioinformatics</div>
+      <h1 class="reveal">機密環境で動く<br><span class="grad">AI・LLMを、内製で。</span></h1>
+      <p class="role reveal">ソフトウェアエンジニア <span>/ 機械学習・ローカルLLM・バイオインフォマティクス</span></p>
+      <p class="lede reveal">
+        未踏プロジェクト採択・NeurIPS / ICML Workshop 論文採択の経歴を持つエンジニアです。
+        機密性の高い閉域網でのローカルLLM基盤の設計・構築から、
+        コンタクトセンターへのAI導入、バイオインフォマティクス領域の解析まで、
+        データパイプラインの設計・モデル最適化・運用定着までを一気通貫で担ってきました。
+      </p>
+      <div class="cta-row reveal">
+        <a href="#career" class="btn btn-primary">職務経歴を見る →</a>
+        <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">技術メモ (Zenn)</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><div class="num">6</div><div class="lbl">主要プロジェクト従事</div></div>
+        <div class="stat reveal"><div class="num">7+</div><div class="lbl">査読・Workshop 論文</div></div>
+        <div class="stat reveal"><div class="num">100+</div><div class="lbl">同時接続で 1.5s 応答</div></div>
+        <div class="stat reveal"><div class="num">500h</div><div class="lbl">月間工数削減 (DX部門)</div></div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sec-head reveal">
+        <div class="kicker">// about</div>
+        <h2>プロフィール</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;color:var(--text-dim);font-size:1.02rem;">
+        <p>
+          大学卒業後、大学院で機械学習モデルの開発とヘルスケアデータへの応用を研究。
+          在学中に NeurIPS・ICML の Workshop に論文を投稿し採択されました。
+          その後、約6年間で6つのプロジェクトに従事し、システム開発・運用を主導。
+        </p>
+        <p>
+          大規模トランスフォーマーによる自然言語処理・画像認識に加え、
+          近年は<strong style="color:var(--text)">完全閉域網でのローカルLLM基盤</strong>と
+          <strong style="color:var(--text)">コンタクトセンターへのAI導入</strong>を専門としています。
+          データの前処理・モデル選定・精度向上・運用・組織への定着まで、
+          「作って終わり」ではなく現場で使われるところまで責任を持って設計します。
+          がんヘテロジェニティや RNA-seq 解析など、
+          <strong style="color:var(--text)">バイオインフォマティクス</strong>の実務・論文経験も強みです。
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="sec-head reveal">
+        <div class="kicker">// expertise</div>
+        <h2>得意領域</h2>
+        <p>研究由来の理論と、閉域網・オンプレという制約の厳しい現場での実装経験を両輪に。</p>
+      </div>
+      <div class="skills">
+        <div class="skill-card llm reveal">
+          <div class="ico">🔒</div>
+          <h3>ローカルLLM / 閉域網AI基盤</h3>
+          <p>外部APIを一切使わないオンプレLLM環境の設計・構築・最適化。プライバシー保護RAGと推論高速化。</p>
+          <div class="tags">
+            <span class="tag">Llama 3.1</span><span class="tag">Mistral Large 2</span>
+            <span class="tag">vLLM</span><span class="tag">TensorRT-LLM</span>
+            <span class="tag">SFT / DPO</span><span class="tag">FP8 / AWQ</span>
+          </div>
+        </div>
+        <div class="skill-card bio reveal">
+          <div class="ico">🧬</div>
+          <h3>バイオインフォマティクス</h3>
+          <p>がんヘテロジェニティ予測・可視化、RNA-seq を用いた腫瘍微小環境解析など、医科学データの機械学習応用。</p>
+          <div class="tags">
+            <span class="tag">RNA-seq</span><span class="tag">Single-cell</span>
+            <span class="tag">Cancer Genomics</span><span class="tag">Self-Supervised</span>
+            <span class="tag">Medical Imaging</span>
+          </div>
+        </div>
+        <div class="skill-card cx reveal">
+          <div class="ico">🎧</div>
+          <h3>コンタクトセンターAI導入</h3>
+          <p>問い合わせ対応の自動化・応答支援・要約・ナレッジ検索。現場運用に耐えるRAGと評価設計。</p>
+          <div class="tags">
+            <span class="tag">RAG</span><span class="tag">音声/対話</span>
+            <span class="tag">FAQ自動化</span><span class="tag">応答支援</span>
+          </div>
+        </div>
+        <div class="skill-card ml reveal">
+          <div class="ico">🤖</div>
+          <h3>機械学習 / NLP</h3>
+          <p>大規模トランスフォーマーによるNLP・画像認識。異常検知、埋め込み検索、自己教師あり学習。</p>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">Transformers</span>
+            <span class="tag">LoRA</span><span class="tag">Embedding Search</span>
+          </div>
+        </div>
+        <div class="skill-card mlops reveal">
+          <div class="ico">⚙️</div>
+          <h3>MLOps / インフラ</h3>
+          <p>GPUサーバー選定からデプロイまで内製化。CUDA/Docker、量子化、推論最適化、ベクトルDB運用。</p>
+          <div class="tags">
+            <span class="tag">A100 / H100 / L40S</span><span class="tag">CUDA</span>
+            <span class="tag">Docker</span><span class="tag">Milvus</span>
+          </div>
+        </div>
+        <div class="skill-card pm reveal">
+          <div class="ico">🧭</div>
+          <h3>AI駆動開発 / PM</h3>
+          <p>最大10名のPM経験。AIファースト・ワークフローの策定と組織への定着、品質担保の仕組みづくり。</p>
+          <div class="tags">
+            <span class="tag">AI協調開発</span><span class="tag">Cursor</span>
+            <span class="tag">プロンプト設計</span><span class="tag">レビュー設計</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section id="career">
+      <div class="sec-head reveal">
+        <div class="kicker">// experience</div>
+        <h2>職務経歴</h2>
+        <p>直近から時系列で。数値は各プロジェクトでの実績です。</p>
+      </div>
+
+      <div class="timeline">
+        <!-- CURRENT: 大手製造業 ローカルLLM -->
+        <div class="tl-item current reveal">
+          <div class="tl-card current">
+            <div class="tl-meta">
+              <span class="tl-period">2025.09 – 2026.06 · 5ヶ月</span>
+              <span class="tl-badge now">最新</span>
+            </div>
+            <h3>個人情報・機密情報特化型ローカルLLM構築プロジェクト</h3>
+            <p class="tl-org">某大手製造業 株式会社（従業員1000名以上）· 40人月 / 自社5名 / ベンダー1社</p>
+            <ul>
+              <li><strong>インフラ内製化</strong>：NVIDIA A100/H100/L40S 搭載オンプレGPUサーバーを選定し、CUDA/Docker 環境を構築。</li>
+              <li><strong>モデル最適化</strong>：Llama 3.1 (70B/405B)・Mistral Large 2 をベースに vLLM / TensorRT-LLM で推論を高速化。</li>
+              <li><strong>ドメイン特化チューニング</strong>：機密文書・個人情報ログを匿名化し、SFT・DPO でモデルを微調整。</li>
+              <li><strong>プライバシー保護RAG</strong>：閉域網内に Milvus を構築し、認可制御 (ACL) を組み込んだRAGを開発。</li>
+              <li><strong>量子化</strong>：FP8 / AWQ 量子化で高精度を維持しつつ推論スループットを3倍以上に。</li>
+            </ul>
+            <div class="result-chips">
+              <span class="rc">外部送信ゼロ・社内基準100%充足</span>
+              <span class="rc">専門用語の回答精度 +60%</span>
+              <span class="rc">100名同時接続で平均1.5s</span>
+              <span class="rc">DX部門 月間500h削減</span>
+            </div>
+
+            <details class="more">
+              <summary>AI駆動開発の徹底と組織への定着</summary>
+              <div class="body">
+                <div class="callout">
+                  <h3>「手打ちコーディング＋人手レビュー」文化を、AIファーストへ刷新</h3>
+                  <div class="qa">
+                    <p class="q">既存エンジニアの「AI生成コード」への拒絶反応と懐疑心</p>
+                    <p class="a">レガシーコードの解析・リファクタリングと大量のボイラープレート生成をAIで実演し、スピード差を数値で提示。「AIを部下として使い、人間はアーキテクチャ設計に専念する」役割分担を定義した<strong style="color:var(--text)">AI協調開発ガイドライン</strong>を策定し、意識改革を断行。</p>
+                  </div>
+                  <div class="qa">
+                    <p class="q">AI駆動による「設計の形骸化」とコード品質の劣化</p>
+                    <p class="a">「AIに実装させるための精密なプロンプト設計書」を詳細設計の成果物として定義。Cursor 生成前に LLM で仕様の矛盾を検知する<strong style="color:var(--text)">プリ・コーディング・レビュー</strong>工程をフローに組み込み、速度を維持したまま品質を担保。</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 香港 ブロックチェーン -->
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01 · 8ヶ月</span></div>
+            <h3>機械学習を活用したブロックチェーン分析事業（香港）</h3>
+            <p class="tl-org">暗号資産の取引監視プラットフォーム · 85人月 / 自社9名 / ベンダー3社</p>
+            <ul>
+              <li>機械学習によるブロックチェーン異常検知システムの設計・開発、リアルタイムでの不審取引の特定。</li>
+              <li>ウォレットアドレス間の関係性を可視化するネットワーク分析ツールを開発。</li>
+              <li>取引履歴からのリスクスコアリング、スマートコントラクトのセキュリティリスク自動検出AIを実装。</li>
+            </ul>
+            <div class="result-chips">
+              <span class="rc">不審取引の検出精度 +35%</span>
+              <span class="rc">大規模不正ネットワークを検出・法執行と連携</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- カハール ローカルLLM 医療 -->
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2023.01 – 2024.05 · 14ヶ月</span></div>
+            <h3>プライバシー保護を重視したローカルLLMの開発</h3>
+            <p class="tl-org">カハール株式会社 · 保険・ヘルスケア向け · 60人月 / 自社6名 / ベンダー2社</p>
+            <ul>
+              <li>Llama / Gemma / Qwen を評価し Llama-3-8B-Instruct を選定。PyTorch + Hugging Face で LoRA ファインチューニング。</li>
+              <li>医療用語特化データセットを整備し微調整。Llama.cpp の量子化でリソース制約下の推論を最適化。</li>
+              <li>医療文書の要約・質問応答を開発し、オンプレ運用で外部送信不要のシステムを病院導入。</li>
+            </ul>
+            <div class="result-chips">
+              <span class="rc">専門医のレビュー時間を短縮</span>
+              <span class="rc">病院での実運用に成功</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- パーソナライズドマーケティング -->
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2022.01 – 2023.12 · 12ヶ月</span></div>
+            <h3>AIを活用したパーソナライズドマーケティングプラットフォーム</h3>
+            <p class="tl-org">カハール株式会社 · 70人月 / 自社7名 / ベンダー3社</p>
+            <ul>
+              <li>消費者データをリアルタイム分析し最適広告を配信するAIエンジン・セグメンテーションモデルを開発。</li>
+              <li>NLPによるソーシャルメディア分析、A/Bテスト自動化、エッジAIによる配信高速化。GDPR/CCPA準拠設計。</li>
+            </ul>
+            <div class="result-chips">
+              <span class="rc">CTR +25%</span>
+              <span class="rc">CVR +30%</span>
+              <span class="rc">分析工数 -40%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 法律文書検索 -->
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2021.01 – 2021.12 · 12ヶ月</span></div>
+            <h3>大規模トランスフォーマーを活用した法律文書検索システム</h3>
+            <p class="tl-org">カハール株式会社 · 75人月 / 自社7名 / ベンダー2社</p>
+            <ul>
+              <li>BERT / GPT-3 を活用した検索アルゴリズムと、法律特化型BERTを構築。質問応答型検索を開発。</li>
+              <li>類似判例検索の埋め込みモデルを開発。オンプレ運用でセキュリティに配慮した契約リスク分析を提供。</li>
+            </ul>
+            <div class="result-chips">
+              <span class="rc">検索精度 +20%</span>
+              <span class="rc">読解時間 -50%</span>
+              <span class="rc">検索効率 +30%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="pubs">
+      <div class="sec-head reveal">
+        <div class="kicker">// publications</div>
+        <h2>論文 / Bioinformatics</h2>
+        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。</p>
+      </div>
+      <div class="pubs">
+        <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Visualizing Cancer Heterogeneity with Dynamic Flow,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Visualizing-Cancer-Heterogeneity-with-Dynamic-Flow.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2016</span><span class="cit">R. Sato, T. Nakano, et al., <em>“RNA Sequencing Analysis Reveals Interactions between Breast Cancer or Melanoma Cells and the Tissue Microenvironment during Brain Metastasis,”</em> BioMed Research International.</span><a class="pdf-link" href="mypapers/pdf/BioMed%20Research%20International%20-%202017%20-%20Sato%20-%20RNA%20Sequencing%20Analysis%20Reveals%20Interactions%20between%20Breast%20Cancer%20or.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2016</span><span class="cit">T. Nakano, <em>“Generating Clinical Texts from Conversation,”</em> NIPS Workshop on Machine Learning for Health.</span><a class="pdf-link" href="mypapers/pdf/2016_NIPS_Nakano_Generating-Clinical-Texts-from-Conversation.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2015</span><span class="cit">M. Hashimoto, T. Nakano, H. Yashiro, T. Fujita, M. Jinzaki, <em>“Application of Word2vec to Radiology Report Analysis,”</em> Japan Association for Medical Informatics, vol. 35.</span><a class="pdf-link" href="mypapers/pdf/word2_vec_kaken.nii.ac.jp_26870572seika.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2015</span><span class="cit">T. Nakano, <em>“Early Detection of Hepatorenal Syndrome from Medical Records,”</em> NIPS Clinical Workshop.</span><a class="pdf-link" href="mypapers/pdf/2015_NIPS_Nakano_Early-Detection-of-Hepatorenal-Syndrome.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2014</span><span class="cit">T. Nakano, <em>“Unsupervised Feature Detection for Medical Images,”</em> 28th Annual Conference of JSAI.</span></div>
+      </div>
+
+      <div class="sec-head reveal" style="margin-top:56px;">
+        <div class="kicker">// education</div>
+        <h2>学歴</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="deg">慶應義塾大学 医学部 卒業</div>
+          <div class="when">2017.03</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="deg">東京大学大学院 医学系研究科・医学部</div>
+          <div class="when">2021.03 中途自主退学</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links">
+      <div class="sec-head reveal">
+        <div class="kicker">// links</div>
+        <h2>アウトプット</h2>
+      </div>
+      <div class="link-grid">
+        <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">開発日記<span class="sub">Zenn</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">技術メモ<span class="sub">Zenn</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">ブログ<span class="sub">note</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://qiita.com/teppei_nakano" target="_blank" rel="noopener">Qiita<span class="sub">記事</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" target="_blank" rel="noopener">未踏 プロジェクト1<span class="sub">IPA</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" target="_blank" rel="noopener">未踏 プロジェクト2<span class="sub">IPA</span><span class="arw">↗</span></a>
+      </div>
+    </section>
   </div>
 
-  <div class="resume">
-    <h2>職務経歴書</h2>
-    <pre>
-2025年02月15日現在
-氏名：中野　哲平
-
-■ 職務概要
-大学卒業後、大学院に入学し機械学習のモデル開発・ヘルスケアデータへの応用を研究。在学中にNeurlPS、ICMLのWorkshopに論文を投稿し採択されました。その後、大学院時代も含めてを経て約5年間において5つのプロジェクトに従事し主にシステム開発・運用を実施してきました。
-
-■ 得意分野
-- 機械学習モデルのデータパイプラインの作成から実装
-- 機械学習システムの要件定義･設計･開発・導入支援
-- プロジェクトマネジメント業務（最大10名のプロジェクトマネジャー経験あり）
-
-■ 職務経歴
-期間
-担当業務（プロジェクト内容）
-2024年6月
-　　　～
-2025年1月
-(8ヶ月)
-【プロジェクト】　香港における機械学習を活用したブロックチェーン分析事業 
-機械学習によるブロックチェーンデータ分析プラットフォームを開発し、暗号資産の取引監視を行うビジネスを展開。
-【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 85人月 / 9名 / 3社
-【プロジェクト背景】 
-・香港は暗号資産に関する規制が比較的緩やかであり、多くのブロックチェーン関連企業が進出。 
-・透明性と市場監視の需要が高まり、AML（アンチマネーロンダリング）対応を強化する必要性が増加。 
-・DeFiやNFT市場の拡大に伴い、スマートコントラクトのリスク分析と資産の追跡が重要に。
-【担当業務】 
-・機械学習を活用したブロックチェーンの異常検知システムの設計・開発。 
-・トランザクションデータをリアルタイムで分析し、不審な動きを特定するアルゴリズムを構築。 
- ・ネットワーク分析を活用し、ウォレットアドレス間の関係性を可視化するツールを開発。 
-・取引履歴データを活用し、リスクスコアリングを行うシステムの構築。 
-・スマートコントラクトのコードを解析し、セキュリティリスクを自動検出するAIモデルを実装。 
-・現地のブロックチェーン企業と提携し、業界全体の透明性を向上させるためのデータ共有プロジェクトを推進。
-【実績】 
-・不審な取引の検出精度を従来比35%向上し、AML対応の強化に貢献。 
-・ウォレットアドレスの関係分析により、大規模な不正ネットワークを検出し、法執行機関と連携。 
-・市場における不正取引の特定を自動化し、スマートコントラクトのセキュリティ評価プロセスを簡素化。 
-・香港の暗号資産業界と協力し、規制環境の変化に対応したデータ駆動型のリスク管理戦略を提案。
-
-
-
-
-
-
-勤務先名：カハール株式会社　　　　　　　　　（勤務期間：2021年04月～2024年05月）
-◆事業内容：機械学習モデルの開発と納品
-◆資本金：10百万円　　　　　◆売上高：200百万円 （2023年12月）　　◆従業員数：10名 
-期間
-担当業務（プロジェクト内容）
-2023年1月
-　　　～
-2024年5月
-(14ヶ月)
-【プロジェクト】プライバシー保護を重視したローカルLLMの開発
-保険会社やヘルスケア会社に対して
-機密性の高い環境で利用可能なローカルLLMを設計・開発
-【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 60人月 / 6名 / 2社
-【担当業務】 
-・主要なローカルLLM（Llama（Meta）、Gemma（Google）、Qwen（Alibaba））を評価し、最適なモデル（Llama-3-8B-Instruct）を選定。
- ・PyTorchを用いたカスタムモデルパイプラインを構築し、Hugging Faceのツールを活用してLoRA（Low-Rank Adaptation）による事前学習・ファインチューニングを実施。 
-・医療用語に特化したデータセットを収集・整備し、医療環境に適したモデルの微調整を行う。 
-・Llama.cppを活用した量子化技術により、リソース制約のあるデバイス向けに推論を最適化。 
-・トークナイザの不整合やライブラリアップデートの問題を解決し、安定した環境を提供。 
-・医療データの要約や質問応答機能を開発し、ベンチマークテストで高い精度を達成。
-【実績】 
-・医療文書の自動要約機能を実装し、専門医のレビュー時間を短縮。
- ・プライバシーを維持したまま、医療データの分析が可能なシステムを開発し、病院導入を成功。
- ・オンプレミス環境でのLLM運用を可能にし、外部データ送信が不要なシステムを構築。
- ・実際の医療現場でのテスト運用を実施し、ユーザーからのフィードバックを基に改善を繰り返し、高い実用性を実現。
-
-
-2022年1月
-　　　～
-2023年12月
-(12ヶ月)
-【プロジェクト】AIを活用したパーソナライズドマーケティングプラットフォーム開発 
-企業のマーケティング戦略を高度化するため、AIによる消費者行動分析およびパーソナライズド広告配信システムを開発。
-【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 70人月 / 7名 / 3社
-【担当業務】 
-・消費者データをリアルタイムで分析し、ターゲットごとに最適な広告を提供するAIエンジンの開発。 
-・機械学習を活用したカスタマーセグメンテーションモデルの設計・実装。
- ・自然言語処理（NLP）を活用したソーシャルメディア分析ツールを開発し、トレンドや顧客の嗜好を自動抽出。 
-・A/Bテストを自動化するアルゴリズムを構築し、マーケティング施策の効果測定を迅速化。 
-・エッジAI技術を活用し、広告配信の高速化とコスト最適化を実現。 
-・企業向けのダッシュボードを開発し、広告パフォーマンスの可視化とリアルタイムレポート機能を提供。 ・データプライバシーに配慮した設計を行い、GDPRやCCPAへの準拠を確保
-【実績】
- ・広告クリック率（CTR）を従来比25%向上。 
-・パーソナライズされた広告配信により、コンバージョン率（CVR）を30%以上改善。 
-・企業向けダッシュボードの導入により、マーケティング担当者のデータ分析時間を40%削減。 
-・ソーシャルメディアのトレンド分析精度を向上させ、消費者インサイトの取得を迅速化。このプロジェクトにより、企業のマーケティング施策を高度化し、データドリブンな広告戦略の実現を支援した。
-
-
-2021年1月
-　　　～
-2021年12月
-(12ヶ月)
-【プロジェクト】大規模トランスフォーマーモデルを活用した法律文書検索システム開発 法務・コンプライアンス業務の効率化を目的とし、AIによる法律文書の検索・要約・分析システムを開発。
-【プロジェクト規模（人月）/自社メンバー数/ベンダー数】 75人月 / 7名 / 2社
-【担当業務】 
-・大規模トランスフォーマーモデル（BERT, GPT-3）を活用した法律文書検索アルゴリズムの設計・実装。 
-・法令、判例、契約書、規約などのデータセットを整備し、法的用語に特化したカスタムLLM（法律特化型BERT）を構築。 
-・自然言語処理（NLP）技術を駆使し、質問応答型の検索システムを開発。 
-・類似判例検索のための埋め込みモデルを開発し、法的リサーチの精度向上を実現。
- ・法律専門家向けのダッシュボードを開発し、検索結果のランキング・要約機能
- ・データのプライバシーとセキュリティに配慮し、オンプレミス環境での運用を可能に。 
-【実績】 
-・法律文書検索の精度を従来比20%向上し、関連性の高い検索結果を提供。 
-・AIによる要約機能の導入により、法律文書の読解時間を50%以上短縮。 
-・従来のキーワード検索と比較し、トランスフォーマーモデルの導入により検索効率を30%改善。 
-・類似判例検索の導入により、法的リサーチの時間を大幅に削減し、企業のコンプライアンス業務の効率化を実現。
-・企業の契約レビューにおいて、AIによるリスク分析機能を提供し、潜在的な法的リスクの特定を自動化。
-
-■ 学歴
-慶應義塾大学医学部　卒業（2017年03月）
-東京大学大学院医学系研究科・医学部 （2021年03月 中途自主退学）
-
-■ 論文
-T. Nakano, K. Ikeda, “Predicting Cancer Heterogeneity from One-shot Biopsy,” ICML Workshop on Computational Biology, 2017.
-T. Nakano, K. Ikeda, “Visualizing Cancer Heterogeneity with Dynamic Flow,” ICML Workshop on Computational Biology, 2017.
-R. Sato, T. Nakano, et al., “RNA Sequencing Analysis Reveals Interactions between Breast Cancer or Melanoma Cells and the Tissue Microenvironment during Brain Metastasis,” BioMed Research International, 2016.
-T. Nakano, “Generating Clinical Texts from Conversation,” NIPS Workshop on Machine Learning for Health, 2016.
-M. Hashimoto, T. Nakano, H. Yashiro, T. Fujita, and M. Jinzaki, "Application of Word2vec to Radiology Report Analysis," Proceedings of the Japan Association for Medical Informatics Annual Conference, vol. 35, pp. 904-905, November 2015.
-T. Nakano, “Early Detection of Hepatorenal Syndrome from Medical Records,” NIPS Clinical Workshop, 2015.
-T. Nakano, “Unsupervised Feature Detection for Medical Images,” 28th Annual Conference of the Japanese Society for Artificial Intelligence, 2014.
-
-■ 調整力
-　AI開発では、エンジニア、データサイエンティスト、ドメインエキスパートなど、多様な関係者が関わるため、プロジェクトの進行には円滑な調整が求められます。モデルの開発段階で発生するデータの品質問題や、AIの出力結果の解釈について関係者と協議を重ね、共通認識を形成することで、より実用的なシステムを実現しました。特に、法律文書検索AIの開発では、弁護士との連携を重視し、検索結果の妥当性を保証する仕組みを構築しました。
-
-■ 忍耐力
-　機械学習モデルの開発では、精度向上のための試行錯誤が欠かせません。ハイパーパラメータの調整、データの前処理、モデルのアンサンブル、計算資源の最適化など、複数の手法を組み合わせながら、より良い結果を得るために根気強く改善を繰り返してきました。例えば、トランスフォーマーベースのモデルの開発において、データのノイズ除去やファインチューニングを行うことで、文書検索の精度を20%向上させることに成功しました。
-
-
-■ 自己ＰＲ
-新しい技術を積極的に学び、それを実践に応用することを心がけてきました。特に、機械学習の分野では日々進化する技術に対応するため、自ら調査し、最適な手法を素早く導入するスキルを磨いてきました。業務の中では、論文の調査や実装を行いながら、チーム内で情報を共有し、迅速な意思決定をサポートする役割を担ってきました。
-また、プロジェクトを進めるうえで、関係者との円滑なコミュニケーションが重要であることを実感しました。チームメンバーやクライアントに対して、自分の提案の根拠を明確に示し、論理的に説明することで、スムーズな合意形成を行う力を身につけました。技術的な内容を専門外のメンバーにも分かりやすく伝える工夫をしながら、プロジェクトの成果を最大化することを常に意識しています。
-困難な状況に直面した際には、単に手を動かすのではなく、問題の本質を見極め、適切な仮説を立てて解決策を導き出すことを意識しています。例えば、機械学習モデルの精度が想定より低い場合には、データの前処理を見直したり、異なるアプローチを検討することで、効率的に課題を解決してきました。これまでの経験を活かし、今後も柔軟かつ迅速に課題に取り組んでいきます。
-
-
-
-
-    </pre>
-  </div>
-
-  <canvas id="japanCanvas"></canvas>
+  <footer>
+    <div>© 2026 中野哲平 — Teppei Nakano</div>
+    <div class="meta">Last updated: 2026-07-06</div>
+  </footer>
 
   <script>
-    // Header Canvas Animation
-    const headerCanvas = document.getElementById('headerCanvas');
-    const headerCtx = headerCanvas.getContext('2d');
-    headerCanvas.width = window.innerWidth;
-    headerCanvas.height = 200;
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (Math.min(i, 6) * 0.05) + 's';
+      io.observe(el);
+    });
 
-    let particles = [];
-
-    class Particle {
-      constructor(x, y, size, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speedX = speedX;
-        this.speedY = speedY;
+    // Lightweight particle network background
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w, h, pts, mouse = { x: -999, y: -999 };
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        const count = Math.min(90, Math.floor(w * h / 16000));
+        pts = Array.from({ length: count }, () => ({
+          x: Math.random() * w, y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4
+        }));
       }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.size > 0.2) this.size -= 0.02;
-      }
-      draw() {
-        headerCtx.fillStyle = 'rgba(59, 130, 246, 0.7)';
-        headerCtx.beginPath();
-        headerCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        headerCtx.fill();
-      }
-    }
-
-    function handleParticles() {
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-
-        if (particles[i].size <= 0.2) {
-          particles.splice(i, 1);
-          i--;
+      function step() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(120,160,255,0.55)';
+          ctx.fill();
+          for (let j = i + 1; j < pts.length; j++) {
+            const q = pts[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < 15000) {
+              const a = 1 - d2 / 15000;
+              ctx.strokeStyle = 'rgba(91,140,255,' + (a * 0.28) + ')';
+              ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+            }
+          }
+          const mdx = p.x - mouse.x, mdy = p.y - mouse.y;
+          const md2 = mdx * mdx + mdy * mdy;
+          if (md2 < 22000) {
+            const a = 1 - md2 / 22000;
+            ctx.strokeStyle = 'rgba(34,211,238,' + (a * 0.5) + ')';
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+          }
         }
+        requestAnimationFrame(step);
       }
-    }
-
-    function animateHeader() {
-      headerCtx.clearRect(0, 0, headerCanvas.width, headerCanvas.height);
-      handleParticles();
-      requestAnimationFrame(animateHeader);
-    }
-
-    headerCanvas.addEventListener('mousemove', function(event) {
-      for (let i = 0; i < 5; i++) {
-        particles.push(new Particle(event.x, event.y, Math.random() * 5 + 1, Math.random() * 2 - 1, Math.random() * 2 - 1));
-      }
-    });
-
-    animateHeader();
-
-    window.addEventListener('resize', () => {
-      headerCanvas.width = window.innerWidth;
-      headerCanvas.height = 200;
-    });
-
-    // Footer Japan Canvas Animation
-    const canvas = document.getElementById('japanCanvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = 300;
-
-    let offsetX = 0;
-
-    function drawJapan() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = 'rgba(30, 64, 175, 0.5)';
-      ctx.save();
-      ctx.translate(offsetX, canvas.height / 4);
-
-      ctx.beginPath();
-      ctx.moveTo(50, 50);
-      ctx.lineTo(100, 30);
-      ctx.lineTo(150, 60);
-      ctx.lineTo(200, 40);
-      ctx.lineTo(250, 80);
-      ctx.lineTo(300, 50);
-      ctx.lineTo(350, 90);
-      ctx.lineTo(400, 60);
-      ctx.lineTo(450, 100);
-      ctx.lineTo(500, 80);
-      ctx.lineTo(550, 120);
-      ctx.lineTo(600, 100);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.restore();
-    }
-
-    function animate() {
-      offsetX -= 0.5;
-      if (offsetX < -600) offsetX = canvas.width;
-      drawJapan();
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = 300;
-    });
+      window.addEventListener('resize', resize);
+      window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+      window.addEventListener('mouseout', () => { mouse.x = -999; mouse.y = -999; });
+      resize(); step();
+    })();
   </script>
 </body>
 </html>

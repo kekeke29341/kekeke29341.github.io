@@ -3,401 +3,497 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teppei Nakano - Portfolio</title>
+  <meta name="description" content="Teppei Nakano — Software engineer specializing in machine learning, on-prem local LLMs, and bioinformatics.">
+  <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
+  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
+  <title>Teppei Nakano — Software Engineer / ML · LLM · Bioinformatics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #070b16;
+      --bg-soft: #0d1526;
+      --panel: rgba(20, 30, 52, 0.55);
+      --panel-border: rgba(120, 160, 255, 0.14);
+      --text: #e8edf7;
+      --text-dim: #9aa8c4;
+      --text-faint: #64729180;
+      --accent: #5b8cff;
+      --accent-2: #22d3ee;
+      --accent-3: #a855f7;
+      --accent-bio: #34d399;
+      --radius: 18px;
+      --maxw: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      min-height: 100vh;
-      position: relative;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      width: 100%;
-      height: 200px;
-      position: relative;
+    .bg-fx {
+      position: fixed; inset: 0; z-index: -2;
+      background:
+        radial-gradient(900px 600px at 15% -5%, rgba(91,140,255,0.22), transparent 60%),
+        radial-gradient(800px 700px at 100% 0%, rgba(168,85,247,0.16), transparent 55%),
+        radial-gradient(700px 700px at 50% 120%, rgba(34,211,238,0.14), transparent 60%),
+        var(--bg);
     }
-    .header-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
+    #particles { position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%; opacity: 0.7; }
+    .grain {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    .card, .resume {
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 24px;
-      max-width: 800px;
-      width: 90%;
-      text-align: center;
-      z-index: 1;
-      animation: fadeIn 0.6s ease-out;
-      margin: 16px 0;
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px clamp(18px, 5vw, 48px);
+      backdrop-filter: blur(14px);
+      background: rgba(7, 11, 22, 0.6);
+      border-bottom: 1px solid var(--panel-border);
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
+    .brand { font-weight: 800; letter-spacing: 0.02em; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 14px var(--accent); }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .lang { border: 1px solid var(--panel-border); padding: 6px 14px; border-radius: 999px; color: var(--text); }
+    .nav-links .lang:hover { border-color: var(--accent); }
+    @media (max-width: 720px) { .nav-links a:not(.lang) { display: none; } }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
+    .hero { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 60px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2);
+      letter-spacing: 0.06em; border: 1px solid var(--panel-border); padding: 6px 14px;
+      border-radius: 999px; background: var(--panel); width: fit-content; margin-bottom: 26px;
     }
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-    .button {
-      padding: 12px 24px;
-      background-color: #3b82f6;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-bio); box-shadow: 0 0 0 0 rgba(52,211,153,0.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); } 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.05; margin: 0 0 22px; font-weight: 800; letter-spacing: -0.02em; }
+    .hero h1 .grad { background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 45%, var(--accent-3) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero .role { font-size: clamp(1rem, 2.4vw, 1.35rem); color: var(--text); font-weight: 600; margin-bottom: 18px; }
+    .hero .role span { color: var(--text-dim); font-weight: 400; }
+    .hero .lede { max-width: 680px; color: var(--text-dim); font-size: 1.05rem; margin-bottom: 34px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; cursor: pointer; }
+    .btn-primary { color: #04060d; background: linear-gradient(120deg, var(--accent-2), var(--accent)); box-shadow: 0 8px 30px rgba(91,140,255,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(91,140,255,0.5); }
+    .btn-ghost { color: var(--text); background: var(--panel); border: 1px solid var(--panel-border); }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 54px; }
+    .stat { background: var(--panel); border: 1px solid var(--panel-border); border-radius: var(--radius); padding: 22px 20px; backdrop-filter: blur(8px); }
+    .stat .num { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
+    .stat .lbl { color: var(--text-dim); font-size: 0.82rem; margin-top: 6px; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    section { padding: 74px 0; }
+    .sec-head { margin-bottom: 42px; }
+    .sec-head .kicker { font-family: "JetBrains Mono", monospace; font-size: 0.82rem; color: var(--accent-2); letter-spacing: 0.1em; text-transform: uppercase; }
+    .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 10px 0 0; font-weight: 800; letter-spacing: -0.01em; }
+    .sec-head p { color: var(--text-dim); margin: 12px 0 0; max-width: 640px; }
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 880px) { .skills { grid-template-columns: 1fr; } }
+    .skill-card { position: relative; background: var(--panel); border: 1px solid var(--panel-border); border-radius: var(--radius); padding: 28px; backdrop-filter: blur(8px); overflow: hidden; transition: transform 0.25s, border-color 0.25s; }
+    .skill-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
+    .skill-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(400px 200px at 100% 0%, var(--glow), transparent 70%); opacity: 0.5; }
+    .skill-card .ico { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; background: var(--chip); margin-bottom: 18px; font-size: 1.4rem; position: relative; }
+    .skill-card h3 { margin: 0 0 8px; font-size: 1.2rem; position: relative; }
+    .skill-card p { margin: 0 0 16px; color: var(--text-dim); font-size: 0.92rem; position: relative; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border); color: var(--text-dim); }
+    .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
+    .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
+    .skill-card.ml  { --glow: rgba(168,85,247,0.22); --chip: rgba(168,85,247,0.14); }
+    .skill-card.cx  { --glow: rgba(34,211,238,0.22); --chip: rgba(34,211,238,0.14); }
+    .skill-card.mlops { --glow: rgba(251,146,60,0.22); --chip: rgba(251,146,60,0.14); }
+    .skill-card.pm  { --glow: rgba(244,114,182,0.22); --chip: rgba(244,114,182,0.14); }
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 14px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), var(--accent-3), transparent); opacity: 0.4; }
+    .tl-item { position: relative; padding: 0 0 34px 52px; }
+    .tl-item::before { content: ""; position: absolute; left: 6px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); box-shadow: 0 0 14px rgba(91,140,255,0.6); }
+    .tl-item.current::before { border-color: var(--accent-bio); box-shadow: 0 0 16px rgba(52,211,153,0.7); }
+    .tl-card { background: var(--panel); border: 1px solid var(--panel-border); border-radius: var(--radius); padding: 26px 28px; backdrop-filter: blur(8px); transition: border-color 0.25s; }
+    .tl-card:hover { border-color: rgba(120,160,255,0.4); }
+    .tl-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 12px; }
+    .tl-period { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
+    .tl-badge { font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+    .tl-badge.now { background: rgba(52,211,153,0.16); color: var(--accent-bio); border: 1px solid rgba(52,211,153,0.3); }
+    .tl-card h3 { margin: 0 0 4px; font-size: 1.22rem; }
+    .tl-org { color: var(--text-dim); font-size: 0.9rem; margin: 0 0 14px; }
+    .tl-card ul { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 0.93rem; }
+    .tl-card ul li { margin-bottom: 7px; }
+    .tl-card ul li strong { color: var(--text); font-weight: 600; }
+    .result-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .result-chips .rc { font-size: 0.78rem; padding: 6px 12px; border-radius: 8px; background: rgba(91,140,255,0.1); border: 1px solid rgba(91,140,255,0.22); color: #b9cbff; }
+    .tl-card.current .rc { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.25); color: #8ef0c6; }
+    details.more { margin-top: 14px; }
+    details.more summary { cursor: pointer; color: var(--accent-2); font-size: 0.86rem; font-weight: 600; list-style: none; }
+    details.more summary::-webkit-details-marker { display: none; }
+    details.more summary::before { content: "▸ "; }
+    details.more[open] summary::before { content: "▾ "; }
+    details.more .body { margin-top: 12px; }
+    .callout { background: linear-gradient(135deg, rgba(91,140,255,0.08), rgba(168,85,247,0.08)); border: 1px solid var(--panel-border); border-radius: var(--radius); padding: 30px; margin-top: 26px; }
+    .callout h3 { margin: 0 0 14px; font-size: 1.15rem; }
+    .callout .qa { margin-bottom: 18px; }
+    .callout .qa:last-child { margin-bottom: 0; }
+    .callout .q { font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .callout .a { color: var(--text-dim); font-size: 0.93rem; margin: 0; }
+    .callout .q::before { content: "CHALLENGE — "; color: var(--accent-3); font-family: "JetBrains Mono", monospace; font-size: 0.82rem; }
+    .pubs { display: grid; gap: 10px; }
+    .pub { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; background: var(--panel); border: 1px solid var(--panel-border); border-radius: 12px; font-size: 0.9rem; }
+    .pub .yr { font-family: "JetBrains Mono", monospace; color: var(--accent-2); font-weight: 500; white-space: nowrap; }
+    .pub .cit { flex: 1; color: var(--text-dim); }
+    .pub .cit em { color: var(--text); font-style: normal; font-weight: 500; }
+    .pub .pdf-link {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
       text-decoration: none;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      text-align: center;
-    }
-    .button:hover {
-      background-color: #2563eb;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    canvas {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 300px;
-      z-index: 0;
-    }
-    .resume h2 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-    .resume pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      background-color: #f9fafb;
-      padding: 16px;
+      padding: 6px 12px;
+      border: 1px solid var(--panel-border);
       border-radius: 8px;
-      overflow-x: auto;
-      text-align: left;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .blog-link {
-      margin-top: 16px;
-      font-size: 1.2rem;
-    }
-    .blog-link a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
-    .blog-link a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .button {
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+    .pub .pdf-link:hover { border-color: var(--accent); background: rgba(91,140,255,0.1); }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 720px) { .edu-grid { grid-template-columns: 1fr; } }
+    .edu-card { background: var(--panel); border: 1px solid var(--panel-border); border-radius: var(--radius); padding: 24px; }
+    .edu-card .deg { font-weight: 600; margin-bottom: 4px; }
+    .edu-card .when { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px; }
+    .link-card { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; background: var(--panel); border: 1px solid var(--panel-border); border-radius: 14px; text-decoration: none; color: var(--text); font-weight: 600; transition: transform 0.2s, border-color 0.2s; }
+    .link-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
+    .link-card .arw { color: var(--accent-2); }
+    footer { padding: 50px 0 40px; text-align: center; color: var(--text-faint); font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 40px; }
+    footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } #particles { display: none; } }
   </style>
 </head>
 <body>
-  <header>
-    <canvas id="headerCanvas" class="header-canvas"></canvas>
-  </header>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
 
-  <div class="card">
-    <h1>Teppei Nakano</h1>
-    <p><strong>Software Engineer | Full-Stack Developer | Machine Learning Specialist</strong></p>
-    <p>Engineer with experience in the Unexplored Project. I have been involved in various projects utilizing advanced technical skills.</p>
-    <p>After graduating from university, I enrolled in graduate school to research machine learning model development and applications in healthcare data. During my studies, I submitted and had papers accepted at NeurIPS and ICML workshops. Over approximately five years, including graduate school, I worked on five projects mainly focusing on system development and operation.</p>
-    <p>I have experience in the entire process of system development using machine learning and AI, from data preprocessing, model selection, accuracy improvement, to deployment. I particularly focused on natural language processing (NLP) and image recognition using large-scale transformer models, optimizing both accuracy and computational cost. For example, in a medical data analysis project, I successfully improved text summarization accuracy by 30% using self-supervised learning.</p>
-    <div class="buttons">
-      <a href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" class="button">Development Diary</a>
-      <a href="https://zenn.dev/nakano_teppei" class="button">Notes</a>
-      <a href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" class="button">Project 1</a>
-      <a href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" class="button">Project 2</a>
+  <nav>
+    <div class="brand"><span class="dot"></span>Teppei Nakano</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#career">Career</a>
+      <a href="#pubs">Papers</a>
+      <a href="index.html" class="lang">日本語</a>
     </div>
-    <div class="blog-link">
-      <p>Blog: <a href="https://note.com/nakano_teppei1" target="_blank">https://note.com/nakano_teppei1</a></p>
-      <p>Qiita: <a href="https://qiita.com/teppei_nakano" target="_blank">https://qiita.com/teppei_nakano</a></p>
-    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow reveal"><span class="pulse"></span>OPEN TO WORK · ML / LLM / Bioinformatics</div>
+      <h1 class="reveal">Building private AI &amp;<br><span class="grad">LLMs, in-house.</span></h1>
+      <p class="role reveal">Software Engineer <span>/ Machine Learning · Local LLMs · Bioinformatics</span></p>
+      <p class="lede reveal">
+        Engineer with a MITOU (未踏) project selection and NeurIPS / ICML Workshop papers.
+        I design and build local LLM platforms for fully air-gapped, high-security environments,
+        lead AI adoption in contact centers, and work across bioinformatics —
+        owning the whole path from data pipeline and model optimization to production operation.
+      </p>
+      <div class="cta-row reveal">
+        <a href="#career" class="btn btn-primary">View experience →</a>
+        <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">Tech notes (Zenn)</a>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><div class="num">6</div><div class="lbl">Major projects delivered</div></div>
+        <div class="stat reveal"><div class="num">7+</div><div class="lbl">Peer-reviewed / workshop papers</div></div>
+        <div class="stat reveal"><div class="num">100+</div><div class="lbl">Concurrent users at 1.5s latency</div></div>
+        <div class="stat reveal"><div class="num">500h</div><div class="lbl">Monthly hours saved (DX unit)</div></div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="sec-head reveal">
+        <div class="kicker">// about</div>
+        <h2>Profile</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;color:var(--text-dim);font-size:1.02rem;">
+        <p>
+          After graduating, I researched machine learning models and their application to healthcare data
+          in graduate school, with papers accepted at NeurIPS and ICML workshops.
+          Over roughly six years I have led development and operations across six projects.
+        </p>
+        <p>
+          Beyond large-scale transformers for NLP and vision, my current focus is
+          <strong style="color:var(--text)">fully air-gapped local LLM platforms</strong> and
+          <strong style="color:var(--text)">AI adoption in contact centers</strong>.
+          I take responsibility all the way to real-world usage — not just building a model, but making sure
+          it is adopted on the floor. Bioinformatics — cancer heterogeneity and RNA-seq analysis — remains
+          a core strength backed by publications.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head reveal">
+        <div class="kicker">// expertise</div>
+        <h2>Expertise</h2>
+        <p>Research-grade theory paired with implementation under strict on-prem, air-gapped constraints.</p>
+      </div>
+      <div class="skills">
+        <div class="skill-card llm reveal">
+          <div class="ico">🔒</div>
+          <h3>Local LLM / Air-gapped AI</h3>
+          <p>Design, build and optimize on-prem LLM stacks that never touch an external API — privacy-preserving RAG and inference acceleration.</p>
+          <div class="tags"><span class="tag">Llama 3.1</span><span class="tag">Mistral Large 2</span><span class="tag">vLLM</span><span class="tag">TensorRT-LLM</span><span class="tag">SFT / DPO</span><span class="tag">FP8 / AWQ</span></div>
+        </div>
+        <div class="skill-card bio reveal">
+          <div class="ico">🧬</div>
+          <h3>Bioinformatics</h3>
+          <p>Cancer heterogeneity prediction &amp; visualization, tumor-microenvironment analysis from RNA-seq, and ML on biomedical data.</p>
+          <div class="tags"><span class="tag">RNA-seq</span><span class="tag">Single-cell</span><span class="tag">Cancer Genomics</span><span class="tag">Self-Supervised</span><span class="tag">Medical Imaging</span></div>
+        </div>
+        <div class="skill-card cx reveal">
+          <div class="ico">🎧</div>
+          <h3>Contact-center AI</h3>
+          <p>Inquiry automation, agent-assist, summarization and knowledge search — production-grade RAG with proper evaluation.</p>
+          <div class="tags"><span class="tag">RAG</span><span class="tag">Voice / Dialogue</span><span class="tag">FAQ automation</span><span class="tag">Agent assist</span></div>
+        </div>
+        <div class="skill-card ml reveal">
+          <div class="ico">🤖</div>
+          <h3>Machine Learning / NLP</h3>
+          <p>Large transformers for NLP and vision. Anomaly detection, embedding search, self-supervised learning.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">LoRA</span><span class="tag">Embedding Search</span></div>
+        </div>
+        <div class="skill-card mlops reveal">
+          <div class="ico">⚙️</div>
+          <h3>MLOps / Infrastructure</h3>
+          <p>In-house from GPU server selection to deployment. CUDA/Docker, quantization, inference tuning, vector DB ops.</p>
+          <div class="tags"><span class="tag">A100 / H100 / L40S</span><span class="tag">CUDA</span><span class="tag">Docker</span><span class="tag">Milvus</span></div>
+        </div>
+        <div class="skill-card pm reveal">
+          <div class="ico">🧭</div>
+          <h3>AI-driven dev / PM</h3>
+          <p>PM for teams up to 10. Established AI-first workflows, drove organizational adoption, and built quality-assurance processes.</p>
+          <div class="tags"><span class="tag">AI-assisted dev</span><span class="tag">Cursor</span><span class="tag">Prompt design</span><span class="tag">Review design</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="sec-head reveal">
+        <div class="kicker">// experience</div>
+        <h2>Experience</h2>
+        <p>Most recent first. Figures are outcomes delivered in each project.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item current reveal">
+          <div class="tl-card current">
+            <div class="tl-meta"><span class="tl-period">2025.09 – 2026.06 · 5 mo</span><span class="tl-badge now">Latest</span></div>
+            <h3>Local LLM for personal &amp; confidential data</h3>
+            <p class="tl-org">Major manufacturer (1000+ employees) · 40 person-months / 5 in-house / 1 vendor</p>
+            <ul>
+              <li><strong>In-house infra</strong>: selected on-prem GPU servers with NVIDIA A100/H100/L40S; set up CUDA/Docker.</li>
+              <li><strong>Model optimization</strong>: accelerated Llama 3.1 (70B/405B) and Mistral Large 2 with vLLM / TensorRT-LLM.</li>
+              <li><strong>Domain tuning</strong>: anonymized confidential docs and PII logs, then fine-tuned via SFT and DPO.</li>
+              <li><strong>Privacy-preserving RAG</strong>: built Milvus inside the air-gapped network with ACL-based authorization.</li>
+              <li><strong>Quantization</strong>: FP8 / AWQ tripled inference throughput while preserving accuracy.</li>
+            </ul>
+            <div class="result-chips">
+              <span class="rc">Zero external egress · 100% policy compliance</span>
+              <span class="rc">+60% accuracy on in-house jargon</span>
+              <span class="rc">1.5s avg latency at 100 concurrent users</span>
+              <span class="rc">500h/mo saved in DX unit</span>
+            </div>
+            <details class="more">
+              <summary>Embedding AI-driven development in the organization</summary>
+              <div class="body">
+                <div class="callout">
+                  <h3>Shifting a "hand-coded + human-reviewed" culture to AI-first</h3>
+                  <div class="qa">
+                    <p class="q">Veteran engineers rejected and distrusted AI-generated code</p>
+                    <p class="a">Demonstrated legacy-code analysis/refactoring and bulk boilerplate generation with AI, showing the speed gap in numbers. Defined an <strong style="color:var(--text)">AI collaboration guideline</strong> — "use AI as a junior, humans focus on architecture" — to drive a mindset shift.</p>
+                  </div>
+                  <div class="qa">
+                    <p class="q">AI made design work hollow and degraded code quality</p>
+                    <p class="a">Made a "precise prompt spec for the AI to implement against" a deliverable of detailed design, and added a <strong style="color:var(--text)">pre-coding review</strong> step that uses an LLM to detect spec contradictions before Cursor generation — keeping speed while assuring quality.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01 · 8 mo</span></div>
+            <h3>ML-based blockchain analytics business (Hong Kong)</h3>
+            <p class="tl-org">Crypto-asset transaction monitoring · 85 person-months / 9 in-house / 3 vendors</p>
+            <ul>
+              <li>Designed an ML anomaly-detection system flagging suspicious transactions in real time.</li>
+              <li>Built network-analysis tooling to visualize relationships between wallet addresses.</li>
+              <li>Implemented risk scoring from transaction history and automated smart-contract security risk detection.</li>
+            </ul>
+            <div class="result-chips"><span class="rc">+35% detection accuracy</span><span class="rc">Uncovered large fraud networks, worked with law enforcement</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2023.01 – 2024.05 · 14 mo</span></div>
+            <h3>Privacy-focused local LLM</h3>
+            <p class="tl-org">Cajal Inc. · insurance &amp; healthcare · 60 person-months / 6 in-house / 2 vendors</p>
+            <ul>
+              <li>Evaluated Llama / Gemma / Qwen, selected Llama-3-8B-Instruct; LoRA fine-tuning with PyTorch + Hugging Face.</li>
+              <li>Curated medical-terminology datasets; optimized inference on constrained devices via Llama.cpp quantization.</li>
+              <li>Built medical-document summarization and QA; deployed to hospitals with no external data egress.</li>
+            </ul>
+            <div class="result-chips"><span class="rc">Cut specialist review time</span><span class="rc">Successful hospital deployment</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2022.01 – 2023.12 · 12 mo</span></div>
+            <h3>AI-powered personalized marketing platform</h3>
+            <p class="tl-org">Cajal Inc. · 70 person-months / 7 in-house / 3 vendors</p>
+            <ul>
+              <li>Built a real-time ad-targeting AI engine and customer-segmentation models.</li>
+              <li>NLP-based social listening, automated A/B testing, edge-AI delivery. GDPR/CCPA-compliant design.</li>
+            </ul>
+            <div class="result-chips"><span class="rc">CTR +25%</span><span class="rc">CVR +30%</span><span class="rc">Analysis effort -40%</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2021.01 – 2021.12 · 12 mo</span></div>
+            <h3>Legal-document search with large transformers</h3>
+            <p class="tl-org">Cajal Inc. · 75 person-months / 7 in-house / 2 vendors</p>
+            <ul>
+              <li>Built search algorithms on BERT / GPT-3 and a law-specialized BERT; developed a QA-style search system.</li>
+              <li>Created embedding models for similar-precedent retrieval; on-prem, security-conscious contract risk analysis.</li>
+            </ul>
+            <div class="result-chips"><span class="rc">+20% search accuracy</span><span class="rc">-50% reading time</span><span class="rc">+30% search efficiency</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pubs">
+      <div class="sec-head reveal">
+        <div class="kicker">// publications</div>
+        <h2>Papers / Bioinformatics</h2>
+        <p>Machine learning × biomedicine — cancer heterogeneity, clinical text, and medical imaging.</p>
+      </div>
+      <div class="pubs">
+        <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Visualizing Cancer Heterogeneity with Dynamic Flow,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Visualizing-Cancer-Heterogeneity-with-Dynamic-Flow.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2016</span><span class="cit">R. Sato, T. Nakano, et al., <em>“RNA Sequencing Analysis Reveals Interactions between Breast Cancer or Melanoma Cells and the Tissue Microenvironment during Brain Metastasis,”</em> BioMed Research International.</span><a class="pdf-link" href="mypapers/pdf/BioMed%20Research%20International%20-%202017%20-%20Sato%20-%20RNA%20Sequencing%20Analysis%20Reveals%20Interactions%20between%20Breast%20Cancer%20or.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2016</span><span class="cit">T. Nakano, <em>“Generating Clinical Texts from Conversation,”</em> NIPS Workshop on Machine Learning for Health.</span><a class="pdf-link" href="mypapers/pdf/2016_NIPS_Nakano_Generating-Clinical-Texts-from-Conversation.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2015</span><span class="cit">M. Hashimoto, T. Nakano, H. Yashiro, T. Fujita, M. Jinzaki, <em>“Application of Word2vec to Radiology Report Analysis,”</em> Japan Association for Medical Informatics, vol. 35.</span><a class="pdf-link" href="mypapers/pdf/word2_vec_kaken.nii.ac.jp_26870572seika.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2015</span><span class="cit">T. Nakano, <em>“Early Detection of Hepatorenal Syndrome from Medical Records,”</em> NIPS Clinical Workshop.</span><a class="pdf-link" href="mypapers/pdf/2015_NIPS_Nakano_Early-Detection-of-Hepatorenal-Syndrome.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="pub reveal"><span class="yr">2014</span><span class="cit">T. Nakano, <em>“Unsupervised Feature Detection for Medical Images,”</em> 28th Annual Conference of JSAI.</span></div>
+      </div>
+
+      <div class="sec-head reveal" style="margin-top:56px;">
+        <div class="kicker">// education</div>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal"><div class="deg">Keio University, School of Medicine — B.M.</div><div class="when">2017.03</div></div>
+        <div class="edu-card reveal"><div class="deg">The University of Tokyo, Graduate School of Medicine</div><div class="when">2021.03 · withdrew</div></div>
+      </div>
+    </section>
+
+    <section id="links">
+      <div class="sec-head reveal">
+        <div class="kicker">// links</div>
+        <h2>Output</h2>
+      </div>
+      <div class="link-grid">
+        <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">Dev diary<span class="sub">Zenn</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Tech notes<span class="sub">Zenn</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">Blog<span class="sub">note</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://qiita.com/teppei_nakano" target="_blank" rel="noopener">Qiita<span class="sub">Articles</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" target="_blank" rel="noopener">MITOU Project 1<span class="sub">IPA</span><span class="arw">↗</span></a>
+        <a class="link-card reveal" href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" target="_blank" rel="noopener">MITOU Project 2<span class="sub">IPA</span><span class="arw">↗</span></a>
+      </div>
+    </section>
   </div>
 
-  <div class="resume">
-    <h2>Resume</h2>
-    <pre>
-As of February 15, 2025
-Name: Teppei Nakano
-
-■ Career Overview
-After graduating from university, I entered graduate school to research machine learning model development and applications in healthcare data. During my studies, I submitted and had papers accepted at NeurIPS and ICML workshops. Over approximately five years, including graduate school, I worked on five projects mainly focusing on system development and operation.
-
-■ Strengths
-- Creating and implementing data pipelines for machine learning models
-- Defining requirements, designing, developing, and supporting the introduction of machine learning systems
-- Project management (Experience managing projects with up to 10 members)
-
-Company: DREAM FINANCE Inc. (June 2024 – January 2025)
-Business: Development of financial systems Capital: 1 billion yen | Revenue: 20 billion yen (2024) | Employees: 50
-Project (June 2024 – January 2025, 8 months): Blockchain Analysis Business Using Machine Learning in Hong Kong
-Developed a blockchain data analysis platform using machine learning to monitor cryptocurrency transactions.
-Team: 85 person-months / 9 in-house members / 3 vendors
-Responsibilities:
-Designed and developed an anomaly detection system for blockchain using machine learning.
-Built algorithms to analyze transaction data in real-time and identify suspicious activities.
-Developed tools for visualizing relationships between wallet addresses using network analysis.
-Constructed a system for risk scoring based on transaction history data.
-Implemented an AI model to automatically detect security risks in smart contract codes.
-Promoted data-sharing projects to improve transparency in the industry by partnering with local blockchain firms.
-Achievements:
-Improved detection accuracy of suspicious transactions by 35%, enhancing AML compliance.
-Detected large-scale fraudulent networks through wallet address analysis and collaborated with law enforcement.
-Automated detection of fraudulent market transactions and streamlined smart contract security assessments.
-Proposed data-driven risk management strategies adapted to regulatory changes in Hong Kong’s crypto industry.
-Company: Cahall Inc. (April 2021 – May 2024)
-Business: Development and delivery of machine learning models Capital: 10 million yen | Revenue: 200 million yen (December 2023) | Employees: 10
-Project (January 2023 – May 2024, 14 months): Development of Privacy-Focused Local LLM
-Designed and developed a local LLM for insurance and healthcare companies, ensuring high confidentiality.
-Team: 60 person-months / 6 in-house members / 2 vendors
-Responsibilities:
-Evaluated major local LLMs (Llama by Meta, Gemma by Google, Qwen by Alibaba) and selected Llama-3-8B-Instruct.
-Built a custom model pipeline using PyTorch and fine-tuned with LoRA (Low-Rank Adaptation) via Hugging Face tools.
-Collected and curated a specialized dataset for medical terminology to fine-tune the model.
-Optimized inference for resource-constrained devices using quantization techniques with Llama.cpp.
-Resolved tokenizer inconsistencies and library update issues for a stable environment.
-Developed medical data summarization and Q&A features, achieving high accuracy in benchmark tests.
-Achievements:
-Implemented an automatic summarization feature for medical documents, reducing review time for specialists.
-Developed a system for analyzing medical data while preserving privacy, successfully adopted in hospitals.
-Enabled on-premises operation of the LLM, eliminating the need for external data transmission.
-Conducted real-world tests in medical environments, improving the system based on user feedback.
-Project (January 2022 – December 2023, 12 months): AI-Driven Personalized Marketing Platform
-Developed a system to enhance marketing strategies through AI-based consumer behavior analysis and personalized ad delivery.
-Team: 70 person-months / 7 in-house members / 3 vendors
-Responsibilities:
-Developed an AI engine to analyze consumer data in real-time and deliver optimized ads.
-Designed and implemented a customer segmentation model using machine learning.
-Created a social media analysis tool using NLP to automatically extract trends and customer preferences.
-Built an algorithm to automate A/B testing, speeding up marketing effectiveness evaluations.
-Utilized edge AI to accelerate ad delivery and optimize costs.
-Developed a corporate dashboard to visualize ad performance and provide real-time reports.
-Ensured GDPR and CCPA compliance with a privacy-conscious design.
-Achievements:
-Improved click-through rates (CTR) by 25%.
-Increased conversion rates (CVR) by over 30% through personalized ads.
-Reduced marketing analysts' data analysis time by 40% with the corporate dashboard.
-Enhanced social media trend analysis accuracy, accelerating consumer insight acquisition.
-Project (January 2021 – December 2021, 12 months): Legal Document Search System Using Large-Scale Transformer Models
-Developed an AI system to search, summarize, and analyze legal documents, streamlining legal and compliance operations.
-Team: 75 person-months / 7 in-house members / 2 vendors
-Responsibilities:
-Designed and implemented a legal document search algorithm using large-scale transformer models (BERT, GPT-3).
-Prepared datasets of laws, precedents, contracts, and regulations, and built a legal-specific BERT model.
-Developed a question-answering search system using NLP.
-Created an embedding model for similar case searches, improving legal research accuracy.
-Developed a dashboard for legal professionals with ranking and summarization features.
-Ensured data privacy and security for on-premises operation.
-Achievements:
-Improved legal document search accuracy by 20%.
-Reduced legal document reading time by over 50% with AI summarization.
-Enhanced search efficiency by 30% using transformer models.
-Reduced legal research time and improved compliance efficiency through similar case searches.
-Automated risk analysis in contract reviews, identifying potential legal risks.
-Position: Distinguished Researcher, Graduate School of Medicine, University of Tokyo (April 2018 – March 2021)
-Project (April 2018 – March 2021, 36 months): Development of Automated Medical Record Summarization AI
-Conducted research on summarizing electronic medical records using machine learning to improve information organization in medical settings.
-Responsibilities:
-Designed and implemented an automated summarization model for electronic medical records using BERT.
-Pre-trained models with self-supervised learning specialized in the medical field.
-Fine-tuned Seq2Seq models based on Transformer architecture.
-Collected and anonymized medical record data for training datasets.
-Developed a hybrid approach combining rule-based systems with machine learning for accurate medical term summarization.
-Collaborated with hospitals to evaluate real-world applicability.
-Optimized models based on metrics like ROUGE scores.
-Achievements:
-Reduced physicians’ documentation organization time by 40%.
-Improved ROUGE scores by 15% and validated high accuracy through expert reviews.
-Developed a user interface allowing customization of summary results.
-Achieved real-world deployment readiness through joint research with hospitals.
-Reduced the burden of data labeling by applying self-supervised learning while improving domain adaptation.
-■ Certifications
-Regular Driver's License (MT)
-TOEIC Score: 950 (June 2017)
-TOEFL iBT Score: 108 (June 2017)
-■ Education
-Bachelor of Medicine, Keio University (March 2017)
-Graduate School of Medicine, University of Tokyo (Withdrew in March 2021)
-■ Publications
-T. Nakano, K. Ikeda, “Predicting Cancer Heterogeneity from One-shot Biopsy,” ICML Workshop on Computational Biology, 2017.
-T. Nakano, K. Ikeda, “Visualizing Cancer Heterogeneity with Dynamic Flow,” ICML Workshop on Computational Biology, 2017.
-R. Sato, T. Nakano, et al., “RNA Sequencing Analysis Reveals Interactions between Breast Cancer or Melanoma Cells and the Tissue Microenvironment during Brain Metastasis,” BioMed Research International, 2016.
-T. Nakano, “Generating Clinical Texts from Conversation,” NIPS Workshop on Machine Learning for Health, 2016.
-M. Hashimoto, T. Nakano, H. Yashiro, T. Fujita, and M. Jinzaki, "Application of Word2vec to Radiology Report Analysis," Proceedings of the Japan Association for Medical Informatics Annual Conference, vol. 35, pp. 904-905, November 2015.
-T. Nakano, “Early Detection of Hepatorenal Syndrome from Medical Records,” NIPS Clinical Workshop, 2015.
-T. Nakano, “Unsupervised Feature Detection for Medical Images,” 28th Annual Conference of the Japanese Society for Artificial Intelligence, 2014.
-■ Skills and Competencies Problem-Solving:
-Experience in end-to-end system development using machine learning and AI, including data preprocessing, model selection, accuracy improvement, and deployment.
-Special focus on NLP and image recognition using large-scale transformer models, improving accuracy and optimizing computational costs.
-Successfully improved summarization accuracy by 30% in medical data analysis projects using self-supervised learning.
-■ Coordination:
-Strong coordination skills for managing diverse stakeholders such as engineers, data scientists, and domain experts.
-Built consensus on data quality and AI output interpretation to ensure practical system development.
-Emphasized collaboration with legal experts to ensure the reliability of legal document search AI.
-■ Persistence:
-Applied iterative approaches like hyperparameter tuning, data preprocessing, model ensembling, and resource optimization to enhance model performance.
-Improved document search accuracy by 20% by refining data cleaning and fine-tuning processes in transformer-based models.
-■ Personal Statement
-I actively seek to learn new technologies and apply them in practice. In machine learning, where techniques evolve rapidly, I’ve honed skills to quickly investigate and implement optimal methods. I share knowledge within teams to support swift decision-making.
-I value smooth communication with stakeholders, clearly explaining the rationale behind my proposals and ensuring mutual understanding. I strive to present complex technical content in an accessible manner to maximize project outcomes.
-When facing challenges, I focus on identifying the core problem, formulating hypotheses, and deriving effective solutions. For instance, when machine learning models underperform, I revisit data preprocessing and explore alternative approaches to efficiently resolve issues. I aim to continue applying my experience to tackle challenges flexibly and effectively.
-
-
-    </pre>
-  </div>
-
-  <canvas id="japanCanvas"></canvas>
+  <footer>
+    <div>© 2026 Teppei Nakano · 中野哲平</div>
+    <div class="meta">Last updated: 2026-07-06</div>
+  </footer>
 
   <script>
-    // Header Canvas Animation
-    const headerCanvas = document.getElementById('headerCanvas');
-    const headerCtx = headerCanvas.getContext('2d');
-    headerCanvas.width = window.innerWidth;
-    headerCanvas.height = 200;
-
-    let particles = [];
-
-    class Particle {
-      constructor(x, y, size, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speedX = speedX;
-        this.speedY = speedY;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (Math.min(i, 6) * 0.05) + 's';
+      io.observe(el);
+    });
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w, h, pts, mouse = { x: -999, y: -999 };
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        const count = Math.min(90, Math.floor(w * h / 16000));
+        pts = Array.from({ length: count }, () => ({
+          x: Math.random() * w, y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4
+        }));
       }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.size > 0.2) this.size -= 0.02;
-      }
-      draw() {
-        headerCtx.fillStyle = 'rgba(59, 130, 246, 0.7)';
-        headerCtx.beginPath();
-        headerCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        headerCtx.fill();
-      }
-    }
-
-    function handleParticles() {
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-
-        if (particles[i].size <= 0.2) {
-          particles.splice(i, 1);
-          i--;
+      function step() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < pts.length; i++) {
+          const p = pts[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+          ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(120,160,255,0.55)'; ctx.fill();
+          for (let j = i + 1; j < pts.length; j++) {
+            const q = pts[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < 15000) {
+              const a = 1 - d2 / 15000;
+              ctx.strokeStyle = 'rgba(91,140,255,' + (a * 0.28) + ')';
+              ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+            }
+          }
+          const mdx = p.x - mouse.x, mdy = p.y - mouse.y;
+          const md2 = mdx * mdx + mdy * mdy;
+          if (md2 < 22000) {
+            const a = 1 - md2 / 22000;
+            ctx.strokeStyle = 'rgba(34,211,238,' + (a * 0.5) + ')';
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+          }
         }
+        requestAnimationFrame(step);
       }
-    }
-
-    function animateHeader() {
-      headerCtx.clearRect(0, 0, headerCanvas.width, headerCanvas.height);
-      handleParticles();
-      requestAnimationFrame(animateHeader);
-    }
-
-    headerCanvas.addEventListener('mousemove', function(event) {
-      for (let i = 0; i < 5; i++) {
-        particles.push(new Particle(event.x, event.y, Math.random() * 5 + 1, Math.random() * 2 - 1, Math.random() * 2 - 1));
-      }
-    });
-
-    animateHeader();
-
-    window.addEventListener('resize', () => {
-      headerCanvas.width = window.innerWidth;
-      headerCanvas.height = 200;
-    });
-
-    // Footer Japan Canvas Animation
-    const canvas = document.getElementById('japanCanvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = 300;
-
-    let offsetX = 0;
-
-    function drawJapan() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = 'rgba(30, 64, 175, 0.5)';
-      ctx.save();
-      ctx.translate(offsetX, canvas.height / 4);
-
-      ctx.beginPath();
-      ctx.moveTo(50, 50);
-      ctx.lineTo(100, 30);
-      ctx.lineTo(150, 60);
-      ctx.lineTo(200, 40);
-      ctx.lineTo(250, 80);
-      ctx.lineTo(300, 50);
-      ctx.lineTo(350, 90);
-      ctx.lineTo(400, 60);
-      ctx.lineTo(450, 100);
-      ctx.lineTo(500, 80);
-      ctx.lineTo(550, 120);
-      ctx.lineTo(600, 100);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.restore();
-    }
-
-    function animate() {
-      offsetX -= 0.5;
-      if (offsetX < -600) offsetX = canvas.width;
-      drawJapan();
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = 300;
-    });
+      window.addEventListener('resize', resize);
+      window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+      window.addEventListener('mouseout', () => { mouse.x = -999; mouse.y = -999; });
+      resize(); step();
+    })();
   </script>
 </body>
 </html>
