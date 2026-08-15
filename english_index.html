@@ -106,7 +106,7 @@
     .skill-card h3 { margin: 0 0 8px; font-size: 1.2rem; position: relative; }
     .skill-card p { margin: 0 0 16px; color: var(--text-dim); font-size: 0.92rem; position: relative; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
-    .tag { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border); color: var(--text-dim); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border); color: var(--text-dim); text-decoration: none; }
     .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
     .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
     .skill-card.ml  { --glow: rgba(168,85,247,0.22); --chip: rgba(168,85,247,0.14); }
@@ -188,7 +188,15 @@
     .blog-card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
     .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
     .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .home-blog-more { margin-top: 22px; }
+    .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .home-blog-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 8px 0 14px;
+    }
     footer { padding: 50px 0 40px; text-align: center; color: var(--text-faint); font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 40px; }
     footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -436,11 +444,15 @@
       <div class="sec-head reveal">
         <div class="kicker">// blog</div>
         <h2>Blog</h2>
-        <p>Notes on air-gapped local LLMs and machine learning. Posts are Markdown.</p>
+        <p>Notes on medical ML and air-gapped local LLMs.</p>
       </div>
-      <div id="home-blog" class="home-blog-grid"></div>
+      <div class="home-blog-label reveal">Medical × ML</div>
+      <div id="home-blog-med" class="home-blog-grid"></div>
+      <div class="home-blog-label reveal" style="margin-top:28px;">Local LLMs / systems</div>
+      <div id="home-blog-llm" class="home-blog-grid"></div>
       <div class="home-blog-more reveal">
-        <a href="blog/en.html" class="btn btn-ghost">All posts →</a>
+        <a href="blog/en.html?tag=Medical" class="btn btn-ghost">Medical posts</a>
+        <a href="blog/en.html" class="btn btn-primary">All posts →</a>
       </div>
     </section>
 
@@ -471,7 +483,8 @@
       const s = document.createElement("script");
       s.src = "blog/assets/blog.js";
       s.onload = function () {
-        SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog", limit: 3 });
+        SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog-med", tag: "Medical", limit: 3 });
+        SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
       };
       document.body.appendChild(s);
     })();

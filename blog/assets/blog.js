@@ -9,7 +9,8 @@
       back: "ブログ一覧へ",
       prev: "前の記事",
       next: "次の記事",
-      minRead: "分で読める"
+      minRead: "分で読める",
+      medicalNote: "本記事は手法・評価のメモであり、診断・治療の判断には使用できません。"
     },
     en: {
       all: "All",
@@ -20,9 +21,12 @@
       back: "Back to blog",
       prev: "Previous",
       next: "Next",
-      minRead: "min read"
+      minRead: "min read",
+      medicalNote: "This is a methods and evaluation note. It is not for diagnosis or treatment."
     }
   };
+
+  const PINNED_TAGS = ["Medical", "LLM", "RAG", "Training", "Evaluation", "Bioinformatics"];
 
   function t(lang, key) {
     return (COPY[lang] || COPY.ja)[key];
@@ -60,7 +64,10 @@
     const res = await fetch("posts.json", { cache: "no-cache" });
     if (!res.ok) throw new Error("index");
     const data = await res.json();
-    return (data.posts || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+    return (data.posts || []).slice().sort((a, b) => {
+      const byDate = b.date.localeCompare(a.date);
+      return byDate !== 0 ? byDate : a.slug.localeCompare(b.slug);
+    });
   }
 
   function cardHtml(post, lang) {
@@ -132,8 +139,11 @@
       return;
     }
 
-    const tags = Array.from(new Set(posts.flatMap((p) => p.tags || []))).sort();
-    let activeTag = "";
+    const found = Array.from(new Set(posts.flatMap((p) => p.tags || [])));
+    const tags = PINNED_TAGS.filter((tag) => found.includes(tag))
+      .concat(found.filter((tag) => !PINNED_TAGS.includes(tag)).sort());
+    let activeTag = new URLSearchParams(location.search).get("tag") || "";
+    if (activeTag && !found.includes(activeTag)) activeTag = "";
     let query = "";
 
     function paintTags() {
@@ -143,6 +153,10 @@
       tagsEl.querySelectorAll(".tag-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           activeTag = btn.getAttribute("data-tag") || "";
+          const url = new URL(location.href);
+          if (activeTag) url.searchParams.set("tag", activeTag);
+          else url.searchParams.delete("tag");
+          history.replaceState({}, "", url);
           paint();
         });
       });
@@ -211,6 +225,10 @@
     const post = posts[idx];
     const L = loc(post, lang);
     const otherLang = lang === "en" ? "ja" : "en";
+    const isMedical = (post.tags || []).includes("Medical");
+    if (backEl) {
+      backEl.href = isMedical ? listUrl(lang) + "?tag=Medical" : listUrl(lang);
+    }
     if (langEl) {
       langEl.href = postUrl(post.slug, otherLang);
       langEl.textContent = otherLang === "en" ? "EN" : "日本語";
@@ -221,7 +239,24 @@
     if (brand) brand.href = lang === "en" ? "../english_index.html" : "../index.html";
     titleEl.textContent = L.title;
     dateEl.textContent = formatDate(post.date, lang);
-    tagsEl.innerHTML = (post.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+    tagsEl.innerHTML = (post.tags || []).map((tag) => {
+      const href = listUrl(lang) + "?tag=" + encodeURIComponent(tag);
+      return `<a class="tag" href="${href}">${escapeHtml(tag)}</a>`;
+    }).join("");
+    let noteEl = document.getElementById("post-note");
+    if (!noteEl) {
+      noteEl = document.createElement("p");
+      noteEl.id = "post-note";
+      noteEl.className = "post-note";
+      tagsEl.parentElement.insertAdjacentElement("afterend", noteEl);
+    }
+    if (isMedical) {
+      noteEl.hidden = false;
+      noteEl.textContent = t(lang, "medicalNote");
+    } else {
+      noteEl.hidden = true;
+      noteEl.textContent = "";
+    }
     document.title = `${L.title} — ${lang === "en" ? "Teppei Nakano" : "中野哲平"}`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", L.excerpt);
@@ -277,7 +312,13 @@
       const res = await fetch(opts.indexUrl || "blog/posts.json", { cache: "no-cache" });
       if (!res.ok) throw new Error("index");
       const data = await res.json();
-      const posts = (data.posts || []).slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, limit);
+      let posts = (data.posts || []).slice().sort((a, b) => {
+        const byDate = b.date.localeCompare(a.date);
+        return byDate !== 0 ? byDate : a.slug.localeCompare(b.slug);
+      });
+      if (opts.tag) posts = posts.filter((p) => (p.tags || []).includes(opts.tag));
+      if (opts.excludeTag) posts = posts.filter((p) => !(p.tags || []).includes(opts.excludeTag));
+      posts = posts.slice(0, limit);
       const prefix = opts.postPrefix || "blog/";
       root.innerHTML = posts.map((post) => {
         const L = loc(post, lang);

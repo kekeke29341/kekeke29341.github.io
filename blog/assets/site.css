@@ -157,6 +157,11 @@ nav {
   background: rgba(255,255,255,0.05);
   border: 1px solid var(--panel-border);
   color: var(--text-dim);
+  text-decoration: none;
+}
+a.tag:hover {
+  border-color: var(--accent);
+  color: var(--text);
 }
 
 footer {

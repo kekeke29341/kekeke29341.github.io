@@ -285,6 +285,7 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--panel-border);
       color: var(--text-dim);
+      text-decoration: none;
     }
     .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
     .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
@@ -461,7 +462,15 @@
     .blog-card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
     .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
     .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .home-blog-more { margin-top: 22px; }
+    .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .home-blog-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 8px 0 14px;
+    }
 
     footer {
       padding: 50px 0 40px;
@@ -780,11 +789,15 @@
       <div class="sec-head reveal">
         <div class="kicker">// blog</div>
         <h2>ブログ</h2>
-        <p>閉域網のローカルLLMや機械学習についてのメモ。Markdown で追加できます。</p>
+        <p>医療×機械学習と、閉域網のローカルLLMについてのメモ。</p>
       </div>
-      <div id="home-blog" class="home-blog-grid"></div>
+      <div class="home-blog-label reveal">医療 × 機械学習</div>
+      <div id="home-blog-med" class="home-blog-grid"></div>
+      <div class="home-blog-label reveal" style="margin-top:28px;">ローカルLLM / 基盤</div>
+      <div id="home-blog-llm" class="home-blog-grid"></div>
       <div class="home-blog-more reveal">
-        <a href="blog/index.html" class="btn btn-ghost">すべての記事 →</a>
+        <a href="blog/index.html?tag=Medical" class="btn btn-ghost">医療の記事</a>
+        <a href="blog/index.html" class="btn btn-primary">すべての記事 →</a>
       </div>
     </section>
 
@@ -817,7 +830,8 @@
       const s = document.createElement("script");
       s.src = "blog/assets/blog.js";
       s.onload = function () {
-        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog", limit: 3 });
+        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-med", tag: "Medical", limit: 3 });
+        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
       };
       document.body.appendChild(s);
     })();

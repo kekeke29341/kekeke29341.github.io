@@ -3,252 +3,252 @@
   <channel>
     <title>中野哲平 — Blog</title>
     <link>https://kekeke29341.github.io/blog/</link>
-    <description>ローカルLLM・閉域網AI・機械学習・バイオインフォマティクスのメモ</description>
+    <description>医療×機械学習・ローカルLLM・閉域網AIのメモ</description>
     <language>ja</language>
     <item>
       <title>医療MLの分割単位は、行ではなく患者</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=patient-level-split</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=patient-level-split</guid>
-      <pubDate>Sat, 15 Aug 2026 23:50:00 +0000</pubDate>
-      <description>同じ人の入院が訓練とテストに割れると、疾患ではなくその人を覚える。</description>
+      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
+      <description>同じ人の入院が訓練とテストに割れると、疾患ではなくその人を覚える。患者IDで切り、可能なら時間でも切る。</description>
     </item>
     <item>
       <title>EHR予測で、未来のノートを混ぜない</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=ehr-temporal-leakage</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=ehr-temporal-leakage</guid>
-      <pubDate>Sat, 15 Aug 2026 23:45:00 +0000</pubDate>
-      <description>退院サマリと転帰後の検査は予測ではない。予測時刻を先に固定する。</description>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>退院サマリと、転帰後の検査は、予測ではない。予測時刻を先に固定し、それ以前だけを残す。</description>
     </item>
     <item>
       <title>稀な転帰で、AUROCだけを先頭に置かない</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=auroc-rare-events</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=auroc-rare-events</guid>
-      <pubDate>Sat, 15 Aug 2026 23:40:00 +0000</pubDate>
-      <description>有病率が小さいと、高い識別能でも通知のほとんどは外れになる。</description>
-    </item>
-    <item>
-      <title>RNA-seqのモデルが、キットを当てていないか</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=rnaseq-batch-effects</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=rnaseq-batch-effects</guid>
-      <pubDate>Sat, 15 Aug 2026 23:35:00 +0000</pubDate>
-      <description>バッチは生物学より大きいことがある。研究をまたぐ分割を先に置く。</description>
-    </item>
-    <item>
-      <title>一箇所の生検から、腫瘍の不均一さをどこまで言えるか</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=cancer-heterogeneity-ml</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=cancer-heterogeneity-ml</guid>
-      <pubDate>Sat, 15 Aug 2026 23:30:00 +0000</pubDate>
-      <description>観測は部分である。生検内の多様性と未採取領域では教師が違う。</description>
-    </item>
-    <item>
-      <title>会話からカルテ文を書くとき、BLEUで終わらせない</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=clinical-text-from-talk</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=clinical-text-from-talk</guid>
-      <pubDate>Sat, 15 Aug 2026 23:25:00 +0000</pubDate>
-      <description>流暢さは事実の追加と欠落を隠す。教師は直後の経過記録。</description>
-    </item>
-    <item>
-      <title>病院のLLMは、上手さより先に出さない</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=phi-hospital-llm</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=phi-hospital-llm</guid>
-      <pubDate>Sat, 15 Aug 2026 23:20:00 +0000</pubDate>
-      <description>正規表現の匿名化は再識別を残す。生ノートをSFTしない。</description>
-    </item>
-    <item>
-      <title>ICDを教師にした「診断」は、請求の再現になりやすい</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=icd-label-noise</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=icd-label-noise</guid>
-      <pubDate>Sat, 15 Aug 2026 23:15:00 +0000</pubDate>
-      <description>疑い・既往・主病は意図的にずれる。弱ラベルと明記する。</description>
-    </item>
-    <item>
-      <title>医用画像の点数は、隣の装置で消える</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=scanner-shift-imaging</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=scanner-shift-imaging</guid>
-      <pubDate>Sat, 15 Aug 2026 23:10:00 +0000</pubDate>
-      <description>疾患差より先に、再構成とプロトコルを疑う。</description>
+      <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>有病率が小さいと、高い識別能でも通知のほとんどは外れになる。適合率と、件数を同じ表に出す。</description>
     </item>
     <item>
       <title>ガイドラインRAGで危ないのは、引用つきの幻覚</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=guideline-rag-clinical</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=guideline-rag-clinical</guid>
-      <pubDate>Sat, 15 Aug 2026 23:05:00 +0000</pubDate>
-      <description>例外と対象集団を同じチャンクに残す。廃版の用量を出さない。</description>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 +0000</pubDate>
+      <description>例外と対象集団を同じチャンクに残す。廃版の用量を出さない。正しさより、文書への忠実さを測る。</description>
+    </item>
+    <item>
+      <title>病院のLLMは、上手さより先に出さない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=phi-hospital-llm</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=phi-hospital-llm</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 +0000</pubDate>
+      <description>正規表現の匿名化は再識別を残す。生ノートをSFTしない。RAGの識別子はメタデータ側。</description>
+    </item>
+    <item>
+      <title>会話からカルテ文を書くとき、BLEUで終わらせない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=clinical-text-from-talk</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=clinical-text-from-talk</guid>
+      <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
+      <description>流暢さは、事実の追加と欠落を隠す。教師は直後の経過記録。音声の誤りを、きれいに補正しない。</description>
     </item>
     <item>
       <title>カルテの欠損は、平均で埋めるな</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=ehr-missingness</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=ehr-missingness</guid>
-      <pubDate>Sat, 15 Aug 2026 23:02:00 +0000</pubDate>
-      <description>測らなかった理由が重症度そのものになりうる。マスクを残す。</description>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <description>測らなかった理由が、重症度そのものになりうる。マスクと、最後の観測からの時間を残す。</description>
+    </item>
+    <item>
+      <title>ICDを教師にした「診断」は、請求の再現になりやすい</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=icd-label-noise</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=icd-label-noise</guid>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 +0000</pubDate>
+      <description>疑い・既往・主病は、意図的にずれる。弱ラベルと明記し、人手スパンで落ちたら採用しない。</description>
     </item>
     <item>
       <title>読影レポートNLPは、否定と時刻の問題</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=radiology-report-nlp</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=radiology-report-nlp</guid>
-      <pubDate>Sat, 15 Aug 2026 23:01:00 +0000</pubDate>
-      <description>所見の半分は「ない」。画像タスクにレポートを入れるなら時刻を一致させる。</description>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>所見の半分は「ない」。画像タスクにレポートを入れるなら、撮影時点と記載時点を一致させる。</description>
+    </item>
+    <item>
+      <title>医用画像の点数は、隣の装置で消える</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=scanner-shift-imaging</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=scanner-shift-imaging</guid>
+      <pubDate>Thu, 06 Aug 2026 12:00:00 +0000</pubDate>
+      <description>疾患差より先に、再構成とプロトコルを疑う。施設を予測できる埋め込みは、疾患モデルに使われる。</description>
+    </item>
+    <item>
+      <title>RNA-seqのモデルが、キットを当てていないか</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rnaseq-batch-effects</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rnaseq-batch-effects</guid>
+      <pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
+      <description>バッチは生物学より大きいことがある。補正の順と、研究をまたぐ分割を、学習の前に置く。</description>
+    </item>
+    <item>
+      <title>一箇所の生検から、腫瘍の不均一さをどこまで言えるか</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=cancer-heterogeneity-ml</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=cancer-heterogeneity-ml</guid>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>観測は部分である。生検内の多様性と、未採取領域への外挿は、教師が違う。患者とパネルを混ぜて切らない。</description>
     </item>
     <item>
       <title>MoEは計算が疎で、メモリは密</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=moe-routing</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=moe-routing</guid>
-      <pubDate>Sat, 15 Aug 2026 23:00:00 +0000</pubDate>
-      <description>トークンごとに専門家を選ぶ。偏ると疎の意味が消える。見積もりを密モデルから借りない。</description>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>トークンごとに専門家を選ぶ。総パラメータは大きいが、偏ると疎の意味が消える。見積もりを密モデルから借りない。</description>
     </item>
     <item>
       <title>FlashAttentionは近似ではなく、I/Oの話</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io</guid>
-      <pubDate>Sat, 15 Aug 2026 22:30:00 +0000</pubDate>
-      <description>O(T²) の注意行列をHBMに置かない。効くのはdecodeより長いprefill。</description>
-    </item>
-    <item>
-      <title>公開ベンチの点を、賢さと書かない</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</guid>
-      <pubDate>Sat, 15 Aug 2026 22:00:00 +0000</pubDate>
-      <description>汚染と分布シフトは別物。採用は社内セットを横に置いてから。</description>
-    </item>
-    <item>
-      <title>BPEの切れ方が、型番と日本語を静かに壊す</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</guid>
-      <pubDate>Sat, 15 Aug 2026 21:30:00 +0000</pubDate>
-      <description>語彙は単語ではない。数字・全角・固有名詞の切れ目を先に見る。</description>
-    </item>
-    <item>
-      <title>TransformerにAdamWが残っている理由</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</guid>
-      <pubDate>Sat, 15 Aug 2026 21:00:00 +0000</pubDate>
-      <description>適応的な二次モーメントと、勾配から切り離した重み減衰。</description>
-    </item>
-    <item>
-      <title>スライディング窓とattention sinkは、過去を捨てる話</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</guid>
-      <pubDate>Sat, 15 Aug 2026 20:30:00 +0000</pubDate>
-      <description>RoPEの伸ばしとは別。窓の外に出た方針は丁寧に破られる。</description>
-    </item>
-    <item>
-      <title>RAGの失敗は、半分がチャンク境界</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</guid>
-      <pubDate>Sat, 15 Aug 2026 20:00:00 +0000</pubDate>
-      <description>大きすぎると平均化し、小さすぎると参照が切れる。</description>
-    </item>
-    <item>
-      <title>デコーダのみが残った理由</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</guid>
-      <pubDate>Sat, 15 Aug 2026 19:30:00 +0000</pubDate>
-      <description>学習と生成の条件を一致させ、目的関数を一つにし、箱を一つにする。</description>
-    </item>
-    <item>
-      <title>蒸留が移すのは、正解ではなく分布</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</guid>
-      <pubDate>Sat, 15 Aug 2026 19:00:00 +0000</pubDate>
-      <description>教師のロジットをKLで渡す。下書きでは損失より受理率を見る。</description>
-    </item>
-    <item>
-      <title>0.9は、10回中9回ではない</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</guid>
-      <pubDate>Sat, 15 Aug 2026 18:30:00 +0000</pubDate>
-      <description>確信度と較正は別。コサインもDPO後のロジットも確率として使わない。</description>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
+      <description>O(T²) の注意行列をHBMに置かない。同じsoftmaxをSRAMで完結させる。効くのはdecodeより長いprefill。</description>
     </item>
     <item>
       <title>推論で先に足りなくなるのは、重みよりKV cache</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</guid>
-      <pubDate>Sat, 15 Aug 2026 18:00:00 +0000</pubDate>
-      <description>同時接続と長いコンテキストでVRAMを埋めるのは重みではない。MHA / MQA / GQA で何が減るか。</description>
+      <pubDate>Sat, 01 Aug 2026 12:00:00 +0000</pubDate>
+      <description>同時接続と長いコンテキストでVRAMを埋めるのは重みではない。MHA / MQA / GQA で何が減るかを、メモリの式から書きます。</description>
     </item>
     <item>
       <title>量子化で先に死ぬもの</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm</guid>
-      <pubDate>Sat, 15 Aug 2026 17:00:00 +0000</pubDate>
-      <description>GPTQ / AWQ / FP8 の捨て方の偏りと、較正分布、固有名詞と長文。</description>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>GPTQ / AWQ / FP8 はどれも情報を捨てる。捨て方の偏りと、較正分布、現場で先に壊れる固有名詞と長文の話です。</description>
     </item>
     <item>
       <title>SFTのあとでDPOする理由</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo</guid>
-      <pubDate>Sat, 15 Aug 2026 16:00:00 +0000</pubDate>
-      <description>SFTは分布を寄せ、DPOは二つの出力に順序を付ける。</description>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <description>SFTは分布を寄せ、DPOは二つの出力に順序を付ける。順番を飛ばすとJSONが壊れ、拒否より敬語だけが残ります。</description>
     </item>
     <item>
       <title>RAGの「精度」を、四層に切る</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation</guid>
-      <pubDate>Sat, 15 Aug 2026 15:00:00 +0000</pubDate>
-      <description>検索・利用・回答・拒否を一つの正解率に折らない。</description>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>検索・利用・回答・拒否を一つの正解率に折らない。recall@k と忠実性を分け、拒否セットを正解と同じ数だけ持ちます。</description>
     </item>
     <item>
-      <title>LoRAのランクより、足す層を先に決める</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</guid>
-      <pubDate>Sat, 15 Aug 2026 14:30:00 +0000</pubDate>
-      <description>r は更新の部分空間の次元。LoRAだから忘れない、は成り立たない。</description>
-    </item>
-    <item>
-      <title>RMSNormとPre-normが、深いLLMを支えている</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</guid>
-      <pubDate>Sat, 15 Aug 2026 14:00:00 +0000</pubDate>
-      <description>平均を引かないRMSNormと、残差を恒等のまま残すPre-norm。</description>
-    </item>
-    <item>
-      <title>投機的デコーディングは、受理率がすべて</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</guid>
-      <pubDate>Sat, 15 Aug 2026 13:30:00 +0000</pubDate>
-      <description>小さいモデルに先を書かせ、大きいモデルが分布を保ったまま検証する。</description>
-    </item>
-    <item>
-      <title>温度だけでは、サンプリングは決まらない</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</guid>
-      <pubDate>Sat, 15 Aug 2026 13:00:00 +0000</pubDate>
-      <description>温度はsoftmaxの尖り。top-k / top-p は切る位置。</description>
-    </item>
-    <item>
-      <title>埋め込みの共通言語はInfoNCE</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</guid>
-      <pubDate>Sat, 15 Aug 2026 12:30:00 +0000</pubDate>
-      <description>密検索もCLIPも、正例を選ぶ分類損失。負例の質が表現を決める。</description>
+      <title>RAGの失敗は、半分がチャンク境界</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 +0000</pubDate>
+      <description>大きすぎると平均化し、小さすぎると参照が切れる。メタデータはフィルタ、ベクトルは本文。</description>
     </item>
     <item>
       <title>LLMで使われるRoPEを、回転から追う</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=rope</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=rope</guid>
-      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
-      <description>位置を足すのではなく、QueryとKeyを回す。相対位置が内積に残る理由と、長文で伸ばすときに何が壊れるか。</description>
+      <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
+      <description>位置を足すのではなく、QueryとKeyを回す。相対位置が内積に残る理由と、長文で伸ばすときに何が壊れるかを実装寄りに書きます。</description>
     </item>
     <item>
-      <title>ブログを開設しました</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=welcome</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=welcome</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
-      <description>ポートフォリオサイトに、Markdown で書けるブログを追加しました。</description>
+      <title>スライディング窓とattention sinkは、過去を捨てる話</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 +0000</pubDate>
+      <description>RoPEの伸ばしとは別。窓の外に出た方針は、丁寧に破られる。sinkと再注入のどちらで守るか。</description>
     </item>
     <item>
-      <title>記事の追加方法</title>
-      <link>https://kekeke29341.github.io/blog/post.html?slug=how-to-write</link>
-      <guid>https://kekeke29341.github.io/blog/post.html?slug=how-to-write</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Markdown ファイルを1つ置き、posts.json に1件足すだけで公開できます。</description>
+      <title>投機的デコーディングは、受理率がすべて</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</guid>
+      <pubDate>Sat, 25 Jul 2026 12:00:00 +0000</pubDate>
+      <description>小さいモデルに先を書かせ、大きいモデルが分布を保ったまま検証する。受理率が低いと、二体を載せるだけになります。</description>
+    </item>
+    <item>
+      <title>温度だけでは、サンプリングは決まらない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</guid>
+      <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
+      <description>温度はsoftmaxの尖り、top-k / top-p は切る位置。評価と本番で温度を変えない。報告には T, k, p を揃えて書きます。</description>
+    </item>
+    <item>
+      <title>LoRAのランクより、足す層を先に決める</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</guid>
+      <pubDate>Thu, 23 Jul 2026 12:00:00 +0000</pubDate>
+      <description>r は更新の部分空間の次元です。q,v から始め、足りなければMLP。LoRAだから忘れない、は成り立ちません。</description>
+    </item>
+    <item>
+      <title>RMSNormとPre-normが、深いLLMを支えている</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</guid>
+      <pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate>
+      <description>BatchNormが系列で使いにくい理由から、平均を引かないRMSNorm、残差を恒等のまま残すPre-norm、SwiGLUまで。</description>
+    </item>
+    <item>
+      <title>デコーダのみが残った理由</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</guid>
+      <pubDate>Tue, 21 Jul 2026 12:00:00 +0000</pubDate>
+      <description>学習と生成の条件を一致させ、目的関数を一つにし、箱を一つにする。理解専用はまだ双方向が勝つことがある。</description>
+    </item>
+    <item>
+      <title>蒸留が移すのは、正解ではなく分布</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</guid>
+      <pubDate>Mon, 20 Jul 2026 12:00:00 +0000</pubDate>
+      <description>教師のロジットをKLで渡す。ハードな拒否は残す。下書きモデルでは損失より受理率を見る。</description>
+    </item>
+    <item>
+      <title>BPEの切れ方が、型番と日本語を静かに壊す</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <description>語彙は単語ではない。数字・全角・固有名詞の切れ目を、パラメータより先に見る。</description>
+    </item>
+    <item>
+      <title>埋め込みの共通言語はInfoNCE</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</guid>
+      <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+      <description>密検索もCLIPも、正例を選ぶ分類損失です。負例の質が表現を決める。生成用LLMの隠れ状態を、そのまま検索に使わない。</description>
+    </item>
+    <item>
+      <title>0.9は、10回中9回ではない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <description>確信度と較正は別。ECEと温度スケーリング。コサインも、DPO後のロジットも、確率として使わない。</description>
+    </item>
+    <item>
+      <title>公開ベンチの点を、賢さと書かない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</guid>
+      <pubDate>Thu, 16 Jul 2026 12:00:00 +0000</pubDate>
+      <description>汚染と分布シフトは別物。採用は社内セットと、学習コーパスとの重なりを横に置いてから決める。</description>
+    </item>
+    <item>
+      <title>TransformerにAdamWが残っている理由</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</guid>
+      <pubDate>Wed, 15 Jul 2026 12:00:00 +0000</pubDate>
+      <description>適応的な二次モーメントと、勾配から切り離した重み減衰。Normのγは減衰から外す。</description>
     </item>
     <item>
       <title>閉域網ローカルLLMで、最初に決めること</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=air-gapped-llm-checklist</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=air-gapped-llm-checklist</guid>
-      <pubDate>Fri, 14 Aug 2026 00:00:00 +0000</pubDate>
-      <description>外部APIを使わないLLM基盤を立てるとき、モデル選定より先に固めておきたい論点。</description>
+      <pubDate>Tue, 14 Jul 2026 12:00:00 +0000</pubDate>
+      <description>外部APIを使わないLLM基盤を立てるとき、モデル選定より先に固めておきたい論点のチェックリストです。</description>
+    </item>
+    <item>
+      <title>ブログを開設しました</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=welcome</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=welcome</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 +0000</pubDate>
+      <description>ポートフォリオサイトに、Markdown で書けるブログを追加しました。閉域網LLMや機械学習のメモをここに残していきます。</description>
+    </item>
+    <item>
+      <title>記事の追加方法</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=how-to-write</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=how-to-write</guid>
+      <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Markdown ファイルを1つ置き、posts.json に1件足すだけで公開できます。ビルド手順は不要です。</description>
     </item>
   </channel>
 </rss>
