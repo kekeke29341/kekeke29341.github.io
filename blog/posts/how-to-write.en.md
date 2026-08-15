@@ -38,4 +38,4 @@ Append one object to the `posts` array in `blog/posts.json`.
 - `date` is `YYYY-MM-DD`. Newer dates sort first
 - You can omit `en` until a translation exists; Japanese is used as fallback
 
-Commit to `main` and GitHub Pages will publish in a few minutes. If anyone follows the feed, update `blog/rss.xml` with the same post.
+Commit to `main` and GitHub Pages will publish in a few minutes. If anyone follows the feed, update `blog/rss.xml` (Japanese) and `blog/rss-en.xml` (English) with the same post.

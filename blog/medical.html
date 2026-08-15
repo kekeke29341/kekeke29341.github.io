@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="医療×機械学習の読み順。分割、時間リーク、ラベル、臨床NLP、病院LLMの手法メモ。診断・治療の代替ではありません。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="医療MLメモの読み順 — 中野哲平">
+  <meta property="og:description" content="分割、時間リーク、ラベル、臨床NLP。先に切るところから読む。">
+  <meta property="og:url" content="https://kekeke29341.github.io/blog/medical.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kekeke29341.github.io/blog/medical.html">
+  <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/blog/medical.html">
+  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/blog/medical-en.html">
+  <link rel="alternate" type="application/rss+xml" title="中野哲平 — Blog" href="rss.xml">
+  <title>医療MLメモの読み順 — 中野哲平</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/blog.css">
+</head>
+<body>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
+
+  <nav>
+    <a class="brand" href="../index.html"><span class="dot"></span>中野哲平</a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="index.html" class="nav-keep">Blog</a>
+      <a href="medical-en.html" class="lang">EN</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="blog-hero">
+      <div class="sec-head reveal">
+        <div class="kicker">// medical ml</div>
+        <h1>医療MLメモの読み順</h1>
+        <p>論文や現場で先に崩れるのは、モデルより分割と教師です。下の順で読むと、同じ失敗を繰り返さずに済みます。手法・評価のメモであり、診断や治療の代わりにはなりません。</p>
+      </div>
+      <div class="home-blog-more reveal">
+        <a href="index.html?tag=Medical" class="btn btn-ghost">タグ一覧</a>
+        <a href="index.html" class="btn btn-primary">すべての記事 →</a>
+      </div>
+    </header>
+    <noscript><p class="empty">読み順の表示には JavaScript が必要です。本文は <code>blog/posts/</code> の Markdown を直接読めます。</p></noscript>
+    <div id="series-groups"></div>
+  </div>
+
+  <footer>
+    <div>© 2026 中野哲平 — Teppei Nakano</div>
+    <div class="meta">Last updated: 2026-08-15</div>
+  </footer>
+
+  <script src="assets/blog.js"></script>
+  <script src="assets/fx.js"></script>
+  <script>SiteBlog.renderSeries({ lang: "ja" });</script>
+</body>
+</html>

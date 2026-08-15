@@ -10,7 +10,10 @@
       prev: "前の記事",
       next: "次の記事",
       minRead: "分で読める",
-      medicalNote: "本記事は手法・評価のメモであり、診断・治療の判断には使用できません。"
+      medicalNote: "本記事は手法・評価のメモであり、診断・治療の判断には使用できません。",
+      toc: "目次",
+      related: "関連するメモ",
+      medicalSeries: "医療MLメモの読み順"
     },
     en: {
       all: "All",
@@ -22,11 +25,21 @@
       prev: "Previous",
       next: "Next",
       minRead: "min read",
-      medicalNote: "This is a methods and evaluation note. It is not for diagnosis or treatment."
+      medicalNote: "This is a methods and evaluation note. It is not for diagnosis or treatment.",
+      toc: "Contents",
+      related: "Related notes",
+      medicalSeries: "Medical ML reading order"
     }
   };
 
   const PINNED_TAGS = ["Medical", "LLM", "RAG", "Training", "Evaluation", "Bioinformatics"];
+  const TAG_WEIGHT = { Medical: 3, LLM: 2, Bioinformatics: 2, RAG: 2, Evaluation: 2, Training: 1, NLP: 1 };
+  const MEDICAL_PATH = [
+    { ja: "先に切る", en: "Cut first", slugs: ["patient-level-split", "ehr-temporal-leakage", "ehr-missingness"] },
+    { ja: "教師と指標", en: "Labels and metrics", slugs: ["icd-label-noise", "auroc-rare-events", "scanner-shift-imaging"] },
+    { ja: "文書とLLM", en: "Text and LLMs", slugs: ["phi-hospital-llm", "guideline-rag-clinical", "clinical-text-from-talk", "radiology-report-nlp"] },
+    { ja: "オミクスと腫瘍", en: "Omics and tumor", slugs: ["rnaseq-batch-effects", "cancer-heterogeneity-ml"] }
+  ];
 
   function t(lang, key) {
     return (COPY[lang] || COPY.ja)[key];
@@ -58,6 +71,108 @@
 
   function listUrl(lang) {
     return lang === "en" ? "en.html" : "index.html";
+  }
+
+  function seriesUrl(lang) {
+    return lang === "en" ? "medical-en.html" : "medical.html";
+  }
+
+  function siteOrigin() {
+    return "https://kekeke29341.github.io";
+  }
+
+  function setLinkRel(rel, href) {
+    let el = document.querySelector(`link[rel="${rel}"]`);
+    if (!el) {
+      el = document.createElement("link");
+      el.rel = rel;
+      document.head.appendChild(el);
+    }
+    el.href = href;
+  }
+
+  function relatedPosts(posts, current, limit) {
+    const mine = new Set(current.tags || []);
+    return posts
+      .filter((p) => p.slug !== current.slug)
+      .map((p) => {
+        const shared = (p.tags || []).filter((tag) => mine.has(tag));
+        const score = shared.reduce((sum, tag) => sum + (TAG_WEIGHT[tag] || 1), 0);
+        return { p, score };
+      })
+      .filter((row) => row.score > 0)
+      .sort((a, b) => b.score - a.score || b.p.date.localeCompare(a.p.date))
+      .slice(0, limit)
+      .map((row) => row.p);
+  }
+
+  function headingId(text, i) {
+    const ascii = String(text).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return ascii || ("sec-" + (i + 1));
+  }
+
+  function renderToc(article, lang) {
+    const heads = Array.from(article.querySelectorAll("h2"));
+    const old = document.getElementById("post-toc");
+    if (old) old.remove();
+    if (heads.length < 3) return;
+    const used = new Set();
+    heads.forEach((h, i) => {
+      let id = h.id || headingId(h.textContent || "", i);
+      if (used.has(id)) id = id + "-" + (i + 1);
+      used.add(id);
+      h.id = id;
+    });
+    const nav = document.createElement("nav");
+    nav.id = "post-toc";
+    nav.className = "post-toc";
+    nav.setAttribute("aria-label", t(lang, "toc"));
+    nav.innerHTML = `<div class="lbl">${t(lang, "toc")}</div><ol>` +
+      heads.map((h) => `<li><a href="#${h.id}">${escapeHtml(h.textContent)}</a></li>`).join("") +
+      "</ol>";
+    article.insertAdjacentElement("beforebegin", nav);
+  }
+
+  function renderRelated(posts, current, lang) {
+    const host = document.getElementById("post-related");
+    if (!host) return;
+    const picks = relatedPosts(posts, current, 3);
+    if (!picks.length) {
+      host.innerHTML = "";
+      return;
+    }
+    host.innerHTML = `<div class="lbl">${t(lang, "related")}</div><div class="post-related-grid">` +
+      picks.map((p) => {
+        const L = loc(p, lang);
+        return `<a href="${postUrl(p.slug, lang)}"><div class="ttl">${escapeHtml(L.title)}</div><div class="ex">${escapeHtml(L.excerpt)}</div></a>`;
+      }).join("") +
+      "</div>";
+  }
+
+  function setPostMeta(post, lang, L) {
+    const page = siteOrigin() + "/blog/" + postUrl(post.slug, lang);
+    setLinkRel("canonical", page);
+    let json = document.getElementById("post-jsonld");
+    if (!json) {
+      json = document.createElement("script");
+      json.type = "application/ld+json";
+      json.id = "post-jsonld";
+      document.head.appendChild(json);
+    }
+    json.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: L.title,
+      description: L.excerpt,
+      datePublished: post.date,
+      inLanguage: lang === "en" ? "en" : "ja",
+      url: page,
+      author: {
+        "@type": "Person",
+        name: lang === "en" ? "Teppei Nakano" : "中野哲平",
+        url: lang === "en" ? siteOrigin() + "/english_index.html" : siteOrigin() + "/"
+      }
+    });
   }
 
   async function loadIndex() {
@@ -227,7 +342,7 @@
     const otherLang = lang === "en" ? "ja" : "en";
     const isMedical = (post.tags || []).includes("Medical");
     if (backEl) {
-      backEl.href = isMedical ? listUrl(lang) + "?tag=Medical" : listUrl(lang);
+      backEl.href = isMedical ? seriesUrl(lang) : listUrl(lang);
     }
     if (langEl) {
       langEl.href = postUrl(post.slug, otherLang);
@@ -257,9 +372,30 @@
       noteEl.hidden = true;
       noteEl.textContent = "";
     }
+    let seriesEl = document.getElementById("post-series");
+    if (!seriesEl) {
+      seriesEl = document.createElement("p");
+      seriesEl.id = "post-series";
+      seriesEl.className = "post-series";
+      noteEl.insertAdjacentElement("afterend", seriesEl);
+    }
+    if (isMedical) {
+      seriesEl.hidden = false;
+      seriesEl.innerHTML = `<a href="${seriesUrl(lang)}">${t(lang, "medicalSeries")} →</a>`;
+    } else {
+      seriesEl.hidden = true;
+      seriesEl.innerHTML = "";
+    }
     document.title = `${L.title} — ${lang === "en" ? "Teppei Nakano" : "中野哲平"}`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", L.excerpt);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", L.title);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", L.excerpt);
+    const relatedEl = document.getElementById("post-related");
+    if (relatedEl) relatedEl.setAttribute("aria-label", t(lang, "related"));
+    setPostMeta(post, lang, L);
 
     const mdRes = await fetch("posts/" + L.file, { cache: "no-cache" });
     if (!mdRes.ok) {
@@ -288,6 +424,8 @@
         throwOnError: false
       });
     }
+    renderToc(article, lang);
+    renderRelated(posts, post, lang);
 
     const olderPost = posts[idx + 1];
     const newerPost = posts[idx - 1];
@@ -338,5 +476,25 @@
     }
   }
 
-  global.SiteBlog = { renderList, renderPost, renderHomePreview };
+  async function renderSeries(opts) {
+    const lang = opts.lang || "ja";
+    const root = document.getElementById(opts.targetId || "series-groups");
+    if (!root) return;
+    let posts = [];
+    try {
+      posts = await loadIndex();
+    } catch (err) {
+      root.innerHTML = `<div class="empty">${t(lang, "loadError")}</div>`;
+      return;
+    }
+    const bySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
+    root.innerHTML = MEDICAL_PATH.map((group) => {
+      const items = group.slugs.map((slug) => bySlug[slug]).filter(Boolean);
+      const cards = items.map((p) => cardHtml(p, lang)).join("");
+      return `<section class="series-group"><h2>${escapeHtml(lang === "en" ? group.en : group.ja)}</h2><div class="blog-grid">${cards}</div></section>`;
+    }).join("");
+    observeReveals(root);
+  }
+
+  global.SiteBlog = { renderList, renderPost, renderHomePreview, renderSeries };
 })(window);

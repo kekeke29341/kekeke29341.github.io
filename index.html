@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="中野哲平 — 機械学習・ローカルLLM・バイオインフォマティクスを軸に活動するソフトウェアエンジニアのポートフォリオ。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics">
+  <meta property="og:description" content="閉域網のローカルLLMと、医療データの機械学習。ポートフォリオとブログ。">
+  <meta property="og:url" content="https://kekeke29341.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kekeke29341.github.io/">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
   <title>中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics</title>
@@ -555,6 +561,9 @@
           「作って終わり」ではなく現場で使われるところまで責任を持って設計します。
           がんヘテロジェニティや RNA-seq 解析など、
           <strong style="color:var(--text)">バイオインフォマティクス</strong>の実務・論文経験も強みです。
+          同じ論点の短いメモを、このサイトの
+          <a href="blog/medical.html" style="color:var(--accent-2)">医療MLの読み順</a>
+          とブログに置いています。
         </p>
       </div>
     </section>
@@ -796,7 +805,7 @@
       <div class="home-blog-label reveal" style="margin-top:28px;">ローカルLLM / 基盤</div>
       <div id="home-blog-llm" class="home-blog-grid"></div>
       <div class="home-blog-more reveal">
-        <a href="blog/index.html?tag=Medical" class="btn btn-ghost">医療の記事</a>
+        <a href="blog/medical.html" class="btn btn-ghost">医療MLの読み順</a>
         <a href="blog/index.html" class="btn btn-primary">すべての記事 →</a>
       </div>
     </section>
@@ -898,6 +907,9 @@
       window.addEventListener('mouseout', () => { mouse.x = -999; mouse.y = -999; });
       resize(); step();
     })();
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"中野哲平","alternateName":"Teppei Nakano","url":"https://kekeke29341.github.io/","jobTitle":"Software Engineer","knowsAbout":["Machine Learning","Local LLM","Bioinformatics","Medical ML"]}
   </script>
 </body>
 </html>
