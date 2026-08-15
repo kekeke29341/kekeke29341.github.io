@@ -469,6 +469,18 @@
     .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
     .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
     .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .paper-row {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      border-radius: var(--radius); padding: 20px 22px; margin-bottom: 12px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .paper-row:hover { transform: translateY(-3px); border-color: rgba(120,160,255,0.4); }
+    .paper-kicker { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 8px; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
+    .paper-kicker .yr { color: var(--accent-2); }
+    .paper-row h2 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; }
+    .paper-row p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+    .paper-row .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .home-blog-label {
       font-family: "JetBrains Mono", monospace;
       font-size: 0.78rem;
@@ -511,6 +523,7 @@
       <a href="#career">Career</a>
       <a href="#pubs">Papers</a>
       <a href="blog/index.html" class="nav-keep">Blog</a>
+      <a href="reading/index.html" class="nav-keep">Reading</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>
@@ -767,7 +780,7 @@
       <div class="sec-head reveal">
         <div class="kicker">// publications</div>
         <h2>論文 / Bioinformatics</h2>
-        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。</p>
+        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。読んだ論文のメモは <a href="reading/index.html" style="color:var(--accent-2)">こちら</a>。</p>
       </div>
       <div class="pubs">
         <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
@@ -813,6 +826,19 @@
       </div>
     </section>
 
+    <section id="reading">
+      <div class="sec-head reveal">
+        <div class="kicker">// reading</div>
+        <h2>読んだ論文</h2>
+        <p>要旨の再掲ではなく、現場に持ち帰る一点だけを残しています。</p>
+      </div>
+      <div id="home-reading"></div>
+      <div class="home-blog-more reveal">
+        <a href="reading/index.html?tag=Medical" class="btn btn-ghost">医療の論文</a>
+        <a href="reading/index.html" class="btn btn-primary">論文メモ一覧 →</a>
+      </div>
+    </section>
+
     <!-- LINKS -->
     <section id="links">
       <div class="sec-head reveal">
@@ -821,6 +847,7 @@
       </div>
       <div class="link-grid">
         <a class="link-card reveal" href="blog/index.html">ブログ<span class="sub">このサイト</span><span class="arw">→</span></a>
+        <a class="link-card reveal" href="reading/index.html">読んだ論文<span class="sub">このサイト</span><span class="arw">→</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">開発日記<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">技術メモ<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">ブログ<span class="sub">note</span><span class="arw">↗</span></a>
@@ -844,6 +871,7 @@
       s.onload = function () {
         SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-med", tag: "Medical", limit: 3 });
         SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
+        SiteBlog.renderHomeReading({ lang: "ja", targetId: "home-reading", limit: 4 });
       };
       document.body.appendChild(s);
     })();

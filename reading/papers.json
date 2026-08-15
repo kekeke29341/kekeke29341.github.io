@@ -1,0 +1,847 @@
+{
+  "papers": [
+    {
+      "slug": "wornow-shaky-foundations",
+      "year": 2023,
+      "read": "2026-08-15",
+      "authors": "Wornow et al.",
+      "venue": "npj Digital Medicine",
+      "title": "The shaky foundations of large language models and foundation models for electronic health records",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "related": [
+        "phi-hospital-llm",
+        "clinical-text-from-talk"
+      ],
+      "ja": {
+        "takeaway": "EHR基盤モデルの論文は、タスク名より先に、ラベルが請求か注釈か、分割が患者かを見る。",
+        "file": "wornow-shaky-foundations.ja.md"
+      },
+      "en": {
+        "takeaway": "Before the task name, I check whether EHR foundation-model labels are billing or annotation, and whether the split is by patient.",
+        "file": "wornow-shaky-foundations.en.md"
+      },
+      "doi": "10.1038/s41746-023-00879-8"
+    },
+    {
+      "slug": "degrave-covid-shortcuts",
+      "year": 2021,
+      "read": "2026-08-14",
+      "authors": "DeGrave, Janizek, Lee",
+      "venue": "Nature Machine Intelligence",
+      "title": "AI for radiographic COVID-19 detection selects shortcuts over signal",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "scanner-shift-imaging"
+      ],
+      "ja": {
+        "takeaway": "画像モデルは疾患ではなく、後処理の文字や装置の癖を拾う。saliencyより先に、サイトを予測できるかを見る。",
+        "file": "degrave-covid-shortcuts.ja.md"
+      },
+      "en": {
+        "takeaway": "Imaging models pick laterality markers and site style before disease. Before saliency, I ask whether the embedding predicts the hospital.",
+        "file": "degrave-covid-shortcuts.en.md"
+      },
+      "doi": "10.1038/s42256-021-00338-7"
+    },
+    {
+      "slug": "zech-pneumonia-2018",
+      "year": 2018,
+      "read": "2026-08-13",
+      "authors": "Zech et al.",
+      "venue": "PLOS Medicine",
+      "title": "Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "scanner-shift-imaging"
+      ],
+      "ja": {
+        "takeaway": "院内AUROCは、隣の病院で落ちる。肺炎検出の論文は、装置とプロトコルの記述が本文にあるかを先に見る。",
+        "file": "zech-pneumonia-2018.ja.md"
+      },
+      "en": {
+        "takeaway": "In-hospital AUROC dies next door. I read pneumonia papers for scanner and protocol text before the leaderboard.",
+        "file": "zech-pneumonia-2018.en.md"
+      },
+      "doi": "10.1371/journal.pmed.1002683"
+    },
+    {
+      "slug": "obermeyer-bias-2019",
+      "year": 2019,
+      "read": "2026-08-12",
+      "authors": "Obermeyer et al.",
+      "venue": "Science",
+      "title": "Dissecting racial bias in an algorithm used to manage the health of populations",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "icd-label-noise",
+        "auroc-rare-events"
+      ],
+      "ja": {
+        "takeaway": "コストをリスクの代理にすると、アクセスの差を学習する。教師が何の代理かを、損失より先に書く。",
+        "file": "obermeyer-bias-2019.ja.md"
+      },
+      "en": {
+        "takeaway": "Cost as a proxy for risk learns access. I write what the teacher stands in for before I write the loss.",
+        "file": "obermeyer-bias-2019.en.md"
+      },
+      "doi": "10.1126/science.aal3304"
+    },
+    {
+      "slug": "futoma-generalisability",
+      "year": 2020,
+      "read": "2026-08-11",
+      "authors": "Futoma et al.",
+      "venue": "Lancet Digital Health",
+      "title": "The myth of generalisability in clinical research and machine learning in health care",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "patient-level-split",
+        "scanner-shift-imaging"
+      ],
+      "ja": {
+        "takeaway": "汎化は性質ではなく、どのシフトに耐えたかの報告である。単一AUROCを、一般化可能性と呼ばない。",
+        "file": "futoma-generalisability.ja.md"
+      },
+      "en": {
+        "takeaway": "Generalisation is a report of which shifts you survived, not a property. I do not call a single AUROC generalisable.",
+        "file": "futoma-generalisability.en.md"
+      },
+      "doi": "10.1016/S2589-7500(20)30186-2"
+    },
+    {
+      "slug": "rajkomar-ehr-2018",
+      "year": 2018,
+      "read": "2026-08-10",
+      "authors": "Rajkomar et al.",
+      "venue": "npj Digital Medicine",
+      "title": "Scalable and accurate deep learning with electronic health records",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "ehr-temporal-leakage",
+        "ehr-missingness"
+      ],
+      "ja": {
+        "takeaway": "EHRをシーケンスにできること自体は成果ではない。予測時刻より後のイベントが混ざっていないかが本体。",
+        "file": "rajkomar-ehr-2018.ja.md"
+      },
+      "en": {
+        "takeaway": "Ingesting the EHR as a sequence is not the result. The result is whether anything after time t leaked in.",
+        "file": "rajkomar-ehr-2018.en.md"
+      },
+      "doi": "10.1038/s41746-018-0029-2"
+    },
+    {
+      "slug": "mimic-iii",
+      "year": 2016,
+      "read": "2026-08-09",
+      "authors": "Johnson et al.",
+      "venue": "Scientific Data",
+      "title": "MIMIC-III, a freely accessible critical care database",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "patient-level-split",
+        "ehr-missingness"
+      ],
+      "ja": {
+        "takeaway": "公開ICUデータの標準。論文を読むときは、MIMICのどの版か、患者重複、時刻のずれを先に確認する。",
+        "file": "mimic-iii.ja.md"
+      },
+      "en": {
+        "takeaway": "The default public ICU set. I read which MIMIC version, whether patients collide, and whether clocks agree.",
+        "file": "mimic-iii.en.md"
+      },
+      "doi": "10.1038/sdata.2016.35"
+    },
+    {
+      "slug": "oakden-hidden-stratification",
+      "year": 2020,
+      "read": "2026-08-08",
+      "authors": "Oakden-Rayner et al.",
+      "venue": "CHIL",
+      "title": "Hidden stratification causes clinically meaningful failures in machine learning for medical imaging",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "auroc-rare-events",
+        "scanner-shift-imaging"
+      ],
+      "ja": {
+        "takeaway": "平均AUROCの下に、稀な亜型が沈む。層がラベルに無いなら、平均は隠す。",
+        "file": "oakden-hidden-stratification.ja.md"
+      },
+      "en": {
+        "takeaway": "Rare subtypes sink under mean AUROC. If the stratum is not a label, the mean hides it.",
+        "file": "oakden-hidden-stratification.en.md"
+      },
+      "doi": "10.1145/3368555.3384468"
+    },
+    {
+      "slug": "saito-pr-2015",
+      "year": 2015,
+      "read": "2026-08-07",
+      "authors": "Saito, Rehmsmeier",
+      "venue": "PLOS ONE",
+      "title": "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets",
+      "tags": [
+        "Evaluation",
+        "Medical"
+      ],
+      "related": [
+        "auroc-rare-events",
+        "calibration-ece"
+      ],
+      "ja": {
+        "takeaway": "不均衡ではPRが先。AUROCは、通知のほとんどが外れでも高く見える。",
+        "file": "saito-pr-2015.ja.md"
+      },
+      "en": {
+        "takeaway": "On imbalance, PR comes first. AUROC can look high while almost every page is a miss.",
+        "file": "saito-pr-2015.en.md"
+      },
+      "doi": "10.1371/journal.pone.0118432"
+    },
+    {
+      "slug": "leek-batch-2010",
+      "year": 2010,
+      "read": "2026-08-06",
+      "authors": "Leek et al.",
+      "venue": "Nature Reviews Genetics",
+      "title": "Tackling the widespread and critical impact of batch effects in high-throughput data",
+      "tags": [
+        "Bioinformatics",
+        "Medical"
+      ],
+      "related": [
+        "rnaseq-batch-effects"
+      ],
+      "ja": {
+        "takeaway": "バッチは生物学より大きいことがある。補正の前に、研究をまたぐ分割を置く。",
+        "file": "leek-batch-2010.ja.md"
+      },
+      "en": {
+        "takeaway": "Batch can outrun biology. I put a cross-study split before the correction.",
+        "file": "leek-batch-2010.en.md"
+      },
+      "doi": "10.1038/nrg2825"
+    },
+    {
+      "slug": "combat-johnson-2007",
+      "year": 2007,
+      "read": "2026-08-05",
+      "authors": "Johnson, Li, Rabinovic",
+      "venue": "Biostatistics",
+      "title": "Adjusting batch effects in microarray expression data using empirical Bayes methods",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "related": [
+        "rnaseq-batch-effects"
+      ],
+      "ja": {
+        "takeaway": "ComBatは平均と分散のバッチを縮める。テスト研究の統計で再推定すると、評価がリークする。",
+        "file": "combat-johnson-2007.ja.md"
+      },
+      "en": {
+        "takeaway": "ComBat shrinks batch mean and variance. Re-estimating on the test study leaks the evaluation.",
+        "file": "combat-johnson-2007.en.md"
+      },
+      "doi": "10.1093/biostatistics/kxj037"
+    },
+    {
+      "slug": "chapman-negex",
+      "year": 2001,
+      "read": "2026-08-04",
+      "authors": "Chapman et al.",
+      "venue": "Journal of Biomedical Informatics",
+      "title": "A simple algorithm for identifying negated findings and diseases in discharge summaries",
+      "tags": [
+        "Medical",
+        "NLP"
+      ],
+      "related": [
+        "radiology-report-nlp"
+      ],
+      "ja": {
+        "takeaway": "臨床文の半分は「ない」。否定を扱わない抽出は、所見を倍増させる。",
+        "file": "chapman-negex.ja.md"
+      },
+      "en": {
+        "takeaway": "Half of clinical text is absence. Extraction that ignores negation doubles the findings.",
+        "file": "chapman-negex.en.md"
+      },
+      "doi": "10.1006/jbin.2001.1029"
+    },
+    {
+      "slug": "pagedattention",
+      "year": 2023,
+      "read": "2026-08-03",
+      "authors": "Kwon et al.",
+      "venue": "SOSP",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "tags": [
+        "LLM",
+        "Systems"
+      ],
+      "related": [
+        "kv-cache-gqa"
+      ],
+      "ja": {
+        "takeaway": "KVを連続確保すると穴が開く。ページで持つと、同じVRAMでバッチが乗る。",
+        "file": "pagedattention.ja.md"
+      },
+      "en": {
+        "takeaway": "Contiguous KV leaves holes. Paging the cache is how the same VRAM holds a batch.",
+        "file": "pagedattention.en.md"
+      },
+      "arxiv": "2309.06180"
+    },
+    {
+      "slug": "flashattention",
+      "year": 2022,
+      "read": "2026-08-02",
+      "authors": "Dao et al.",
+      "venue": "NeurIPS",
+      "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "tags": [
+        "LLM",
+        "Systems"
+      ],
+      "related": [
+        "flashattention-io"
+      ],
+      "ja": {
+        "takeaway": "Attentionの遅さは近似ではなく、HBMへの出し入れである。厳密なまま、タイルでIOを減らす。",
+        "file": "flashattention.ja.md"
+      },
+      "en": {
+        "takeaway": "Attention is slow from HBM traffic, not from approximation. Tile it; keep it exact.",
+        "file": "flashattention.en.md"
+      },
+      "arxiv": "2205.14135"
+    },
+    {
+      "slug": "gqa",
+      "year": 2023,
+      "read": "2026-08-01",
+      "authors": "Ainslie et al.",
+      "venue": "EMNLP Findings",
+      "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "kv-cache-gqa"
+      ],
+      "ja": {
+        "takeaway": "K/Vヘッドを共有すると、品質より先にKVのバイトが減る。ローカル推論のメモリ見積もりの基本。",
+        "file": "gqa.ja.md"
+      },
+      "en": {
+        "takeaway": "Sharing K/V heads cuts KV bytes before it cuts quality. That is the local-inference estimate.",
+        "file": "gqa.en.md"
+      },
+      "arxiv": "2305.13245"
+    },
+    {
+      "slug": "roformer",
+      "year": 2021,
+      "read": "2026-07-31",
+      "authors": "Su et al.",
+      "venue": "arXiv",
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "tags": [
+        "LLM"
+      ],
+      "related": [
+        "rope"
+      ],
+      "ja": {
+        "takeaway": "位置は足すのではなく回す。相対位置が内積に入る。コンテキスト延長は、この回転の周期の話になる。",
+        "file": "roformer.ja.md"
+      },
+      "en": {
+        "takeaway": "Positions are rotated, not added. Relative offset enters the dot product. Long-context work is about those periods.",
+        "file": "roformer.en.md"
+      },
+      "arxiv": "2104.09864"
+    },
+    {
+      "slug": "attention-sinks",
+      "year": 2023,
+      "read": "2026-07-30",
+      "authors": "Xiao et al.",
+      "venue": "ICLR 2024",
+      "title": "Efficient Streaming Language Models with Attention Sinks",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "attention-sink-window"
+      ],
+      "ja": {
+        "takeaway": "窓で過去を捨てると、先頭トークンを残さない限り壊れる。sink は窓の補題である。",
+        "file": "attention-sinks.ja.md"
+      },
+      "en": {
+        "takeaway": "A sliding window breaks unless you keep the first tokens. The sink is a lemma of the window.",
+        "file": "attention-sinks.en.md"
+      },
+      "arxiv": "2309.17453"
+    },
+    {
+      "slug": "speculative-decoding",
+      "year": 2023,
+      "read": "2026-07-29",
+      "authors": "Leviathan, Kalman, Matias",
+      "venue": "ICML",
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "speculative-decoding"
+      ],
+      "ja": {
+        "takeaway": "小さいモデルで先読みし、大きいモデルは検証する。棄却が少ないときだけ、壁時計が縮む。",
+        "file": "speculative-decoding.ja.md"
+      },
+      "en": {
+        "takeaway": "A small model drafts; the large one verifies. Wall time shrinks only when rejects stay rare.",
+        "file": "speculative-decoding.en.md"
+      },
+      "arxiv": "2211.17192"
+    },
+    {
+      "slug": "llm-int8",
+      "year": 2022,
+      "read": "2026-07-28",
+      "authors": "Dettmers et al.",
+      "venue": "NeurIPS",
+      "title": "LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "quantization-llm"
+      ],
+      "ja": {
+        "takeaway": "8bitでも、外れ値チャネルは16bitに残す。量子化は一様に削る話ではない。",
+        "file": "llm-int8.ja.md"
+      },
+      "en": {
+        "takeaway": "Even at 8-bit, outlier channels stay in 16-bit. Quantization is not a uniform shave.",
+        "file": "llm-int8.en.md"
+      },
+      "arxiv": "2208.07339"
+    },
+    {
+      "slug": "awq",
+      "year": 2024,
+      "read": "2026-07-27",
+      "authors": "Lin et al.",
+      "venue": "MLSys",
+      "title": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "quantization-llm"
+      ],
+      "ja": {
+        "takeaway": "重みの重要度は、活性化の大きさで決まる。平均二乗だけでは、残すべきチャネルを外す。",
+        "file": "awq.ja.md"
+      },
+      "en": {
+        "takeaway": "Weight importance follows activation magnitude. MSE alone drops the channels you needed.",
+        "file": "awq.en.md"
+      },
+      "arxiv": "2306.00978"
+    },
+    {
+      "slug": "lora",
+      "year": 2022,
+      "read": "2026-07-26",
+      "authors": "Hu et al.",
+      "venue": "ICLR",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "tags": [
+        "Training",
+        "LLM"
+      ],
+      "related": [
+        "lora-what-rank-fits"
+      ],
+      "ja": {
+        "takeaway": "低ランクの差分で足す。ランクより先に、どの行列に足すか。",
+        "file": "lora.ja.md"
+      },
+      "en": {
+        "takeaway": "Add a low-rank delta. Choose which matrices before you choose rank.",
+        "file": "lora.en.md"
+      },
+      "arxiv": "2106.09685"
+    },
+    {
+      "slug": "dpo",
+      "year": 2023,
+      "read": "2026-07-25",
+      "authors": "Rafailov et al.",
+      "venue": "NeurIPS",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "tags": [
+        "Training",
+        "LLM"
+      ],
+      "related": [
+        "sft-then-dpo"
+      ],
+      "ja": {
+        "takeaway": "選好対があれば、報酬モデルを経由せずに方針を更新できる。対の質が、損失より先。",
+        "file": "dpo.ja.md"
+      },
+      "en": {
+        "takeaway": "Given preference pairs, you can update the policy without a reward model. Pair quality precedes the loss.",
+        "file": "dpo.en.md"
+      },
+      "arxiv": "2305.18290"
+    },
+    {
+      "slug": "instructgpt",
+      "year": 2022,
+      "read": "2026-07-24",
+      "authors": "Ouyang et al.",
+      "venue": "NeurIPS",
+      "title": "Training language models to follow instructions with human feedback",
+      "tags": [
+        "Training",
+        "LLM"
+      ],
+      "related": [
+        "sft-then-dpo"
+      ],
+      "ja": {
+        "takeaway": "SFTのあと、人間の選好でReinforcementする。今の「揃える」手順の原型。",
+        "file": "instructgpt.ja.md"
+      },
+      "en": {
+        "takeaway": "SFT, then reinforce from human preference. The template for “aligning” a local stack.",
+        "file": "instructgpt.en.md"
+      },
+      "arxiv": "2203.02155"
+    },
+    {
+      "slug": "switch-transformers",
+      "year": 2022,
+      "read": "2026-07-23",
+      "authors": "Fedus, Zoph, Shazeer",
+      "venue": "JMLR",
+      "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "related": [
+        "moe-routing"
+      ],
+      "ja": {
+        "takeaway": "トークンごとに専門家を一人選ぶ。計算は疎でも、メモリは専門家の数だけ要る。",
+        "file": "switch-transformers.ja.md"
+      },
+      "en": {
+        "takeaway": "Each token picks one expert. Compute is sparse; memory still pays for every expert.",
+        "file": "switch-transformers.en.md"
+      },
+      "arxiv": "2101.03961"
+    },
+    {
+      "slug": "rag-lewis",
+      "year": 2020,
+      "read": "2026-07-22",
+      "authors": "Lewis et al.",
+      "venue": "NeurIPS",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "tags": [
+        "RAG",
+        "LLM"
+      ],
+      "related": [
+        "rag-evaluation",
+        "rag-chunking"
+      ],
+      "ja": {
+        "takeaway": "生成の前に検索する。知識を重みに焼かない。評価は、検索と生成を分けて見る。",
+        "file": "rag-lewis.ja.md"
+      },
+      "en": {
+        "takeaway": "Retrieve before you generate. Do not bake the knowledge into weights. Score retrieval and generation apart.",
+        "file": "rag-lewis.en.md"
+      },
+      "arxiv": "2005.11401"
+    },
+    {
+      "slug": "dpr",
+      "year": 2020,
+      "read": "2026-07-21",
+      "authors": "Karpukhin et al.",
+      "venue": "EMNLP",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "tags": [
+        "RAG"
+      ],
+      "related": [
+        "rag-chunking",
+        "rag-evaluation"
+      ],
+      "ja": {
+        "takeaway": "質問とパッセージを同じ空間に置く。BM25を捨てる前に、密检索が何を拾い何を落とすかを見る。",
+        "file": "dpr.ja.md"
+      },
+      "en": {
+        "takeaway": "Put questions and passages in one space. Before dropping BM25, I look at what dense retrieval catches and drops.",
+        "file": "dpr.en.md"
+      },
+      "arxiv": "2004.04906"
+    },
+    {
+      "slug": "vaswani-2017",
+      "year": 2017,
+      "read": "2026-07-20",
+      "authors": "Vaswani et al.",
+      "venue": "NeurIPS",
+      "title": "Attention Is All You Need",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "related": [
+        "decoder-only",
+        "rmsnorm-prenorm"
+      ],
+      "ja": {
+        "takeaway": "再帰を捨て、attention で距離を一定にする。今のデコーダは、この論文の片側だけを残した形。",
+        "file": "vaswani-2017.ja.md"
+      },
+      "en": {
+        "takeaway": "Drop recurrence; make distance constant with attention. Current decoders keep one side of this paper.",
+        "file": "vaswani-2017.en.md"
+      },
+      "arxiv": "1706.03762"
+    },
+    {
+      "slug": "adamw",
+      "year": 2019,
+      "read": "2026-07-19",
+      "authors": "Loshchilov, Hutter",
+      "venue": "ICLR",
+      "title": "Decoupled Weight Decay Regularization",
+      "tags": [
+        "Training"
+      ],
+      "related": [
+        "adamw-transformers"
+      ],
+      "ja": {
+        "takeaway": "減衰を勾配から切り離す。AdamにL2を足したのとは違う。Normのγは減衰から外す。",
+        "file": "adamw.ja.md"
+      },
+      "en": {
+        "takeaway": "Decouple decay from the gradient. That is not Adam plus L2. Leave Norm γ out of decay.",
+        "file": "adamw.en.md"
+      },
+      "arxiv": "1711.05101"
+    },
+    {
+      "slug": "rmsnorm",
+      "year": 2019,
+      "read": "2026-07-18",
+      "authors": "Zhang, Sennrich",
+      "venue": "NeurIPS",
+      "title": "Root Mean Square Layer Normalization",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "related": [
+        "rmsnorm-prenorm"
+      ],
+      "ja": {
+        "takeaway": "平均を引かず、RMSだけで割る。Pre-normと組んで、今のデコーダの正規化になる。",
+        "file": "rmsnorm.ja.md"
+      },
+      "en": {
+        "takeaway": "No mean subtraction; divide by RMS. With pre-norm, that is current decoder normalization.",
+        "file": "rmsnorm.en.md"
+      },
+      "arxiv": "1910.07467"
+    },
+    {
+      "slug": "preln-xiong",
+      "year": 2020,
+      "read": "2026-07-17",
+      "authors": "Xiong et al.",
+      "venue": "ICML",
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "tags": [
+        "Training",
+        "Architecture"
+      ],
+      "related": [
+        "rmsnorm-prenorm"
+      ],
+      "ja": {
+        "takeaway": "Pre-normは残差を恒等のまま残す。深いデコーダが学習できる理由の一つ。",
+        "file": "preln-xiong.ja.md"
+      },
+      "en": {
+        "takeaway": "Pre-norm leaves the residual as an identity. That is one reason a deep decoder trains.",
+        "file": "preln-xiong.en.md"
+      },
+      "arxiv": "2002.04745"
+    },
+    {
+      "slug": "nucleus-sampling",
+      "year": 2020,
+      "read": "2026-07-16",
+      "authors": "Holtzman et al.",
+      "venue": "ICLR",
+      "title": "The Curious Case of Neural Text Degeneration",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "sampling-beyond-temperature"
+      ],
+      "ja": {
+        "takeaway": "argmaxはループする。温度だけでは足りない。核（top-p）で、尾を切る。",
+        "file": "nucleus-sampling.ja.md"
+      },
+      "en": {
+        "takeaway": "Argmax loops. Temperature is not enough. Cut the tail with a nucleus (top-p).",
+        "file": "nucleus-sampling.en.md"
+      },
+      "arxiv": "1904.09751"
+    },
+    {
+      "slug": "hinton-distill",
+      "year": 2015,
+      "read": "2026-07-15",
+      "authors": "Hinton, Vinyals, Dean",
+      "venue": "arXiv",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "tags": [
+        "Training"
+      ],
+      "related": [
+        "distillation-logits"
+      ],
+      "ja": {
+        "takeaway": "教師のlogitsの形を、温度付きで移す。硬ラベルだけより、関係が残る。",
+        "file": "hinton-distill.ja.md"
+      },
+      "en": {
+        "takeaway": "Move the shape of the teacher’s logits, with a temperature. Relations survive better than hard labels.",
+        "file": "hinton-distill.en.md"
+      },
+      "arxiv": "1503.02531"
+    },
+    {
+      "slug": "guo-calibration",
+      "year": 2017,
+      "read": "2026-07-14",
+      "authors": "Guo et al.",
+      "venue": "ICML",
+      "title": "On Calibration of Modern Neural Networks",
+      "tags": [
+        "Evaluation"
+      ],
+      "related": [
+        "calibration-ece"
+      ],
+      "ja": {
+        "takeaway": "深くて強いネットほど、自信がずれる。ECEと、温度スケーリングを、AUROCの横に置く。",
+        "file": "guo-calibration.ja.md"
+      },
+      "en": {
+        "takeaway": "Deeper, stronger nets are worse calibrated. I put ECE and temperature scaling next to AUROC.",
+        "file": "guo-calibration.en.md"
+      },
+      "arxiv": "1706.04599"
+    },
+    {
+      "slug": "cpc-infonce",
+      "year": 2018,
+      "read": "2026-07-13",
+      "authors": "van den Oord, Li, Vinyals",
+      "venue": "arXiv",
+      "title": "Representation Learning with Contrastive Predictive Coding",
+      "tags": [
+        "ML"
+      ],
+      "related": [
+        "contrastive-infonce"
+      ],
+      "ja": {
+        "takeaway": "正例を、ノイズの中から拾う。InfoNCEは、その損失の名前になった。",
+        "file": "cpc-infonce.ja.md"
+      },
+      "en": {
+        "takeaway": "Pick the positive out of noise. InfoNCE became the name of that loss.",
+        "file": "cpc-infonce.en.md"
+      },
+      "arxiv": "1807.03748"
+    },
+    {
+      "slug": "bpe-sennrich",
+      "year": 2016,
+      "read": "2026-07-12",
+      "authors": "Sennrich, Haddow, Birch",
+      "venue": "ACL",
+      "title": "Neural Machine Translation of Rare Words with Subword Units",
+      "tags": [
+        "LLM",
+        "NLP"
+      ],
+      "related": [
+        "tokenizer-bpe-traps"
+      ],
+      "ja": {
+        "takeaway": "稀な語を、部分語に割る。トークナイザは前処理ではなく、モデルの一部である。",
+        "file": "bpe-sennrich.ja.md"
+      },
+      "en": {
+        "takeaway": "Split rare words into subwords. The tokenizer is part of the model, not preprocessing.",
+        "file": "bpe-sennrich.en.md"
+      },
+      "arxiv": "1508.07909"
+    }
+  ]
+}

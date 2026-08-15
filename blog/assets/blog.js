@@ -17,7 +17,12 @@
       llmSeries: "ローカルLLMの読み順",
       seriesBack: "読み順へ",
       copy: "コピー",
-      copied: "コピーした"
+      copied: "コピーした",
+      readingSearch: "論文を検索",
+      readingBack: "論文メモへ",
+      readingEmpty: "該当する論文がありません。",
+      relatedBlog: "このサイトのメモ",
+      paperLink: "論文"
     },
     en: {
       all: "All",
@@ -36,11 +41,16 @@
       llmSeries: "Local LLM reading order",
       seriesBack: "Reading order",
       copy: "Copy",
-      copied: "Copied"
+      copied: "Copied",
+      readingSearch: "Search papers",
+      readingBack: "Reading notes",
+      readingEmpty: "No matching papers.",
+      relatedBlog: "Notes on this site",
+      paperLink: "Paper"
     }
   };
 
-  const PINNED_TAGS = ["Medical", "LLM", "RAG", "Training", "Evaluation", "Bioinformatics"];
+  const PINNED_TAGS = ["Medical", "LLM", "RAG", "Training", "Evaluation", "Bioinformatics", "Systems"];
   const TAG_WEIGHT = { Medical: 3, LLM: 2, Bioinformatics: 2, RAG: 2, Evaluation: 2, Training: 1, NLP: 1 };
   const MEDICAL_PATH = [
     { ja: "先に切る", en: "Cut first", slugs: ["patient-level-split", "ehr-temporal-leakage", "ehr-missingness"] },
@@ -422,6 +432,11 @@
     document.documentElement.lang = lang;
     const brand = document.querySelector("nav .brand");
     if (brand) brand.href = lang === "en" ? "../english_index.html" : "../index.html";
+    document.querySelectorAll("nav a.nav-keep").forEach((a) => {
+      if ((a.getAttribute("href") || "").includes("reading")) {
+        a.href = lang === "en" ? "../reading/en.html" : "../reading/index.html";
+      }
+    });
     titleEl.textContent = L.title;
     dateEl.textContent = formatDate(post.date, lang);
     tagsEl.innerHTML = (post.tags || []).map((tag) => {
@@ -568,5 +583,299 @@
     observeReveals(root);
   }
 
-  global.SiteBlog = { renderList, renderPost, renderHomePreview, renderSeries };
+  function paperUrl(slug, lang) {
+    return lang === "en"
+      ? `note.html?slug=${encodeURIComponent(slug)}&lang=en`
+      : `note.html?slug=${encodeURIComponent(slug)}`;
+  }
+
+  function readingListUrl(lang) {
+    return lang === "en" ? "en.html" : "index.html";
+  }
+
+  function paperLoc(paper, lang) {
+    return paper[lang] || paper.ja || paper.en || {};
+  }
+
+  function paperLink(paper) {
+    if (paper.arxiv) return `https://arxiv.org/abs/${paper.arxiv}`;
+    if (paper.doi) return `https://doi.org/${paper.doi}`;
+    return "";
+  }
+
+  async function loadPapers(url) {
+    const res = await fetch(url || "papers.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("papers");
+    const data = await res.json();
+    return (data.papers || []).slice().sort((a, b) => {
+      const byRead = (b.read || "").localeCompare(a.read || "");
+      if (byRead !== 0) return byRead;
+      return String(b.year).localeCompare(String(a.year)) || a.slug.localeCompare(b.slug);
+    });
+  }
+
+  function paperRowHtml(paper, lang, prefix) {
+    const L = paperLoc(paper, lang);
+    const tags = (paper.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+    const href = (prefix || "") + paperUrl(paper.slug, lang);
+    return `
+      <a class="paper-row reveal" href="${href}">
+        <div class="paper-kicker">
+          <span class="yr">${escapeHtml(String(paper.year))}</span>
+          <span class="venue">${escapeHtml(paper.venue || "")}</span>
+          <span class="authors">${escapeHtml(paper.authors || "")}</span>
+        </div>
+        <h2>${escapeHtml(paper.title)}</h2>
+        <p>${escapeHtml(L.takeaway || "")}</p>
+        <div class="tags">${tags}</div>
+      </a>`;
+  }
+
+  async function renderReadingList(opts) {
+    const lang = opts.lang || "ja";
+    const grid = document.getElementById("reading-grid");
+    const tagsEl = document.getElementById("reading-tags");
+    const searchEl = document.getElementById("reading-search");
+    if (searchEl) searchEl.placeholder = t(lang, "readingSearch");
+
+    let papers = [];
+    try {
+      papers = await loadPapers(opts.indexUrl);
+    } catch (err) {
+      grid.innerHTML = `<div class="empty">${t(lang, "loadError")}</div>`;
+      return;
+    }
+
+    const found = Array.from(new Set(papers.flatMap((p) => p.tags || [])));
+    const tags = PINNED_TAGS.filter((tag) => found.includes(tag))
+      .concat(found.filter((tag) => !PINNED_TAGS.includes(tag)).sort());
+    let activeTag = new URLSearchParams(location.search).get("tag") || "";
+    if (activeTag && !found.includes(activeTag)) activeTag = "";
+    let query = new URLSearchParams(location.search).get("q") || "";
+    if (searchEl && query) searchEl.value = query;
+
+    function syncUrl() {
+      const url = new URL(location.href);
+      if (activeTag) url.searchParams.set("tag", activeTag);
+      else url.searchParams.delete("tag");
+      const q = query.trim();
+      if (q) url.searchParams.set("q", q);
+      else url.searchParams.delete("q");
+      history.replaceState({}, "", url);
+      const langLink = document.querySelector("nav a.lang");
+      if (langLink) {
+        const other = lang === "en" ? "index.html" : "en.html";
+        const qs = url.searchParams.toString();
+        langLink.href = other + (qs ? "?" + qs : "");
+      }
+    }
+
+    function paintTags() {
+      if (!tagsEl) return;
+      tagsEl.innerHTML = [`<button type="button" class="tag-btn${activeTag ? "" : " on"}" data-tag="">${t(lang, "all")}</button>`]
+        .concat(tags.map((tag) => `<button type="button" class="tag-btn${activeTag === tag ? " on" : ""}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`))
+        .join("");
+      tagsEl.querySelectorAll(".tag-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeTag = btn.getAttribute("data-tag") || "";
+          paint();
+        });
+      });
+    }
+
+    function paint() {
+      syncUrl();
+      paintTags();
+      const q = query.trim().toLowerCase();
+      const filtered = papers.filter((p) => {
+        const L = paperLoc(p, lang);
+        const hay = `${p.title} ${p.authors} ${p.venue} ${L.takeaway || ""} ${(p.tags || []).join(" ")}`.toLowerCase();
+        const tagOk = !activeTag || (p.tags || []).includes(activeTag);
+        return tagOk && (!q || hay.includes(q));
+      });
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="empty">${t(lang, "readingEmpty")}</div>`;
+        return;
+      }
+      grid.innerHTML = filtered.map((p) => paperRowHtml(p, lang)).join("");
+      observeReveals(grid);
+    }
+
+    if (searchEl) {
+      searchEl.addEventListener("input", () => {
+        query = searchEl.value;
+        paint();
+      });
+    }
+    paint();
+  }
+
+  async function renderReadingNote(opts) {
+    const params = new URLSearchParams(location.search);
+    const slug = params.get("slug") || "";
+    const lang = params.get("lang") === "en" ? "en" : (opts.lang || "ja");
+    const article = document.getElementById("post-body");
+    const titleEl = document.getElementById("post-title");
+    const dateEl = document.getElementById("post-date");
+    const tagsEl = document.getElementById("post-tags");
+    const readEl = document.getElementById("post-read");
+    const navEl = document.getElementById("post-nav");
+    const backEl = document.getElementById("post-back");
+    const langEl = document.getElementById("post-lang");
+    const citeEl = document.getElementById("paper-cite");
+    const linkEl = document.getElementById("paper-link");
+
+    if (backEl) {
+      backEl.href = readingListUrl(lang);
+      backEl.textContent = "← " + t(lang, "readingBack");
+    }
+
+    let papers = [];
+    try {
+      papers = await loadPapers();
+    } catch (err) {
+      titleEl.textContent = t(lang, "loadError");
+      return;
+    }
+
+    const idx = papers.findIndex((p) => p.slug === slug);
+    if (idx < 0) {
+      titleEl.textContent = t(lang, "missing");
+      article.innerHTML = `<p>${t(lang, "missing")}</p>`;
+      return;
+    }
+
+    const paper = papers[idx];
+    const L = paperLoc(paper, lang);
+    const otherLang = lang === "en" ? "ja" : "en";
+    if (langEl) {
+      langEl.href = paperUrl(paper.slug, otherLang);
+      langEl.textContent = otherLang === "en" ? "EN" : "日本語";
+    }
+    document.documentElement.lang = lang;
+    const brand = document.querySelector("nav .brand");
+    if (brand) brand.href = lang === "en" ? "../english_index.html" : "../index.html";
+    document.querySelectorAll("nav a.nav-keep").forEach((a) => {
+      if ((a.getAttribute("href") || "").includes("blog")) {
+        a.href = lang === "en" ? "../blog/en.html" : "../blog/index.html";
+      }
+    });
+    titleEl.textContent = paper.title;
+    if (dateEl) dateEl.textContent = `${paper.year} · ${formatDate(paper.read, lang)}`;
+    if (readEl) readEl.textContent = "";
+    if (citeEl) citeEl.textContent = `${paper.authors}, ${paper.venue} (${paper.year})`;
+    const href = paperLink(paper);
+    if (linkEl) {
+      if (href) {
+        linkEl.hidden = false;
+        linkEl.href = href;
+        linkEl.textContent = paper.arxiv ? `arXiv:${paper.arxiv}` : t(lang, "paperLink");
+      } else {
+        linkEl.hidden = true;
+      }
+    }
+    tagsEl.innerHTML = (paper.tags || []).map((tag) => {
+      return `<a class="tag" href="${readingListUrl(lang)}?tag=${encodeURIComponent(tag)}">${escapeHtml(tag)}</a>`;
+    }).join("");
+    document.title = `${paper.title} — ${lang === "en" ? "Teppei Nakano" : "中野哲平"}`;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", L.takeaway || paper.title);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", paper.title);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", L.takeaway || paper.title);
+    setLinkRel("canonical", siteOrigin() + "/reading/" + paperUrl(paper.slug, lang));
+
+    const mdRes = await fetch("notes/" + L.file, { cache: "no-cache" });
+    if (!mdRes.ok) {
+      article.innerHTML = `<p>${t(lang, "missing")}</p>`;
+      return;
+    }
+    const md = await mdRes.text();
+    const parse = (global.marked && global.marked.parse) || global.marked;
+    const raw = parse(protectMath(md));
+    article.innerHTML = global.DOMPurify.sanitize(restoreMath(raw));
+    if (global.hljs) {
+      article.querySelectorAll("pre code").forEach((el) => global.hljs.highlightElement(el));
+    }
+    if (global.renderMathInElement) {
+      global.renderMathInElement(article, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    }
+    addCopyButtons(article, lang);
+    renderToc(article, lang);
+
+    const related = document.getElementById("post-related");
+    if (related && (paper.related || []).length) {
+      related.innerHTML = `<div class="lbl">${t(lang, "relatedBlog")}</div><div class="post-related-grid">` +
+        paper.related.map((slug) => {
+          const hrefBlog = (lang === "en" ? "../blog/post.html?slug=" : "../blog/post.html?slug=") + encodeURIComponent(slug) + (lang === "en" ? "&lang=en" : "");
+          return `<a href="${hrefBlog}"><div class="ttl">${escapeHtml(slug)}</div></a>`;
+        }).join("") +
+        "</div>";
+    } else if (related) {
+      related.innerHTML = "";
+    }
+
+    try {
+      const blogRes = await fetch("../blog/posts.json", { cache: "no-cache" });
+      if (blogRes.ok && related && (paper.related || []).length) {
+        const blog = await blogRes.json();
+        const bySlug = Object.fromEntries((blog.posts || []).map((p) => [p.slug, p]));
+        const picks = (paper.related || []).map((s) => bySlug[s]).filter(Boolean);
+        if (picks.length) {
+          related.innerHTML = `<div class="lbl">${t(lang, "relatedBlog")}</div><div class="post-related-grid">` +
+            picks.map((p) => {
+              const locP = loc(p, lang);
+              const hrefBlog = "../blog/" + postUrl(p.slug, lang);
+              return `<a href="${hrefBlog}"><div class="ttl">${escapeHtml(locP.title)}</div><div class="ex">${escapeHtml(locP.excerpt)}</div></a>`;
+            }).join("") +
+            "</div>";
+        }
+      }
+    } catch (err) { /* keep slug fallback */ }
+
+    const older = papers[idx + 1];
+    const newer = papers[idx - 1];
+    let nav = "";
+    if (older) {
+      nav += `<a href="${paperUrl(older.slug, lang)}"><div class="lbl">${t(lang, "prev")}</div><div class="ttl">${escapeHtml(older.title)}</div></a>`;
+    } else {
+      nav += `<div class="spacer"></div>`;
+    }
+    if (newer) {
+      nav += `<a class="next" href="${paperUrl(newer.slug, lang)}"><div class="lbl">${t(lang, "next")}</div><div class="ttl">${escapeHtml(newer.title)}</div></a>`;
+    }
+    if (navEl) navEl.innerHTML = nav;
+  }
+
+  async function renderHomeReading(opts) {
+    const lang = opts.lang || "ja";
+    const root = document.getElementById(opts.targetId || "home-reading");
+    if (!root) return;
+    try {
+      const papers = await loadPapers(opts.indexUrl || "reading/papers.json");
+      const picks = papers.slice(0, opts.limit || 4);
+      const prefix = opts.prefix || "reading/";
+      root.innerHTML = picks.map((p) => paperRowHtml(p, lang, prefix)).join("");
+      observeReveals(root);
+    } catch (err) {
+      root.innerHTML = "";
+    }
+  }
+
+  global.SiteBlog = {
+    renderList,
+    renderPost,
+    renderHomePreview,
+    renderSeries,
+    renderReadingList,
+    renderReadingNote,
+    renderHomeReading
+  };
 })(window);

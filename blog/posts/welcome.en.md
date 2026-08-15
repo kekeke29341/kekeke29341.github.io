@@ -6,5 +6,6 @@ The two threads already here:
 
 - [Medical × ML](medical-en.html) (splits, time leakage, RNA-seq, clinical NLP, hospital LLMs — with a reading order)
 - [Air-gapped local LLMs](llm-en.html) (constraint, shape, memory, training, RAG)
+- [Papers I have read](../reading/en.html) (one takeaway each, not restated abstracts)
 
 Posts are Markdown. See [How to add a post](post.html?slug=how-to-write&lang=en) for the publishing steps.

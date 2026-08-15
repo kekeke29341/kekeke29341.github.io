@@ -195,6 +195,18 @@
     .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
     .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
     .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .paper-row {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      border-radius: var(--radius); padding: 20px 22px; margin-bottom: 12px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .paper-row:hover { transform: translateY(-3px); border-color: rgba(120,160,255,0.4); }
+    .paper-kicker { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 8px; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
+    .paper-kicker .yr { color: var(--accent-2); }
+    .paper-row h2 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; }
+    .paper-row p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+    .paper-row .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .home-blog-label {
       font-family: "JetBrains Mono", monospace;
       font-size: 0.78rem;
@@ -223,6 +235,7 @@
       <a href="#career">Career</a>
       <a href="#pubs">Papers</a>
       <a href="blog/en.html" class="nav-keep">Blog</a>
+      <a href="reading/en.html" class="nav-keep">Reading</a>
       <a href="index.html" class="lang">日本語</a>
     </div>
   </nav>
@@ -428,7 +441,7 @@
       <div class="sec-head reveal">
         <div class="kicker">// publications</div>
         <h2>Papers / Bioinformatics</h2>
-        <p>Machine learning × biomedicine — cancer heterogeneity, clinical text, and medical imaging.</p>
+        <p>Machine learning × biomedicine — cancer heterogeneity, clinical text, and medical imaging. Notes on papers I have read are <a href="reading/en.html" style="color:var(--accent-2)">here</a>.</p>
       </div>
       <div class="pubs">
         <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
@@ -467,6 +480,19 @@
       </div>
     </section>
 
+    <section id="reading">
+      <div class="sec-head reveal">
+        <div class="kicker">// reading</div>
+        <h2>Papers I have read</h2>
+        <p>Not restated abstracts — one takeaway I would carry into the work.</p>
+      </div>
+      <div id="home-reading"></div>
+      <div class="home-blog-more reveal">
+        <a href="reading/en.html?tag=Medical" class="btn btn-ghost">Medical papers</a>
+        <a href="reading/en.html" class="btn btn-primary">All reading notes →</a>
+      </div>
+    </section>
+
     <section id="links">
       <div class="sec-head reveal">
         <div class="kicker">// links</div>
@@ -474,6 +500,7 @@
       </div>
       <div class="link-grid">
         <a class="link-card reveal" href="blog/en.html">Blog<span class="sub">This site</span><span class="arw">→</span></a>
+        <a class="link-card reveal" href="reading/en.html">Reading notes<span class="sub">This site</span><span class="arw">→</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">Dev diary<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Tech notes<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">Blog<span class="sub">note</span><span class="arw">↗</span></a>
@@ -496,6 +523,7 @@
       s.onload = function () {
         SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog-med", tag: "Medical", limit: 3 });
         SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
+        SiteBlog.renderHomeReading({ lang: "en", targetId: "home-reading", limit: 4 });
       };
       document.body.appendChild(s);
     })();
