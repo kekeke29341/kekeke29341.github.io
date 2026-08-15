@@ -8,7 +8,9 @@
 
 画像を使う場合は `blog/posts/` 配下に置き、Markdown からはファイル名だけ指定します。
 
-    ![図](example.png)
+```md
+![図](example.png)
+```
 
 ## 2. 索引に1件足す
 

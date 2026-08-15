@@ -8,7 +8,9 @@ The title in `posts.json` is canonical. The body is GitHub Flavored Markdown —
 
 Images go under `blog/posts/` as well. Reference them by filename:
 
-    ![Figure](example.png)
+```md
+![Figure](example.png)
+```
 
 ## 2. Register it in the index
 
