@@ -6,6 +6,69 @@
     <description>ローカルLLM・閉域網AI・機械学習・バイオインフォマティクスのメモ</description>
     <language>ja</language>
     <item>
+      <title>推論で先に足りなくなるのは、重みよりKV cache</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</guid>
+      <pubDate>Sat, 15 Aug 2026 18:00:00 +0000</pubDate>
+      <description>同時接続と長いコンテキストでVRAMを埋めるのは重みではない。MHA / MQA / GQA で何が減るか。</description>
+    </item>
+    <item>
+      <title>量子化で先に死ぬもの</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm</guid>
+      <pubDate>Sat, 15 Aug 2026 17:00:00 +0000</pubDate>
+      <description>GPTQ / AWQ / FP8 の捨て方の偏りと、較正分布、固有名詞と長文。</description>
+    </item>
+    <item>
+      <title>SFTのあとでDPOする理由</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo</guid>
+      <pubDate>Sat, 15 Aug 2026 16:00:00 +0000</pubDate>
+      <description>SFTは分布を寄せ、DPOは二つの出力に順序を付ける。</description>
+    </item>
+    <item>
+      <title>RAGの「精度」を、四層に切る</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation</guid>
+      <pubDate>Sat, 15 Aug 2026 15:00:00 +0000</pubDate>
+      <description>検索・利用・回答・拒否を一つの正解率に折らない。</description>
+    </item>
+    <item>
+      <title>LoRAのランクより、足す層を先に決める</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</guid>
+      <pubDate>Sat, 15 Aug 2026 14:30:00 +0000</pubDate>
+      <description>r は更新の部分空間の次元。LoRAだから忘れない、は成り立たない。</description>
+    </item>
+    <item>
+      <title>RMSNormとPre-normが、深いLLMを支えている</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</guid>
+      <pubDate>Sat, 15 Aug 2026 14:00:00 +0000</pubDate>
+      <description>平均を引かないRMSNormと、残差を恒等のまま残すPre-norm。</description>
+    </item>
+    <item>
+      <title>投機的デコーディングは、受理率がすべて</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</guid>
+      <pubDate>Sat, 15 Aug 2026 13:30:00 +0000</pubDate>
+      <description>小さいモデルに先を書かせ、大きいモデルが分布を保ったまま検証する。</description>
+    </item>
+    <item>
+      <title>温度だけでは、サンプリングは決まらない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</guid>
+      <pubDate>Sat, 15 Aug 2026 13:00:00 +0000</pubDate>
+      <description>温度はsoftmaxの尖り。top-k / top-p は切る位置。</description>
+    </item>
+    <item>
+      <title>埋め込みの共通言語はInfoNCE</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</guid>
+      <pubDate>Sat, 15 Aug 2026 12:30:00 +0000</pubDate>
+      <description>密検索もCLIPも、正例を選ぶ分類損失。負例の質が表現を決める。</description>
+    </item>
+    <item>
       <title>LLMで使われるRoPEを、回転から追う</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=rope</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=rope</guid>

@@ -30,6 +30,69 @@
   </url>
 
   <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://kekeke29341.github.io/blog/post.html?slug=rope</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>yearly</changefreq>

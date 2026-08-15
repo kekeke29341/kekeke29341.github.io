@@ -1,6 +1,141 @@
 {
   "posts": [
     {
+      "slug": "kv-cache-gqa",
+      "date": "2026-08-15",
+      "tags": ["LLM", "Inference"],
+      "ja": {
+        "title": "推論で先に足りなくなるのは、重みよりKV cache",
+        "excerpt": "同時接続と長いコンテキストでVRAMを埋めるのは重みではない。MHA / MQA / GQA で何が減るかを、メモリの式から書きます。",
+        "file": "kv-cache-gqa.ja.md"
+      },
+      "en": {
+        "title": "KV cache fills VRAM before the weights do",
+        "excerpt": "Under concurrency and long context, weights are not what runs out. What MHA / MQA / GQA actually reduce, from the memory equation.",
+        "file": "kv-cache-gqa.en.md"
+      }
+    },
+    {
+      "slug": "quantization-llm",
+      "date": "2026-08-15",
+      "tags": ["LLM", "MLOps"],
+      "ja": {
+        "title": "量子化で先に死ぬもの",
+        "excerpt": "GPTQ / AWQ / FP8 はどれも情報を捨てる。捨て方の偏りと、較正分布、現場で先に壊れる固有名詞と長文の話です。",
+        "file": "quantization-llm.ja.md"
+      },
+      "en": {
+        "title": "What quantization kills first",
+        "excerpt": "GPTQ, AWQ, and FP8 all throw information away. They differ in which information, and in how calibration drift shows up on names and long context.",
+        "file": "quantization-llm.en.md"
+      }
+    },
+    {
+      "slug": "sft-then-dpo",
+      "date": "2026-08-15",
+      "tags": ["LLM", "Training"],
+      "ja": {
+        "title": "SFTのあとでDPOする理由",
+        "excerpt": "SFTは分布を寄せ、DPOは二つの出力に順序を付ける。順番を飛ばすとJSONが壊れ、拒否より敬語だけが残ります。",
+        "file": "sft-then-dpo.ja.md"
+      },
+      "en": {
+        "title": "Why DPO comes after SFT",
+        "excerpt": "SFT moves a distribution; DPO orders two outputs. Skip a step and you keep honorifics and lose refusal.",
+        "file": "sft-then-dpo.en.md"
+      }
+    },
+    {
+      "slug": "rag-evaluation",
+      "date": "2026-08-15",
+      "tags": ["RAG", "Evaluation"],
+      "ja": {
+        "title": "RAGの「精度」を、四層に切る",
+        "excerpt": "検索・利用・回答・拒否を一つの正解率に折らない。recall@k と忠実性を分け、拒否セットを正解と同じ数だけ持ちます。",
+        "file": "rag-evaluation.ja.md"
+      },
+      "en": {
+        "title": "Cut RAG “accuracy” into four layers",
+        "excerpt": "Do not fold retrieval, use, answer, and refusal into one score. Split recall@k from faithfulness, and keep a refusal set as large as the answer set.",
+        "file": "rag-evaluation.en.md"
+      }
+    },
+    {
+      "slug": "lora-what-rank-fits",
+      "date": "2026-08-15",
+      "tags": ["LLM", "Training"],
+      "ja": {
+        "title": "LoRAのランクより、足す層を先に決める",
+        "excerpt": "r は更新の部分空間の次元です。q,v から始め、足りなければMLP。LoRAだから忘れない、は成り立ちません。",
+        "file": "lora-what-rank-fits.ja.md"
+      },
+      "en": {
+        "title": "Pick LoRA layers before you pick rank",
+        "excerpt": "Rank is the dimension of the update subspace. Start with q,v, then the MLP. “It’s LoRA, so it won’t forget” is false.",
+        "file": "lora-what-rank-fits.en.md"
+      }
+    },
+    {
+      "slug": "rmsnorm-prenorm",
+      "date": "2026-08-15",
+      "tags": ["LLM", "Architecture"],
+      "ja": {
+        "title": "RMSNormとPre-normが、深いLLMを支えている",
+        "excerpt": "BatchNormが系列で使いにくい理由から、平均を引かないRMSNorm、残差を恒等のまま残すPre-norm、SwiGLUまで。",
+        "file": "rmsnorm-prenorm.ja.md"
+      },
+      "en": {
+        "title": "RMSNorm and pre-norm are why deep LLMs stand up",
+        "excerpt": "From why BatchNorm fails on sequences, to RMSNorm without a mean, pre-norm residuals, and SwiGLU.",
+        "file": "rmsnorm-prenorm.en.md"
+      }
+    },
+    {
+      "slug": "speculative-decoding",
+      "date": "2026-08-15",
+      "tags": ["LLM", "Inference"],
+      "ja": {
+        "title": "投機的デコーディングは、受理率がすべて",
+        "excerpt": "小さいモデルに先を書かせ、大きいモデルが分布を保ったまま検証する。受理率が低いと、二体を載せるだけになります。",
+        "file": "speculative-decoding.ja.md"
+      },
+      "en": {
+        "title": "Speculative decoding is an acceptance-rate game",
+        "excerpt": "A draft model writes ahead; the large model verifies without changing its distribution. Low acceptance and you are only hosting two models.",
+        "file": "speculative-decoding.en.md"
+      }
+    },
+    {
+      "slug": "sampling-beyond-temperature",
+      "date": "2026-08-15",
+      "tags": ["LLM", "Inference"],
+      "ja": {
+        "title": "温度だけでは、サンプリングは決まらない",
+        "excerpt": "温度はsoftmaxの尖り、top-k / top-p は切る位置。評価と本番で温度を変えない。報告には T, k, p を揃えて書きます。",
+        "file": "sampling-beyond-temperature.ja.md"
+      },
+      "en": {
+        "title": "Temperature is not a sampling policy",
+        "excerpt": "Temperature is softmax sharpness; top-k and top-p decide the cut. Do not eval at 0.8 and serve at 0.2. Quote T, k, and p together.",
+        "file": "sampling-beyond-temperature.en.md"
+      }
+    },
+    {
+      "slug": "contrastive-infonce",
+      "date": "2026-08-15",
+      "tags": ["ML", "RAG"],
+      "ja": {
+        "title": "埋め込みの共通言語はInfoNCE",
+        "excerpt": "密検索もCLIPも、正例を選ぶ分類損失です。負例の質が表現を決める。生成用LLMの隠れ状態を、そのまま検索に使わない。",
+        "file": "contrastive-infonce.ja.md"
+      },
+      "en": {
+        "title": "InfoNCE is the common language of embeddings",
+        "excerpt": "Dense retrieval and CLIP are a classify-the-positive loss. Negatives set the representation. Do not use a generator’s hidden states as a retriever unchanged.",
+        "file": "contrastive-infonce.en.md"
+      }
+    },
+    {
       "slug": "rope",
       "date": "2026-08-15",
       "tags": ["LLM", "RoPE"],
