@@ -42,11 +42,18 @@
         <h1>Blog</h1>
         <p>Notes on medical ML and air-gapped local LLMs. Filter by tag. Medical posts are methods and evaluation notes, not diagnosis or treatment.</p>
       </div>
-      <a class="series-banner reveal" href="medical-en.html">
-        <div class="k">// start here</div>
-        <strong>Medical ML reading order</strong>
-        <span>Start with splits and leakage, then labels, then clinical text.</span>
-      </a>
+      <div class="series-banners">
+        <a class="series-banner reveal" href="medical-en.html">
+          <div class="k">// medical</div>
+          <strong>Medical ML reading order</strong>
+          <span>Start with splits and leakage, then labels, then clinical text.</span>
+        </a>
+        <a class="series-banner llm reveal" href="llm-en.html">
+          <div class="k">// local llm</div>
+          <strong>Local LLM reading order</strong>
+          <span>Constraint and memory first, then shape, inference, training, RAG.</span>
+        </a>
+      </div>
       <div class="blog-toolbar reveal">
         <input id="blog-search" class="blog-search" type="search" placeholder="Search posts" aria-label="Search posts">
       </div>

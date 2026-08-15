@@ -14,7 +14,10 @@
       toc: "目次",
       related: "関連するメモ",
       medicalSeries: "医療MLメモの読み順",
-      seriesBack: "読み順へ"
+      llmSeries: "ローカルLLMの読み順",
+      seriesBack: "読み順へ",
+      copy: "コピー",
+      copied: "コピーした"
     },
     en: {
       all: "All",
@@ -30,7 +33,10 @@
       toc: "Contents",
       related: "Related notes",
       medicalSeries: "Medical ML reading order",
-      seriesBack: "Reading order"
+      llmSeries: "Local LLM reading order",
+      seriesBack: "Reading order",
+      copy: "Copy",
+      copied: "Copied"
     }
   };
 
@@ -42,6 +48,18 @@
     { ja: "文書とLLM", en: "Text and LLMs", slugs: ["phi-hospital-llm", "guideline-rag-clinical", "clinical-text-from-talk", "radiology-report-nlp"] },
     { ja: "オミクスと腫瘍", en: "Omics and tumor", slugs: ["rnaseq-batch-effects", "cancer-heterogeneity-ml"] }
   ];
+  const LLM_PATH = [
+    { ja: "先に決める", en: "Decide first", slugs: ["air-gapped-llm-checklist"] },
+    { ja: "形", en: "Shape", slugs: ["decoder-only", "rope", "rmsnorm-prenorm", "moe-routing"] },
+    { ja: "推論とメモリ", en: "Inference and memory", slugs: ["kv-cache-gqa", "flashattention-io", "quantization-llm", "speculative-decoding", "attention-sink-window", "sampling-beyond-temperature"] },
+    { ja: "学習", en: "Training", slugs: ["adamw-transformers", "lora-what-rank-fits", "sft-then-dpo", "distillation-logits"] },
+    { ja: "検索と評価", en: "Retrieval and eval", slugs: ["rag-chunking", "rag-evaluation", "tokenizer-bpe-traps", "eval-contamination", "calibration-ece"] }
+  ];
+  const SERIES = {
+    medical: { path: MEDICAL_PATH, page: { ja: "medical.html", en: "medical-en.html" }, labelKey: "medicalSeries" },
+    llm: { path: LLM_PATH, page: { ja: "llm.html", en: "llm-en.html" }, labelKey: "llmSeries" }
+  };
+  const LLM_SLUGS = new Set(LLM_PATH.flatMap((group) => group.slugs));
 
   function t(lang, key) {
     return (COPY[lang] || COPY.ja)[key];
@@ -75,8 +93,16 @@
     return lang === "en" ? "en.html" : "index.html";
   }
 
-  function seriesUrl(lang) {
-    return lang === "en" ? "medical-en.html" : "medical.html";
+  function seriesNameFor(post) {
+    if ((post.tags || []).includes("Medical")) return "medical";
+    if (LLM_SLUGS.has(post.slug)) return "llm";
+    return "";
+  }
+
+  function seriesUrl(lang, name) {
+    const series = SERIES[name || "medical"];
+    if (!series) return listUrl(lang);
+    return series.page[lang === "en" ? "en" : "ja"];
   }
 
   function siteOrigin() {
@@ -153,6 +179,28 @@
         return `<a href="${postUrl(p.slug, lang)}"><div class="ttl">${escapeHtml(L.title)}</div><div class="ex">${escapeHtml(L.excerpt)}</div></a>`;
       }).join("") +
       "</div>";
+  }
+
+  function addCopyButtons(article, lang) {
+    article.querySelectorAll("pre").forEach((pre) => {
+      if (pre.querySelector(".copy-btn")) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "copy-btn";
+      btn.textContent = t(lang, "copy");
+      btn.addEventListener("click", async () => {
+        const text = (pre.querySelector("code") || pre).textContent || "";
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.textContent = t(lang, "copied");
+        } catch (err) {
+          btn.textContent = t(lang, "copy");
+        }
+        setTimeout(() => { btn.textContent = t(lang, "copy"); }, 1600);
+      });
+      pre.classList.add("has-copy");
+      pre.appendChild(btn);
+    });
   }
 
   function setPostMeta(post, lang, L) {
@@ -265,7 +313,24 @@
       .concat(found.filter((tag) => !PINNED_TAGS.includes(tag)).sort());
     let activeTag = new URLSearchParams(location.search).get("tag") || "";
     if (activeTag && !found.includes(activeTag)) activeTag = "";
-    let query = "";
+    let query = new URLSearchParams(location.search).get("q") || "";
+    if (searchEl && query) searchEl.value = query;
+
+    function syncListUrl() {
+      const url = new URL(location.href);
+      if (activeTag) url.searchParams.set("tag", activeTag);
+      else url.searchParams.delete("tag");
+      const q = query.trim();
+      if (q) url.searchParams.set("q", q);
+      else url.searchParams.delete("q");
+      history.replaceState({}, "", url);
+      const langLink = document.querySelector("nav a.lang");
+      if (langLink) {
+        const other = lang === "en" ? "index.html" : "en.html";
+        const qs = url.searchParams.toString();
+        langLink.href = other + (qs ? "?" + qs : "");
+      }
+    }
 
     function paintTags() {
       tagsEl.innerHTML = [`<button type="button" class="tag-btn${activeTag ? "" : " on"}" data-tag="">${t(lang, "all")}</button>`]
@@ -274,16 +339,13 @@
       tagsEl.querySelectorAll(".tag-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           activeTag = btn.getAttribute("data-tag") || "";
-          const url = new URL(location.href);
-          if (activeTag) url.searchParams.set("tag", activeTag);
-          else url.searchParams.delete("tag");
-          history.replaceState({}, "", url);
           paint();
         });
       });
     }
 
     function paint() {
+      syncListUrl();
       paintTags();
       const q = query.trim().toLowerCase();
       const filtered = posts.filter((p) => {
@@ -347,9 +409,10 @@
     const L = loc(post, lang);
     const otherLang = lang === "en" ? "ja" : "en";
     const isMedical = (post.tags || []).includes("Medical");
+    const seriesName = seriesNameFor(post);
     if (backEl) {
-      backEl.href = isMedical ? seriesUrl(lang) : listUrl(lang);
-      backEl.textContent = "← " + t(lang, isMedical ? "seriesBack" : "back");
+      backEl.href = seriesName ? seriesUrl(lang, seriesName) : listUrl(lang);
+      backEl.textContent = "← " + t(lang, seriesName ? "seriesBack" : "back");
     }
     if (langEl) {
       langEl.href = postUrl(post.slug, otherLang);
@@ -386,9 +449,9 @@
       seriesEl.className = "post-series";
       noteEl.insertAdjacentElement("afterend", seriesEl);
     }
-    if (isMedical) {
+    if (seriesName) {
       seriesEl.hidden = false;
-      seriesEl.innerHTML = `<a href="${seriesUrl(lang)}">${t(lang, "medicalSeries")} →</a>`;
+      seriesEl.innerHTML = `<a href="${seriesUrl(lang, seriesName)}">${t(lang, SERIES[seriesName].labelKey)} →</a>`;
     } else {
       seriesEl.hidden = true;
       seriesEl.innerHTML = "";
@@ -431,6 +494,7 @@
         throwOnError: false
       });
     }
+    addCopyButtons(article, lang);
     renderToc(article, lang);
     renderRelated(posts, post, lang);
 
@@ -495,7 +559,8 @@
       return;
     }
     const bySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
-    root.innerHTML = MEDICAL_PATH.map((group) => {
+    const path = (SERIES[opts.series] || SERIES.medical).path;
+    root.innerHTML = path.map((group) => {
       const items = group.slugs.map((slug) => bySlug[slug]).filter(Boolean);
       const cards = items.map((p) => cardHtml(p, lang)).join("");
       return `<section class="series-group"><h2>${escapeHtml(lang === "en" ? group.en : group.ja)}</h2><div class="blog-grid">${cards}</div></section>`;
