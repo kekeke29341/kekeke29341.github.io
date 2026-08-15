@@ -13,7 +13,8 @@
       medicalNote: "本記事は手法・評価のメモであり、診断・治療の判断には使用できません。",
       toc: "目次",
       related: "関連するメモ",
-      medicalSeries: "医療MLメモの読み順"
+      medicalSeries: "医療MLメモの読み順",
+      seriesBack: "読み順へ"
     },
     en: {
       all: "All",
@@ -28,7 +29,8 @@
       medicalNote: "This is a methods and evaluation note. It is not for diagnosis or treatment.",
       toc: "Contents",
       related: "Related notes",
-      medicalSeries: "Medical ML reading order"
+      medicalSeries: "Medical ML reading order",
+      seriesBack: "Reading order"
     }
   };
 
@@ -93,11 +95,14 @@
 
   function relatedPosts(posts, current, limit) {
     const mine = new Set(current.tags || []);
+    const currentMedical = mine.has("Medical");
     return posts
       .filter((p) => p.slug !== current.slug)
       .map((p) => {
-        const shared = (p.tags || []).filter((tag) => mine.has(tag));
-        const score = shared.reduce((sum, tag) => sum + (TAG_WEIGHT[tag] || 1), 0);
+        const tags = p.tags || [];
+        const shared = tags.filter((tag) => mine.has(tag));
+        let score = shared.reduce((sum, tag) => sum + (TAG_WEIGHT[tag] || 1), 0);
+        if (!currentMedical && tags.includes("Medical")) score -= 2;
         return { p, score };
       })
       .filter((row) => row.score > 0)
@@ -108,7 +113,8 @@
 
   function headingId(text, i) {
     const ascii = String(text).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-    return ascii || ("sec-" + (i + 1));
+    if (!ascii || ascii.length < 3 || /^\d/.test(ascii)) return "sec-" + (i + 1);
+    return ascii;
   }
 
   function renderToc(article, lang) {
@@ -343,6 +349,7 @@
     const isMedical = (post.tags || []).includes("Medical");
     if (backEl) {
       backEl.href = isMedical ? seriesUrl(lang) : listUrl(lang);
+      backEl.textContent = "← " + t(lang, isMedical ? "seriesBack" : "back");
     }
     if (langEl) {
       langEl.href = postUrl(post.slug, otherLang);
