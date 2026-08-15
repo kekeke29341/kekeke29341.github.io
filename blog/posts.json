@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "slug": "rope",
+      "date": "2026-08-15",
+      "tags": ["LLM", "RoPE"],
+      "ja": {
+        "title": "LLMで使われるRoPEを、回転から追う",
+        "excerpt": "位置を足すのではなく、QueryとKeyを回す。相対位置が内積に残る理由と、長文で伸ばすときに何が壊れるかを実装寄りに書きます。",
+        "file": "rope.ja.md"
+      },
+      "en": {
+        "title": "RoPE in LLMs, from the rotation up",
+        "excerpt": "Do not add a position vector — rotate Q and K. Why the relative offset survives the inner product, and what breaks when you stretch context.",
+        "file": "rope.en.md"
+      }
+    },
+    {
       "slug": "welcome",
       "date": "2026-08-15",
       "tags": ["meta"],

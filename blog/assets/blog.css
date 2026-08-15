@@ -167,6 +167,8 @@
 .prose th { color: var(--text); }
 .prose img { max-width: 100%; border-radius: 12px; }
 .prose hr { border: 0; border-top: 1px solid var(--panel-border); margin: 2.2em 0; }
+.prose .katex { color: var(--text); font-size: 1.05em; }
+.prose .katex-display { margin: 1.3em 0; overflow-x: auto; overflow-y: hidden; }
 
 .post-nav {
   display: grid;

@@ -6,6 +6,13 @@
     <description>ローカルLLM・閉域網AI・機械学習・バイオインフォマティクスのメモ</description>
     <language>ja</language>
     <item>
+      <title>LLMで使われるRoPEを、回転から追う</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rope</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rope</guid>
+      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
+      <description>位置を足すのではなく、QueryとKeyを回す。相対位置が内積に残る理由と、長文で伸ばすときに何が壊れるか。</description>
+    </item>
+    <item>
       <title>ブログを開設しました</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=welcome</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=welcome</guid>

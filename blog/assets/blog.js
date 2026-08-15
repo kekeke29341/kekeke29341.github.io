@@ -77,6 +77,26 @@
       </a>`;
   }
 
+  const mathSlots = [];
+
+  function protectMath(md) {
+    mathSlots.length = 0;
+    const codes = [];
+    let out = md.replace(/```[\s\S]*?```/g, (block) => {
+      codes.push(block);
+      return `@@CODE${codes.length - 1}@@`;
+    });
+    out = out.replace(/\$\$[\s\S]+?\$\$|\\\([\s\S]+?\\\)/g, (block) => {
+      mathSlots.push(block);
+      return `@@MATH${mathSlots.length - 1}@@`;
+    });
+    return out.replace(/@@CODE(\d+)@@/g, (_, i) => codes[+i]);
+  }
+
+  function restoreMath(html) {
+    return html.replace(/@@MATH(\d+)@@/g, (_, i) => mathSlots[+i]);
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -215,14 +235,23 @@
     readEl.textContent = `${readingMinutes(md, lang)} ${t(lang, "minRead")}`;
 
     const parse = (global.marked && global.marked.parse) || global.marked;
-    const raw = parse(md);
-    article.innerHTML = global.DOMPurify.sanitize(raw);
+    const raw = parse(protectMath(md));
+    article.innerHTML = global.DOMPurify.sanitize(restoreMath(raw));
     article.querySelectorAll("img").forEach((img) => {
       const src = img.getAttribute("src") || "";
       if (src && !/^(https?:|data:|\/)/.test(src)) img.src = "posts/" + src;
     });
     if (global.hljs) {
       article.querySelectorAll("pre code").forEach((el) => global.hljs.highlightElement(el));
+    }
+    if (global.renderMathInElement) {
+      global.renderMathInElement(article, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
     }
 
     const olderPost = posts[idx + 1];
