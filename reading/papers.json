@@ -1,6 +1,31 @@
 {
   "papers": [
     {
+      "slug": "lost-in-the-middle",
+      "year": 2024,
+      "read": "2026-08-15",
+      "authors": "Liu et al.",
+      "venue": "TACL",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "tags": [
+        "RAG",
+        "LLM"
+      ],
+      "related": [
+        "rag-chunking",
+        "rag-evaluation"
+      ],
+      "ja": {
+        "takeaway": "長い文脈の真ん中は使われない。RAGは、根拠を先頭と末尾に置くか、文脈を短くする。",
+        "file": "lost-in-the-middle.ja.md"
+      },
+      "en": {
+        "takeaway": "The middle of a long context is unused. RAG either puts evidence at the ends or shortens the context.",
+        "file": "lost-in-the-middle.en.md"
+      },
+      "arxiv": "2307.03172"
+    },
+    {
       "slug": "wornow-shaky-foundations",
       "year": 2023,
       "read": "2026-08-15",
@@ -24,6 +49,31 @@
         "file": "wornow-shaky-foundations.en.md"
       },
       "doi": "10.1038/s41746-023-00879-8"
+    },
+    {
+      "slug": "med-palm",
+      "year": 2023,
+      "read": "2026-08-14",
+      "authors": "Singhal et al.",
+      "venue": "Nature",
+      "title": "Large language models encode clinical knowledge",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "related": [
+        "guideline-rag-clinical",
+        "phi-hospital-llm"
+      ],
+      "ja": {
+        "takeaway": "試験の点数は、院内手順の忠実さではない。医療LLMは、引用先と、出さない範囲を先に決める。",
+        "file": "med-palm.ja.md"
+      },
+      "en": {
+        "takeaway": "A board-exam score is not faithfulness to a ward protocol. A medical LLM decides citations and what it will not emit first.",
+        "file": "med-palm.en.md"
+      },
+      "doi": "10.1038/s41586-023-06291-2"
     },
     {
       "slug": "degrave-covid-shortcuts",
@@ -50,6 +100,31 @@
       "doi": "10.1038/s42256-021-00338-7"
     },
     {
+      "slug": "lehman-clinical-lms",
+      "year": 2023,
+      "read": "2026-08-13",
+      "authors": "Lehman et al.",
+      "venue": "CHIL",
+      "title": "Do We Still Need Clinical Language Models?",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "related": [
+        "clinical-text-from-talk",
+        "phi-hospital-llm"
+      ],
+      "ja": {
+        "takeaway": "汎用LLMが臨床タスクで勝っても、ノートを外に出せるかは別問題。要るのは、モデル名より先にデータの境界。",
+        "file": "lehman-clinical-lms.ja.md"
+      },
+      "en": {
+        "takeaway": "A general LLM can win a clinical task and still be unusable if notes cannot leave. The boundary precedes the model name.",
+        "file": "lehman-clinical-lms.en.md"
+      },
+      "arxiv": "2302.08091"
+    },
+    {
       "slug": "zech-pneumonia-2018",
       "year": 2018,
       "read": "2026-08-13",
@@ -72,6 +147,30 @@
         "file": "zech-pneumonia-2018.en.md"
       },
       "doi": "10.1371/journal.pmed.1002683"
+    },
+    {
+      "slug": "nori-gpt4-medical",
+      "year": 2023,
+      "read": "2026-08-12",
+      "authors": "Nori et al.",
+      "venue": "arXiv",
+      "title": "Capabilities of GPT-4 on Medical Challenge Problems",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "related": [
+        "guideline-rag-clinical"
+      ],
+      "ja": {
+        "takeaway": "挑戦問題の点数は、電子カルテの入力でも、責任の所在でもない。デモの上限として読む。",
+        "file": "nori-gpt4-medical.ja.md"
+      },
+      "en": {
+        "takeaway": "A challenge-problem score is not EHR input and not an accountability story. I read it as an upper bound on a demo.",
+        "file": "nori-gpt4-medical.en.md"
+      },
+      "arxiv": "2303.13375"
     },
     {
       "slug": "obermeyer-bias-2019",
@@ -99,6 +198,31 @@
       "doi": "10.1126/science.aal3304"
     },
     {
+      "slug": "gatortron",
+      "year": 2022,
+      "read": "2026-08-11",
+      "authors": "Yang et al.",
+      "venue": "arXiv",
+      "title": "GatorTron: A Large Clinical Language Model to Unlock Patient Information from Unstructured Electronic Health Records",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "related": [
+        "phi-hospital-llm",
+        "clinical-text-from-talk"
+      ],
+      "ja": {
+        "takeaway": "大規模臨床LMは、ノートを施設内で学習した点が本体。重みの公開有無と、教師の定義を先に見る。",
+        "file": "gatortron.ja.md"
+      },
+      "en": {
+        "takeaway": "The point of a large clinical LM is notes trained inside the institution. I look at weight release and the teacher first.",
+        "file": "gatortron.en.md"
+      },
+      "arxiv": "2203.03540"
+    },
+    {
       "slug": "futoma-generalisability",
       "year": 2020,
       "read": "2026-08-11",
@@ -124,6 +248,31 @@
       "doi": "10.1016/S2589-7500(20)30186-2"
     },
     {
+      "slug": "clinical-bert-alsentzer",
+      "year": 2019,
+      "read": "2026-08-10",
+      "authors": "Alsentzer et al.",
+      "venue": "Clinical NLP",
+      "title": "Publicly Available Clinical BERT Embeddings",
+      "tags": [
+        "Medical",
+        "NLP"
+      ],
+      "related": [
+        "radiology-report-nlp",
+        "clinical-text-from-talk"
+      ],
+      "ja": {
+        "takeaway": "公開臨床BERTは、MIMICの文体に寄る。自施設ノートでの再評価なしに、埋め込みを固定しない。",
+        "file": "clinical-bert-alsentzer.ja.md"
+      },
+      "en": {
+        "takeaway": "Public clinical BERT leans toward MIMIC prose. I do not freeze the embedding without a local-note re-eval.",
+        "file": "clinical-bert-alsentzer.en.md"
+      },
+      "arxiv": "1904.03323"
+    },
+    {
       "slug": "rajkomar-ehr-2018",
       "year": 2018,
       "read": "2026-08-10",
@@ -147,6 +296,30 @@
         "file": "rajkomar-ehr-2018.en.md"
       },
       "doi": "10.1038/s41746-018-0029-2"
+    },
+    {
+      "slug": "biobert",
+      "year": 2020,
+      "read": "2026-08-09",
+      "authors": "Lee et al.",
+      "venue": "Bioinformatics",
+      "title": "BioBERT: a pre-trained biomedical language representation model for biomedical text mining",
+      "tags": [
+        "Medical",
+        "NLP"
+      ],
+      "related": [
+        "radiology-report-nlp"
+      ],
+      "ja": {
+        "takeaway": "PubMedの上にBERTを置く。臨床ノートではなく、論文英語である。コーパスを名前で取り違えない。",
+        "file": "biobert.ja.md"
+      },
+      "en": {
+        "takeaway": "BERT on PubMed. That is paper English, not a ward note. I do not confuse corpora by name.",
+        "file": "biobert.en.md"
+      },
+      "arxiv": "1901.08746"
     },
     {
       "slug": "mimic-iii",
@@ -199,6 +372,56 @@
       "doi": "10.1145/3368555.3384468"
     },
     {
+      "slug": "chexpert-irvin",
+      "year": 2019,
+      "read": "2026-08-08",
+      "authors": "Irvin et al.",
+      "venue": "AAAI",
+      "title": "CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "radiology-report-nlp",
+        "icd-label-noise"
+      ],
+      "ja": {
+        "takeaway": "不確実ラベル（正・不明・負）が本体。陽性に潰すと、モデルは放射線科の迷いを学習しない。",
+        "file": "chexpert-irvin.ja.md"
+      },
+      "en": {
+        "takeaway": "The uncertain label (pos / uncertain / neg) is the dataset. Collapse it to positive and the model never learns radiologist doubt.",
+        "file": "chexpert-irvin.en.md"
+      },
+      "arxiv": "1901.07031"
+    },
+    {
+      "slug": "mimic-cxr",
+      "year": 2019,
+      "read": "2026-08-07",
+      "authors": "Johnson et al.",
+      "venue": "Scientific Data",
+      "title": "MIMIC-CXR, a de-identified publicly available database of chest radiographs with free-text reports",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "radiology-report-nlp",
+        "scanner-shift-imaging"
+      ],
+      "ja": {
+        "takeaway": "画像とレポートが揃う公開セット。分割は患者。撮影時刻と記載時刻を混ぜない。",
+        "file": "mimic-cxr.ja.md"
+      },
+      "en": {
+        "takeaway": "A public set with images and reports. Split by patient. Do not mix acquisition time and report time.",
+        "file": "mimic-cxr.en.md"
+      },
+      "doi": "10.1038/s41597-019-0322-2"
+    },
+    {
       "slug": "saito-pr-2015",
       "year": 2015,
       "read": "2026-08-07",
@@ -222,6 +445,31 @@
         "file": "saito-pr-2015.en.md"
       },
       "doi": "10.1371/journal.pone.0118432"
+    },
+    {
+      "slug": "seyyed-underdiagnosis",
+      "year": 2021,
+      "read": "2026-08-06",
+      "authors": "Seyyed-Kalantari et al.",
+      "venue": "Nature Medicine",
+      "title": "Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "scanner-shift-imaging",
+        "auroc-rare-events"
+      ],
+      "ja": {
+        "takeaway": "平均AUROCの下で、underserved集団の偽陰性が増える。層を切らない胸部モデルは、採用しない。",
+        "file": "seyyed-underdiagnosis.ja.md"
+      },
+      "en": {
+        "takeaway": "Under mean AUROC, false negatives rise in under-served groups. I do not ship a chest model I cannot slice.",
+        "file": "seyyed-underdiagnosis.en.md"
+      },
+      "doi": "10.1038/s41591-021-01595-0"
     },
     {
       "slug": "leek-batch-2010",
@@ -248,6 +496,30 @@
       "doi": "10.1038/nrg2825"
     },
     {
+      "slug": "badgeley-hip-confound",
+      "year": 2019,
+      "read": "2026-08-05",
+      "authors": "Badgeley et al.",
+      "venue": "npj Digital Medicine",
+      "title": "Deep learning predicts hip fracture using confounding patient and healthcare variables",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "scanner-shift-imaging"
+      ],
+      "ja": {
+        "takeaway": "骨折を当てているように見えて、病院とスキャナを当てている。交絡を、精度の前にプロットする。",
+        "file": "badgeley-hip-confound.ja.md"
+      },
+      "en": {
+        "takeaway": "It looks like fracture and is hospital and scanner. I plot confounders before I print accuracy.",
+        "file": "badgeley-hip-confound.en.md"
+      },
+      "doi": "10.1038/s41746-019-0105-1"
+    },
+    {
       "slug": "combat-johnson-2007",
       "year": 2007,
       "read": "2026-08-05",
@@ -269,6 +541,31 @@
         "file": "combat-johnson-2007.en.md"
       },
       "doi": "10.1093/biostatistics/kxj037"
+    },
+    {
+      "slug": "tripod-collins",
+      "year": 2015,
+      "read": "2026-08-04",
+      "authors": "Collins et al.",
+      "venue": "Ann Intern Med / BMJ / et al.",
+      "title": "Transparent Reporting of a multivariable prediction model for Individual Prognosis or Diagnosis (TRIPOD)",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "auroc-rare-events",
+        "patient-level-split"
+      ],
+      "ja": {
+        "takeaway": "予測モデルの報告項目が先。分割、校正、対象集団が無い論文は、再現できない。",
+        "file": "tripod-collins.ja.md"
+      },
+      "en": {
+        "takeaway": "Reporting items come first. A paper without split, calibration, and population cannot be reproduced.",
+        "file": "tripod-collins.en.md"
+      },
+      "doi": "10.7326/M14-0697"
     },
     {
       "slug": "chapman-negex",
@@ -319,6 +616,31 @@
       "arxiv": "2309.06180"
     },
     {
+      "slug": "vickers-dca",
+      "year": 2006,
+      "read": "2026-08-03",
+      "authors": "Vickers, Elkin",
+      "venue": "Medical Decision Making",
+      "title": "Decision Curve Analysis: A Novel Method for Evaluating Prediction Models",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "auroc-rare-events",
+        "calibration-ece"
+      ],
+      "ja": {
+        "takeaway": "閾値ごとに、治療する／しないの正味を描く。AUROCが高くても、使う閾値で損なら採用しない。",
+        "file": "vickers-dca.ja.md"
+      },
+      "en": {
+        "takeaway": "Plot net benefit against the treat / do-not-treat threshold. A high AUROC that loses at the operating threshold does not ship.",
+        "file": "vickers-dca.en.md"
+      },
+      "doi": "10.1177/0272989X06295361"
+    },
+    {
       "slug": "flashattention",
       "year": 2022,
       "read": "2026-08-02",
@@ -341,6 +663,31 @@
         "file": "flashattention.en.md"
       },
       "arxiv": "2205.14135"
+    },
+    {
+      "slug": "harutyunyan-mimic",
+      "year": 2019,
+      "read": "2026-08-02",
+      "authors": "Harutyunyan et al.",
+      "venue": "Scientific Data",
+      "title": "Multitask learning and benchmarking with clinical time series data",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "ehr-temporal-leakage",
+        "patient-level-split"
+      ],
+      "ja": {
+        "takeaway": "MIMICのベンチマークは、タスク定義と分割が本体。自前タスクに、この前処理を黙ってコピーしない。",
+        "file": "harutyunyan-mimic.ja.md"
+      },
+      "en": {
+        "takeaway": "The MIMIC benchmark is the task definition and the split. I do not silently copy that preprocessing onto my own task.",
+        "file": "harutyunyan-mimic.en.md"
+      },
+      "doi": "10.1038/s41597-019-0103-9"
     },
     {
       "slug": "gqa",
@@ -367,6 +714,31 @@
       "arxiv": "2305.13245"
     },
     {
+      "slug": "wiens-do-no-harm",
+      "year": 2019,
+      "read": "2026-08-01",
+      "authors": "Wiens et al.",
+      "venue": "Nature Medicine",
+      "title": "Do no harm: a roadmap for responsible machine learning for health care",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "phi-hospital-llm",
+        "patient-level-split"
+      ],
+      "ja": {
+        "takeaway": "医療MLの責任は、モデルカードより、誰が止めるか。導入の前に、無効化の経路を書く。",
+        "file": "wiens-do-no-harm.ja.md"
+      },
+      "en": {
+        "takeaway": "Responsibility is who can stop it, not a model card. I write the off-switch before deployment.",
+        "file": "wiens-do-no-harm.en.md"
+      },
+      "doi": "10.1038/s41591-019-0548-6"
+    },
+    {
       "slug": "roformer",
       "year": 2021,
       "read": "2026-07-31",
@@ -388,6 +760,31 @@
         "file": "roformer.en.md"
       },
       "arxiv": "2104.09864"
+    },
+    {
+      "slug": "ghassemi-xai-false-hope",
+      "year": 2021,
+      "read": "2026-07-31",
+      "authors": "Ghassemi, Oakden-Rayner, Beam",
+      "venue": "Lancet Digital Health",
+      "title": "The false hope of current approaches to explainable artificial intelligence in health care",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "related": [
+        "scanner-shift-imaging",
+        "auroc-rare-events"
+      ],
+      "ja": {
+        "takeaway": "saliencyは、汎化の証拠ではない。説明図より、外部施設と層別の失敗を先に出す。",
+        "file": "ghassemi-xai-false-hope.ja.md"
+      },
+      "en": {
+        "takeaway": "Saliency is not evidence of generalization. I print external-site and slice failures before an explanation figure.",
+        "file": "ghassemi-xai-false-hope.en.md"
+      },
+      "doi": "10.1016/S2589-7500(21)00208-9"
     },
     {
       "slug": "attention-sinks",
@@ -414,6 +811,29 @@
       "arxiv": "2309.17453"
     },
     {
+      "slug": "deseq2",
+      "year": 2014,
+      "read": "2026-07-30",
+      "authors": "Love, Huber, Anders",
+      "venue": "Genome Biology",
+      "title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "related": [
+        "rnaseq-batch-effects"
+      ],
+      "ja": {
+        "takeaway": "分散をshrinkしてから差を見る。生カウントを、そのまま学習器に渡さない。",
+        "file": "deseq2.ja.md"
+      },
+      "en": {
+        "takeaway": "Shrink dispersion, then test a difference. I do not hand raw counts to a learner.",
+        "file": "deseq2.en.md"
+      },
+      "doi": "10.1186/s13059-014-0550-8"
+    },
+    {
       "slug": "speculative-decoding",
       "year": 2023,
       "read": "2026-07-29",
@@ -436,6 +856,30 @@
         "file": "speculative-decoding.en.md"
       },
       "arxiv": "2211.17192"
+    },
+    {
+      "slug": "harmony-korsunsky",
+      "year": 2019,
+      "read": "2026-07-29",
+      "authors": "Korsunsky et al.",
+      "venue": "Nature Methods",
+      "title": "Fast, sensitive and accurate integration of single-cell data with Harmony",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "related": [
+        "rnaseq-batch-effects",
+        "cancer-heterogeneity-ml"
+      ],
+      "ja": {
+        "takeaway": "細胞の統合は、バッチを寄せて生物学を残す作業。テスト研究を、統合の統計に入れない。",
+        "file": "harmony-korsunsky.ja.md"
+      },
+      "en": {
+        "takeaway": "Integration pulls batches together and should leave biology. I do not put the test study into the integration fit.",
+        "file": "harmony-korsunsky.en.md"
+      },
+      "doi": "10.1038/s41592-019-0619-0"
     },
     {
       "slug": "llm-int8",
@@ -462,6 +906,29 @@
       "arxiv": "2208.07339"
     },
     {
+      "slug": "luecken-theis-scrna",
+      "year": 2019,
+      "read": "2026-07-28",
+      "authors": "Luecken, Theis",
+      "venue": "Molecular Systems Biology",
+      "title": "Current best practices in single-cell RNA-seq analysis: a tutorial",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "related": [
+        "rnaseq-batch-effects"
+      ],
+      "ja": {
+        "takeaway": "単細胞は、前処理の順が結果である。QC、正規化、統合、クラスタの順を、学習の前に固定する。",
+        "file": "luecken-theis-scrna.ja.md"
+      },
+      "en": {
+        "takeaway": "In single-cell, the preprocessing order is the result. I freeze QC, normalize, integrate, cluster before the learner.",
+        "file": "luecken-theis-scrna.en.md"
+      },
+      "doi": "10.15252/msb.20188746"
+    },
+    {
       "slug": "awq",
       "year": 2024,
       "read": "2026-07-27",
@@ -484,6 +951,55 @@
         "file": "awq.en.md"
       },
       "arxiv": "2306.00978"
+    },
+    {
+      "slug": "dentro-ith",
+      "year": 2021,
+      "read": "2026-07-27",
+      "authors": "Dentro et al.",
+      "venue": "Cell",
+      "title": "Characterizing genetic intra-tumor heterogeneity in 500 tumors from 38 tissues",
+      "tags": [
+        "Bioinformatics",
+        "Medical"
+      ],
+      "related": [
+        "cancer-heterogeneity-ml"
+      ],
+      "ja": {
+        "takeaway": "一箇所の生検は、腫瘍の一部である。ヘテロジェニティを、その生検の多様性と、未採取への外挿に分ける。",
+        "file": "dentro-ith.ja.md"
+      },
+      "en": {
+        "takeaway": "One biopsy is a piece of the tumor. I split heterogeneity into diversity inside the sample and extrapolation to unsampled regions.",
+        "file": "dentro-ith.en.md"
+      },
+      "doi": "10.1016/j.cell.2021.03.009"
+    },
+    {
+      "slug": "mimic-iv",
+      "year": 2023,
+      "read": "2026-07-26",
+      "authors": "Johnson et al.",
+      "venue": "Scientific Data",
+      "title": "MIMIC-IV, a freely accessible electronic health record dataset",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "related": [
+        "ehr-missingness",
+        "patient-level-split"
+      ],
+      "ja": {
+        "takeaway": "IIIの後継。版とモジュールを論文に書く。IIIの前処理を、IVに黙って再利用しない。",
+        "file": "mimic-iv.ja.md"
+      },
+      "en": {
+        "takeaway": "The successor to III. Write version and module. Do not silently reuse III preprocessing on IV.",
+        "file": "mimic-iv.en.md"
+      },
+      "doi": "10.1038/s41597-022-01899-x"
     },
     {
       "slug": "lora",
@@ -510,6 +1026,31 @@
       "arxiv": "2106.09685"
     },
     {
+      "slug": "qlora",
+      "year": 2023,
+      "read": "2026-07-25",
+      "authors": "Dettmers et al.",
+      "venue": "NeurIPS",
+      "title": "QLoRA: Efficient Finetuning of Quantized Language Models",
+      "tags": [
+        "Training",
+        "LLM"
+      ],
+      "related": [
+        "lora-what-rank-fits",
+        "quantization-llm"
+      ],
+      "ja": {
+        "takeaway": "4bitに載せたままLoRAを足す。フルFine-tuneのVRAMが無いときの、閉域網の既定に近い。",
+        "file": "qlora.ja.md"
+      },
+      "en": {
+        "takeaway": "Add LoRA while the base sits in 4-bit. Close to the air-gapped default when full finetune VRAM is gone.",
+        "file": "qlora.en.md"
+      },
+      "arxiv": "2305.14314"
+    },
+    {
       "slug": "dpo",
       "year": 2023,
       "read": "2026-07-25",
@@ -534,6 +1075,30 @@
       "arxiv": "2305.18290"
     },
     {
+      "slug": "gptq",
+      "year": 2023,
+      "read": "2026-07-24",
+      "authors": "Frantar et al.",
+      "venue": "ICLR",
+      "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "quantization-llm"
+      ],
+      "ja": {
+        "takeaway": "学習なしで重みを量子化する。キャリブレーション文が、ビット数より先。",
+        "file": "gptq.ja.md"
+      },
+      "en": {
+        "takeaway": "Quantize weights with no training. Calibration text precedes the bit width.",
+        "file": "gptq.en.md"
+      },
+      "arxiv": "2210.17323"
+    },
+    {
       "slug": "instructgpt",
       "year": 2022,
       "read": "2026-07-24",
@@ -556,6 +1121,30 @@
         "file": "instructgpt.en.md"
       },
       "arxiv": "2203.02155"
+    },
+    {
+      "slug": "flashattention-2",
+      "year": 2023,
+      "read": "2026-07-23",
+      "authors": "Dao",
+      "venue": "arXiv",
+      "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+      "tags": [
+        "LLM",
+        "Systems"
+      ],
+      "related": [
+        "flashattention-io"
+      ],
+      "ja": {
+        "takeaway": "FA1のIO削減のうえに、並列の割り方を直す。長い文の既定カーネルとして、入っているかを先に確認する。",
+        "file": "flashattention-2.ja.md"
+      },
+      "en": {
+        "takeaway": "On top of FA1’s IO cut, fix how work is partitioned. I check this is the default kernel before I talk about approximating attention.",
+        "file": "flashattention-2.en.md"
+      },
+      "arxiv": "2307.08691"
     },
     {
       "slug": "switch-transformers",
@@ -607,6 +1196,54 @@
       "arxiv": "2005.11401"
     },
     {
+      "slug": "mqa-shazeer",
+      "year": 2019,
+      "read": "2026-07-22",
+      "authors": "Shazeer",
+      "venue": "arXiv",
+      "title": "Fast Transformer Decoding: One Write-Head is All You Need",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "kv-cache-gqa"
+      ],
+      "ja": {
+        "takeaway": "K/Vを1ヘッドにすると、KVバイトが激減する。GQAの前史。品質との取引を、メモリ見積もりの横に書く。",
+        "file": "mqa-shazeer.ja.md"
+      },
+      "en": {
+        "takeaway": "One K/V head slashes KV bytes. The prehistory of GQA. I write the quality trade next to the memory estimate.",
+        "file": "mqa-shazeer.en.md"
+      },
+      "arxiv": "1911.02150"
+    },
+    {
+      "slug": "alibi",
+      "year": 2022,
+      "read": "2026-07-21",
+      "authors": "Press, Smith, Lewis",
+      "venue": "ICLR",
+      "title": "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation",
+      "tags": [
+        "LLM"
+      ],
+      "related": [
+        "rope",
+        "attention-sink-window"
+      ],
+      "ja": {
+        "takeaway": "距離に線形のバイアスを足す。RoPEとは別の、長さ外挿の経路。レシピを混ぜない。",
+        "file": "alibi.ja.md"
+      },
+      "en": {
+        "takeaway": "Add a linear bias on distance. A different path to length extrapolation than RoPE. I do not mix the recipes.",
+        "file": "alibi.en.md"
+      },
+      "arxiv": "2108.12409"
+    },
+    {
       "slug": "dpr",
       "year": 2020,
       "read": "2026-07-21",
@@ -621,7 +1258,7 @@
         "rag-evaluation"
       ],
       "ja": {
-        "takeaway": "質問とパッセージを同じ空間に置く。BM25を捨てる前に、密检索が何を拾い何を落とすかを見る。",
+        "takeaway": "質問とパッセージを同じ空間に置く。BM25を捨てる前に、密検索が何を拾い何を落とすかを見る。",
         "file": "dpr.ja.md"
       },
       "en": {
@@ -629,6 +1266,29 @@
         "file": "dpr.en.md"
       },
       "arxiv": "2004.04906"
+    },
+    {
+      "slug": "yarn",
+      "year": 2023,
+      "read": "2026-07-20",
+      "authors": "Peng et al.",
+      "venue": "arXiv",
+      "title": "YaRN: Efficient Context Window Extension of Large Language Models",
+      "tags": [
+        "LLM"
+      ],
+      "related": [
+        "rope"
+      ],
+      "ja": {
+        "takeaway": "RoPEの周波数を、区間ごとに伸ばす。baseを一括で上げるより、現場ではこれを先に試すことが多い。",
+        "file": "yarn.ja.md"
+      },
+      "en": {
+        "takeaway": "Stretch RoPE frequencies by band. In operations I try this before raising the base in one shot.",
+        "file": "yarn.en.md"
+      },
+      "arxiv": "2309.00071"
     },
     {
       "slug": "vaswani-2017",
@@ -656,6 +1316,30 @@
       "arxiv": "1706.03762"
     },
     {
+      "slug": "chinchilla",
+      "year": 2022,
+      "read": "2026-07-19",
+      "authors": "Hoffmann et al.",
+      "venue": "arXiv",
+      "title": "Training Compute-Optimal Large Language Models",
+      "tags": [
+        "LLM",
+        "Training"
+      ],
+      "related": [
+        "decoder-only"
+      ],
+      "ja": {
+        "takeaway": "同じ計算なら、大きすぎるモデルより、トークンを増やした方が良い。閉域の事前学習予算の見積もりに使う。",
+        "file": "chinchilla.ja.md"
+      },
+      "en": {
+        "takeaway": "For a fixed compute budget, more tokens beat an oversized model. I use it to size an air-gapped pretrain.",
+        "file": "chinchilla.en.md"
+      },
+      "arxiv": "2203.15556"
+    },
+    {
       "slug": "adamw",
       "year": 2019,
       "read": "2026-07-19",
@@ -677,6 +1361,30 @@
         "file": "adamw.en.md"
       },
       "arxiv": "1711.05101"
+    },
+    {
+      "slug": "kaplan-scaling",
+      "year": 2020,
+      "read": "2026-07-18",
+      "authors": "Kaplan et al.",
+      "venue": "arXiv",
+      "title": "Scaling Laws for Neural Language Models",
+      "tags": [
+        "LLM",
+        "Training"
+      ],
+      "related": [
+        "decoder-only"
+      ],
+      "ja": {
+        "takeaway": "損失は、規模・データ・計算のべきで落ちる。ただし最適配分は、後のChinchillaで改訂された。",
+        "file": "kaplan-scaling.ja.md"
+      },
+      "en": {
+        "takeaway": "Loss falls as a power of size, data, and compute. The optimal split was revised later by Chinchilla.",
+        "file": "kaplan-scaling.en.md"
+      },
+      "arxiv": "2001.08361"
     },
     {
       "slug": "rmsnorm",
@@ -701,6 +1409,30 @@
         "file": "rmsnorm.en.md"
       },
       "arxiv": "1910.07467"
+    },
+    {
+      "slug": "zero-deepspeed",
+      "year": 2020,
+      "read": "2026-07-17",
+      "authors": "Rajbhandari et al.",
+      "venue": "SC",
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "tags": [
+        "LLM",
+        "Systems"
+      ],
+      "related": [
+        "air-gapped-llm-checklist"
+      ],
+      "ja": {
+        "takeaway": "状態をGPU間で分割する。閉域の学習が載るかは、パラメータ数より、ZeROの段階。",
+        "file": "zero-deepspeed.ja.md"
+      },
+      "en": {
+        "takeaway": "Shard optimizer state across GPUs. Whether an air-gapped train fits is the ZeRO stage, not the parameter count.",
+        "file": "zero-deepspeed.en.md"
+      },
+      "arxiv": "1910.02054"
     },
     {
       "slug": "preln-xiong",
@@ -751,6 +1483,54 @@
       "arxiv": "1904.09751"
     },
     {
+      "slug": "mixed-precision",
+      "year": 2018,
+      "read": "2026-07-16",
+      "authors": "Micikevicius et al.",
+      "venue": "ICLR",
+      "title": "Mixed Precision Training",
+      "tags": [
+        "Training",
+        "Systems"
+      ],
+      "related": [
+        "quantization-llm"
+      ],
+      "ja": {
+        "takeaway": "FP16で計算し、FP32のコピーで安定させる。量子化推論と、学習の混合精度を混ぜて語らない。",
+        "file": "mixed-precision.ja.md"
+      },
+      "en": {
+        "takeaway": "Compute in FP16; keep an FP32 copy for stability. I do not mix this with inference quantization.",
+        "file": "mixed-precision.en.md"
+      },
+      "arxiv": "1710.03740"
+    },
+    {
+      "slug": "colbert",
+      "year": 2020,
+      "read": "2026-07-15",
+      "authors": "Khattab, Zaharia",
+      "venue": "SIGIR",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "tags": [
+        "RAG"
+      ],
+      "related": [
+        "rag-evaluation",
+        "rag-chunking"
+      ],
+      "ja": {
+        "takeaway": "トークン同士を後で交互作用させる。埋め込み1ベクトルより高いが、格納も増える。社内検索の中間選択肢。",
+        "file": "colbert.ja.md"
+      },
+      "en": {
+        "takeaway": "Late interaction over tokens. Higher than one vector, heavier to store. A middle option for internal search.",
+        "file": "colbert.en.md"
+      },
+      "arxiv": "2004.12832"
+    },
+    {
       "slug": "hinton-distill",
       "year": 2015,
       "read": "2026-07-15",
@@ -772,6 +1552,29 @@
         "file": "hinton-distill.en.md"
       },
       "arxiv": "1503.02531"
+    },
+    {
+      "slug": "fid-izacard",
+      "year": 2021,
+      "read": "2026-07-14",
+      "authors": "Izacard, Grave",
+      "venue": "AAAI",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "tags": [
+        "RAG"
+      ],
+      "related": [
+        "rag-evaluation"
+      ],
+      "ja": {
+        "takeaway": "各パッセージを別エンコードし、デコーダで融合する。長い連結プロンプトより、根拠の帰属が追いやすい。",
+        "file": "fid-izacard.ja.md"
+      },
+      "en": {
+        "takeaway": "Encode passages separately; fuse in the decoder. Attribution is easier than one long concatenated prompt.",
+        "file": "fid-izacard.en.md"
+      },
+      "arxiv": "2007.01282"
     },
     {
       "slug": "guo-calibration",
@@ -797,6 +1600,31 @@
       "arxiv": "1706.04599"
     },
     {
+      "slug": "llm-as-judge",
+      "year": 2023,
+      "read": "2026-07-13",
+      "authors": "Zheng et al.",
+      "venue": "NeurIPS",
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "tags": [
+        "Evaluation",
+        "LLM"
+      ],
+      "related": [
+        "rag-evaluation",
+        "eval-contamination"
+      ],
+      "ja": {
+        "takeaway": "LLMの審査は、位置と自己好みで歪む。人手の一部代替であり、唯一のKPIにしない。",
+        "file": "llm-as-judge.ja.md"
+      },
+      "en": {
+        "takeaway": "LLM judges are biased by position and self-preference. A partial substitute for humans, not the only KPI.",
+        "file": "llm-as-judge.en.md"
+      },
+      "arxiv": "2306.05685"
+    },
+    {
       "slug": "cpc-infonce",
       "year": 2018,
       "read": "2026-07-13",
@@ -818,6 +1646,30 @@
         "file": "cpc-infonce.en.md"
       },
       "arxiv": "1807.03748"
+    },
+    {
+      "slug": "hh-rlhf",
+      "year": 2022,
+      "read": "2026-07-12",
+      "authors": "Bai et al.",
+      "venue": "arXiv",
+      "title": "Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback",
+      "tags": [
+        "Training",
+        "LLM"
+      ],
+      "related": [
+        "sft-then-dpo"
+      ],
+      "ja": {
+        "takeaway": "役立つと害がないは、同じ報酬で伸びない。選好データに、どちらを優先したかを書く。",
+        "file": "hh-rlhf.ja.md"
+      },
+      "en": {
+        "takeaway": "Helpful and harmless do not rise on one reward. I write which preference the data prioritized.",
+        "file": "hh-rlhf.en.md"
+      },
+      "arxiv": "2204.05862"
     },
     {
       "slug": "bpe-sennrich",
@@ -842,6 +1694,221 @@
         "file": "bpe-sennrich.en.md"
       },
       "arxiv": "1508.07909"
+    },
+    {
+      "slug": "constitutional-ai",
+      "year": 2022,
+      "read": "2026-07-11",
+      "authors": "Bai et al.",
+      "venue": "arXiv",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "tags": [
+        "Training",
+        "LLM"
+      ],
+      "related": [
+        "sft-then-dpo",
+        "phi-hospital-llm"
+      ],
+      "ja": {
+        "takeaway": "原則（constitution）を先に書き、モデルに自己批判させる。人手の対を減らす。原則が無いRLHFは、部署の好みになる。",
+        "file": "constitutional-ai.ja.md"
+      },
+      "en": {
+        "takeaway": "Write a constitution first; let the model critique itself. That cuts human pairs. RLHF without principles becomes a department’s taste.",
+        "file": "constitutional-ai.en.md"
+      },
+      "arxiv": "2212.08073"
+    },
+    {
+      "slug": "gpt3-brown",
+      "year": 2020,
+      "read": "2026-07-10",
+      "authors": "Brown et al.",
+      "venue": "NeurIPS",
+      "title": "Language Models are Few-Shot Learners",
+      "tags": [
+        "LLM"
+      ],
+      "related": [
+        "decoder-only",
+        "eval-contamination"
+      ],
+      "ja": {
+        "takeaway": "文脈内の例で、重みを更新せずに寄せる。デモは強力だが、評価汚染と、秘密の例文に弱い。",
+        "file": "gpt3-brown.ja.md"
+      },
+      "en": {
+        "takeaway": "In-context examples steer without a weight update. Demos are strong and weak to contamination and secret exemplars.",
+        "file": "gpt3-brown.en.md"
+      },
+      "arxiv": "2005.14165"
+    },
+    {
+      "slug": "bert-devlin",
+      "year": 2019,
+      "read": "2026-07-09",
+      "authors": "Devlin et al.",
+      "venue": "NAACL",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "tags": [
+        "NLP",
+        "ML"
+      ],
+      "related": [
+        "decoder-only"
+      ],
+      "ja": {
+        "takeaway": "双方向の理解モデル。生成のデコーダとは、マスクも、KVの増え方も違う。名前を混ぜない。",
+        "file": "bert-devlin.ja.md"
+      },
+      "en": {
+        "takeaway": "A bidirectional understanding model. Masking and KV growth are not a decoder’s. I do not mix the names.",
+        "file": "bert-devlin.en.md"
+      },
+      "arxiv": "1810.04805"
+    },
+    {
+      "slug": "mmlu",
+      "year": 2021,
+      "read": "2026-07-08",
+      "authors": "Hendrycks et al.",
+      "venue": "ICLR",
+      "title": "Measuring Massive Multitask Language Understanding",
+      "tags": [
+        "Evaluation"
+      ],
+      "related": [
+        "eval-contamination"
+      ],
+      "ja": {
+        "takeaway": "広い選択式は、汚染と、現場タスクの代理を同時に疑う。社内採用の唯一の数字にしない。",
+        "file": "mmlu.ja.md"
+      },
+      "en": {
+        "takeaway": "A broad multiple-choice set is both a contamination risk and a poor proxy for the floor task. Not the only hiring number.",
+        "file": "mmlu.en.md"
+      },
+      "arxiv": "2009.03300"
+    },
+    {
+      "slug": "llama2",
+      "year": 2023,
+      "read": "2026-07-07",
+      "authors": "Touvron et al.",
+      "venue": "arXiv",
+      "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+      "tags": [
+        "LLM"
+      ],
+      "related": [
+        "air-gapped-llm-checklist",
+        "sft-then-dpo"
+      ],
+      "ja": {
+        "takeaway": "公開重みの、閉域での出発点。事前学習より、ライセンスと、chatの事後学習レシピを先に読む。",
+        "file": "llama2.ja.md"
+      },
+      "en": {
+        "takeaway": "A public-weight starting point for an air gap. I read the license and the chat post-train recipe before the pretrain story.",
+        "file": "llama2.en.md"
+      },
+      "arxiv": "2307.09288"
+    },
+    {
+      "slug": "mistral-7b",
+      "year": 2023,
+      "read": "2026-07-06",
+      "authors": "Jiang et al.",
+      "venue": "arXiv",
+      "title": "Mistral 7B",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "related": [
+        "attention-sink-window",
+        "kv-cache-gqa"
+      ],
+      "ja": {
+        "takeaway": "GQAとスライディング窓で、7Bの効率を上げる。小さい閉域モデルの、比較対象の一つ。",
+        "file": "mistral-7b.ja.md"
+      },
+      "en": {
+        "takeaway": "GQA and a sliding window make 7B cheaper. One comparison point for a small air-gapped model.",
+        "file": "mistral-7b.en.md"
+      },
+      "arxiv": "2310.06825"
+    },
+    {
+      "slug": "chain-of-thought",
+      "year": 2022,
+      "read": "2026-07-05",
+      "authors": "Wei et al.",
+      "venue": "NeurIPS",
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "tags": [
+        "LLM"
+      ],
+      "related": [
+        "sampling-beyond-temperature"
+      ],
+      "ja": {
+        "takeaway": "途中の手順を書かせると、算術と論理は上がる。医療では、手順が幻覚でも、形が正しいように見える。",
+        "file": "chain-of-thought.ja.md"
+      },
+      "en": {
+        "takeaway": "Writing intermediate steps helps arithmetic and logic. In medicine a hallucinated procedure can still look well-formed.",
+        "file": "chain-of-thought.en.md"
+      },
+      "arxiv": "2201.11903"
+    },
+    {
+      "slug": "swiglu",
+      "year": 2020,
+      "read": "2026-07-04",
+      "authors": "Shazeer",
+      "venue": "arXiv",
+      "title": "GLU Variants Improve Transformer",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "related": [
+        "decoder-only"
+      ],
+      "ja": {
+        "takeaway": "FFNをゲートする。Llama系のMLPは、この系統。学習率を、ReLU FFNの論文から借りない。",
+        "file": "swiglu.ja.md"
+      },
+      "en": {
+        "takeaway": "Gate the FFN. Llama-family MLPs are this line. I do not borrow a ReLU-FFN learning rate.",
+        "file": "swiglu.en.md"
+      },
+      "arxiv": "2002.05202"
+    },
+    {
+      "slug": "humaneval",
+      "year": 2021,
+      "read": "2026-07-03",
+      "authors": "Chen et al.",
+      "venue": "arXiv",
+      "title": "Evaluating Large Language Models Trained on Code",
+      "tags": [
+        "Evaluation"
+      ],
+      "related": [
+        "eval-contamination"
+      ],
+      "ja": {
+        "takeaway": "単位テストで通るかが、コード生成の評価。社内コードは、そのテストが秘密情報になりうる。",
+        "file": "humaneval.ja.md"
+      },
+      "en": {
+        "takeaway": "Unit tests passing is the code-generation eval. Internally those tests can be the secret.",
+        "file": "humaneval.en.md"
+      },
+      "arxiv": "2107.03374"
     }
   ]
 }

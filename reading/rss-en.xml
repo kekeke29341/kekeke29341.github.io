@@ -6,11 +6,25 @@
     <description>One takeaway per paper for local LLMs and medical ML</description>
     <language>en</language>
     <item>
+      <title>Lost in the Middle: How Language Models Use Long Contexts</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=lost-in-the-middle&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=lost-in-the-middle&amp;lang=en</guid>
+      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The middle of a long context is unused. RAG either puts evidence at the ends or shortens the context.</description>
+    </item>
+    <item>
       <title>The shaky foundations of large language models and foundation models for electronic health records</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=wornow-shaky-foundations&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=wornow-shaky-foundations&amp;lang=en</guid>
       <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
       <description>Before the task name, I check whether EHR foundation-model labels are billing or annotation, and whether the split is by patient.</description>
+    </item>
+    <item>
+      <title>Large language models encode clinical knowledge</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=med-palm&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=med-palm&amp;lang=en</guid>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A board-exam score is not faithfulness to a ward protocol. A medical LLM decides citations and what it will not emit first.</description>
     </item>
     <item>
       <title>AI for radiographic COVID-19 detection selects shortcuts over signal</title>
@@ -20,11 +34,25 @@
       <description>Imaging models pick laterality markers and site style before disease. Before saliency, I ask whether the embedding predicts the hospital.</description>
     </item>
     <item>
+      <title>Do We Still Need Clinical Language Models?</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=lehman-clinical-lms&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=lehman-clinical-lms&amp;lang=en</guid>
+      <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A general LLM can win a clinical task and still be unusable if notes cannot leave. The boundary precedes the model name.</description>
+    </item>
+    <item>
       <title>Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=zech-pneumonia-2018&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=zech-pneumonia-2018&amp;lang=en</guid>
       <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
       <description>In-hospital AUROC dies next door. I read pneumonia papers for scanner and protocol text before the leaderboard.</description>
+    </item>
+    <item>
+      <title>Capabilities of GPT-4 on Medical Challenge Problems</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=nori-gpt4-medical&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=nori-gpt4-medical&amp;lang=en</guid>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A challenge-problem score is not EHR input and not an accountability story. I read it as an upper bound on a demo.</description>
     </item>
     <item>
       <title>Dissecting racial bias in an algorithm used to manage the health of populations</title>
@@ -34,6 +62,13 @@
       <description>Cost as a proxy for risk learns access. I write what the teacher stands in for before I write the loss.</description>
     </item>
     <item>
+      <title>GatorTron: A Large Clinical Language Model to Unlock Patient Information from Unstructured Electronic Health Records</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gatortron&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gatortron&amp;lang=en</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The point of a large clinical LM is notes trained inside the institution. I look at weight release and the teacher first.</description>
+    </item>
+    <item>
       <title>The myth of generalisability in clinical research and machine learning in health care</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=futoma-generalisability&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=futoma-generalisability&amp;lang=en</guid>
@@ -41,11 +76,25 @@
       <description>Generalisation is a report of which shifts you survived, not a property. I do not call a single AUROC generalisable.</description>
     </item>
     <item>
+      <title>Publicly Available Clinical BERT Embeddings</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=clinical-bert-alsentzer&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=clinical-bert-alsentzer&amp;lang=en</guid>
+      <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Public clinical BERT leans toward MIMIC prose. I do not freeze the embedding without a local-note re-eval.</description>
+    </item>
+    <item>
       <title>Scalable and accurate deep learning with electronic health records</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=rajkomar-ehr-2018&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=rajkomar-ehr-2018&amp;lang=en</guid>
       <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
       <description>Ingesting the EHR as a sequence is not the result. The result is whether anything after time t leaked in.</description>
+    </item>
+    <item>
+      <title>BioBERT: a pre-trained biomedical language representation model for biomedical text mining</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=biobert&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=biobert&amp;lang=en</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <description>BERT on PubMed. That is paper English, not a ward note. I do not confuse corpora by name.</description>
     </item>
     <item>
       <title>MIMIC-III, a freely accessible critical care database</title>
@@ -62,11 +111,32 @@
       <description>Rare subtypes sink under mean AUROC. If the stratum is not a label, the mean hides it.</description>
     </item>
     <item>
+      <title>CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chexpert-irvin&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chexpert-irvin&amp;lang=en</guid>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The uncertain label (pos / uncertain / neg) is the dataset. Collapse it to positive and the model never learns radiologist doubt.</description>
+    </item>
+    <item>
+      <title>MIMIC-CXR, a de-identified publicly available database of chest radiographs with free-text reports</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mimic-cxr&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mimic-cxr&amp;lang=en</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A public set with images and reports. Split by patient. Do not mix acquisition time and report time.</description>
+    </item>
+    <item>
       <title>The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=saito-pr-2015&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=saito-pr-2015&amp;lang=en</guid>
       <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
       <description>On imbalance, PR comes first. AUROC can look high while almost every page is a miss.</description>
+    </item>
+    <item>
+      <title>Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=seyyed-underdiagnosis&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=seyyed-underdiagnosis&amp;lang=en</guid>
+      <pubDate>Thu, 06 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Under mean AUROC, false negatives rise in under-served groups. I do not ship a chest model I cannot slice.</description>
     </item>
     <item>
       <title>Tackling the widespread and critical impact of batch effects in high-throughput data</title>
@@ -76,11 +146,25 @@
       <description>Batch can outrun biology. I put a cross-study split before the correction.</description>
     </item>
     <item>
+      <title>Deep learning predicts hip fracture using confounding patient and healthcare variables</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=badgeley-hip-confound&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=badgeley-hip-confound&amp;lang=en</guid>
+      <pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
+      <description>It looks like fracture and is hospital and scanner. I plot confounders before I print accuracy.</description>
+    </item>
+    <item>
       <title>Adjusting batch effects in microarray expression data using empirical Bayes methods</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=combat-johnson-2007&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=combat-johnson-2007&amp;lang=en</guid>
       <pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
       <description>ComBat shrinks batch mean and variance. Re-estimating on the test study leaks the evaluation.</description>
+    </item>
+    <item>
+      <title>Transparent Reporting of a multivariable prediction model for Individual Prognosis or Diagnosis (TRIPOD)</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=tripod-collins&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=tripod-collins&amp;lang=en</guid>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Reporting items come first. A paper without split, calibration, and population cannot be reproduced.</description>
     </item>
     <item>
       <title>A simple algorithm for identifying negated findings and diseases in discharge summaries</title>
@@ -97,11 +181,25 @@
       <description>Contiguous KV leaves holes. Paging the cache is how the same VRAM holds a batch.</description>
     </item>
     <item>
+      <title>Decision Curve Analysis: A Novel Method for Evaluating Prediction Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=vickers-dca&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=vickers-dca&amp;lang=en</guid>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Plot net benefit against the treat / do-not-treat threshold. A high AUROC that loses at the operating threshold does not ship.</description>
+    </item>
+    <item>
       <title>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=flashattention&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=flashattention&amp;lang=en</guid>
       <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
       <description>Attention is slow from HBM traffic, not from approximation. Tile it; keep it exact.</description>
+    </item>
+    <item>
+      <title>Multitask learning and benchmarking with clinical time series data</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=harutyunyan-mimic&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=harutyunyan-mimic&amp;lang=en</guid>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The MIMIC benchmark is the task definition and the split. I do not silently copy that preprocessing onto my own task.</description>
     </item>
     <item>
       <title>GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints</title>
@@ -111,11 +209,25 @@
       <description>Sharing K/V heads cuts KV bytes before it cuts quality. That is the local-inference estimate.</description>
     </item>
     <item>
+      <title>Do no harm: a roadmap for responsible machine learning for health care</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=wiens-do-no-harm&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=wiens-do-no-harm&amp;lang=en</guid>
+      <pubDate>Sat, 01 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Responsibility is who can stop it, not a model card. I write the off-switch before deployment.</description>
+    </item>
+    <item>
       <title>RoFormer: Enhanced Transformer with Rotary Position Embedding</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=roformer&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=roformer&amp;lang=en</guid>
       <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
       <description>Positions are rotated, not added. Relative offset enters the dot product. Long-context work is about those periods.</description>
+    </item>
+    <item>
+      <title>The false hope of current approaches to explainable artificial intelligence in health care</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=ghassemi-xai-false-hope&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=ghassemi-xai-false-hope&amp;lang=en</guid>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Saliency is not evidence of generalization. I print external-site and slice failures before an explanation figure.</description>
     </item>
     <item>
       <title>Efficient Streaming Language Models with Attention Sinks</title>
@@ -125,11 +237,25 @@
       <description>A sliding window breaks unless you keep the first tokens. The sink is a lemma of the window.</description>
     </item>
     <item>
+      <title>Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=deseq2&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=deseq2&amp;lang=en</guid>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Shrink dispersion, then test a difference. I do not hand raw counts to a learner.</description>
+    </item>
+    <item>
       <title>Fast Inference from Transformers via Speculative Decoding</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=speculative-decoding&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=speculative-decoding&amp;lang=en</guid>
       <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
       <description>A small model drafts; the large one verifies. Wall time shrinks only when rejects stay rare.</description>
+    </item>
+    <item>
+      <title>Fast, sensitive and accurate integration of single-cell data with Harmony</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=harmony-korsunsky&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=harmony-korsunsky&amp;lang=en</guid>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Integration pulls batches together and should leave biology. I do not put the test study into the integration fit.</description>
     </item>
     <item>
       <title>LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale</title>
@@ -139,11 +265,32 @@
       <description>Even at 8-bit, outlier channels stay in 16-bit. Quantization is not a uniform shave.</description>
     </item>
     <item>
+      <title>Current best practices in single-cell RNA-seq analysis: a tutorial</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=luecken-theis-scrna&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=luecken-theis-scrna&amp;lang=en</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 +0000</pubDate>
+      <description>In single-cell, the preprocessing order is the result. I freeze QC, normalize, integrate, cluster before the learner.</description>
+    </item>
+    <item>
       <title>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=awq&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=awq&amp;lang=en</guid>
       <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
       <description>Weight importance follows activation magnitude. MSE alone drops the channels you needed.</description>
+    </item>
+    <item>
+      <title>Characterizing genetic intra-tumor heterogeneity in 500 tumors from 38 tissues</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=dentro-ith&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=dentro-ith&amp;lang=en</guid>
+      <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
+      <description>One biopsy is a piece of the tumor. I split heterogeneity into diversity inside the sample and extrapolation to unsampled regions.</description>
+    </item>
+    <item>
+      <title>MIMIC-IV, a freely accessible electronic health record dataset</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mimic-iv&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mimic-iv&amp;lang=en</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 +0000</pubDate>
+      <description>The successor to III. Write version and module. Do not silently reuse III preprocessing on IV.</description>
     </item>
     <item>
       <title>LoRA: Low-Rank Adaptation of Large Language Models</title>
@@ -153,6 +300,13 @@
       <description>Add a low-rank delta. Choose which matrices before you choose rank.</description>
     </item>
     <item>
+      <title>QLoRA: Efficient Finetuning of Quantized Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=qlora&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=qlora&amp;lang=en</guid>
+      <pubDate>Sat, 25 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Add LoRA while the base sits in 4-bit. Close to the air-gapped default when full finetune VRAM is gone.</description>
+    </item>
+    <item>
       <title>Direct Preference Optimization: Your Language Model is Secretly a Reward Model</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=dpo&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=dpo&amp;lang=en</guid>
@@ -160,11 +314,25 @@
       <description>Given preference pairs, you can update the policy without a reward model. Pair quality precedes the loss.</description>
     </item>
     <item>
+      <title>GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gptq&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gptq&amp;lang=en</guid>
+      <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Quantize weights with no training. Calibration text precedes the bit width.</description>
+    </item>
+    <item>
       <title>Training language models to follow instructions with human feedback</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=instructgpt&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=instructgpt&amp;lang=en</guid>
       <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
       <description>SFT, then reinforce from human preference. The template for “aligning” a local stack.</description>
+    </item>
+    <item>
+      <title>FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=flashattention-2&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=flashattention-2&amp;lang=en</guid>
+      <pubDate>Thu, 23 Jul 2026 12:00:00 +0000</pubDate>
+      <description>On top of FA1’s IO cut, fix how work is partitioned. I check this is the default kernel before I talk about approximating attention.</description>
     </item>
     <item>
       <title>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</title>
@@ -181,11 +349,32 @@
       <description>Retrieve before you generate. Do not bake the knowledge into weights. Score retrieval and generation apart.</description>
     </item>
     <item>
+      <title>Fast Transformer Decoding: One Write-Head is All You Need</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mqa-shazeer&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mqa-shazeer&amp;lang=en</guid>
+      <pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate>
+      <description>One K/V head slashes KV bytes. The prehistory of GQA. I write the quality trade next to the memory estimate.</description>
+    </item>
+    <item>
+      <title>Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=alibi&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=alibi&amp;lang=en</guid>
+      <pubDate>Tue, 21 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Add a linear bias on distance. A different path to length extrapolation than RoPE. I do not mix the recipes.</description>
+    </item>
+    <item>
       <title>Dense Passage Retrieval for Open-Domain Question Answering</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=dpr&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=dpr&amp;lang=en</guid>
       <pubDate>Tue, 21 Jul 2026 12:00:00 +0000</pubDate>
       <description>Put questions and passages in one space. Before dropping BM25, I look at what dense retrieval catches and drops.</description>
+    </item>
+    <item>
+      <title>YaRN: Efficient Context Window Extension of Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=yarn&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=yarn&amp;lang=en</guid>
+      <pubDate>Mon, 20 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Stretch RoPE frequencies by band. In operations I try this before raising the base in one shot.</description>
     </item>
     <item>
       <title>Attention Is All You Need</title>
@@ -195,6 +384,13 @@
       <description>Drop recurrence; make distance constant with attention. Current decoders keep one side of this paper.</description>
     </item>
     <item>
+      <title>Training Compute-Optimal Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chinchilla&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chinchilla&amp;lang=en</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <description>For a fixed compute budget, more tokens beat an oversized model. I use it to size an air-gapped pretrain.</description>
+    </item>
+    <item>
       <title>Decoupled Weight Decay Regularization</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=adamw&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=adamw&amp;lang=en</guid>
@@ -202,11 +398,25 @@
       <description>Decouple decay from the gradient. That is not Adam plus L2. Leave Norm γ out of decay.</description>
     </item>
     <item>
+      <title>Scaling Laws for Neural Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=kaplan-scaling&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=kaplan-scaling&amp;lang=en</guid>
+      <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Loss falls as a power of size, data, and compute. The optimal split was revised later by Chinchilla.</description>
+    </item>
+    <item>
       <title>Root Mean Square Layer Normalization</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=rmsnorm&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=rmsnorm&amp;lang=en</guid>
       <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
       <description>No mean subtraction; divide by RMS. With pre-norm, that is current decoder normalization.</description>
+    </item>
+    <item>
+      <title>ZeRO: Memory Optimizations Toward Training Trillion Parameter Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=zero-deepspeed&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=zero-deepspeed&amp;lang=en</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Shard optimizer state across GPUs. Whether an air-gapped train fits is the ZeRO stage, not the parameter count.</description>
     </item>
     <item>
       <title>On Layer Normalization in the Transformer Architecture</title>
@@ -223,11 +433,32 @@
       <description>Argmax loops. Temperature is not enough. Cut the tail with a nucleus (top-p).</description>
     </item>
     <item>
+      <title>Mixed Precision Training</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mixed-precision&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mixed-precision&amp;lang=en</guid>
+      <pubDate>Thu, 16 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Compute in FP16; keep an FP32 copy for stability. I do not mix this with inference quantization.</description>
+    </item>
+    <item>
+      <title>ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=colbert&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=colbert&amp;lang=en</guid>
+      <pubDate>Wed, 15 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Late interaction over tokens. Higher than one vector, heavier to store. A middle option for internal search.</description>
+    </item>
+    <item>
       <title>Distilling the Knowledge in a Neural Network</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=hinton-distill&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=hinton-distill&amp;lang=en</guid>
       <pubDate>Wed, 15 Jul 2026 12:00:00 +0000</pubDate>
       <description>Move the shape of the teacher’s logits, with a temperature. Relations survive better than hard labels.</description>
+    </item>
+    <item>
+      <title>Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=fid-izacard&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=fid-izacard&amp;lang=en</guid>
+      <pubDate>Tue, 14 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Encode passages separately; fuse in the decoder. Attribution is easier than one long concatenated prompt.</description>
     </item>
     <item>
       <title>On Calibration of Modern Neural Networks</title>
@@ -237,6 +468,13 @@
       <description>Deeper, stronger nets are worse calibrated. I put ECE and temperature scaling next to AUROC.</description>
     </item>
     <item>
+      <title>Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=llm-as-judge&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=llm-as-judge&amp;lang=en</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 +0000</pubDate>
+      <description>LLM judges are biased by position and self-preference. A partial substitute for humans, not the only KPI.</description>
+    </item>
+    <item>
       <title>Representation Learning with Contrastive Predictive Coding</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=cpc-infonce&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=cpc-infonce&amp;lang=en</guid>
@@ -244,11 +482,81 @@
       <description>Pick the positive out of noise. InfoNCE became the name of that loss.</description>
     </item>
     <item>
+      <title>Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=hh-rlhf&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=hh-rlhf&amp;lang=en</guid>
+      <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Helpful and harmless do not rise on one reward. I write which preference the data prioritized.</description>
+    </item>
+    <item>
       <title>Neural Machine Translation of Rare Words with Subword Units</title>
       <link>https://kekeke29341.github.io/reading/note.html?slug=bpe-sennrich&amp;lang=en</link>
       <guid>https://kekeke29341.github.io/reading/note.html?slug=bpe-sennrich&amp;lang=en</guid>
       <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
       <description>Split rare words into subwords. The tokenizer is part of the model, not preprocessing.</description>
+    </item>
+    <item>
+      <title>Constitutional AI: Harmlessness from AI Feedback</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=constitutional-ai&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=constitutional-ai&amp;lang=en</guid>
+      <pubDate>Sat, 11 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Write a constitution first; let the model critique itself. That cuts human pairs. RLHF without principles becomes a department’s taste.</description>
+    </item>
+    <item>
+      <title>Language Models are Few-Shot Learners</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gpt3-brown&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gpt3-brown&amp;lang=en</guid>
+      <pubDate>Fri, 10 Jul 2026 12:00:00 +0000</pubDate>
+      <description>In-context examples steer without a weight update. Demos are strong and weak to contamination and secret exemplars.</description>
+    </item>
+    <item>
+      <title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=bert-devlin&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=bert-devlin&amp;lang=en</guid>
+      <pubDate>Thu, 09 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A bidirectional understanding model. Masking and KV growth are not a decoder’s. I do not mix the names.</description>
+    </item>
+    <item>
+      <title>Measuring Massive Multitask Language Understanding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mmlu&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mmlu&amp;lang=en</guid>
+      <pubDate>Wed, 08 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A broad multiple-choice set is both a contamination risk and a poor proxy for the floor task. Not the only hiring number.</description>
+    </item>
+    <item>
+      <title>Llama 2: Open Foundation and Fine-Tuned Chat Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=llama2&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=llama2&amp;lang=en</guid>
+      <pubDate>Tue, 07 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A public-weight starting point for an air gap. I read the license and the chat post-train recipe before the pretrain story.</description>
+    </item>
+    <item>
+      <title>Mistral 7B</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mistral-7b&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mistral-7b&amp;lang=en</guid>
+      <pubDate>Mon, 06 Jul 2026 12:00:00 +0000</pubDate>
+      <description>GQA and a sliding window make 7B cheaper. One comparison point for a small air-gapped model.</description>
+    </item>
+    <item>
+      <title>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chain-of-thought&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chain-of-thought&amp;lang=en</guid>
+      <pubDate>Sun, 05 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Writing intermediate steps helps arithmetic and logic. In medicine a hallucinated procedure can still look well-formed.</description>
+    </item>
+    <item>
+      <title>GLU Variants Improve Transformer</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=swiglu&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=swiglu&amp;lang=en</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Gate the FFN. Llama-family MLPs are this line. I do not borrow a ReLU-FFN learning rate.</description>
+    </item>
+    <item>
+      <title>Evaluating Large Language Models Trained on Code</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=humaneval&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=humaneval&amp;lang=en</guid>
+      <pubDate>Fri, 03 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Unit tests passing is the code-generation eval. Internally those tests can be the secret.</description>
     </item>
   </channel>
 </rss>
