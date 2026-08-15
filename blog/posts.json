@@ -1,9 +1,192 @@
 {
   "posts": [
     {
+      "slug": "moe-routing",
+      "date": "2026-08-15",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "ja": {
+        "title": "MoEは計算が疎で、メモリは密",
+        "excerpt": "トークンごとに専門家を選ぶ。総パラメータは大きいが、偏ると疎の意味が消える。見積もりを密モデルから借りない。",
+        "file": "moe-routing.ja.md"
+      },
+      "en": {
+        "title": "MoE compute is sparse; memory is not",
+        "excerpt": "A router picks experts per token. Capacity is large; collapse kills the sparsity. Do not borrow a dense sizing equation.",
+        "file": "moe-routing.en.md"
+      }
+    },
+    {
+      "slug": "flashattention-io",
+      "date": "2026-08-15",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "FlashAttentionは近似ではなく、I/Oの話",
+        "excerpt": "O(T²) の注意行列をHBMに置かない。同じsoftmaxをSRAMで完結させる。効くのはdecodeより長いprefill。",
+        "file": "flashattention-io.ja.md"
+      },
+      "en": {
+        "title": "FlashAttention is I/O, not an approximation",
+        "excerpt": "Do not materialize the O(T²) score matrix. Same softmax, finished in SRAM. The win is long prefill, not one-token decode.",
+        "file": "flashattention-io.en.md"
+      }
+    },
+    {
+      "slug": "eval-contamination",
+      "date": "2026-08-15",
+      "tags": [
+        "Evaluation",
+        "ML"
+      ],
+      "ja": {
+        "title": "公開ベンチの点を、賢さと書かない",
+        "excerpt": "汚染と分布シフトは別物。採用は社内セットと、学習コーパスとの重なりを横に置いてから決める。",
+        "file": "eval-contamination.ja.md"
+      },
+      "en": {
+        "title": "A public bench score is not a synonym for smart",
+        "excerpt": "Contamination and shift are different. Hire from an in-house set plus overlap with the train corpus.",
+        "file": "eval-contamination.en.md"
+      }
+    },
+    {
+      "slug": "tokenizer-bpe-traps",
+      "date": "2026-08-15",
+      "tags": [
+        "LLM",
+        "ML"
+      ],
+      "ja": {
+        "title": "BPEの切れ方が、型番と日本語を静かに壊す",
+        "excerpt": "語彙は単語ではない。数字・全角・固有名詞の切れ目を、パラメータより先に見る。",
+        "file": "tokenizer-bpe-traps.ja.md"
+      },
+      "en": {
+        "title": "BPE cuts quietly break SKUs and Japanese",
+        "excerpt": "The vocabulary is not words. Read digit, full-width, and proper-name splits before you talk parameters.",
+        "file": "tokenizer-bpe-traps.en.md"
+      }
+    },
+    {
+      "slug": "adamw-transformers",
+      "date": "2026-08-15",
+      "tags": [
+        "Training",
+        "ML"
+      ],
+      "ja": {
+        "title": "TransformerにAdamWが残っている理由",
+        "excerpt": "適応的な二次モーメントと、勾配から切り離した重み減衰。Normのγは減衰から外す。",
+        "file": "adamw-transformers.ja.md"
+      },
+      "en": {
+        "title": "Why Transformers still train with AdamW",
+        "excerpt": "Adaptive second moment, and weight decay decoupled from the gradient. Leave Norm γ out of decay.",
+        "file": "adamw-transformers.en.md"
+      }
+    },
+    {
+      "slug": "attention-sink-window",
+      "date": "2026-08-15",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "スライディング窓とattention sinkは、過去を捨てる話",
+        "excerpt": "RoPEの伸ばしとは別。窓の外に出た方針は、丁寧に破られる。sinkと再注入のどちらで守るか。",
+        "file": "attention-sink-window.ja.md"
+      },
+      "en": {
+        "title": "Windows and attention sinks throw the past away",
+        "excerpt": "Not the same as stretching RoPE. Policy outside the window is politely violated. Sink or re-inject.",
+        "file": "attention-sink-window.en.md"
+      }
+    },
+    {
+      "slug": "rag-chunking",
+      "date": "2026-08-15",
+      "tags": [
+        "RAG",
+        "MLOps"
+      ],
+      "ja": {
+        "title": "RAGの失敗は、半分がチャンク境界",
+        "excerpt": "大きすぎると平均化し、小さすぎると参照が切れる。メタデータはフィルタ、ベクトルは本文。",
+        "file": "rag-chunking.ja.md"
+      },
+      "en": {
+        "title": "Half of RAG misses are chunk boundaries",
+        "excerpt": "Too big averages; too small cuts the referent. Metadata is a filter; the vector is the body.",
+        "file": "rag-chunking.en.md"
+      }
+    },
+    {
+      "slug": "decoder-only",
+      "date": "2026-08-15",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "ja": {
+        "title": "デコーダのみが残った理由",
+        "excerpt": "学習と生成の条件を一致させ、目的関数を一つにし、箱を一つにする。理解専用はまだ双方向が勝つことがある。",
+        "file": "decoder-only.ja.md"
+      },
+      "en": {
+        "title": "Why decoder-only won the local box",
+        "excerpt": "Match train and serve, keep one objective, keep one box. Bidirectional still wins some understand-only jobs.",
+        "file": "decoder-only.en.md"
+      }
+    },
+    {
+      "slug": "distillation-logits",
+      "date": "2026-08-15",
+      "tags": [
+        "LLM",
+        "Training"
+      ],
+      "ja": {
+        "title": "蒸留が移すのは、正解ではなく分布",
+        "excerpt": "教師のロジットをKLで渡す。ハードな拒否は残す。下書きモデルでは損失より受理率を見る。",
+        "file": "distillation-logits.ja.md"
+      },
+      "en": {
+        "title": "Distillation copies a distribution, not an answer key",
+        "excerpt": "Pass teacher logits via KL. Keep hard refusals. For draft models, measure acceptance, not loss.",
+        "file": "distillation-logits.en.md"
+      }
+    },
+    {
+      "slug": "calibration-ece",
+      "date": "2026-08-15",
+      "tags": [
+        "Evaluation",
+        "ML"
+      ],
+      "ja": {
+        "title": "0.9は、10回中9回ではない",
+        "excerpt": "確信度と較正は別。ECEと温度スケーリング。コサインも、DPO後のロジットも、確率として使わない。",
+        "file": "calibration-ece.ja.md"
+      },
+      "en": {
+        "title": "0.9 is not nine times in ten",
+        "excerpt": "Confidence is not calibration. ECE and temperature scaling. Do not treat cosine or post-DPO logits as probabilities.",
+        "file": "calibration-ece.en.md"
+      }
+    },
+    {
       "slug": "kv-cache-gqa",
       "date": "2026-08-15",
-      "tags": ["LLM", "Inference"],
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
       "ja": {
         "title": "推論で先に足りなくなるのは、重みよりKV cache",
         "excerpt": "同時接続と長いコンテキストでVRAMを埋めるのは重みではない。MHA / MQA / GQA で何が減るかを、メモリの式から書きます。",
@@ -18,7 +201,10 @@
     {
       "slug": "quantization-llm",
       "date": "2026-08-15",
-      "tags": ["LLM", "MLOps"],
+      "tags": [
+        "LLM",
+        "MLOps"
+      ],
       "ja": {
         "title": "量子化で先に死ぬもの",
         "excerpt": "GPTQ / AWQ / FP8 はどれも情報を捨てる。捨て方の偏りと、較正分布、現場で先に壊れる固有名詞と長文の話です。",
@@ -33,7 +219,10 @@
     {
       "slug": "sft-then-dpo",
       "date": "2026-08-15",
-      "tags": ["LLM", "Training"],
+      "tags": [
+        "LLM",
+        "Training"
+      ],
       "ja": {
         "title": "SFTのあとでDPOする理由",
         "excerpt": "SFTは分布を寄せ、DPOは二つの出力に順序を付ける。順番を飛ばすとJSONが壊れ、拒否より敬語だけが残ります。",
@@ -48,7 +237,10 @@
     {
       "slug": "rag-evaluation",
       "date": "2026-08-15",
-      "tags": ["RAG", "Evaluation"],
+      "tags": [
+        "RAG",
+        "Evaluation"
+      ],
       "ja": {
         "title": "RAGの「精度」を、四層に切る",
         "excerpt": "検索・利用・回答・拒否を一つの正解率に折らない。recall@k と忠実性を分け、拒否セットを正解と同じ数だけ持ちます。",
@@ -63,7 +255,10 @@
     {
       "slug": "lora-what-rank-fits",
       "date": "2026-08-15",
-      "tags": ["LLM", "Training"],
+      "tags": [
+        "LLM",
+        "Training"
+      ],
       "ja": {
         "title": "LoRAのランクより、足す層を先に決める",
         "excerpt": "r は更新の部分空間の次元です。q,v から始め、足りなければMLP。LoRAだから忘れない、は成り立ちません。",
@@ -78,7 +273,10 @@
     {
       "slug": "rmsnorm-prenorm",
       "date": "2026-08-15",
-      "tags": ["LLM", "Architecture"],
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
       "ja": {
         "title": "RMSNormとPre-normが、深いLLMを支えている",
         "excerpt": "BatchNormが系列で使いにくい理由から、平均を引かないRMSNorm、残差を恒等のまま残すPre-norm、SwiGLUまで。",
@@ -93,7 +291,10 @@
     {
       "slug": "speculative-decoding",
       "date": "2026-08-15",
-      "tags": ["LLM", "Inference"],
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
       "ja": {
         "title": "投機的デコーディングは、受理率がすべて",
         "excerpt": "小さいモデルに先を書かせ、大きいモデルが分布を保ったまま検証する。受理率が低いと、二体を載せるだけになります。",
@@ -108,7 +309,10 @@
     {
       "slug": "sampling-beyond-temperature",
       "date": "2026-08-15",
-      "tags": ["LLM", "Inference"],
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
       "ja": {
         "title": "温度だけでは、サンプリングは決まらない",
         "excerpt": "温度はsoftmaxの尖り、top-k / top-p は切る位置。評価と本番で温度を変えない。報告には T, k, p を揃えて書きます。",
@@ -123,7 +327,10 @@
     {
       "slug": "contrastive-infonce",
       "date": "2026-08-15",
-      "tags": ["ML", "RAG"],
+      "tags": [
+        "ML",
+        "RAG"
+      ],
       "ja": {
         "title": "埋め込みの共通言語はInfoNCE",
         "excerpt": "密検索もCLIPも、正例を選ぶ分類損失です。負例の質が表現を決める。生成用LLMの隠れ状態を、そのまま検索に使わない。",
@@ -138,7 +345,10 @@
     {
       "slug": "rope",
       "date": "2026-08-15",
-      "tags": ["LLM", "RoPE"],
+      "tags": [
+        "LLM",
+        "RoPE"
+      ],
       "ja": {
         "title": "LLMで使われるRoPEを、回転から追う",
         "excerpt": "位置を足すのではなく、QueryとKeyを回す。相対位置が内積に残る理由と、長文で伸ばすときに何が壊れるかを実装寄りに書きます。",
@@ -153,7 +363,9 @@
     {
       "slug": "welcome",
       "date": "2026-08-15",
-      "tags": ["meta"],
+      "tags": [
+        "meta"
+      ],
       "ja": {
         "title": "ブログを開設しました",
         "excerpt": "ポートフォリオサイトに、Markdown で書けるブログを追加しました。閉域網LLMや機械学習のメモをここに残していきます。",
@@ -168,7 +380,9 @@
     {
       "slug": "how-to-write",
       "date": "2026-08-15",
-      "tags": ["meta"],
+      "tags": [
+        "meta"
+      ],
       "ja": {
         "title": "記事の追加方法",
         "excerpt": "Markdown ファイルを1つ置き、posts.json に1件足すだけで公開できます。ビルド手順は不要です。",
@@ -183,7 +397,10 @@
     {
       "slug": "air-gapped-llm-checklist",
       "date": "2026-08-14",
-      "tags": ["LLM", "MLOps"],
+      "tags": [
+        "LLM",
+        "MLOps"
+      ],
       "ja": {
         "title": "閉域網ローカルLLMで、最初に決めること",
         "excerpt": "外部APIを使わないLLM基盤を立てるとき、モデル選定より先に固めておきたい論点のチェックリストです。",

@@ -30,6 +30,66 @@
   </url>
 
   <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=moe-routing</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>yearly</changefreq>

@@ -6,6 +6,76 @@
     <description>ローカルLLM・閉域網AI・機械学習・バイオインフォマティクスのメモ</description>
     <language>ja</language>
     <item>
+      <title>MoEは計算が疎で、メモリは密</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=moe-routing</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=moe-routing</guid>
+      <pubDate>Sat, 15 Aug 2026 23:00:00 +0000</pubDate>
+      <description>トークンごとに専門家を選ぶ。偏ると疎の意味が消える。見積もりを密モデルから借りない。</description>
+    </item>
+    <item>
+      <title>FlashAttentionは近似ではなく、I/Oの話</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io</guid>
+      <pubDate>Sat, 15 Aug 2026 22:30:00 +0000</pubDate>
+      <description>O(T²) の注意行列をHBMに置かない。効くのはdecodeより長いprefill。</description>
+    </item>
+    <item>
+      <title>公開ベンチの点を、賢さと書かない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination</guid>
+      <pubDate>Sat, 15 Aug 2026 22:00:00 +0000</pubDate>
+      <description>汚染と分布シフトは別物。採用は社内セットを横に置いてから。</description>
+    </item>
+    <item>
+      <title>BPEの切れ方が、型番と日本語を静かに壊す</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps</guid>
+      <pubDate>Sat, 15 Aug 2026 21:30:00 +0000</pubDate>
+      <description>語彙は単語ではない。数字・全角・固有名詞の切れ目を先に見る。</description>
+    </item>
+    <item>
+      <title>TransformerにAdamWが残っている理由</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers</guid>
+      <pubDate>Sat, 15 Aug 2026 21:00:00 +0000</pubDate>
+      <description>適応的な二次モーメントと、勾配から切り離した重み減衰。</description>
+    </item>
+    <item>
+      <title>スライディング窓とattention sinkは、過去を捨てる話</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window</guid>
+      <pubDate>Sat, 15 Aug 2026 20:30:00 +0000</pubDate>
+      <description>RoPEの伸ばしとは別。窓の外に出た方針は丁寧に破られる。</description>
+    </item>
+    <item>
+      <title>RAGの失敗は、半分がチャンク境界</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking</guid>
+      <pubDate>Sat, 15 Aug 2026 20:00:00 +0000</pubDate>
+      <description>大きすぎると平均化し、小さすぎると参照が切れる。</description>
+    </item>
+    <item>
+      <title>デコーダのみが残った理由</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=decoder-only</guid>
+      <pubDate>Sat, 15 Aug 2026 19:30:00 +0000</pubDate>
+      <description>学習と生成の条件を一致させ、目的関数を一つにし、箱を一つにする。</description>
+    </item>
+    <item>
+      <title>蒸留が移すのは、正解ではなく分布</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits</guid>
+      <pubDate>Sat, 15 Aug 2026 19:00:00 +0000</pubDate>
+      <description>教師のロジットをKLで渡す。下書きでは損失より受理率を見る。</description>
+    </item>
+    <item>
+      <title>0.9は、10回中9回ではない</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece</guid>
+      <pubDate>Sat, 15 Aug 2026 18:30:00 +0000</pubDate>
+      <description>確信度と較正は別。コサインもDPO後のロジットも確率として使わない。</description>
+    </item>
+    <item>
       <title>推論で先に足りなくなるのは、重みよりKV cache</title>
       <link>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</link>
       <guid>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa</guid>
