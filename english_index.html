@@ -65,7 +65,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links .lang { border: 1px solid var(--panel-border); padding: 6px 14px; border-radius: 999px; color: var(--text); }
     .nav-links .lang:hover { border-color: var(--accent); }
-    @media (max-width: 720px) { .nav-links a:not(.lang) { display: none; } }
+    @media (max-width: 720px) { .nav-links a:not(.lang):not(.nav-keep) { display: none; } }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
     .hero { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 60px; }
     .eyebrow {
@@ -174,6 +174,21 @@
     .link-card:hover { transform: translateY(-3px); border-color: var(--accent); }
     .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
     .link-card .arw { color: var(--accent-2); }
+    .home-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 880px) { .home-blog-grid { grid-template-columns: 1fr; } }
+    .blog-card {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      border-radius: var(--radius); padding: 26px 28px;
+      backdrop-filter: blur(8px); transition: transform 0.25s, border-color 0.25s;
+    }
+    .blog-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
+    .blog-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 10px; }
+    .blog-card .date { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
+    .blog-card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
+    .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+    .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .home-blog-more { margin-top: 22px; }
     footer { padding: 50px 0 40px; text-align: center; color: var(--text-faint); font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 40px; }
     footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -193,6 +208,7 @@
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
       <a href="#pubs">Papers</a>
+      <a href="blog/en.html" class="nav-keep">Blog</a>
       <a href="index.html" class="lang">日本語</a>
     </div>
   </nav>
@@ -210,6 +226,7 @@
       </p>
       <div class="cta-row reveal">
         <a href="#career" class="btn btn-primary">View experience →</a>
+        <a href="blog/en.html" class="btn btn-ghost">Read the blog</a>
         <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">Tech notes (Zenn)</a>
       </div>
       <div class="stats">
@@ -415,12 +432,25 @@
       </div>
     </section>
 
+    <section id="blog">
+      <div class="sec-head reveal">
+        <div class="kicker">// blog</div>
+        <h2>Blog</h2>
+        <p>Notes on air-gapped local LLMs and machine learning. Posts are Markdown.</p>
+      </div>
+      <div id="home-blog" class="home-blog-grid"></div>
+      <div class="home-blog-more reveal">
+        <a href="blog/en.html" class="btn btn-ghost">All posts →</a>
+      </div>
+    </section>
+
     <section id="links">
       <div class="sec-head reveal">
         <div class="kicker">// links</div>
         <h2>Output</h2>
       </div>
       <div class="link-grid">
+        <a class="link-card reveal" href="blog/en.html">Blog<span class="sub">This site</span><span class="arw">→</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">Dev diary<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Tech notes<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">Blog<span class="sub">note</span><span class="arw">↗</span></a>
@@ -433,10 +463,18 @@
 
   <footer>
     <div>© 2026 Teppei Nakano · 中野哲平</div>
-    <div class="meta">Last updated: 2026-07-06</div>
+    <div class="meta">Last updated: 2026-08-15</div>
   </footer>
 
   <script>
+    (function () {
+      const s = document.createElement("script");
+      s.src = "blog/assets/blog.js";
+      s.onload = function () {
+        SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog", limit: 3 });
+      };
+      document.body.appendChild(s);
+    })();
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });

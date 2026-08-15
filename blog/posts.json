@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "slug": "welcome",
+      "date": "2026-08-15",
+      "tags": ["meta"],
+      "ja": {
+        "title": "ブログを開設しました",
+        "excerpt": "ポートフォリオサイトに、Markdown で書けるブログを追加しました。閉域網LLMや機械学習のメモをここに残していきます。",
+        "file": "welcome.ja.md"
+      },
+      "en": {
+        "title": "Opening this blog",
+        "excerpt": "I added a Markdown-powered blog to this portfolio. Notes on air-gapped LLMs and machine learning will live here.",
+        "file": "welcome.en.md"
+      }
+    },
+    {
+      "slug": "how-to-write",
+      "date": "2026-08-15",
+      "tags": ["meta"],
+      "ja": {
+        "title": "記事の追加方法",
+        "excerpt": "Markdown ファイルを1つ置き、posts.json に1件足すだけで公開できます。ビルド手順は不要です。",
+        "file": "how-to-write.ja.md"
+      },
+      "en": {
+        "title": "How to add a post",
+        "excerpt": "Drop one Markdown file and add one entry to posts.json. No build step.",
+        "file": "how-to-write.en.md"
+      }
+    },
+    {
+      "slug": "air-gapped-llm-checklist",
+      "date": "2026-08-14",
+      "tags": ["LLM", "MLOps"],
+      "ja": {
+        "title": "閉域網ローカルLLMで、最初に決めること",
+        "excerpt": "外部APIを使わないLLM基盤を立てるとき、モデル選定より先に固めておきたい論点のチェックリストです。",
+        "file": "air-gapped-llm-checklist.ja.md"
+      },
+      "en": {
+        "title": "What to decide first for an air-gapped local LLM",
+        "excerpt": "A checklist of decisions to lock down before picking a model, when the stack cannot call any external API.",
+        "file": "air-gapped-llm-checklist.en.md"
+      }
+    }
+  ]
+}

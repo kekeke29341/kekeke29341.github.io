@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>中野哲平 — Blog</title>
+    <link>https://kekeke29341.github.io/blog/</link>
+    <description>ローカルLLM・閉域網AI・機械学習・バイオインフォマティクスのメモ</description>
+    <language>ja</language>
+    <item>
+      <title>ブログを開設しました</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=welcome</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=welcome</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
+      <description>ポートフォリオサイトに、Markdown で書けるブログを追加しました。</description>
+    </item>
+    <item>
+      <title>記事の追加方法</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=how-to-write</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=how-to-write</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Markdown ファイルを1つ置き、posts.json に1件足すだけで公開できます。</description>
+    </item>
+    <item>
+      <title>閉域網ローカルLLMで、最初に決めること</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=air-gapped-llm-checklist</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=air-gapped-llm-checklist</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 +0000</pubDate>
+      <description>外部APIを使わないLLM基盤を立てるとき、モデル選定より先に固めておきたい論点。</description>
+    </item>
+  </channel>
+</rss>

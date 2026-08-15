@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="中野哲平のブログ記事。">
+  <link rel="alternate" type="application/rss+xml" title="中野哲平 — Blog" href="rss.xml">
+  <title>Blog — 中野哲平</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/github-dark.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/blog.css">
+</head>
+<body>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
+
+  <nav>
+    <a class="brand" href="../index.html"><span class="dot"></span>中野哲平</a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="index.html" class="nav-keep">Blog</a>
+      <a id="post-lang" href="en.html" class="lang">EN</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <article class="post-wrap">
+      <a id="post-back" class="post-back" href="index.html">← ブログ一覧へ</a>
+      <h1 id="post-title" class="post-title">読み込み中…</h1>
+      <div class="post-meta">
+        <span id="post-date" class="post-date"></span>
+        <span id="post-read"></span>
+        <div id="post-tags" class="tags"></div>
+      </div>
+      <div id="post-body" class="prose"></div>
+      <nav id="post-nav" class="post-nav" aria-label="前後の記事"></nav>
+    </article>
+  </div>
+
+  <footer>
+    <div>© 2026 中野哲平 — Teppei Nakano</div>
+    <div class="meta">Last updated: 2026-08-15</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.4/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <script src="assets/blog.js"></script>
+  <script src="assets/fx.js"></script>
+  <script>
+    const lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ja";
+    document.documentElement.lang = lang;
+    SiteBlog.renderPost({ lang: lang });
+  </script>
+</body>
+</html>

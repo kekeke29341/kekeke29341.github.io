@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teppei Nakano's blog — notes on local LLMs, air-gapped AI, machine learning, and bioinformatics.">
+  <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/blog/index.html">
+  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/blog/en.html">
+  <link rel="alternate" type="application/rss+xml" title="Teppei Nakano — Blog" href="rss.xml">
+  <title>Blog — Teppei Nakano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/blog.css">
+</head>
+<body>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
+
+  <nav>
+    <a class="brand" href="../english_index.html"><span class="dot"></span>Teppei Nakano</a>
+    <div class="nav-links">
+      <a href="../english_index.html#about">About</a>
+      <a href="../english_index.html#career">Career</a>
+      <a href="en.html" class="nav-keep active">Blog</a>
+      <a href="index.html" class="lang">日本語</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="blog-hero">
+      <div class="sec-head reveal">
+        <div class="kicker">// blog</div>
+        <h1>Blog</h1>
+        <p>Notes on air-gapped local LLMs, machine learning, and bioinformatics. New posts go live by adding a Markdown file.</p>
+      </div>
+      <div class="blog-toolbar reveal">
+        <input id="blog-search" class="blog-search" type="search" placeholder="Search posts" aria-label="Search posts">
+      </div>
+      <div id="blog-tags" class="tag-row reveal" aria-label="Tags"></div>
+    </header>
+    <div id="blog-grid" class="blog-grid"></div>
+  </div>
+
+  <footer>
+    <div>© 2026 Teppei Nakano · 中野哲平</div>
+    <div class="meta">Last updated: 2026-08-15</div>
+  </footer>
+
+  <script src="assets/blog.js"></script>
+  <script src="assets/fx.js"></script>
+  <script>SiteBlog.renderList({ lang: "en" });</script>
+</body>
+</html>
