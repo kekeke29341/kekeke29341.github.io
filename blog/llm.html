@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="閉域網ローカルLLMの読み順。先に決めること、形、推論とメモリ、学習、RAGと評価。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ローカルLLMの読み順 — 中野哲平">
+  <meta property="og:description" content="チェックリストから、形、KV cache、学習、RAG評価へ。">
+  <meta property="og:url" content="https://kekeke29341.github.io/blog/llm.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kekeke29341.github.io/blog/llm.html">
+  <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/blog/llm.html">
+  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/blog/llm-en.html">
+  <link rel="alternate" type="application/rss+xml" title="中野哲平 — Blog" href="rss.xml">
+  <title>ローカルLLMの読み順 — 中野哲平</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/blog.css">
+</head>
+<body>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
+
+  <nav>
+    <a class="brand" href="../index.html"><span class="dot"></span>中野哲平</a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="index.html" class="nav-keep">Blog</a>
+      <a href="../reading/index.html" class="nav-keep">Reading</a>
+      <a href="llm-en.html" class="lang">EN</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="blog-hero">
+      <div class="sec-head reveal">
+        <div class="kicker">// local llm</div>
+        <h1>ローカルLLMの読み順</h1>
+        <p>モデル名より先に、出せない制約とメモリを決める。下の順は、閉域網で基盤を立てるときに自分が戻る順番です。</p>
+      </div>
+      <div class="home-blog-more reveal">
+        <a href="medical.html" class="btn btn-ghost">医療MLの読み順</a>
+        <a href="index.html?tag=LLM" class="btn btn-ghost">タグ一覧</a>
+        <a href="index.html" class="btn btn-primary">すべての記事 →</a>
+      </div>
+    </header>
+    <noscript><p class="empty">読み順の表示には JavaScript が必要です。本文は <code>blog/posts/</code> の Markdown を直接読めます。</p></noscript>
+    <div id="series-groups"></div>
+  </div>
+
+  <footer>
+    <div>© 2026 中野哲平 — Teppei Nakano</div>
+    <div class="meta">Last updated: 2026-08-15</div>
+  </footer>
+
+  <script src="assets/blog.js"></script>
+  <script src="assets/fx.js"></script>
+  <script>SiteBlog.renderSeries({ lang: "ja", series: "llm" });</script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+{
+  "posts": [
+    {
+      "slug": "patient-level-split",
+      "date": "2026-08-15",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "ja": {
+        "title": "医療MLの分割単位は、行ではなく患者",
+        "excerpt": "同じ人の入院が訓練とテストに割れると、疾患ではなくその人を覚える。患者IDで切り、可能なら時間でも切る。",
+        "file": "patient-level-split.ja.md"
+      },
+      "en": {
+        "title": "Split medical ML by patient, not by row",
+        "excerpt": "The same person’s stays in train and test memorize the person, not the disease. Group by patient id; cut by time when you can.",
+        "file": "patient-level-split.en.md"
+      }
+    },
+    {
+      "slug": "ehr-temporal-leakage",
+      "date": "2026-08-14",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "ja": {
+        "title": "EHR予測で、未来のノートを混ぜない",
+        "excerpt": "退院サマリと、転帰後の検査は、予測ではない。予測時刻を先に固定し、それ以前だけを残す。",
+        "file": "ehr-temporal-leakage.ja.md"
+      },
+      "en": {
+        "title": "Do not mix future notes into an EHR prediction",
+        "excerpt": "A discharge summary and post-outcome labs are not prediction. Freeze time t; keep only what was observed by then.",
+        "file": "ehr-temporal-leakage.en.md"
+      }
+    },
+    {
+      "slug": "auroc-rare-events",
+      "date": "2026-08-13",
+      "tags": [
+        "Medical",
+        "Evaluation"
+      ],
+      "ja": {
+        "title": "稀な転帰で、AUROCだけを先頭に置かない",
+        "excerpt": "有病率が小さいと、高い識別能でも通知のほとんどは外れになる。適合率と、件数を同じ表に出す。",
+        "file": "auroc-rare-events.ja.md"
+      },
+      "en": {
+        "title": "Do not lead a rare-event paper with AUROC alone",
+        "excerpt": "At low prevalence, high discrimination still pages mostly misses. Put precision and alert counts on the same table.",
+        "file": "auroc-rare-events.en.md"
+      }
+    },
+    {
+      "slug": "guideline-rag-clinical",
+      "date": "2026-08-12",
+      "tags": [
+        "Medical",
+        "RAG"
+      ],
+      "ja": {
+        "title": "ガイドラインRAGで危ないのは、引用つきの幻覚",
+        "excerpt": "例外と対象集団を同じチャンクに残す。廃版の用量を出さない。正しさより、文書への忠実さを測る。",
+        "file": "guideline-rag-clinical.ja.md"
+      },
+      "en": {
+        "title": "The dangerous guideline RAG error is a cited hallucination",
+        "excerpt": "Keep exceptions in the same chunk. Do not emit withdrawn doses. Score faithfulness to the document, not “correctness.”",
+        "file": "guideline-rag-clinical.en.md"
+      }
+    },
+    {
+      "slug": "phi-hospital-llm",
+      "date": "2026-08-11",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "ja": {
+        "title": "病院のLLMは、上手さより先に出さない",
+        "excerpt": "正規表現の匿名化は再識別を残す。生ノートをSFTしない。RAGの識別子はメタデータ側。",
+        "file": "phi-hospital-llm.ja.md"
+      },
+      "en": {
+        "title": "A hospital LLM is about not sending, first",
+        "excerpt": "Regex de-id still re-identifies. Do not SFT on raw notes. Identifiers live on RAG metadata.",
+        "file": "phi-hospital-llm.en.md"
+      }
+    },
+    {
+      "slug": "clinical-text-from-talk",
+      "date": "2026-08-10",
+      "tags": [
+        "Medical",
+        "LLM"
+      ],
+      "ja": {
+        "title": "会話からカルテ文を書くとき、BLEUで終わらせない",
+        "excerpt": "流暢さは、事実の追加と欠落を隠す。教師は直後の経過記録。音声の誤りを、きれいに補正しない。",
+        "file": "clinical-text-from-talk.ja.md"
+      },
+      "en": {
+        "title": "Talk-to-note is not a BLEU task",
+        "excerpt": "Fluency hides added and dropped facts. The teacher is the progress note right after the talk. Do not fluently “fix” ASR.",
+        "file": "clinical-text-from-talk.en.md"
+      }
+    },
+    {
+      "slug": "ehr-missingness",
+      "date": "2026-08-09",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "ja": {
+        "title": "カルテの欠損は、平均で埋めるな",
+        "excerpt": "測らなかった理由が、重症度そのものになりうる。マスクと、最後の観測からの時間を残す。",
+        "file": "ehr-missingness.ja.md"
+      },
+      "en": {
+        "title": "Do not mean-impute the chart",
+        "excerpt": "Why it was not measured can be the severity. Keep a mask and time since last observation.",
+        "file": "ehr-missingness.en.md"
+      }
+    },
+    {
+      "slug": "icd-label-noise",
+      "date": "2026-08-08",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "ja": {
+        "title": "ICDを教師にした「診断」は、請求の再現になりやすい",
+        "excerpt": "疑い・既往・主病は、意図的にずれる。弱ラベルと明記し、人手スパンで落ちたら採用しない。",
+        "file": "icd-label-noise.ja.md"
+      },
+      "en": {
+        "title": "ICD-supervised “diagnosis” often reproduces billing",
+        "excerpt": "Suspected, history, and primary are allowed to differ. Name weak labels; do not hire if human spans drop.",
+        "file": "icd-label-noise.en.md"
+      }
+    },
+    {
+      "slug": "radiology-report-nlp",
+      "date": "2026-08-07",
+      "tags": [
+        "Medical",
+        "NLP"
+      ],
+      "ja": {
+        "title": "読影レポートNLPは、否定と時刻の問題",
+        "excerpt": "所見の半分は「ない」。画像タスクにレポートを入れるなら、撮影時点と記載時点を一致させる。",
+        "file": "radiology-report-nlp.ja.md"
+      },
+      "en": {
+        "title": "Radiology-report NLP is negation and time",
+        "excerpt": "Half the findings are absences. If text enters an imaging task, acquisition time and report time must agree.",
+        "file": "radiology-report-nlp.en.md"
+      }
+    },
+    {
+      "slug": "scanner-shift-imaging",
+      "date": "2026-08-06",
+      "tags": [
+        "Medical",
+        "ML"
+      ],
+      "ja": {
+        "title": "医用画像の点数は、隣の装置で消える",
+        "excerpt": "疾患差より先に、再構成とプロトコルを疑う。施設を予測できる埋め込みは、疾患モデルに使われる。",
+        "file": "scanner-shift-imaging.ja.md"
+      },
+      "en": {
+        "title": "Medical-image scores die on the next scanner",
+        "excerpt": "Suspect reconstruction and protocol before disease shift. An embedding that predicts site will be used by the disease model.",
+        "file": "scanner-shift-imaging.en.md"
+      }
+    },
+    {
+      "slug": "rnaseq-batch-effects",
+      "date": "2026-08-05",
+      "tags": [
+        "Medical",
+        "Bioinformatics"
+      ],
+      "ja": {
+        "title": "RNA-seqのモデルが、キットを当てていないか",
+        "excerpt": "バッチは生物学より大きいことがある。補正の順と、研究をまたぐ分割を、学習の前に置く。",
+        "file": "rnaseq-batch-effects.ja.md"
+      },
+      "en": {
+        "title": "Is your RNA-seq model predicting the kit?",
+        "excerpt": "Batch can outrun biology. Put correction order and a cross-study split before the learner.",
+        "file": "rnaseq-batch-effects.en.md"
+      }
+    },
+    {
+      "slug": "cancer-heterogeneity-ml",
+      "date": "2026-08-04",
+      "tags": [
+        "Medical",
+        "Bioinformatics"
+      ],
+      "ja": {
+        "title": "一箇所の生検から、腫瘍の不均一さをどこまで言えるか",
+        "excerpt": "観測は部分である。生検内の多様性と、未採取領域への外挿は、教師が違う。患者とパネルを混ぜて切らない。",
+        "file": "cancer-heterogeneity-ml.ja.md"
+      },
+      "en": {
+        "title": "How much heterogeneity can one biopsy support?",
+        "excerpt": "The observation is partial. Diversity inside the sample and unseen regions need different teachers. Do not split across a patient’s other sites.",
+        "file": "cancer-heterogeneity-ml.en.md"
+      }
+    },
+    {
+      "slug": "moe-routing",
+      "date": "2026-08-03",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "ja": {
+        "title": "MoEは計算が疎で、メモリは密",
+        "excerpt": "トークンごとに専門家を選ぶ。総パラメータは大きいが、偏ると疎の意味が消える。見積もりを密モデルから借りない。",
+        "file": "moe-routing.ja.md"
+      },
+      "en": {
+        "title": "MoE compute is sparse; memory is not",
+        "excerpt": "A router picks experts per token. Capacity is large; collapse kills the sparsity. Do not borrow a dense sizing equation.",
+        "file": "moe-routing.en.md"
+      }
+    },
+    {
+      "slug": "flashattention-io",
+      "date": "2026-08-02",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "FlashAttentionは近似ではなく、I/Oの話",
+        "excerpt": "O(T²) の注意行列をHBMに置かない。同じsoftmaxをSRAMで完結させる。効くのはdecodeより長いprefill。",
+        "file": "flashattention-io.ja.md"
+      },
+      "en": {
+        "title": "FlashAttention is I/O, not an approximation",
+        "excerpt": "Do not materialize the O(T²) score matrix. Same softmax, finished in SRAM. The win is long prefill, not one-token decode.",
+        "file": "flashattention-io.en.md"
+      }
+    },
+    {
+      "slug": "kv-cache-gqa",
+      "date": "2026-08-01",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "推論で先に足りなくなるのは、重みよりKV cache",
+        "excerpt": "同時接続と長いコンテキストでVRAMを埋めるのは重みではない。MHA / MQA / GQA で何が減るかを、メモリの式から書きます。",
+        "file": "kv-cache-gqa.ja.md"
+      },
+      "en": {
+        "title": "KV cache fills VRAM before the weights do",
+        "excerpt": "Under concurrency and long context, weights are not what runs out. What MHA / MQA / GQA actually reduce, from the memory equation.",
+        "file": "kv-cache-gqa.en.md"
+      }
+    },
+    {
+      "slug": "quantization-llm",
+      "date": "2026-07-31",
+      "tags": [
+        "LLM",
+        "MLOps"
+      ],
+      "ja": {
+        "title": "量子化で先に死ぬもの",
+        "excerpt": "GPTQ / AWQ / FP8 はどれも情報を捨てる。捨て方の偏りと、較正分布、現場で先に壊れる固有名詞と長文の話です。",
+        "file": "quantization-llm.ja.md"
+      },
+      "en": {
+        "title": "What quantization kills first",
+        "excerpt": "GPTQ, AWQ, and FP8 all throw information away. They differ in which information, and in how calibration drift shows up on names and long context.",
+        "file": "quantization-llm.en.md"
+      }
+    },
+    {
+      "slug": "sft-then-dpo",
+      "date": "2026-07-30",
+      "tags": [
+        "LLM",
+        "Training"
+      ],
+      "ja": {
+        "title": "SFTのあとでDPOする理由",
+        "excerpt": "SFTは分布を寄せ、DPOは二つの出力に順序を付ける。順番を飛ばすとJSONが壊れ、拒否より敬語だけが残ります。",
+        "file": "sft-then-dpo.ja.md"
+      },
+      "en": {
+        "title": "Why DPO comes after SFT",
+        "excerpt": "SFT moves a distribution; DPO orders two outputs. Skip a step and you keep honorifics and lose refusal.",
+        "file": "sft-then-dpo.en.md"
+      }
+    },
+    {
+      "slug": "rag-evaluation",
+      "date": "2026-07-29",
+      "tags": [
+        "RAG",
+        "Evaluation"
+      ],
+      "ja": {
+        "title": "RAGの「精度」を、四層に切る",
+        "excerpt": "検索・利用・回答・拒否を一つの正解率に折らない。recall@k と忠実性を分け、拒否セットを正解と同じ数だけ持ちます。",
+        "file": "rag-evaluation.ja.md"
+      },
+      "en": {
+        "title": "Cut RAG “accuracy” into four layers",
+        "excerpt": "Do not fold retrieval, use, answer, and refusal into one score. Split recall@k from faithfulness, and keep a refusal set as large as the answer set.",
+        "file": "rag-evaluation.en.md"
+      }
+    },
+    {
+      "slug": "rag-chunking",
+      "date": "2026-07-28",
+      "tags": [
+        "RAG",
+        "MLOps"
+      ],
+      "ja": {
+        "title": "RAGの失敗は、半分がチャンク境界",
+        "excerpt": "大きすぎると平均化し、小さすぎると参照が切れる。メタデータはフィルタ、ベクトルは本文。",
+        "file": "rag-chunking.ja.md"
+      },
+      "en": {
+        "title": "Half of RAG misses are chunk boundaries",
+        "excerpt": "Too big averages; too small cuts the referent. Metadata is a filter; the vector is the body.",
+        "file": "rag-chunking.en.md"
+      }
+    },
+    {
+      "slug": "rope",
+      "date": "2026-07-27",
+      "tags": [
+        "LLM",
+        "RoPE"
+      ],
+      "ja": {
+        "title": "LLMで使われるRoPEを、回転から追う",
+        "excerpt": "位置を足すのではなく、QueryとKeyを回す。相対位置が内積に残る理由と、長文で伸ばすときに何が壊れるかを実装寄りに書きます。",
+        "file": "rope.ja.md"
+      },
+      "en": {
+        "title": "RoPE in LLMs, from the rotation up",
+        "excerpt": "Do not add a position vector — rotate Q and K. Why the relative offset survives the inner product, and what breaks when you stretch context.",
+        "file": "rope.en.md"
+      }
+    },
+    {
+      "slug": "attention-sink-window",
+      "date": "2026-07-26",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "スライディング窓とattention sinkは、過去を捨てる話",
+        "excerpt": "RoPEの伸ばしとは別。窓の外に出た方針は、丁寧に破られる。sinkと再注入のどちらで守るか。",
+        "file": "attention-sink-window.ja.md"
+      },
+      "en": {
+        "title": "Windows and attention sinks throw the past away",
+        "excerpt": "Not the same as stretching RoPE. Policy outside the window is politely violated. Sink or re-inject.",
+        "file": "attention-sink-window.en.md"
+      }
+    },
+    {
+      "slug": "speculative-decoding",
+      "date": "2026-07-25",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "投機的デコーディングは、受理率がすべて",
+        "excerpt": "小さいモデルに先を書かせ、大きいモデルが分布を保ったまま検証する。受理率が低いと、二体を載せるだけになります。",
+        "file": "speculative-decoding.ja.md"
+      },
+      "en": {
+        "title": "Speculative decoding is an acceptance-rate game",
+        "excerpt": "A draft model writes ahead; the large model verifies without changing its distribution. Low acceptance and you are only hosting two models.",
+        "file": "speculative-decoding.en.md"
+      }
+    },
+    {
+      "slug": "sampling-beyond-temperature",
+      "date": "2026-07-24",
+      "tags": [
+        "LLM",
+        "Inference"
+      ],
+      "ja": {
+        "title": "温度だけでは、サンプリングは決まらない",
+        "excerpt": "温度はsoftmaxの尖り、top-k / top-p は切る位置。評価と本番で温度を変えない。報告には T, k, p を揃えて書きます。",
+        "file": "sampling-beyond-temperature.ja.md"
+      },
+      "en": {
+        "title": "Temperature is not a sampling policy",
+        "excerpt": "Temperature is softmax sharpness; top-k and top-p decide the cut. Do not eval at 0.8 and serve at 0.2. Quote T, k, and p together.",
+        "file": "sampling-beyond-temperature.en.md"
+      }
+    },
+    {
+      "slug": "lora-what-rank-fits",
+      "date": "2026-07-23",
+      "tags": [
+        "LLM",
+        "Training"
+      ],
+      "ja": {
+        "title": "LoRAのランクより、足す層を先に決める",
+        "excerpt": "r は更新の部分空間の次元です。q,v から始め、足りなければMLP。LoRAだから忘れない、は成り立ちません。",
+        "file": "lora-what-rank-fits.ja.md"
+      },
+      "en": {
+        "title": "Pick LoRA layers before you pick rank",
+        "excerpt": "Rank is the dimension of the update subspace. Start with q,v, then the MLP. “It’s LoRA, so it won’t forget” is false.",
+        "file": "lora-what-rank-fits.en.md"
+      }
+    },
+    {
+      "slug": "rmsnorm-prenorm",
+      "date": "2026-07-22",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "ja": {
+        "title": "RMSNormとPre-normが、深いLLMを支えている",
+        "excerpt": "BatchNormが系列で使いにくい理由から、平均を引かないRMSNorm、残差を恒等のまま残すPre-norm、SwiGLUまで。",
+        "file": "rmsnorm-prenorm.ja.md"
+      },
+      "en": {
+        "title": "RMSNorm and pre-norm are why deep LLMs stand up",
+        "excerpt": "From why BatchNorm fails on sequences, to RMSNorm without a mean, pre-norm residuals, and SwiGLU.",
+        "file": "rmsnorm-prenorm.en.md"
+      }
+    },
+    {
+      "slug": "decoder-only",
+      "date": "2026-07-21",
+      "tags": [
+        "LLM",
+        "Architecture"
+      ],
+      "ja": {
+        "title": "デコーダのみが残った理由",
+        "excerpt": "学習と生成の条件を一致させ、目的関数を一つにし、箱を一つにする。理解専用はまだ双方向が勝つことがある。",
+        "file": "decoder-only.ja.md"
+      },
+      "en": {
+        "title": "Why decoder-only won the local box",
+        "excerpt": "Match train and serve, keep one objective, keep one box. Bidirectional still wins some understand-only jobs.",
+        "file": "decoder-only.en.md"
+      }
+    },
+    {
+      "slug": "distillation-logits",
+      "date": "2026-07-20",
+      "tags": [
+        "LLM",
+        "Training"
+      ],
+      "ja": {
+        "title": "蒸留が移すのは、正解ではなく分布",
+        "excerpt": "教師のロジットをKLで渡す。ハードな拒否は残す。下書きモデルでは損失より受理率を見る。",
+        "file": "distillation-logits.ja.md"
+      },
+      "en": {
+        "title": "Distillation copies a distribution, not an answer key",
+        "excerpt": "Pass teacher logits via KL. Keep hard refusals. For draft models, measure acceptance, not loss.",
+        "file": "distillation-logits.en.md"
+      }
+    },
+    {
+      "slug": "tokenizer-bpe-traps",
+      "date": "2026-07-19",
+      "tags": [
+        "LLM",
+        "ML"
+      ],
+      "ja": {
+        "title": "BPEの切れ方が、型番と日本語を静かに壊す",
+        "excerpt": "語彙は単語ではない。数字・全角・固有名詞の切れ目を、パラメータより先に見る。",
+        "file": "tokenizer-bpe-traps.ja.md"
+      },
+      "en": {
+        "title": "BPE cuts quietly break SKUs and Japanese",
+        "excerpt": "The vocabulary is not words. Read digit, full-width, and proper-name splits before you talk parameters.",
+        "file": "tokenizer-bpe-traps.en.md"
+      }
+    },
+    {
+      "slug": "contrastive-infonce",
+      "date": "2026-07-18",
+      "tags": [
+        "ML",
+        "RAG"
+      ],
+      "ja": {
+        "title": "埋め込みの共通言語はInfoNCE",
+        "excerpt": "密検索もCLIPも、正例を選ぶ分類損失です。負例の質が表現を決める。生成用LLMの隠れ状態を、そのまま検索に使わない。",
+        "file": "contrastive-infonce.ja.md"
+      },
+      "en": {
+        "title": "InfoNCE is the common language of embeddings",
+        "excerpt": "Dense retrieval and CLIP are a classify-the-positive loss. Negatives set the representation. Do not use a generator’s hidden states as a retriever unchanged.",
+        "file": "contrastive-infonce.en.md"
+      }
+    },
+    {
+      "slug": "calibration-ece",
+      "date": "2026-07-17",
+      "tags": [
+        "Evaluation",
+        "ML"
+      ],
+      "ja": {
+        "title": "0.9は、10回中9回ではない",
+        "excerpt": "確信度と較正は別。ECEと温度スケーリング。コサインも、DPO後のロジットも、確率として使わない。",
+        "file": "calibration-ece.ja.md"
+      },
+      "en": {
+        "title": "0.9 is not nine times in ten",
+        "excerpt": "Confidence is not calibration. ECE and temperature scaling. Do not treat cosine or post-DPO logits as probabilities.",
+        "file": "calibration-ece.en.md"
+      }
+    },
+    {
+      "slug": "eval-contamination",
+      "date": "2026-07-16",
+      "tags": [
+        "Evaluation",
+        "ML"
+      ],
+      "ja": {
+        "title": "公開ベンチの点を、賢さと書かない",
+        "excerpt": "汚染と分布シフトは別物。採用は社内セットと、学習コーパスとの重なりを横に置いてから決める。",
+        "file": "eval-contamination.ja.md"
+      },
+      "en": {
+        "title": "A public bench score is not a synonym for smart",
+        "excerpt": "Contamination and shift are different. Hire from an in-house set plus overlap with the train corpus.",
+        "file": "eval-contamination.en.md"
+      }
+    },
+    {
+      "slug": "adamw-transformers",
+      "date": "2026-07-15",
+      "tags": [
+        "Training",
+        "ML"
+      ],
+      "ja": {
+        "title": "TransformerにAdamWが残っている理由",
+        "excerpt": "適応的な二次モーメントと、勾配から切り離した重み減衰。Normのγは減衰から外す。",
+        "file": "adamw-transformers.ja.md"
+      },
+      "en": {
+        "title": "Why Transformers still train with AdamW",
+        "excerpt": "Adaptive second moment, and weight decay decoupled from the gradient. Leave Norm γ out of decay.",
+        "file": "adamw-transformers.en.md"
+      }
+    },
+    {
+      "slug": "air-gapped-llm-checklist",
+      "date": "2026-07-14",
+      "tags": [
+        "LLM",
+        "MLOps"
+      ],
+      "ja": {
+        "title": "閉域網ローカルLLMで、最初に決めること",
+        "excerpt": "外部APIを使わないLLM基盤を立てるとき、モデル選定より先に固めておきたい論点のチェックリストです。",
+        "file": "air-gapped-llm-checklist.ja.md"
+      },
+      "en": {
+        "title": "What to decide first for an air-gapped local LLM",
+        "excerpt": "A checklist of decisions to lock down before picking a model, when the stack cannot call any external API.",
+        "file": "air-gapped-llm-checklist.en.md"
+      }
+    },
+    {
+      "slug": "welcome",
+      "date": "2026-07-13",
+      "tags": [
+        "meta"
+      ],
+      "ja": {
+        "title": "ブログを開設しました",
+        "excerpt": "ポートフォリオサイトに、Markdown で書けるブログを追加しました。閉域網LLMや機械学習のメモをここに残していきます。",
+        "file": "welcome.ja.md"
+      },
+      "en": {
+        "title": "Opening this blog",
+        "excerpt": "I added a Markdown-powered blog to this portfolio. Notes on air-gapped LLMs and machine learning will live here.",
+        "file": "welcome.en.md"
+      }
+    },
+    {
+      "slug": "how-to-write",
+      "date": "2026-07-12",
+      "tags": [
+        "meta"
+      ],
+      "ja": {
+        "title": "記事の追加方法",
+        "excerpt": "Markdown ファイルを1つ置き、posts.json に1件足すだけで公開できます。ビルド手順は不要です。",
+        "file": "how-to-write.ja.md"
+      },
+      "en": {
+        "title": "How to add a post",
+        "excerpt": "Drop one Markdown file and add one entry to posts.json. No build step.",
+        "file": "how-to-write.en.md"
+      }
+    }
+  ]
+}

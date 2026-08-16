@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A reading order for air-gapped local LLMs: decisions first, then shape, memory, training, RAG and eval.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Local LLM reading order — Teppei Nakano">
+  <meta property="og:description" content="From the air-gap checklist to KV cache, training, and RAG eval.">
+  <meta property="og:url" content="https://kekeke29341.github.io/blog/llm-en.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kekeke29341.github.io/blog/llm-en.html">
+  <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/blog/llm.html">
+  <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/blog/llm-en.html">
+  <link rel="alternate" type="application/rss+xml" title="Teppei Nakano — Blog" href="rss-en.xml">
+  <title>Local LLM reading order — Teppei Nakano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/blog.css">
+</head>
+<body>
+  <div class="bg-fx"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
+
+  <nav>
+    <a class="brand" href="../english_index.html"><span class="dot"></span>Teppei Nakano</a>
+    <div class="nav-links">
+      <a href="../english_index.html#about">About</a>
+      <a href="en.html" class="nav-keep">Blog</a>
+      <a href="../reading/en.html" class="nav-keep">Reading</a>
+      <a href="llm.html" class="lang">日本語</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="blog-hero">
+      <div class="sec-head reveal">
+        <div class="kicker">// local llm</div>
+        <h1>Local LLM reading order</h1>
+        <p>Lock the “cannot send” constraint and the memory budget before the model name. This is the order I return to when standing up an air-gapped stack.</p>
+      </div>
+      <div class="home-blog-more reveal">
+        <a href="medical-en.html" class="btn btn-ghost">Medical ML path</a>
+        <a href="en.html?tag=LLM" class="btn btn-ghost">Tag listing</a>
+        <a href="en.html" class="btn btn-primary">All posts →</a>
+      </div>
+    </header>
+    <noscript><p class="empty">JavaScript is required to list the path. The Markdown sources are in <code>blog/posts/</code>.</p></noscript>
+    <div id="series-groups"></div>
+  </div>
+
+  <footer>
+    <div>© 2026 Teppei Nakano · 中野哲平</div>
+    <div class="meta">Last updated: 2026-08-15</div>
+  </footer>
+
+  <script src="assets/blog.js"></script>
+  <script src="assets/fx.js"></script>
+  <script>SiteBlog.renderSeries({ lang: "en", series: "llm" });</script>
+</body>
+</html>

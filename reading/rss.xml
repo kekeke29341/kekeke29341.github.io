@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>中野哲平 — 読んだ論文</title>
+    <link>https://kekeke29341.github.io/reading/</link>
+    <description>実装と評価に持ち帰る一点だけの論文メモ</description>
+    <language>ja</language>
+    <item>
+      <title>Lost in the Middle: How Language Models Use Long Contexts</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=lost-in-the-middle</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=lost-in-the-middle</guid>
+      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
+      <description>長い文脈の真ん中は使われない。RAGは、根拠を先頭と末尾に置くか、文脈を短くする。</description>
+    </item>
+    <item>
+      <title>The shaky foundations of large language models and foundation models for electronic health records</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=wornow-shaky-foundations</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=wornow-shaky-foundations</guid>
+      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
+      <description>EHR基盤モデルの論文は、タスク名より先に、ラベルが請求か注釈か、分割が患者かを見る。</description>
+    </item>
+    <item>
+      <title>Large language models encode clinical knowledge</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=med-palm</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=med-palm</guid>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>試験の点数は、院内手順の忠実さではない。医療LLMは、引用先と、出さない範囲を先に決める。</description>
+    </item>
+    <item>
+      <title>AI for radiographic COVID-19 detection selects shortcuts over signal</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=degrave-covid-shortcuts</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=degrave-covid-shortcuts</guid>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>画像モデルは疾患ではなく、後処理の文字や装置の癖を拾う。saliencyより先に、サイトを予測できるかを見る。</description>
+    </item>
+    <item>
+      <title>Do We Still Need Clinical Language Models?</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=lehman-clinical-lms</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=lehman-clinical-lms</guid>
+      <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>汎用LLMが臨床タスクで勝っても、ノートを外に出せるかは別問題。要るのは、モデル名より先にデータの境界。</description>
+    </item>
+    <item>
+      <title>Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=zech-pneumonia-2018</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=zech-pneumonia-2018</guid>
+      <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>院内AUROCは、隣の病院で落ちる。肺炎検出の論文は、装置とプロトコルの記述が本文にあるかを先に見る。</description>
+    </item>
+    <item>
+      <title>Capabilities of GPT-4 on Medical Challenge Problems</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=nori-gpt4-medical</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=nori-gpt4-medical</guid>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 +0000</pubDate>
+      <description>挑戦問題の点数は、電子カルテの入力でも、責任の所在でもない。デモの上限として読む。</description>
+    </item>
+    <item>
+      <title>Dissecting racial bias in an algorithm used to manage the health of populations</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=obermeyer-bias-2019</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=obermeyer-bias-2019</guid>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 +0000</pubDate>
+      <description>コストをリスクの代理にすると、アクセスの差を学習する。教師が何の代理かを、損失より先に書く。</description>
+    </item>
+    <item>
+      <title>GatorTron: A Large Clinical Language Model to Unlock Patient Information from Unstructured Electronic Health Records</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gatortron</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gatortron</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 +0000</pubDate>
+      <description>大規模臨床LMは、ノートを施設内で学習した点が本体。重みの公開有無と、教師の定義を先に見る。</description>
+    </item>
+    <item>
+      <title>The myth of generalisability in clinical research and machine learning in health care</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=futoma-generalisability</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=futoma-generalisability</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 +0000</pubDate>
+      <description>汎化は性質ではなく、どのシフトに耐えたかの報告である。単一AUROCを、一般化可能性と呼ばない。</description>
+    </item>
+    <item>
+      <title>Publicly Available Clinical BERT Embeddings</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=clinical-bert-alsentzer</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=clinical-bert-alsentzer</guid>
+      <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
+      <description>公開臨床BERTは、MIMICの文体に寄る。自施設ノートでの再評価なしに、埋め込みを固定しない。</description>
+    </item>
+    <item>
+      <title>Scalable and accurate deep learning with electronic health records</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=rajkomar-ehr-2018</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=rajkomar-ehr-2018</guid>
+      <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
+      <description>EHRをシーケンスにできること自体は成果ではない。予測時刻より後のイベントが混ざっていないかが本体。</description>
+    </item>
+    <item>
+      <title>BioBERT: a pre-trained biomedical language representation model for biomedical text mining</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=biobert</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=biobert</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <description>PubMedの上にBERTを置く。臨床ノートではなく、論文英語である。コーパスを名前で取り違えない。</description>
+    </item>
+    <item>
+      <title>MIMIC-III, a freely accessible critical care database</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mimic-iii</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mimic-iii</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <description>公開ICUデータの標準。論文を読むときは、MIMICのどの版か、患者重複、時刻のずれを先に確認する。</description>
+    </item>
+    <item>
+      <title>Hidden stratification causes clinically meaningful failures in machine learning for medical imaging</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=oakden-hidden-stratification</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=oakden-hidden-stratification</guid>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 +0000</pubDate>
+      <description>平均AUROCの下に、稀な亜型が沈む。層がラベルに無いなら、平均は隠す。</description>
+    </item>
+    <item>
+      <title>CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chexpert-irvin</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chexpert-irvin</guid>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 +0000</pubDate>
+      <description>不確実ラベル（正・不明・負）が本体。陽性に潰すと、モデルは放射線科の迷いを学習しない。</description>
+    </item>
+    <item>
+      <title>MIMIC-CXR, a de-identified publicly available database of chest radiographs with free-text reports</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mimic-cxr</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mimic-cxr</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>画像とレポートが揃う公開セット。分割は患者。撮影時刻と記載時刻を混ぜない。</description>
+    </item>
+    <item>
+      <title>The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=saito-pr-2015</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=saito-pr-2015</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>不均衡ではPRが先。AUROCは、通知のほとんどが外れでも高く見える。</description>
+    </item>
+    <item>
+      <title>Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=seyyed-underdiagnosis</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=seyyed-underdiagnosis</guid>
+      <pubDate>Thu, 06 Aug 2026 12:00:00 +0000</pubDate>
+      <description>平均AUROCの下で、underserved集団の偽陰性が増える。層を切らない胸部モデルは、採用しない。</description>
+    </item>
+    <item>
+      <title>Tackling the widespread and critical impact of batch effects in high-throughput data</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=leek-batch-2010</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=leek-batch-2010</guid>
+      <pubDate>Thu, 06 Aug 2026 12:00:00 +0000</pubDate>
+      <description>バッチは生物学より大きいことがある。補正の前に、研究をまたぐ分割を置く。</description>
+    </item>
+    <item>
+      <title>Deep learning predicts hip fracture using confounding patient and healthcare variables</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=badgeley-hip-confound</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=badgeley-hip-confound</guid>
+      <pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
+      <description>骨折を当てているように見えて、病院とスキャナを当てている。交絡を、精度の前にプロットする。</description>
+    </item>
+    <item>
+      <title>Adjusting batch effects in microarray expression data using empirical Bayes methods</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=combat-johnson-2007</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=combat-johnson-2007</guid>
+      <pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
+      <description>ComBatは平均と分散のバッチを縮める。テスト研究の統計で再推定すると、評価がリークする。</description>
+    </item>
+    <item>
+      <title>Transparent Reporting of a multivariable prediction model for Individual Prognosis or Diagnosis (TRIPOD)</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=tripod-collins</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=tripod-collins</guid>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>予測モデルの報告項目が先。分割、校正、対象集団が無い論文は、再現できない。</description>
+    </item>
+    <item>
+      <title>A simple algorithm for identifying negated findings and diseases in discharge summaries</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chapman-negex</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chapman-negex</guid>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>臨床文の半分は「ない」。否定を扱わない抽出は、所見を倍増させる。</description>
+    </item>
+    <item>
+      <title>Efficient Memory Management for Large Language Model Serving with PagedAttention</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=pagedattention</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=pagedattention</guid>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>KVを連続確保すると穴が開く。ページで持つと、同じVRAMでバッチが乗る。</description>
+    </item>
+    <item>
+      <title>Decision Curve Analysis: A Novel Method for Evaluating Prediction Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=vickers-dca</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=vickers-dca</guid>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>閾値ごとに、治療する／しないの正味を描く。AUROCが高くても、使う閾値で損なら採用しない。</description>
+    </item>
+    <item>
+      <title>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=flashattention</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=flashattention</guid>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Attentionの遅さは近似ではなく、HBMへの出し入れである。厳密なまま、タイルでIOを減らす。</description>
+    </item>
+    <item>
+      <title>Multitask learning and benchmarking with clinical time series data</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=harutyunyan-mimic</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=harutyunyan-mimic</guid>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
+      <description>MIMICのベンチマークは、タスク定義と分割が本体。自前タスクに、この前処理を黙ってコピーしない。</description>
+    </item>
+    <item>
+      <title>GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gqa</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gqa</guid>
+      <pubDate>Sat, 01 Aug 2026 12:00:00 +0000</pubDate>
+      <description>K/Vヘッドを共有すると、品質より先にKVのバイトが減る。ローカル推論のメモリ見積もりの基本。</description>
+    </item>
+    <item>
+      <title>Do no harm: a roadmap for responsible machine learning for health care</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=wiens-do-no-harm</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=wiens-do-no-harm</guid>
+      <pubDate>Sat, 01 Aug 2026 12:00:00 +0000</pubDate>
+      <description>医療MLの責任は、モデルカードより、誰が止めるか。導入の前に、無効化の経路を書く。</description>
+    </item>
+    <item>
+      <title>RoFormer: Enhanced Transformer with Rotary Position Embedding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=roformer</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=roformer</guid>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>位置は足すのではなく回す。相対位置が内積に入る。コンテキスト延長は、この回転の周期の話になる。</description>
+    </item>
+    <item>
+      <title>The false hope of current approaches to explainable artificial intelligence in health care</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=ghassemi-xai-false-hope</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=ghassemi-xai-false-hope</guid>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>saliencyは、汎化の証拠ではない。説明図より、外部施設と層別の失敗を先に出す。</description>
+    </item>
+    <item>
+      <title>Efficient Streaming Language Models with Attention Sinks</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=attention-sinks</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=attention-sinks</guid>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <description>窓で過去を捨てると、先頭トークンを残さない限り壊れる。sink は窓の補題である。</description>
+    </item>
+    <item>
+      <title>Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=deseq2</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=deseq2</guid>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <description>分散をshrinkしてから差を見る。生カウントを、そのまま学習器に渡さない。</description>
+    </item>
+    <item>
+      <title>Fast Inference from Transformers via Speculative Decoding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=speculative-decoding</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=speculative-decoding</guid>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>小さいモデルで先読みし、大きいモデルは検証する。棄却が少ないときだけ、壁時計が縮む。</description>
+    </item>
+    <item>
+      <title>Fast, sensitive and accurate integration of single-cell data with Harmony</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=harmony-korsunsky</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=harmony-korsunsky</guid>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>細胞の統合は、バッチを寄せて生物学を残す作業。テスト研究を、統合の統計に入れない。</description>
+    </item>
+    <item>
+      <title>LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=llm-int8</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=llm-int8</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 +0000</pubDate>
+      <description>8bitでも、外れ値チャネルは16bitに残す。量子化は一様に削る話ではない。</description>
+    </item>
+    <item>
+      <title>Current best practices in single-cell RNA-seq analysis: a tutorial</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=luecken-theis-scrna</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=luecken-theis-scrna</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 +0000</pubDate>
+      <description>単細胞は、前処理の順が結果である。QC、正規化、統合、クラスタの順を、学習の前に固定する。</description>
+    </item>
+    <item>
+      <title>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=awq</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=awq</guid>
+      <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
+      <description>重みの重要度は、活性化の大きさで決まる。平均二乗だけでは、残すべきチャネルを外す。</description>
+    </item>
+    <item>
+      <title>Characterizing genetic intra-tumor heterogeneity in 500 tumors from 38 tissues</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=dentro-ith</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=dentro-ith</guid>
+      <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
+      <description>一箇所の生検は、腫瘍の一部である。ヘテロジェニティを、その生検の多様性と、未採取への外挿に分ける。</description>
+    </item>
+    <item>
+      <title>MIMIC-IV, a freely accessible electronic health record dataset</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mimic-iv</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mimic-iv</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 +0000</pubDate>
+      <description>IIIの後継。版とモジュールを論文に書く。IIIの前処理を、IVに黙って再利用しない。</description>
+    </item>
+    <item>
+      <title>LoRA: Low-Rank Adaptation of Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=lora</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=lora</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 +0000</pubDate>
+      <description>低ランクの差分で足す。ランクより先に、どの行列に足すか。</description>
+    </item>
+    <item>
+      <title>QLoRA: Efficient Finetuning of Quantized Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=qlora</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=qlora</guid>
+      <pubDate>Sat, 25 Jul 2026 12:00:00 +0000</pubDate>
+      <description>4bitに載せたままLoRAを足す。フルFine-tuneのVRAMが無いときの、閉域網の既定に近い。</description>
+    </item>
+    <item>
+      <title>Direct Preference Optimization: Your Language Model is Secretly a Reward Model</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=dpo</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=dpo</guid>
+      <pubDate>Sat, 25 Jul 2026 12:00:00 +0000</pubDate>
+      <description>選好対があれば、報酬モデルを経由せずに方針を更新できる。対の質が、損失より先。</description>
+    </item>
+    <item>
+      <title>GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gptq</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gptq</guid>
+      <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
+      <description>学習なしで重みを量子化する。キャリブレーション文が、ビット数より先。</description>
+    </item>
+    <item>
+      <title>Training language models to follow instructions with human feedback</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=instructgpt</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=instructgpt</guid>
+      <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
+      <description>SFTのあと、人間の選好でReinforcementする。今の「揃える」手順の原型。</description>
+    </item>
+    <item>
+      <title>FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=flashattention-2</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=flashattention-2</guid>
+      <pubDate>Thu, 23 Jul 2026 12:00:00 +0000</pubDate>
+      <description>FA1のIO削減のうえに、並列の割り方を直す。長い文の既定カーネルとして、入っているかを先に確認する。</description>
+    </item>
+    <item>
+      <title>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=switch-transformers</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=switch-transformers</guid>
+      <pubDate>Thu, 23 Jul 2026 12:00:00 +0000</pubDate>
+      <description>トークンごとに専門家を一人選ぶ。計算は疎でも、メモリは専門家の数だけ要る。</description>
+    </item>
+    <item>
+      <title>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=rag-lewis</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=rag-lewis</guid>
+      <pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate>
+      <description>生成の前に検索する。知識を重みに焼かない。評価は、検索と生成を分けて見る。</description>
+    </item>
+    <item>
+      <title>Fast Transformer Decoding: One Write-Head is All You Need</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mqa-shazeer</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mqa-shazeer</guid>
+      <pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate>
+      <description>K/Vを1ヘッドにすると、KVバイトが激減する。GQAの前史。品質との取引を、メモリ見積もりの横に書く。</description>
+    </item>
+    <item>
+      <title>Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=alibi</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=alibi</guid>
+      <pubDate>Tue, 21 Jul 2026 12:00:00 +0000</pubDate>
+      <description>距離に線形のバイアスを足す。RoPEとは別の、長さ外挿の経路。レシピを混ぜない。</description>
+    </item>
+    <item>
+      <title>Dense Passage Retrieval for Open-Domain Question Answering</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=dpr</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=dpr</guid>
+      <pubDate>Tue, 21 Jul 2026 12:00:00 +0000</pubDate>
+      <description>質問とパッセージを同じ空間に置く。BM25を捨てる前に、密検索が何を拾い何を落とすかを見る。</description>
+    </item>
+    <item>
+      <title>YaRN: Efficient Context Window Extension of Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=yarn</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=yarn</guid>
+      <pubDate>Mon, 20 Jul 2026 12:00:00 +0000</pubDate>
+      <description>RoPEの周波数を、区間ごとに伸ばす。baseを一括で上げるより、現場ではこれを先に試すことが多い。</description>
+    </item>
+    <item>
+      <title>Attention Is All You Need</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=vaswani-2017</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=vaswani-2017</guid>
+      <pubDate>Mon, 20 Jul 2026 12:00:00 +0000</pubDate>
+      <description>再帰を捨て、attention で距離を一定にする。今のデコーダは、この論文の片側だけを残した形。</description>
+    </item>
+    <item>
+      <title>Training Compute-Optimal Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chinchilla</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chinchilla</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <description>同じ計算なら、大きすぎるモデルより、トークンを増やした方が良い。閉域の事前学習予算の見積もりに使う。</description>
+    </item>
+    <item>
+      <title>Decoupled Weight Decay Regularization</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=adamw</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=adamw</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <description>減衰を勾配から切り離す。AdamにL2を足したのとは違う。Normのγは減衰から外す。</description>
+    </item>
+    <item>
+      <title>Scaling Laws for Neural Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=kaplan-scaling</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=kaplan-scaling</guid>
+      <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+      <description>損失は、規模・データ・計算のべきで落ちる。ただし最適配分は、後のChinchillaで改訂された。</description>
+    </item>
+    <item>
+      <title>Root Mean Square Layer Normalization</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=rmsnorm</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=rmsnorm</guid>
+      <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+      <description>平均を引かず、RMSだけで割る。Pre-normと組んで、今のデコーダの正規化になる。</description>
+    </item>
+    <item>
+      <title>ZeRO: Memory Optimizations Toward Training Trillion Parameter Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=zero-deepspeed</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=zero-deepspeed</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <description>状態をGPU間で分割する。閉域の学習が載るかは、パラメータ数より、ZeROの段階。</description>
+    </item>
+    <item>
+      <title>On Layer Normalization in the Transformer Architecture</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=preln-xiong</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=preln-xiong</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Pre-normは残差を恒等のまま残す。深いデコーダが学習できる理由の一つ。</description>
+    </item>
+    <item>
+      <title>The Curious Case of Neural Text Degeneration</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=nucleus-sampling</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=nucleus-sampling</guid>
+      <pubDate>Thu, 16 Jul 2026 12:00:00 +0000</pubDate>
+      <description>argmaxはループする。温度だけでは足りない。核（top-p）で、尾を切る。</description>
+    </item>
+    <item>
+      <title>Mixed Precision Training</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mixed-precision</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mixed-precision</guid>
+      <pubDate>Thu, 16 Jul 2026 12:00:00 +0000</pubDate>
+      <description>FP16で計算し、FP32のコピーで安定させる。量子化推論と、学習の混合精度を混ぜて語らない。</description>
+    </item>
+    <item>
+      <title>ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=colbert</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=colbert</guid>
+      <pubDate>Wed, 15 Jul 2026 12:00:00 +0000</pubDate>
+      <description>トークン同士を後で交互作用させる。埋め込み1ベクトルより高いが、格納も増える。社内検索の中間選択肢。</description>
+    </item>
+    <item>
+      <title>Distilling the Knowledge in a Neural Network</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=hinton-distill</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=hinton-distill</guid>
+      <pubDate>Wed, 15 Jul 2026 12:00:00 +0000</pubDate>
+      <description>教師のlogitsの形を、温度付きで移す。硬ラベルだけより、関係が残る。</description>
+    </item>
+    <item>
+      <title>Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=fid-izacard</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=fid-izacard</guid>
+      <pubDate>Tue, 14 Jul 2026 12:00:00 +0000</pubDate>
+      <description>各パッセージを別エンコードし、デコーダで融合する。長い連結プロンプトより、根拠の帰属が追いやすい。</description>
+    </item>
+    <item>
+      <title>On Calibration of Modern Neural Networks</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=guo-calibration</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=guo-calibration</guid>
+      <pubDate>Tue, 14 Jul 2026 12:00:00 +0000</pubDate>
+      <description>深くて強いネットほど、自信がずれる。ECEと、温度スケーリングを、AUROCの横に置く。</description>
+    </item>
+    <item>
+      <title>Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=llm-as-judge</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=llm-as-judge</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 +0000</pubDate>
+      <description>LLMの審査は、位置と自己好みで歪む。人手の一部代替であり、唯一のKPIにしない。</description>
+    </item>
+    <item>
+      <title>Representation Learning with Contrastive Predictive Coding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=cpc-infonce</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=cpc-infonce</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 +0000</pubDate>
+      <description>正例を、ノイズの中から拾う。InfoNCEは、その損失の名前になった。</description>
+    </item>
+    <item>
+      <title>Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=hh-rlhf</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=hh-rlhf</guid>
+      <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
+      <description>役立つと害がないは、同じ報酬で伸びない。選好データに、どちらを優先したかを書く。</description>
+    </item>
+    <item>
+      <title>Neural Machine Translation of Rare Words with Subword Units</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=bpe-sennrich</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=bpe-sennrich</guid>
+      <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
+      <description>稀な語を、部分語に割る。トークナイザは前処理ではなく、モデルの一部である。</description>
+    </item>
+    <item>
+      <title>Constitutional AI: Harmlessness from AI Feedback</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=constitutional-ai</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=constitutional-ai</guid>
+      <pubDate>Sat, 11 Jul 2026 12:00:00 +0000</pubDate>
+      <description>原則（constitution）を先に書き、モデルに自己批判させる。人手の対を減らす。原則が無いRLHFは、部署の好みになる。</description>
+    </item>
+    <item>
+      <title>Language Models are Few-Shot Learners</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=gpt3-brown</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=gpt3-brown</guid>
+      <pubDate>Fri, 10 Jul 2026 12:00:00 +0000</pubDate>
+      <description>文脈内の例で、重みを更新せずに寄せる。デモは強力だが、評価汚染と、秘密の例文に弱い。</description>
+    </item>
+    <item>
+      <title>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=bert-devlin</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=bert-devlin</guid>
+      <pubDate>Thu, 09 Jul 2026 12:00:00 +0000</pubDate>
+      <description>双方向の理解モデル。生成のデコーダとは、マスクも、KVの増え方も違う。名前を混ぜない。</description>
+    </item>
+    <item>
+      <title>Measuring Massive Multitask Language Understanding</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mmlu</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mmlu</guid>
+      <pubDate>Wed, 08 Jul 2026 12:00:00 +0000</pubDate>
+      <description>広い選択式は、汚染と、現場タスクの代理を同時に疑う。社内採用の唯一の数字にしない。</description>
+    </item>
+    <item>
+      <title>Llama 2: Open Foundation and Fine-Tuned Chat Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=llama2</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=llama2</guid>
+      <pubDate>Tue, 07 Jul 2026 12:00:00 +0000</pubDate>
+      <description>公開重みの、閉域での出発点。事前学習より、ライセンスと、chatの事後学習レシピを先に読む。</description>
+    </item>
+    <item>
+      <title>Mistral 7B</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=mistral-7b</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=mistral-7b</guid>
+      <pubDate>Mon, 06 Jul 2026 12:00:00 +0000</pubDate>
+      <description>GQAとスライディング窓で、7Bの効率を上げる。小さい閉域モデルの、比較対象の一つ。</description>
+    </item>
+    <item>
+      <title>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=chain-of-thought</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=chain-of-thought</guid>
+      <pubDate>Sun, 05 Jul 2026 12:00:00 +0000</pubDate>
+      <description>途中の手順を書かせると、算術と論理は上がる。医療では、手順が幻覚でも、形が正しいように見える。</description>
+    </item>
+    <item>
+      <title>GLU Variants Improve Transformer</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=swiglu</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=swiglu</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 +0000</pubDate>
+      <description>FFNをゲートする。Llama系のMLPは、この系統。学習率を、ReLU FFNの論文から借りない。</description>
+    </item>
+    <item>
+      <title>Evaluating Large Language Models Trained on Code</title>
+      <link>https://kekeke29341.github.io/reading/note.html?slug=humaneval</link>
+      <guid>https://kekeke29341.github.io/reading/note.html?slug=humaneval</guid>
+      <pubDate>Fri, 03 Jul 2026 12:00:00 +0000</pubDate>
+      <description>単位テストで通るかが、コード生成の評価。社内コードは、そのテストが秘密情報になりうる。</description>
+    </item>
+  </channel>
+</rss>

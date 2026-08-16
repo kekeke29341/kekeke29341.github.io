@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Teppei Nakano — Blog</title>
+    <link>https://kekeke29341.github.io/blog/en.html</link>
+    <description>Notes on medical ML, local LLMs, and air-gapped AI</description>
+    <language>en</language>
+    <item>
+      <title>Split medical ML by patient, not by row</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=patient-level-split&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=patient-level-split&amp;lang=en</guid>
+      <pubDate>Sat, 15 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The same person’s stays in train and test memorize the person, not the disease. Group by patient id; cut by time when you can.</description>
+    </item>
+    <item>
+      <title>Do not mix future notes into an EHR prediction</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=ehr-temporal-leakage&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=ehr-temporal-leakage&amp;lang=en</guid>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A discharge summary and post-outcome labs are not prediction. Freeze time t; keep only what was observed by then.</description>
+    </item>
+    <item>
+      <title>Do not lead a rare-event paper with AUROC alone</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=auroc-rare-events&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=auroc-rare-events&amp;lang=en</guid>
+      <pubDate>Thu, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>At low prevalence, high discrimination still pages mostly misses. Put precision and alert counts on the same table.</description>
+    </item>
+    <item>
+      <title>The dangerous guideline RAG error is a cited hallucination</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=guideline-rag-clinical&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=guideline-rag-clinical&amp;lang=en</guid>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Keep exceptions in the same chunk. Do not emit withdrawn doses. Score faithfulness to the document, not “correctness.”</description>
+    </item>
+    <item>
+      <title>A hospital LLM is about not sending, first</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=phi-hospital-llm&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=phi-hospital-llm&amp;lang=en</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Regex de-id still re-identifies. Do not SFT on raw notes. Identifiers live on RAG metadata.</description>
+    </item>
+    <item>
+      <title>Talk-to-note is not a BLEU task</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=clinical-text-from-talk&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=clinical-text-from-talk&amp;lang=en</guid>
+      <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Fluency hides added and dropped facts. The teacher is the progress note right after the talk. Do not fluently “fix” ASR.</description>
+    </item>
+    <item>
+      <title>Do not mean-impute the chart</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=ehr-missingness&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=ehr-missingness&amp;lang=en</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Why it was not measured can be the severity. Keep a mask and time since last observation.</description>
+    </item>
+    <item>
+      <title>ICD-supervised “diagnosis” often reproduces billing</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=icd-label-noise&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=icd-label-noise&amp;lang=en</guid>
+      <pubDate>Sat, 08 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Suspected, history, and primary are allowed to differ. Name weak labels; do not hire if human spans drop.</description>
+    </item>
+    <item>
+      <title>Radiology-report NLP is negation and time</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=radiology-report-nlp&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=radiology-report-nlp&amp;lang=en</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Half the findings are absences. If text enters an imaging task, acquisition time and report time must agree.</description>
+    </item>
+    <item>
+      <title>Medical-image scores die on the next scanner</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=scanner-shift-imaging&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=scanner-shift-imaging&amp;lang=en</guid>
+      <pubDate>Thu, 06 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Suspect reconstruction and protocol before disease shift. An embedding that predicts site will be used by the disease model.</description>
+    </item>
+    <item>
+      <title>Is your RNA-seq model predicting the kit?</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rnaseq-batch-effects&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rnaseq-batch-effects&amp;lang=en</guid>
+      <pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Batch can outrun biology. Put correction order and a cross-study split before the learner.</description>
+    </item>
+    <item>
+      <title>How much heterogeneity can one biopsy support?</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=cancer-heterogeneity-ml&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=cancer-heterogeneity-ml&amp;lang=en</guid>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The observation is partial. Diversity inside the sample and unseen regions need different teachers. Do not split across a patient’s other sites.</description>
+    </item>
+    <item>
+      <title>MoE compute is sparse; memory is not</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=moe-routing&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=moe-routing&amp;lang=en</guid>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>A router picks experts per token. Capacity is large; collapse kills the sparsity. Do not borrow a dense sizing equation.</description>
+    </item>
+    <item>
+      <title>FlashAttention is I/O, not an approximation</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=flashattention-io&amp;lang=en</guid>
+      <pubDate>Sun, 02 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Do not materialize the O(T²) score matrix. Same softmax, finished in SRAM. The win is long prefill, not one-token decode.</description>
+    </item>
+    <item>
+      <title>KV cache fills VRAM before the weights do</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=kv-cache-gqa&amp;lang=en</guid>
+      <pubDate>Sat, 01 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Under concurrency and long context, weights are not what runs out. What MHA / MQA / GQA actually reduce, from the memory equation.</description>
+    </item>
+    <item>
+      <title>What quantization kills first</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=quantization-llm&amp;lang=en</guid>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>GPTQ, AWQ, and FP8 all throw information away. They differ in which information, and in how calibration drift shows up on names and long context.</description>
+    </item>
+    <item>
+      <title>Why DPO comes after SFT</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=sft-then-dpo&amp;lang=en</guid>
+      <pubDate>Thu, 30 Jul 2026 12:00:00 +0000</pubDate>
+      <description>SFT moves a distribution; DPO orders two outputs. Skip a step and you keep honorifics and lose refusal.</description>
+    </item>
+    <item>
+      <title>Cut RAG “accuracy” into four layers</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-evaluation&amp;lang=en</guid>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Do not fold retrieval, use, answer, and refusal into one score. Split recall@k from faithfulness, and keep a refusal set as large as the answer set.</description>
+    </item>
+    <item>
+      <title>Half of RAG misses are chunk boundaries</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rag-chunking&amp;lang=en</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Too big averages; too small cuts the referent. Metadata is a filter; the vector is the body.</description>
+    </item>
+    <item>
+      <title>RoPE in LLMs, from the rotation up</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rope&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rope&amp;lang=en</guid>
+      <pubDate>Mon, 27 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Do not add a position vector — rotate Q and K. Why the relative offset survives the inner product, and what breaks when you stretch context.</description>
+    </item>
+    <item>
+      <title>Windows and attention sinks throw the past away</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=attention-sink-window&amp;lang=en</guid>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Not the same as stretching RoPE. Policy outside the window is politely violated. Sink or re-inject.</description>
+    </item>
+    <item>
+      <title>Speculative decoding is an acceptance-rate game</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=speculative-decoding&amp;lang=en</guid>
+      <pubDate>Sat, 25 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A draft model writes ahead; the large model verifies without changing its distribution. Low acceptance and you are only hosting two models.</description>
+    </item>
+    <item>
+      <title>Temperature is not a sampling policy</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=sampling-beyond-temperature&amp;lang=en</guid>
+      <pubDate>Fri, 24 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Temperature is softmax sharpness; top-k and top-p decide the cut. Do not eval at 0.8 and serve at 0.2. Quote T, k, and p together.</description>
+    </item>
+    <item>
+      <title>Pick LoRA layers before you pick rank</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=lora-what-rank-fits&amp;lang=en</guid>
+      <pubDate>Thu, 23 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Rank is the dimension of the update subspace. Start with q,v, then the MLP. “It’s LoRA, so it won’t forget” is false.</description>
+    </item>
+    <item>
+      <title>RMSNorm and pre-norm are why deep LLMs stand up</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=rmsnorm-prenorm&amp;lang=en</guid>
+      <pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate>
+      <description>From why BatchNorm fails on sequences, to RMSNorm without a mean, pre-norm residuals, and SwiGLU.</description>
+    </item>
+    <item>
+      <title>Why decoder-only won the local box</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=decoder-only&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=decoder-only&amp;lang=en</guid>
+      <pubDate>Tue, 21 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Match train and serve, keep one objective, keep one box. Bidirectional still wins some understand-only jobs.</description>
+    </item>
+    <item>
+      <title>Distillation copies a distribution, not an answer key</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=distillation-logits&amp;lang=en</guid>
+      <pubDate>Mon, 20 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Pass teacher logits via KL. Keep hard refusals. For draft models, measure acceptance, not loss.</description>
+    </item>
+    <item>
+      <title>BPE cuts quietly break SKUs and Japanese</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=tokenizer-bpe-traps&amp;lang=en</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <description>The vocabulary is not words. Read digit, full-width, and proper-name splits before you talk parameters.</description>
+    </item>
+    <item>
+      <title>InfoNCE is the common language of embeddings</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=contrastive-infonce&amp;lang=en</guid>
+      <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Dense retrieval and CLIP are a classify-the-positive loss. Negatives set the representation. Do not use a generator’s hidden states as a retriever unchanged.</description>
+    </item>
+    <item>
+      <title>0.9 is not nine times in ten</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=calibration-ece&amp;lang=en</guid>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Confidence is not calibration. ECE and temperature scaling. Do not treat cosine or post-DPO logits as probabilities.</description>
+    </item>
+    <item>
+      <title>A public bench score is not a synonym for smart</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=eval-contamination&amp;lang=en</guid>
+      <pubDate>Thu, 16 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Contamination and shift are different. Hire from an in-house set plus overlap with the train corpus.</description>
+    </item>
+    <item>
+      <title>Why Transformers still train with AdamW</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=adamw-transformers&amp;lang=en</guid>
+      <pubDate>Wed, 15 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Adaptive second moment, and weight decay decoupled from the gradient. Leave Norm γ out of decay.</description>
+    </item>
+    <item>
+      <title>What to decide first for an air-gapped local LLM</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=air-gapped-llm-checklist&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=air-gapped-llm-checklist&amp;lang=en</guid>
+      <pubDate>Tue, 14 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A checklist of decisions to lock down before picking a model, when the stack cannot call any external API.</description>
+    </item>
+    <item>
+      <title>Opening this blog</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=welcome&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=welcome&amp;lang=en</guid>
+      <pubDate>Mon, 13 Jul 2026 12:00:00 +0000</pubDate>
+      <description>I added a Markdown-powered blog to this portfolio. Notes on air-gapped LLMs and machine learning will live here.</description>
+    </item>
+    <item>
+      <title>How to add a post</title>
+      <link>https://kekeke29341.github.io/blog/post.html?slug=how-to-write&amp;lang=en</link>
+      <guid>https://kekeke29341.github.io/blog/post.html?slug=how-to-write&amp;lang=en</guid>
+      <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Drop one Markdown file and add one entry to posts.json. No build step.</description>
+    </item>
+  </channel>
+</rss>

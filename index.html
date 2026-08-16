@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="中野哲平 — 機械学習・ローカルLLM・バイオインフォマティクスを軸に活動するソフトウェアエンジニアのポートフォリオ。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics">
+  <meta property="og:description" content="閉域網のローカルLLMと、医療データの機械学習。ポートフォリオとブログ。">
+  <meta property="og:url" content="https://kekeke29341.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://kekeke29341.github.io/">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
   <title>中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics</title>
@@ -112,7 +118,7 @@
     }
     .nav-links .lang:hover { border-color: var(--accent); }
     @media (max-width: 720px) {
-      .nav-links a:not(.lang) { display: none; }
+      .nav-links a:not(.lang):not(.nav-keep) { display: none; }
     }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
@@ -285,6 +291,7 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--panel-border);
       color: var(--text-dim);
+      text-decoration: none;
     }
     .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
     .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
@@ -442,6 +449,47 @@
     .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
     .link-card .arw { color: var(--accent-2); }
 
+    .home-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 880px) { .home-blog-grid { grid-template-columns: 1fr; } }
+    .blog-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .blog-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
+    .blog-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 10px; }
+    .blog-card .date { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
+    .blog-card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
+    .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+    .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .paper-row {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--panel); border: 1px solid var(--panel-border);
+      border-radius: var(--radius); padding: 20px 22px; margin-bottom: 12px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .paper-row:hover { transform: translateY(-3px); border-color: rgba(120,160,255,0.4); }
+    .paper-kicker { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 8px; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
+    .paper-kicker .yr { color: var(--accent-2); }
+    .paper-row h2 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; }
+    .paper-row p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+    .paper-row .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .home-blog-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 8px 0 14px;
+    }
+
     footer {
       padding: 50px 0 40px;
       text-align: center;
@@ -474,6 +522,8 @@
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
       <a href="#pubs">Papers</a>
+      <a href="blog/index.html" class="nav-keep">Blog</a>
+      <a href="reading/index.html" class="nav-keep">Reading</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>
@@ -492,6 +542,7 @@
       </p>
       <div class="cta-row reveal">
         <a href="#career" class="btn btn-primary">職務経歴を見る →</a>
+        <a href="blog/index.html" class="btn btn-ghost">ブログを読む</a>
         <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">技術メモ (Zenn)</a>
       </div>
 
@@ -523,6 +574,11 @@
           「作って終わり」ではなく現場で使われるところまで責任を持って設計します。
           がんヘテロジェニティや RNA-seq 解析など、
           <strong style="color:var(--text)">バイオインフォマティクス</strong>の実務・論文経験も強みです。
+          同じ論点の短いメモを、このサイトの
+          <a href="blog/medical.html" style="color:var(--accent-2)">医療MLの読み順</a>
+          と
+          <a href="blog/llm.html" style="color:var(--accent-2)">ローカルLLMの読み順</a>
+          に置いています。
         </p>
       </div>
     </section>
@@ -724,7 +780,7 @@
       <div class="sec-head reveal">
         <div class="kicker">// publications</div>
         <h2>論文 / Bioinformatics</h2>
-        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。</p>
+        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。読んだ論文のメモは <a href="reading/index.html" style="color:var(--accent-2)">こちら</a>。</p>
       </div>
       <div class="pubs">
         <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
@@ -752,6 +808,37 @@
       </div>
     </section>
 
+    <!-- BLOG -->
+    <section id="blog">
+      <div class="sec-head reveal">
+        <div class="kicker">// blog</div>
+        <h2>ブログ</h2>
+        <p>医療×機械学習と、閉域網のローカルLLMについてのメモ。</p>
+      </div>
+      <div class="home-blog-label reveal">医療 × 機械学習</div>
+      <div id="home-blog-med" class="home-blog-grid"></div>
+      <div class="home-blog-label reveal" style="margin-top:28px;">ローカルLLM / 基盤</div>
+      <div id="home-blog-llm" class="home-blog-grid"></div>
+      <div class="home-blog-more reveal">
+        <a href="blog/medical.html" class="btn btn-ghost">医療MLの読み順</a>
+        <a href="blog/llm.html" class="btn btn-ghost">ローカルLLMの読み順</a>
+        <a href="blog/index.html" class="btn btn-primary">すべての記事 →</a>
+      </div>
+    </section>
+
+    <section id="reading">
+      <div class="sec-head reveal">
+        <div class="kicker">// reading</div>
+        <h2>読んだ論文</h2>
+        <p>要旨の再掲ではなく、現場に持ち帰る一点だけを残しています。</p>
+      </div>
+      <div id="home-reading"></div>
+      <div class="home-blog-more reveal">
+        <a href="reading/index.html?tag=Medical" class="btn btn-ghost">医療の論文</a>
+        <a href="reading/index.html" class="btn btn-primary">論文メモ一覧 →</a>
+      </div>
+    </section>
+
     <!-- LINKS -->
     <section id="links">
       <div class="sec-head reveal">
@@ -759,6 +846,8 @@
         <h2>アウトプット</h2>
       </div>
       <div class="link-grid">
+        <a class="link-card reveal" href="blog/index.html">ブログ<span class="sub">このサイト</span><span class="arw">→</span></a>
+        <a class="link-card reveal" href="reading/index.html">読んだ論文<span class="sub">このサイト</span><span class="arw">→</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">開発日記<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">技術メモ<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">ブログ<span class="sub">note</span><span class="arw">↗</span></a>
@@ -771,10 +860,22 @@
 
   <footer>
     <div>© 2026 中野哲平 — Teppei Nakano</div>
-    <div class="meta">Last updated: 2026-07-06</div>
+    <div class="meta">Last updated: 2026-08-15</div>
   </footer>
 
   <script>
+    // Latest blog posts
+    (function () {
+      const s = document.createElement("script");
+      s.src = "blog/assets/blog.js";
+      s.onload = function () {
+        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-med", tag: "Medical", limit: 3 });
+        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
+        SiteBlog.renderHomeReading({ lang: "ja", targetId: "home-reading", limit: 4 });
+      };
+      document.body.appendChild(s);
+    })();
+
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -837,6 +938,9 @@
       window.addEventListener('mouseout', () => { mouse.x = -999; mouse.y = -999; });
       resize(); step();
     })();
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"中野哲平","alternateName":"Teppei Nakano","url":"https://kekeke29341.github.io/","jobTitle":"Software Engineer","knowsAbout":["Machine Learning","Local LLM","Bioinformatics","Medical ML"]}
   </script>
 </body>
 </html>
