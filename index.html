@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平 — 機械学習・ローカルLLM・バイオインフォマティクスを軸に活動するソフトウェアエンジニアのポートフォリオ。">
+  <meta name="description" content="中野哲平 — ソフトウェアエンジニア。LLM・文書AI・Azureまわりの仕事。">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics</title>
+  <title>中野哲平 — ソフトウェアエンジニア</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -473,7 +473,8 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
-      <a href="#pubs">Papers</a>
+      <a href="papers.html">論文</a>
+      <a href="notes.html">メモ</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>
@@ -481,17 +482,16 @@
   <div class="wrap">
     <!-- HERO -->
     <header class="hero">
-      <div class="eyebrow reveal"><span class="pulse"></span>OPEN TO WORK · ML / LLM / Bioinformatics</div>
+      <div class="eyebrow reveal"><span class="pulse"></span>OPEN TO WORK</div>
       <h1 class="reveal">中野 <span class="grad">哲平</span></h1>
-      <p class="role reveal">ソフトウェアエンジニア <span>/ 機械学習・ローカルLLM・バイオインフォマティクス</span></p>
+      <p class="role reveal">ソフトウェアエンジニア <span>/ 機械学習・LLM・文書AI</span></p>
       <p class="lede reveal">
-        機械学習と医療応用の研究を経て、LLM・文書AI・Azure上の生成AIアプリなどの開発に従事しています。
-        未踏採択、NeurIPS / ICML Workshop への論文投稿の経験もあります。
-        仕事の依頼や採用のご連絡は、下記の職務経歴と論文一覧をご覧ください。
+        いまは LLM や文書処理、Azure まわりの実装を中心に仕事をしています。
+        以前は医療向けの機械学習を大学院でやっていました。
+        依頼や採用の話は、下の職務経歴を見てもらえると早いです。
       </p>
       <div class="cta-row reveal">
         <a href="#career" class="btn btn-primary">職務経歴を見る →</a>
-        <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">技術メモ (Zenn)</a>
       </div>
     </header>
 
@@ -503,15 +503,12 @@
       </div>
       <div class="reveal" style="max-width:760px;color:var(--text-dim);font-size:1.02rem;">
         <p>
-          慶應義塾大学医学部を卒業後、東京大学大学院で医療向け機械学習を研究しました。
-          在学中に NeurIPS・ICML の Workshop へ論文を投稿し、採択されています。
-          カハール株式会社の代表取締役（一人法人）として受託開発も行いながら、
-          各社の案件で LLM・文書理解・Azure 上の生成AIアプリ開発に関わっています。
+          慶應の医学部を出たあと、東大の大学院で医療データの機械学習をやっていました。
+          いまはカハール株式会社（一人法人）の代表をしつつ、各社の案件で LLM や文書AI、Azure 上のアプリを作っています。
         </p>
         <p>
-          扱ってきた領域は、オンプレ／閉域網のローカルLLM、帳票・文書の VLM／LLM 抽出、
-          コンタクトセンター向け応答支援、医療・法務・金融のデータ解析などです。
-          がんヘテロジェニティや RNA-seq など、バイオインフォマティクスの論文経験もあります。
+          最近やっているのは、閉域網のローカルLLM、帳票PDFの抽出、問い合わせ対応の支援あたりです。
+          昔書いた論文や、あとから読んだ論文のメモはトップには置かず、メニューの「論文」「メモ」に分けています。
         </p>
       </div>
     </section>
@@ -521,13 +518,13 @@
       <div class="sec-head reveal">
         <div class="kicker">// expertise</div>
         <h2>得意領域</h2>
-        <p>研究と受託・各社案件で使ってきた技術領域です。</p>
+        <p>仕事で触ってきた技術です。</p>
       </div>
       <div class="skills">
         <div class="skill-card llm reveal">
           <div class="ico">🔒</div>
           <h3>ローカルLLM / 閉域網</h3>
-          <p>オンプレGPU上でのLLM構築、量子化、推論最適化、閉域網向けRAG。</p>
+          <p>オンプレのGPUで LLM を動かすところから、量子化や RAG まで。</p>
           <div class="tags">
             <span class="tag">Llama</span><span class="tag">Mistral</span>
             <span class="tag">vLLM</span><span class="tag">TensorRT-LLM</span>
@@ -537,7 +534,7 @@
         <div class="skill-card bio reveal">
           <div class="ico">🧬</div>
           <h3>バイオインフォマティクス</h3>
-          <p>がんヘテロジェニティ、RNA-seq、医用画像など、医科学データへの機械学習応用。</p>
+          <p>以前の研究で触れた医科学データ（RNA-seq や医用画像など）。</p>
           <div class="tags">
             <span class="tag">RNA-seq</span><span class="tag">Cancer Genomics</span>
             <span class="tag">Medical Imaging</span><span class="tag">Self-Supervised</span>
@@ -546,7 +543,7 @@
         <div class="skill-card cx reveal">
           <div class="ico">🎧</div>
           <h3>文書AI / コンタクトセンター</h3>
-          <p>帳票PDFの構造化抽出、FAQ・応答支援、要約、ナレッジ検索（RAG）。</p>
+          <p>帳票PDFからの項目抽出、FAQ、要約、社内文書検索。</p>
           <div class="tags">
             <span class="tag">VLM</span><span class="tag">RAG</span>
             <span class="tag">FAQ</span><span class="tag">文書理解</span>
@@ -555,7 +552,7 @@
         <div class="skill-card ml reveal">
           <div class="ico">🤖</div>
           <h3>機械学習 / NLP</h3>
-          <p>Transformer ベースの NLP、埋め込み検索、LoRA によるファインチューニング。</p>
+          <p>普通の NLP、埋め込み検索、LoRA での追加学習。</p>
           <div class="tags">
             <span class="tag">PyTorch</span><span class="tag">Transformers</span>
             <span class="tag">LoRA</span><span class="tag">Embedding Search</span>
@@ -564,7 +561,7 @@
         <div class="skill-card mlops reveal">
           <div class="ico">⚙️</div>
           <h3>インフラ / Azure</h3>
-          <p>GPUサーバー構築、Docker、ベクトルDB、Azure OpenAI / Logic Apps / Bicep。</p>
+          <p>GPUサーバー、Docker、ベクトルDB、Azure（OpenAI / Logic Apps / Bicep）。</p>
           <div class="tags">
             <span class="tag">CUDA</span><span class="tag">Docker</span>
             <span class="tag">Milvus</span><span class="tag">Azure</span>
@@ -573,7 +570,7 @@
         <div class="skill-card pm reveal">
           <div class="ico">🧭</div>
           <h3>開発推進</h3>
-          <p>要件定義から実装・レビュー・本番投入まで。案件によっては複数名チームで推進。</p>
+          <p>要件の整理から実装、レビュー、本番投入まで。人数は案件次第。</p>
           <div class="tags">
             <span class="tag">要件定義</span><span class="tag">レビュー</span>
             <span class="tag">本番展開</span><span class="tag">Cursor</span>
@@ -587,7 +584,7 @@
       <div class="sec-head reveal">
         <div class="kicker">// experience</div>
         <h2>職務経歴</h2>
-        <p>直近から時系列です。詳細は職務経歴書を参照してください。</p>
+        <p>新しい順です。細かい数字は職務経歴書の方が正確です。</p>
       </div>
 
       <div class="timeline">
@@ -689,24 +686,9 @@
       </div>
     </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="pubs">
+    <!-- EDUCATION -->
+    <section id="edu">
       <div class="sec-head reveal">
-        <div class="kicker">// publications</div>
-        <h2>論文 / Bioinformatics</h2>
-        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。</p>
-      </div>
-      <div class="pubs">
-        <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
-        <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Visualizing Cancer Heterogeneity with Dynamic Flow,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Visualizing-Cancer-Heterogeneity-with-Dynamic-Flow.pdf" target="_blank" rel="noopener">PDF</a></div>
-        <div class="pub reveal"><span class="yr">2016</span><span class="cit">R. Sato, T. Nakano, et al., <em>“RNA Sequencing Analysis Reveals Interactions between Breast Cancer or Melanoma Cells and the Tissue Microenvironment during Brain Metastasis,”</em> BioMed Research International.</span><a class="pdf-link" href="mypapers/pdf/BioMed%20Research%20International%20-%202017%20-%20Sato%20-%20RNA%20Sequencing%20Analysis%20Reveals%20Interactions%20between%20Breast%20Cancer%20or.pdf" target="_blank" rel="noopener">PDF</a></div>
-        <div class="pub reveal"><span class="yr">2016</span><span class="cit">T. Nakano, <em>“Generating Clinical Texts from Conversation,”</em> NIPS Workshop on Machine Learning for Health.</span><a class="pdf-link" href="mypapers/pdf/2016_NIPS_Nakano_Generating-Clinical-Texts-from-Conversation.pdf" target="_blank" rel="noopener">PDF</a></div>
-        <div class="pub reveal"><span class="yr">2015</span><span class="cit">M. Hashimoto, T. Nakano, H. Yashiro, T. Fujita, M. Jinzaki, <em>“Application of Word2vec to Radiology Report Analysis,”</em> Japan Association for Medical Informatics, vol. 35.</span><a class="pdf-link" href="mypapers/pdf/word2_vec_kaken.nii.ac.jp_26870572seika.pdf" target="_blank" rel="noopener">PDF</a></div>
-        <div class="pub reveal"><span class="yr">2015</span><span class="cit">T. Nakano, <em>“Early Detection of Hepatorenal Syndrome from Medical Records,”</em> NIPS Clinical Workshop.</span><a class="pdf-link" href="mypapers/pdf/2015_NIPS_Nakano_Early-Detection-of-Hepatorenal-Syndrome.pdf" target="_blank" rel="noopener">PDF</a></div>
-        <div class="pub reveal"><span class="yr">2014</span><span class="cit">T. Nakano, <em>“Unsupervised Feature Detection for Medical Images,”</em> 28th Annual Conference of JSAI.</span></div>
-      </div>
-
-      <div class="sec-head reveal" style="margin-top:56px;">
         <div class="kicker">// education</div>
         <h2>学歴</h2>
       </div>
@@ -716,27 +698,12 @@
           <div class="when">2017.03</div>
         </div>
         <div class="edu-card reveal">
-          <div class="deg">東京大学大学院 医学系研究科・医学部（卓越研究員として研究）</div>
+          <div class="deg">東京大学大学院 医学系研究科・医学部（卓越研究員）</div>
           <div class="when">〜2021.03 中途自主退学</div>
         </div>
       </div>
     </section>
 
-    <!-- LINKS -->
-    <section id="links">
-      <div class="sec-head reveal">
-        <div class="kicker">// links</div>
-        <h2>アウトプット</h2>
-      </div>
-      <div class="link-grid">
-        <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">開発日記<span class="sub">Zenn</span><span class="arw">↗</span></a>
-        <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">技術メモ<span class="sub">Zenn</span><span class="arw">↗</span></a>
-        <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">ブログ<span class="sub">note</span><span class="arw">↗</span></a>
-        <a class="link-card reveal" href="https://qiita.com/teppei_nakano" target="_blank" rel="noopener">Qiita<span class="sub">記事</span><span class="arw">↗</span></a>
-        <a class="link-card reveal" href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" target="_blank" rel="noopener">未踏 プロジェクト1<span class="sub">IPA</span><span class="arw">↗</span></a>
-        <a class="link-card reveal" href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" target="_blank" rel="noopener">未踏 プロジェクト2<span class="sub">IPA</span><span class="arw">↗</span></a>
-      </div>
-    </section>
   </div>
 
   <footer>
