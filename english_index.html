@@ -65,7 +65,28 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links .lang { border: 1px solid var(--panel-border); padding: 6px 14px; border-radius: 999px; color: var(--text); }
     .nav-links .lang:hover { border-color: var(--accent); }
-    @media (max-width: 720px) { .nav-links a:not(.lang) { display: none; } }
+    @media (max-width: 720px) { .nav-links a:not(.lang):not(.nav-contact) { display: none; } }
+    .btn-linkedin { color: #04060d; background: #0a66c2; box-shadow: 0 8px 28px rgba(10, 102, 194, 0.35); }
+    .btn-linkedin:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(10, 102, 194, 0.5); }
+    .btn-facebook { color: #fff; background: #1877f2; box-shadow: 0 8px 28px rgba(24, 119, 242, 0.35); }
+    .btn-facebook:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(24, 119, 242, 0.5); }
+    .contact-band {
+      position: relative; margin: 20px 0 10px; padding: clamp(36px, 6vw, 56px); border-radius: 24px;
+      border: 1px solid rgba(120, 160, 255, 0.22);
+      background:
+        radial-gradient(700px 280px at 10% 0%, rgba(34, 211, 238, 0.16), transparent 60%),
+        radial-gradient(600px 260px at 90% 100%, rgba(91, 140, 255, 0.18), transparent 55%),
+        rgba(13, 21, 38, 0.85);
+      overflow: hidden;
+    }
+    .contact-band h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 8px 0 14px; font-weight: 800; letter-spacing: -0.01em; }
+    .contact-band .lead { max-width: 620px; color: var(--text-dim); margin: 0 0 22px; font-size: 1.02rem; }
+    .contact-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 28px; }
+    @media (max-width: 800px) { .contact-points { grid-template-columns: 1fr; } }
+    .contact-point { padding: 14px 16px; border-left: 2px solid var(--accent-2); }
+    .contact-point strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 0.95rem; }
+    .contact-point span { color: var(--text-dim); font-size: 0.9rem; }
+    .contact-note { margin-top: 18px; color: var(--text-faint); font-size: 0.88rem; }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
     .hero { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 60px; }
     .eyebrow {
@@ -192,6 +213,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
+      <a href="#contact" class="nav-contact">Contact</a>
       <a href="papers_en.html">Papers</a>
       <a href="notes_en.html">Notes</a>
       <a href="index.html" class="lang">日本語</a>
@@ -208,9 +230,8 @@
         I am looking for work. Please reach out via LinkedIn or Facebook.
       </p>
       <div class="cta-row reveal">
-        <a href="#career" class="btn btn-primary">View experience →</a>
-        <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.facebook.com/tepsnakano" class="btn btn-ghost" target="_blank" rel="noopener">Facebook</a>
+        <a href="#contact" class="btn btn-primary">Discuss work →</a>
+        <a href="#career" class="btn btn-ghost">View experience</a>
       </div>
     </header>
 
@@ -385,6 +406,37 @@
       <div class="edu-grid">
         <div class="edu-card reveal"><div class="deg">Keio University, School of Medicine — B.M.</div><div class="when">2017.03</div></div>
         <div class="edu-card reveal"><div class="deg">The University of Tokyo, Graduate School of Medicine (Excellent Young Researcher)</div><div class="when">through 2021.03 · withdrew</div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-band reveal">
+        <div class="kicker">// contact</div>
+        <h2>Work with me</h2>
+        <p class="lead">
+          I am looking for new work — full-time, contract, or short implementation help.
+          If you need a local LLM in an air-gapped network, form/meeting automation, or Azure generative AI in production, send a message.
+        </p>
+        <div class="contact-points">
+          <div class="contact-point">
+            <strong>Ready to discuss</strong>
+            <span>Local LLMs, form-PDF extraction, Teams minutes, FAQ/RAG, Azure OpenAI</span>
+          </div>
+          <div class="contact-point">
+            <strong>How I engage</strong>
+            <span>From requirements through implementation and production rollout</span>
+          </div>
+          <div class="contact-point">
+            <strong>Reply</strong>
+            <span>Message me on LinkedIn or Facebook — I respond as soon as I can</span>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">Message on LinkedIn →</a>
+          <a href="https://www.facebook.com/tepsnakano" class="btn btn-facebook" target="_blank" rel="noopener">Message on Facebook →</a>
+          <a href="#career" class="btn btn-ghost">See experience first</a>
+        </div>
+        <p class="contact-note">No email form here. Please use LinkedIn or Facebook.</p>
       </div>
     </section>
 
