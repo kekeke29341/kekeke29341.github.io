@@ -62,14 +62,15 @@ kidney injury that develops in patients with advanced liver disease and portal
 hypertension. It arises from splanchnic arterial vasodilation and a consequent
 reduction in effective arterial blood volume, which triggers intense renal
 vasoconstriction in the absence of significant structural kidney damage
-\citep{Gines2003,Salerno2007}. Type~1 HRS in particular follows an aggressive
+\citep{Gines2009,Salerno2007}. Type~1 HRS in particular follows an aggressive
 course: without treatment, median survival is on the order of two weeks, and even
 with vasoconstrictor therapy and albumin the in-hospital mortality remains high
 \citep{Wong2011}. Crucially, the diagnosis is one of exclusion---it requires
-ruling out shock, nephrotoxins, and intrinsic renal disease---and is anchored on
-a doubling of serum creatinine \citep{Angeli2015}. By the time creatinine has
-doubled, the window during which volume expansion and vasoconstrictors are most
-effective may already be closing.
+ruling out shock, nephrotoxins, and intrinsic renal disease---and, under the 2015
+International Club of Ascites criteria, is anchored on an acute rise in serum
+creatinine meeting the threshold for acute kidney injury \citep{Angeli2015}. By the
+time that rise is established, the window during which volume expansion and
+vasoconstrictors are most effective may already be closing.
 
 This motivates a shift from \emph{diagnosis} to \emph{anticipation}: can we predict,
 from data that are already being collected at the bedside, that a cirrhotic
@@ -97,7 +98,7 @@ model developed specifically for hepatorenal syndrome, as opposed to generic acu
 kidney injury. The distinction is not cosmetic: HRS is defined by physiology---
 splanchnic vasodilation and arterial underfilling in a structurally intact
 kidney---rather than by nephrotoxic exposure, so its antecedents differ from those of
-the snapshot AKI risk scores that dominate the literature \citep{Kate2016}. Our
+the snapshot AKI risk scores that dominate the literature \citep{Matheny2010}. Our
 contribution is therefore not the recurrent architecture---LSTMs had by 2015 been
 applied to clinical sequences for diagnosis \citep{Lipton2015}---but the formulation
 that makes a sequence model meaningful for this outcome. We make three contributions.
@@ -130,9 +131,15 @@ clinical sequences for phenotype classification and diagnosis prediction
 \citep{Lipton2015,Lasko2013}. Our work is in this vein but targets a specific,
 time-critical complication and emphasizes lead time rather than retrospective
 classification. For acute kidney injury more broadly, prior predictive models have
-largely relied on logistic regression over snapshot features \citep{Kate2016}; we
+largely relied on logistic regression over snapshot features \citep{Matheny2010}; we
 extend this to a continuously updated, sequence-aware setting and to the HRS
-subtype, which is defined by physiology rather than by nephrotoxic exposure.
+subtype, which is defined by physiology rather than by nephrotoxic exposure. That HRS
+had not been singled out for prediction owes partly to its rarity---events are too few
+on any single ward to train a model on---and partly to a labeling trap: because the
+diagnosis is anchored on the very creatinine rise one would want to foresee, a model
+allowed to see the record up to onset can look accurate while merely reading the
+outcome off its own definition, so a credible task has to be constructed with that
+leakage censored rather than simply found in the data.
 Gradient boosting \citep{Friedman2001} provides a strong non-linear baseline on
 tabular features and has become a workhorse of clinical risk modeling; we include
 it to isolate the contribution of temporal modeling from that of non-linearity.
@@ -221,7 +228,11 @@ x_{1:t})$ for a prediction horizon $h$. A step is labeled positive if $\tau \in
 (t, t+h]$. Steps within a censoring gap of $6$ hours before $\tau$, and all steps
 at or after $\tau$, are excluded from training and evaluation so that credit is
 given only for genuine anticipation. We report results for horizons $h \in \{6, 12,
-24, 48\}$ hours, and unless otherwise noted use $h = 24$.
+24, 48\}$ hours, and unless otherwise noted use $h = 24$. Admissions ending in
+discharge without HRS are treated as right-censored at their last observation;
+in-hospital death before HRS, which is common in this population, is a \emph{competing}
+event rather than benign censoring, and we flag in the discussion where this qualifies
+the estimates.
 
 \section{Features and Models}
 
@@ -235,11 +246,12 @@ non-selective beta-blockers, vasoconstrictors, large-volume paracentesis, albumi
 administration). Continuous variables are standardized using statistics computed on
 the training folds only.
 
-For the feature-based models we summarize each variable over three look-back
-windows ($6$, $24$, and $48$ hours) by its last value, mean, minimum, maximum,
-slope (via ordinary least squares), and the count of measurements, together with
-the time since the last measurement. This yields a $612$-dimensional feature vector
-per step. For the LSTM, we forward-fill each variable to the hourly grid, append a
+For the feature-based models we summarize each of the $34$ continuous variables over
+three look-back windows ($6$, $24$, and $48$ hours) by six statistics---last value,
+mean, minimum, maximum, slope (via ordinary least squares), and measurement
+count---giving $34 \times 6 \times 3 = 612$ temporal features, to which we append the
+binary medication-exposure indicators and, per variable, the time since the last
+measurement. For the LSTM, we forward-fill each variable to the hourly grid, append a
 binary \emph{observed/imputed} mask and a real-valued \emph{time-since-last-
 measurement} channel per variable, and feed the resulting multivariate sequence
 directly to the network. The mask allows the recurrent model to distinguish a
@@ -257,21 +269,32 @@ regularization coefficient is chosen by cross-validation.
 learning rate. This captures non-linear interactions among features while
 remaining a purely tabular, snapshot-based model.
 
-\paragraph{LSTM.} Our sequence model is a single-layer LSTM with $128$ hidden
-units \citep{Hochreiter1997}. At each step the hidden state is mapped through a
-fully connected layer and a logistic output to $\hat{p}_t$. We train by minimizing
+\paragraph{LSTM.} A recurrent network is the natural model for this stream, but a
+vanilla RNN cannot in practice learn the day-scale dependencies the task demands,
+because gradients propagated across many steps vanish or explode
+\citep{Bengio1994,Pascanu2013}. We therefore use a long short-term memory network
+\citep{Hochreiter1997}, whose gated constant-error carousel preserves gradient flow
+over long horizons. Our model is a single-layer LSTM with $128$ hidden units; at each
+step the hidden state is mapped through a fully connected layer and a logistic output
+to $\hat{p}_t$. We train by minimizing
 the mean binary cross-entropy over all valid steps,
 \begin{equation}
 \mathcal{L} = -\frac{1}{|\mathcal{V}|} \sum_{(i,t) \in \mathcal{V}}
 \Big[ y^{(i)}_t \log \hat{p}^{(i)}_t + (1 - y^{(i)}_t) \log (1 - \hat{p}^{(i)}_t) \Big],
 \end{equation}
 where $\mathcal{V}$ is the set of non-censored steps across admissions $i$. Because
-positive steps are rare, we weight the positive class inversely to its frequency.
-We apply dropout of $0.3$ on the input and recurrent-output connections, optimize
-with a stochastic gradient method using adaptive per-parameter learning rates, clip
-gradients to unit norm, and select the epoch by validation area under the
-precision--recall curve. Sequences are truncated to the most recent $72$ hours and
-processed with backpropagation through time.
+positive steps are rare---well under $2\%$ of valid steps---an unweighted objective is
+dominated by negatives and collapses toward an always-negative predictor; we therefore
+weight the positive class inversely to its frequency, which is equivalent to optimizing
+a class-balanced risk. Regularization follows the recurrent-network practice
+established at the time: we apply dropout \citep{Srivastava2014} of $0.3$ to the input
+and output (non-recurrent) connections only, following \citet{Zaremba2014}, since
+dropping the recurrent connections indiscriminately erases the very cell state the
+model must carry across the gap. We optimize with Adam \citep{Kingma2015} and clip the
+global gradient norm to $1$ \citep{Pascanu2013}, controlling the exploding-gradient
+events that irregular sampling makes frequent, and select the epoch by validation
+AUPRC. Sequences are truncated to the most recent $72$ hours and trained by
+backpropagation through time.
 
 \subsection{Evaluation protocol}
 
@@ -279,8 +302,10 @@ We evaluate with patient-level $5$-fold cross-validation, so that no patient app
 in both training and test folds. Within each training partition we hold out $15\%$
 of patients for validation and early stopping. We report the area under the
 receiver operating characteristic curve (AUROC) and the area under the
-precision--recall curve (AUPRC), the latter being more informative under class
-imbalance. For clinical relevance we also report sensitivity at a fixed alerting
+precision--recall curve (AUPRC), the latter being the more informative summary under
+the severe class imbalance here: a large true-negative pool inflates AUROC while
+leaving precision---the quantity on which an alerting system lives or dies---all but
+unmeasured \citep{Davis2006}. For clinical relevance we also report sensitivity at a fixed alerting
 budget of one alert per patient-day and the resulting median early-warning lead
 time. Confidence intervals are obtained by bootstrapping over patients.
 
@@ -357,7 +382,7 @@ falling serum sodium, rising blood urea nitrogen, and recent loop-diuretic
 exposure. These correspond to the recognized pathophysiology of HRS---worsening
 hepatic function, splanchnic vasodilation with arterial underfilling,
 dilutional hyponatremia, and precipitation by aggressive diuresis
-\citep{Gines2003,Salerno2007}---indicating that the model has latched onto
+\citep{Gines2009,Salerno2007}---indicating that the model has latched onto
 mechanism rather than artifact.
 
 \begin{table}[t]
@@ -420,7 +445,11 @@ Several limitations temper these results. The study is retrospective and
 single-center, so both the event definition and the measurement patterns may not
 transfer; prospective, multi-site validation is needed. Label adjudication for a
 diagnosis of exclusion is inherently imperfect, and residual confounding from
-unrecorded interventions is possible. Finally, an alert is useful only if it changes
+unrecorded interventions is possible. Because many admissions end in death, HRS
+competes with mortality as an outcome: our fixed-budget sensitivity and lead-time
+figures are evaluated only over observed, non-censored steps and are unaffected, but
+the decision-curve net benefit implicitly assumes the event remains possible and
+should be read as an upper estimate on the wards where death forecloses HRS. Finally, an alert is useful only if it changes
 behavior; a silent model, however accurate, will not improve outcomes, so
 integration and clinician response must be studied directly. We view the present
 work as establishing that the signal exists and is learnable from routine data,
@@ -450,6 +479,16 @@ P.~Angeli, P.~Gin\`es, F.~Wong, et al.
 cirrhosis: revised consensus recommendations of the International Club of Ascites.
 \newblock \emph{Journal of Hepatology}, 62(4):968--974, 2015.
 
+\bibitem{Bengio1994}
+Y.~Bengio, P.~Simard, and P.~Frasconi.
+\newblock Learning long-term dependencies with gradient descent is difficult.
+\newblock \emph{IEEE Transactions on Neural Networks}, 5(2):157--166, 1994.
+
+\bibitem{Davis2006}
+J.~Davis and M.~Goadrich.
+\newblock The relationship between precision-recall and ROC curves.
+\newblock In \emph{Proc.\ ICML}, 2006.
+
 \bibitem{Friedman2001}
 J.~H. Friedman.
 \newblock Greedy function approximation: A gradient boosting machine.
@@ -461,7 +500,7 @@ M.~Ghassemi, T.~Naumann, F.~Doshi-Velez, et al.
 units.
 \newblock In \emph{Proc.\ KDD}, 2014.
 
-\bibitem{Gines2003}
+\bibitem{Gines2009}
 P.~Gin\`es and R.~W. Schrier.
 \newblock Renal failure in cirrhosis.
 \newblock \emph{New England Journal of Medicine}, 361(13):1279--1290, 2009.
@@ -471,11 +510,10 @@ S.~Hochreiter and J.~Schmidhuber.
 \newblock Long short-term memory.
 \newblock \emph{Neural Computation}, 9(8):1735--1780, 1997.
 
-\bibitem{Kate2016}
-R.~J. Kate, R.~M. Perez, D.~Mazumdar, et al.
-\newblock Prediction and detection models for acute kidney injury in
-hospitalized older adults.
-\newblock \emph{BMC Medical Informatics and Decision Making}, 16:39, 2016.
+\bibitem{Kingma2015}
+D.~P. Kingma and J.~Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2015.
 
 \bibitem{Lasko2013}
 T.~A. Lasko, J.~C. Denny, and M.~A. Levy.
@@ -494,6 +532,17 @@ B.~M. Marlin, D.~C. Kale, R.~G. Khemani, and R.~C. Wetzel.
 probabilistic clustering models.
 \newblock In \emph{Proc.\ ACM SIGHIT IHI}, 2012.
 
+\bibitem{Matheny2010}
+M.~E. Matheny, R.~A. Miller, T.~A. Ikizler, et al.
+\newblock Development of inpatient risk stratification models of acute kidney
+injury for use in electronic health records.
+\newblock \emph{Medical Decision Making}, 30(6):639--650, 2010.
+
+\bibitem{Pascanu2013}
+R.~Pascanu, T.~Mikolov, and Y.~Bengio.
+\newblock On the difficulty of training recurrent neural networks.
+\newblock In \emph{Proc.\ ICML}, 2013.
+
 \bibitem{Pirracchio2015}
 R.~Pirracchio, M.~L. Petersen, M.~Carone, et al.
 \newblock Mortality prediction in intensive care units with the Super ICU Learner
@@ -505,6 +554,11 @@ F.~Salerno, A.~Gerbes, P.~Gin\`es, F.~Wong, and V.~Arroyo.
 \newblock Diagnosis, prevention and treatment of hepatorenal syndrome in cirrhosis.
 \newblock \emph{Gut}, 56(9):1310--1318, 2007.
 
+\bibitem{Srivastava2014}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
+\newblock Dropout: a simple way to prevent neural networks from overfitting.
+\newblock \emph{Journal of Machine Learning Research}, 15:1929--1958, 2014.
+
 \bibitem{Vickers2006}
 A.~J. Vickers and E.~B. Elkin.
 \newblock Decision curve analysis: a novel method for evaluating prediction models.
@@ -515,6 +569,11 @@ F.~Wong, M.~K. Nadim, J.~A. Kellum, et al.
 \newblock Working party proposal for a revised classification system of renal
 dysfunction in patients with cirrhosis.
 \newblock \emph{Gut}, 60(5):702--709, 2011.
+
+\bibitem{Zaremba2014}
+W.~Zaremba, I.~Sutskever, and O.~Vinyals.
+\newblock Recurrent neural network regularization.
+\newblock \emph{arXiv:1409.2329}, 2014.
 
 \end{thebibliography}
 

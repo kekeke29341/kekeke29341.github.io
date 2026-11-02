@@ -113,11 +113,27 @@ tokens directly address the out-of-vocabulary problem. Pointer networks
 \citep{Vinyals2015} output positions in the input; \citet{Gulcehre2016} and
 \citet{Gu2016} combine pointing with generation so that the model can either emit a
 vocabulary word or copy from the source. We adopt this hybrid because clinical notes
-require both: generated connective narrative and copied clinical entities.
+require both: generated connective narrative and copied clinical entities. Copying is
+not the only response to rare words: neural machine translation enlarges the softmax
+with importance-sampled vocabularies \citep{Jean2015}, replaces unknown tokens by
+dictionary lookup over attention alignments \citep{Luong2015rare}, or sidesteps the
+vocabulary entirely with subword segmentation \citep{Sennrich2016}. We prefer copying
+here because clinical entities are open-class---new drug names and device models
+appear continually---so no vocabulary, whole-word or subword, fixed at training time
+covers the test distribution, and because alignment-based unknown-word replacement
+presupposes the clean, near-monotone alignments that a disfluent, multi-turn dialogue
+does not provide.
 
 \paragraph{Language technology in clinical text.} Prior clinical NLP has focused on
 extraction---named-entity recognition and concept normalization against
 terminologies such as UMLS \citep{Aronson2010,Uzuner2011}---rather than generation.
+Generation from the encounter went unattempted for two compounding reasons: the paired
+data it needs---transcripts of visits aligned to their signed notes---are rarely
+assembled, and until the copy-augmented decoders that appeared the same year as this
+work \citep{Gu2016,Gulcehre2016}, a generator had no reliable way to emit the rare drug
+and dosage tokens on which a note's correctness turns, so its output would have read
+fluently while being clinically unsafe. Assembling such a corpus and adopting a copy
+mechanism are what make the task tractable now.
 We use such extraction as an \emph{evaluation} instrument: correctly generating a
 note should preserve the clinical concepts present in the reference. Automatic
 speech recognition supplies the transcripts upstream of our task; we assume
@@ -188,8 +204,10 @@ e_{t,i} = v^\top \tanh(W_s s_t + W_h h_i), \qquad
 \alpha_{t,i} = \frac{\exp(e_{t,i})}{\sum_{j} \exp(e_{t,j})}, \qquad
 c_t = \sum_i \alpha_{t,i}\, h_i ,
 \end{equation}
-following the additive attention of \citet{Bahdanau2015}. The generation
-distribution over the fixed vocabulary $\mathcal{V}$ is
+following the additive attention of \citet{Bahdanau2015}; we retain the additive form
+over the multiplicative variants of \citet{Luong2015att} because it proved less
+sensitive to the wide range of transcript lengths in preliminary experiments. The
+generation distribution over the fixed vocabulary $\mathcal{V}$ is
 \begin{equation}
 P_{\text{gen}}(y_t = w \mid \cdot) = \mathrm{softmax}\big(W_o [s_t; c_t] + b_o\big).
 \end{equation}
@@ -216,17 +234,25 @@ Because $P_{\text{copy}}$ ranges over source tokens, the model can output words
 absent from $\mathcal{V}$, exactly the rare medical terms we care about. The whole
 model is trained end-to-end by minimizing the token-level negative log-likelihood of
 the reference notes; the gate is learned implicitly, with no supervision of when to
-copy.
+copy. Equivalently, $P(y_t = w \mid \cdot)$ marginalizes a latent binary copy/generate
+decision, so maximizing the reference likelihood trains the gate without ever
+observing copy alignments.
 
 \subsection{Training and decoding}
 
 We use word embeddings of dimension $256$ initialized from vectors trained on a
 large unlabeled clinical-text corpus \citep{Mikolov2013}, hidden states of dimension
 $512$, and a source vocabulary capped at the $50{,}000$ most frequent tokens.
-Optimization uses a stochastic gradient method with adaptive learning rates, dropout
-of $0.3$, gradient-norm clipping, and early stopping on validation perplexity. At
-test time we decode with beam search of width $5$ and a mild length normalization to
-avoid the short-output bias of beam search.
+Optimization uses Adam \citep{Kingma2015} with dropout of $0.3$ on non-recurrent
+connections \citep{Zaremba2014}, gradient-norm clipping, and early stopping on
+validation perplexity. The decoder is trained with teacher forcing yet must consume
+its own predictions at inference; we reduce this exposure bias with scheduled sampling
+\citep{Bengio2015}, annealing the probability of feeding the model's own previous
+token from $0$ to $0.25$ over training. At test time we decode with beam search of
+width $5$ and a mild length normalization to avoid the short-output bias of beam
+search. Because beam search over long transcripts tends to re-attend to and repeat the
+same copied span, we add a coverage penalty \citep{Tu2016} that discourages attention
+from revisiting source positions already consumed.
 
 \section{Experiments}
 
@@ -385,6 +411,11 @@ D.~Bahdanau, K.~Cho, and Y.~Bengio.
 \newblock Neural machine translation by jointly learning to align and translate.
 \newblock In \emph{International Conference on Learning Representations (ICLR)}, 2015.
 
+\bibitem{Bengio2015}
+S.~Bengio, O.~Vinyals, N.~Jaitly, and N.~Shazeer.
+\newblock Scheduled sampling for sequence prediction with recurrent neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems (NIPS)}, 2015.
+
 \bibitem{Cho2014}
 K.~Cho, B.~van Merri\"enboer, C.~Gulcehre, et al.
 \newblock Learning phrase representations using RNN encoder--decoder for statistical
@@ -412,10 +443,30 @@ S.~Hochreiter and J.~Schmidhuber.
 \newblock Long short-term memory.
 \newblock \emph{Neural Computation}, 9(8):1735--1780, 1997.
 
+\bibitem{Jean2015}
+S.~Jean, K.~Cho, R.~Memisevic, and Y.~Bengio.
+\newblock On using very large target vocabulary for neural machine translation.
+\newblock In \emph{Proc.\ ACL}, 2015.
+
+\bibitem{Kingma2015}
+D.~P. Kingma and J.~Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock In \emph{International Conference on Learning Representations (ICLR)}, 2015.
+
 \bibitem{Lin2004}
 C.-Y. Lin.
 \newblock ROUGE: A package for automatic evaluation of summaries.
 \newblock In \emph{Text Summarization Branches Out (ACL Workshop)}, 2004.
+
+\bibitem{Luong2015rare}
+M.-T. Luong, I.~Sutskever, Q.~V. Le, O.~Vinyals, and W.~Zaremba.
+\newblock Addressing the rare word problem in neural machine translation.
+\newblock In \emph{Proc.\ ACL}, 2015.
+
+\bibitem{Luong2015att}
+M.-T. Luong, H.~Pham, and C.~D. Manning.
+\newblock Effective approaches to attention-based neural machine translation.
+\newblock In \emph{Proc.\ EMNLP}, 2015.
 
 \bibitem{Mikolov2013}
 T.~Mikolov, I.~Sutskever, K.~Chen, G.~Corrado, and J.~Dean.
@@ -437,10 +488,20 @@ A.~M. Rush, S.~Chopra, and J.~Weston.
 \newblock A neural attention model for abstractive sentence summarization.
 \newblock In \emph{Proc.\ EMNLP}, 2015.
 
+\bibitem{Sennrich2016}
+R.~Sennrich, B.~Haddow, and A.~Birch.
+\newblock Neural machine translation of rare words with subword units.
+\newblock In \emph{Proc.\ ACL}, 2016.
+
 \bibitem{Sutskever2014}
 I.~Sutskever, O.~Vinyals, and Q.~V. Le.
 \newblock Sequence to sequence learning with neural networks.
 \newblock In \emph{Advances in Neural Information Processing Systems (NIPS)}, 2014.
+
+\bibitem{Tu2016}
+Z.~Tu, Z.~Lu, Y.~Liu, X.~Liu, and H.~Li.
+\newblock Modeling coverage for neural machine translation.
+\newblock In \emph{Proc.\ ACL}, 2016.
 
 \bibitem{Uzuner2011}
 \"O. Uzuner, B.~R. South, S.~Shen, and S.~L. DuVall.
@@ -453,6 +514,11 @@ text.
 O.~Vinyals, M.~Fortunato, and N.~Jaitly.
 \newblock Pointer networks.
 \newblock In \emph{Advances in Neural Information Processing Systems (NIPS)}, 2015.
+
+\bibitem{Zaremba2014}
+W.~Zaremba, I.~Sutskever, and O.~Vinyals.
+\newblock Recurrent neural network regularization.
+\newblock \emph{arXiv:1409.2329}, 2014.
 
 \end{thebibliography}
 

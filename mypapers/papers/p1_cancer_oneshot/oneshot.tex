@@ -144,7 +144,14 @@ from histopathology images via convolutional networks
 \citep{He2016,Yu2016}. We draw on both modalities as inputs to the calibration
 stage, using image features to complement the genomic signal that a single region
 provides. To our knowledge, predicting multi-region heterogeneity from a single
-biopsy has not previously been posed as a learning problem.
+biopsy has not previously been posed as a learning problem. Two obstacles kept it
+from being posed: the target looks formally unrecoverable---a single region cannot
+contain subclones it never sampled, which discourages treating a whole-tumor quantity
+as predictable from one slice of it at all---and the supervision that would make the
+mapping learnable, cohorts with matched single- and multi-region sequencing of the
+same tumors, has only lately accumulated in enough quantity to train on. We take the
+first obstacle as an empirical question rather than a barrier, and use the second as
+our training signal.
 
 \section{Problem Setup}
 
@@ -179,8 +186,15 @@ a_j \mid \phi_j &\sim \mathrm{Binomial}\big(d_j,\, \xi(\phi_j, c_j)\big),
 \end{align}
 where $a_j$ and $d_j$ are the variant and total read counts of mutation $j$ and
 $\xi(\cdot)$ maps cellular prevalence to expected VAF given the local copy-number
-state $c_j$. Posterior inference by Gibbs sampling yields, for each sample, the number
-of within-region subclones and their fractions $\hat\phi$. From the posterior we form
+state $c_j$. The Dirichlet process places no ceiling on the number of mixture
+components---through its stick-breaking construction \citep{Sethuraman1994},
+equivalently a Chinese-restaurant prior on the partition of mutations---so the count
+of subclones is inferred from the data rather than fixed in advance, exactly the
+property a deconvolution of unknown clonal multiplicity requires. Posterior inference
+uses a collapsed Gibbs sampler \citep{Neal2000}, and we place a Gamma hyperprior on the
+concentration $\alpha$ and resample it, so the model is not implicitly committed to a
+particular cluster count through a hand-set $\alpha$. Each posterior draw yields the
+number of within-region subclones and their fractions $\hat\phi$. From the posterior we form
 a single-region heterogeneity estimate $\hat H_{\text{1r}}$ by applying
 Eq.~\eqref{eq:H} to the inferred within-region fractions, and we retain posterior
 summary statistics---the mean and dispersion of $\hat H_{\text{1r}}$, the posterior
@@ -191,7 +205,12 @@ mutations that are clonal---as features $z^{\text{DP}}_i$.
 
 A single region cannot see subclones confined to unsampled regions, so
 $\hat H_{\text{1r}}$ is a biased, downward estimate of $H$
-(Section~\ref{sec:results}). We correct it with a supervised model. Let $x_i$
+(Section~\ref{sec:results}). We correct it with a supervised model. The correction is
+necessarily statistical rather than deterministic: the map from a single region to $H$
+is not injective---distinct whole-tumor compositions can yield identical single-region
+observations---so the best any estimator can recover is the conditional expectation
+$\mathbb{E}[H \mid \text{single-region features}]$, and the irreducible residual
+surfaces as predictive variance. Let $x_i$
 concatenate the deconvolution features $z^{\text{DP}}_i$, genomic summaries
 (mutational burden, fraction of the genome altered by copy number, whole-genome
 doubling indicator), and, when a slide is available, a vector of histopathology
@@ -205,14 +224,18 @@ implemented as a multilayer perceptron with two hidden layers and trained by
 minimizing the mean squared error to $\log H^{(i)}$ (predicting on the log scale, then
 exponentiating). We train jointly with two auxiliary heads---a Poisson regression on
 the multi-region subclone count and a logistic head for the high-heterogeneity label
-$\mathbb{1}[H^{(i)} > \eta]$---which act as a regularizer and share representation
-across related targets.
+$\mathbb{1}[H^{(i)} > \eta]$---a multi-task objective \citep{Caruana1997} whose shared
+trunk regularizes the main regression by forcing the representation to stay predictive
+of several related views of heterogeneity at once.
 
 \paragraph{Uncertainty.} Because $\hat H_{\text{1r}}$ is itself a posterior quantity,
 we propagate its uncertainty by drawing $T$ posterior samples from Stage~1, passing
 each through $g_\theta$, and reporting the predictive mean and interval over the
-resulting $\{\hat H_i^{(t)}\}$. This yields a prediction that is appropriately
-diffident when the single sample is itself ambiguous.
+resulting $\{\hat H_i^{(t)}\}$. This is a Monte Carlo estimate of the posterior
+predictive $p(H_i \mid \text{data}) = \int g_\theta\big(x_i(\phi)\big)\, dp(\phi \mid
+\text{data})$, so the reported interval reflects genuine Stage-1 posterior uncertainty
+rather than a point plug-in, and the prediction is appropriately diffident when the
+single sample is itself ambiguous.
 
 \begin{algorithm}[t]
 \caption{One-shot heterogeneity estimation}
@@ -268,7 +291,7 @@ histopathology features.
 
 Table~\ref{tab:main} reports agreement between predicted and true multi-region
 heterogeneity. The raw single-sample estimate correlates only weakly with the truth
-and, as expected, is biased low. Calibration more than halves the error and lifts the
+and, as expected, is biased low. Calibration nearly halves the error and lifts the
 Spearman correlation from $0.42$ to $0.71$; the histopathology features contribute a
 further improvement, consistent with morphological disorder carrying information about
 diversity that the single region's genome does not. The high-heterogeneity classifier
@@ -400,6 +423,11 @@ Andor, N., Graham, T.~A., Jansen, M., et al.
 heterogeneity.
 \newblock {\em Nature Medicine}, 22(1):105--113, 2016.
 
+\bibitem[Caruana(1997)]{Caruana1997}
+Caruana, R.
+\newblock Multitask learning.
+\newblock {\em Machine Learning}, 28(1):41--75, 1997.
+
 \bibitem[de Bruin et al.(2014)]{deBruin2014}
 de Bruin, E.~C., McGranahan, N., Mitter, R., et al.
 \newblock Spatial and temporal diversity in genomic instability processes defines
@@ -446,6 +474,12 @@ Miller, C.~A., White, B.~S., Dees, N.~D., et al.
 temporal patterns of tumor evolution.
 \newblock {\em PLoS Computational Biology}, 10(8):e1003665, 2014.
 
+\bibitem[Neal(2000)]{Neal2000}
+Neal, R.~M.
+\newblock Markov chain sampling methods for Dirichlet process mixture models.
+\newblock {\em Journal of Computational and Graphical Statistics}, 9(2):249--265,
+2000.
+
 \bibitem[Nowell(1976)]{Nowell1976}
 Nowell, P.~C.
 \newblock The clonal evolution of tumor cell populations.
@@ -460,6 +494,11 @@ Rasmussen, C.~E. and Williams, C.~K.~I.
 Roth, A., Khattra, J., Yap, D., et al.
 \newblock PyClone: statistical inference of clonal population structure in cancer.
 \newblock {\em Nature Methods}, 11(4):396--398, 2014.
+
+\bibitem[Sethuraman(1994)]{Sethuraman1994}
+Sethuraman, J.
+\newblock A constructive definition of Dirichlet priors.
+\newblock {\em Statistica Sinica}, 4:639--650, 1994.
 
 \bibitem[Yates et al.(2015)]{Yates2015}
 Yates, L.~R., Gerstung, M., Knappskog, S., et al.

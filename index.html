@@ -4,12 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="中野哲平 — 機械学習・ローカルLLM・バイオインフォマティクスを軸に活動するソフトウェアエンジニアのポートフォリオ。">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics">
-  <meta property="og:description" content="閉域網のローカルLLMと、医療データの機械学習。ポートフォリオとブログ。">
-  <meta property="og:url" content="https://kekeke29341.github.io/">
-  <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://kekeke29341.github.io/">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
   <title>中野哲平 — ソフトウェアエンジニア / ML・LLM・Bioinformatics</title>
@@ -118,7 +112,7 @@
     }
     .nav-links .lang:hover { border-color: var(--accent); }
     @media (max-width: 720px) {
-      .nav-links a:not(.lang):not(.nav-keep) { display: none; }
+      .nav-links a:not(.lang) { display: none; }
     }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
@@ -291,7 +285,6 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--panel-border);
       color: var(--text-dim);
-      text-decoration: none;
     }
     .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
     .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
@@ -449,47 +442,6 @@
     .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
     .link-card .arw { color: var(--accent-2); }
 
-    .home-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 880px) { .home-blog-grid { grid-template-columns: 1fr; } }
-    .blog-card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 26px 28px;
-      backdrop-filter: blur(8px);
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .blog-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
-    .blog-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 10px; }
-    .blog-card .date { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
-    .blog-card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
-    .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
-    .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .paper-row {
-      display: block; text-decoration: none; color: inherit;
-      background: var(--panel); border: 1px solid var(--panel-border);
-      border-radius: var(--radius); padding: 20px 22px; margin-bottom: 12px;
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .paper-row:hover { transform: translateY(-3px); border-color: rgba(120,160,255,0.4); }
-    .paper-kicker { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 8px; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
-    .paper-kicker .yr { color: var(--accent-2); }
-    .paper-row h2 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; }
-    .paper-row p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
-    .paper-row .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .home-blog-label {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      color: var(--accent-2);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 8px 0 14px;
-    }
-
     footer {
       padding: 50px 0 40px;
       text-align: center;
@@ -522,8 +474,6 @@
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
       <a href="#pubs">Papers</a>
-      <a href="blog/index.html" class="nav-keep">Blog</a>
-      <a href="reading/index.html" class="nav-keep">Reading</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>
@@ -532,25 +482,16 @@
     <!-- HERO -->
     <header class="hero">
       <div class="eyebrow reveal"><span class="pulse"></span>OPEN TO WORK · ML / LLM / Bioinformatics</div>
-      <h1 class="reveal">機密環境で動く<br><span class="grad">AI・LLMを、内製で。</span></h1>
+      <h1 class="reveal">中野 <span class="grad">哲平</span></h1>
       <p class="role reveal">ソフトウェアエンジニア <span>/ 機械学習・ローカルLLM・バイオインフォマティクス</span></p>
       <p class="lede reveal">
-        未踏プロジェクト採択・NeurIPS / ICML Workshop 論文採択の経歴を持つエンジニアです。
-        機密性の高い閉域網でのローカルLLM基盤の設計・構築から、
-        コンタクトセンターへのAI導入、バイオインフォマティクス領域の解析まで、
-        データパイプラインの設計・モデル最適化・運用定着までを一気通貫で担ってきました。
+        機械学習と医療応用の研究を経て、LLM・文書AI・Azure上の生成AIアプリなどの開発に従事しています。
+        未踏採択、NeurIPS / ICML Workshop への論文投稿の経験もあります。
+        仕事の依頼や採用のご連絡は、下記の職務経歴と論文一覧をご覧ください。
       </p>
       <div class="cta-row reveal">
         <a href="#career" class="btn btn-primary">職務経歴を見る →</a>
-        <a href="blog/index.html" class="btn btn-ghost">ブログを読む</a>
         <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">技術メモ (Zenn)</a>
-      </div>
-
-      <div class="stats">
-        <div class="stat reveal"><div class="num">6</div><div class="lbl">主要プロジェクト従事</div></div>
-        <div class="stat reveal"><div class="num">7+</div><div class="lbl">査読・Workshop 論文</div></div>
-        <div class="stat reveal"><div class="num">100+</div><div class="lbl">同時接続で 1.5s 応答</div></div>
-        <div class="stat reveal"><div class="num">500h</div><div class="lbl">月間工数削減 (DX部門)</div></div>
       </div>
     </header>
 
@@ -562,23 +503,15 @@
       </div>
       <div class="reveal" style="max-width:760px;color:var(--text-dim);font-size:1.02rem;">
         <p>
-          大学卒業後、大学院で機械学習モデルの開発とヘルスケアデータへの応用を研究。
-          在学中に NeurIPS・ICML の Workshop に論文を投稿し採択されました。
-          その後、約6年間で6つのプロジェクトに従事し、システム開発・運用を主導。
+          慶應義塾大学医学部を卒業後、東京大学大学院で医療向け機械学習を研究しました。
+          在学中に NeurIPS・ICML の Workshop へ論文を投稿し、採択されています。
+          カハール株式会社の代表取締役（一人法人）として受託開発も行いながら、
+          各社の案件で LLM・文書理解・Azure 上の生成AIアプリ開発に関わっています。
         </p>
         <p>
-          大規模トランスフォーマーによる自然言語処理・画像認識に加え、
-          近年は<strong style="color:var(--text)">完全閉域網でのローカルLLM基盤</strong>と
-          <strong style="color:var(--text)">コンタクトセンターへのAI導入</strong>を専門としています。
-          データの前処理・モデル選定・精度向上・運用・組織への定着まで、
-          「作って終わり」ではなく現場で使われるところまで責任を持って設計します。
-          がんヘテロジェニティや RNA-seq 解析など、
-          <strong style="color:var(--text)">バイオインフォマティクス</strong>の実務・論文経験も強みです。
-          同じ論点の短いメモを、このサイトの
-          <a href="blog/medical.html" style="color:var(--accent-2)">医療MLの読み順</a>
-          と
-          <a href="blog/llm.html" style="color:var(--accent-2)">ローカルLLMの読み順</a>
-          に置いています。
+          扱ってきた領域は、オンプレ／閉域網のローカルLLM、帳票・文書の VLM／LLM 抽出、
+          コンタクトセンター向け応答支援、医療・法務・金融のデータ解析などです。
+          がんヘテロジェニティや RNA-seq など、バイオインフォマティクスの論文経験もあります。
         </p>
       </div>
     </section>
@@ -588,15 +521,15 @@
       <div class="sec-head reveal">
         <div class="kicker">// expertise</div>
         <h2>得意領域</h2>
-        <p>研究由来の理論と、閉域網・オンプレという制約の厳しい現場での実装経験を両輪に。</p>
+        <p>研究と受託・各社案件で使ってきた技術領域です。</p>
       </div>
       <div class="skills">
         <div class="skill-card llm reveal">
           <div class="ico">🔒</div>
-          <h3>ローカルLLM / 閉域網AI基盤</h3>
-          <p>外部APIを一切使わないオンプレLLM環境の設計・構築・最適化。プライバシー保護RAGと推論高速化。</p>
+          <h3>ローカルLLM / 閉域網</h3>
+          <p>オンプレGPU上でのLLM構築、量子化、推論最適化、閉域網向けRAG。</p>
           <div class="tags">
-            <span class="tag">Llama 3.1</span><span class="tag">Mistral Large 2</span>
+            <span class="tag">Llama</span><span class="tag">Mistral</span>
             <span class="tag">vLLM</span><span class="tag">TensorRT-LLM</span>
             <span class="tag">SFT / DPO</span><span class="tag">FP8 / AWQ</span>
           </div>
@@ -604,26 +537,25 @@
         <div class="skill-card bio reveal">
           <div class="ico">🧬</div>
           <h3>バイオインフォマティクス</h3>
-          <p>がんヘテロジェニティ予測・可視化、RNA-seq を用いた腫瘍微小環境解析など、医科学データの機械学習応用。</p>
+          <p>がんヘテロジェニティ、RNA-seq、医用画像など、医科学データへの機械学習応用。</p>
           <div class="tags">
-            <span class="tag">RNA-seq</span><span class="tag">Single-cell</span>
-            <span class="tag">Cancer Genomics</span><span class="tag">Self-Supervised</span>
-            <span class="tag">Medical Imaging</span>
+            <span class="tag">RNA-seq</span><span class="tag">Cancer Genomics</span>
+            <span class="tag">Medical Imaging</span><span class="tag">Self-Supervised</span>
           </div>
         </div>
         <div class="skill-card cx reveal">
           <div class="ico">🎧</div>
-          <h3>コンタクトセンターAI導入</h3>
-          <p>問い合わせ対応の自動化・応答支援・要約・ナレッジ検索。現場運用に耐えるRAGと評価設計。</p>
+          <h3>文書AI / コンタクトセンター</h3>
+          <p>帳票PDFの構造化抽出、FAQ・応答支援、要約、ナレッジ検索（RAG）。</p>
           <div class="tags">
-            <span class="tag">RAG</span><span class="tag">音声/対話</span>
-            <span class="tag">FAQ自動化</span><span class="tag">応答支援</span>
+            <span class="tag">VLM</span><span class="tag">RAG</span>
+            <span class="tag">FAQ</span><span class="tag">文書理解</span>
           </div>
         </div>
         <div class="skill-card ml reveal">
           <div class="ico">🤖</div>
           <h3>機械学習 / NLP</h3>
-          <p>大規模トランスフォーマーによるNLP・画像認識。異常検知、埋め込み検索、自己教師あり学習。</p>
+          <p>Transformer ベースの NLP、埋め込み検索、LoRA によるファインチューニング。</p>
           <div class="tags">
             <span class="tag">PyTorch</span><span class="tag">Transformers</span>
             <span class="tag">LoRA</span><span class="tag">Embedding Search</span>
@@ -631,20 +563,20 @@
         </div>
         <div class="skill-card mlops reveal">
           <div class="ico">⚙️</div>
-          <h3>MLOps / インフラ</h3>
-          <p>GPUサーバー選定からデプロイまで内製化。CUDA/Docker、量子化、推論最適化、ベクトルDB運用。</p>
+          <h3>インフラ / Azure</h3>
+          <p>GPUサーバー構築、Docker、ベクトルDB、Azure OpenAI / Logic Apps / Bicep。</p>
           <div class="tags">
-            <span class="tag">A100 / H100 / L40S</span><span class="tag">CUDA</span>
-            <span class="tag">Docker</span><span class="tag">Milvus</span>
+            <span class="tag">CUDA</span><span class="tag">Docker</span>
+            <span class="tag">Milvus</span><span class="tag">Azure</span>
           </div>
         </div>
         <div class="skill-card pm reveal">
           <div class="ico">🧭</div>
-          <h3>AI駆動開発 / PM</h3>
-          <p>最大10名のPM経験。AIファースト・ワークフローの策定と組織への定着、品質担保の仕組みづくり。</p>
+          <h3>開発推進</h3>
+          <p>要件定義から実装・レビュー・本番投入まで。案件によっては複数名チームで推進。</p>
           <div class="tags">
-            <span class="tag">AI協調開発</span><span class="tag">Cursor</span>
-            <span class="tag">プロンプト設計</span><span class="tag">レビュー設計</span>
+            <span class="tag">要件定義</span><span class="tag">レビュー</span>
+            <span class="tag">本番展開</span><span class="tag">Cursor</span>
           </div>
         </div>
       </div>
@@ -655,121 +587,103 @@
       <div class="sec-head reveal">
         <div class="kicker">// experience</div>
         <h2>職務経歴</h2>
-        <p>直近から時系列で。数値は各プロジェクトでの実績です。</p>
+        <p>直近から時系列です。詳細は職務経歴書を参照してください。</p>
       </div>
 
       <div class="timeline">
-        <!-- CURRENT: 大手製造業 ローカルLLM -->
         <div class="tl-item current reveal">
           <div class="tl-card current">
             <div class="tl-meta">
-              <span class="tl-period">2025.09 – 2026.06 · 5ヶ月</span>
-              <span class="tl-badge now">最新</span>
+              <span class="tl-period">2026.01 – 2026.09</span>
+              <span class="tl-badge now">直近</span>
             </div>
-            <h3>個人情報・機密情報特化型ローカルLLM構築プロジェクト</h3>
-            <p class="tl-org">某大手製造業 株式会社（従業員1000名以上）· 40人月 / 自社5名 / ベンダー1社</p>
+            <h3>帳票PDFの VLM / LLM 構造化抽出</h3>
+            <p class="tl-org">某AIスタートアップ</p>
             <ul>
-              <li><strong>インフラ内製化</strong>：NVIDIA A100/H100/L40S 搭載オンプレGPUサーバーを選定し、CUDA/Docker 環境を構築。</li>
-              <li><strong>モデル最適化</strong>：Llama 3.1 (70B/405B)・Mistral Large 2 をベースに vLLM / TensorRT-LLM で推論を高速化。</li>
-              <li><strong>ドメイン特化チューニング</strong>：機密文書・個人情報ログを匿名化し、SFT・DPO でモデルを微調整。</li>
-              <li><strong>プライバシー保護RAG</strong>：閉域網内に Milvus を構築し、認可制御 (ACL) を組み込んだRAGを開発。</li>
-              <li><strong>量子化</strong>：FP8 / AWQ 量子化で高精度を維持しつつ推論スループットを3倍以上に。</li>
+              <li>日本語帳票PDFから項目を自動抽出するパイプラインの設計・実装。</li>
+              <li>帳票判定、様式ルーター、サービスAPI化、評価基盤の整備。</li>
+              <li>共有プロダクトへの段階的なマージと本番組み込み。</li>
             </ul>
-            <div class="result-chips">
-              <span class="rc">外部送信ゼロ・社内基準100%充足</span>
-              <span class="rc">専門用語の回答精度 +60%</span>
-              <span class="rc">100名同時接続で平均1.5s</span>
-              <span class="rc">DX部門 月間500h削減</span>
-            </div>
-
-            <details class="more">
-              <summary>AI駆動開発の徹底と組織への定着</summary>
-              <div class="body">
-                <div class="callout">
-                  <h3>「手打ちコーディング＋人手レビュー」文化を、AIファーストへ刷新</h3>
-                  <div class="qa">
-                    <p class="q">既存エンジニアの「AI生成コード」への拒絶反応と懐疑心</p>
-                    <p class="a">レガシーコードの解析・リファクタリングと大量のボイラープレート生成をAIで実演し、スピード差を数値で提示。「AIを部下として使い、人間はアーキテクチャ設計に専念する」役割分担を定義した<strong style="color:var(--text)">AI協調開発ガイドライン</strong>を策定し、意識改革を断行。</p>
-                  </div>
-                  <div class="qa">
-                    <p class="q">AI駆動による「設計の形骸化」とコード品質の劣化</p>
-                    <p class="a">「AIに実装させるための精密なプロンプト設計書」を詳細設計の成果物として定義。Cursor 生成前に LLM で仕様の矛盾を検知する<strong style="color:var(--text)">プリ・コーディング・レビュー</strong>工程をフローに組み込み、速度を維持したまま品質を担保。</p>
-                  </div>
-                </div>
-              </div>
-            </details>
           </div>
         </div>
 
-        <!-- 香港 ブロックチェーン -->
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01 · 8ヶ月</span></div>
-            <h3>機械学習を活用したブロックチェーン分析事業（香港）</h3>
-            <p class="tl-org">暗号資産の取引監視プラットフォーム · 85人月 / 自社9名 / ベンダー3社</p>
+            <div class="tl-meta"><span class="tl-period">2026.02 – 2026.09</span></div>
+            <h3>Teams 会議の AI 議事録アプリ（Azure）</h3>
+            <p class="tl-org">某大手人材サービス企業</p>
             <ul>
-              <li>機械学習によるブロックチェーン異常検知システムの設計・開発、リアルタイムでの不審取引の特定。</li>
-              <li>ウォレットアドレス間の関係性を可視化するネットワーク分析ツールを開発。</li>
-              <li>取引履歴からのリスクスコアリング、スマートコントラクトのセキュリティリスク自動検出AIを実装。</li>
+              <li>Teams 文字起こしから Azure OpenAI で議事録を生成し SharePoint へ保存。</li>
+              <li>Bicep / Logic Apps / Key Vault / マネージドID を用いた本番構成。</li>
             </ul>
-            <div class="result-chips">
-              <span class="rc">不審取引の検出精度 +35%</span>
-              <span class="rc">大規模不正ネットワークを検出・法執行と連携</span>
-            </div>
           </div>
         </div>
 
-        <!-- カハール ローカルLLM 医療 -->
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2023.01 – 2024.05 · 14ヶ月</span></div>
-            <h3>プライバシー保護を重視したローカルLLMの開発</h3>
-            <p class="tl-org">カハール株式会社 · 保険・ヘルスケア向け · 60人月 / 自社6名 / ベンダー2社</p>
+            <div class="tl-meta"><span class="tl-period">2025.09 – 2025.12</span></div>
+            <h3>閉域網向けローカルLLM基盤</h3>
+            <p class="tl-org">某大手製造業</p>
             <ul>
-              <li>Llama / Gemma / Qwen を評価し Llama-3-8B-Instruct を選定。PyTorch + Hugging Face で LoRA ファインチューニング。</li>
-              <li>医療用語特化データセットを整備し微調整。Llama.cpp の量子化でリソース制約下の推論を最適化。</li>
-              <li>医療文書の要約・質問応答を開発し、オンプレ運用で外部送信不要のシステムを病院導入。</li>
+              <li>オンプレGPUサーバー上での LLM 環境構築、量子化、推論最適化。</li>
+              <li>社内文書向けの SFT / DPO と、閉域網内 RAG（Milvus）の検討・実装。</li>
             </ul>
-            <div class="result-chips">
-              <span class="rc">専門医のレビュー時間を短縮</span>
-              <span class="rc">病院での実運用に成功</span>
-            </div>
           </div>
         </div>
 
-        <!-- パーソナライズドマーケティング -->
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2022.01 – 2023.12 · 12ヶ月</span></div>
-            <h3>AIを活用したパーソナライズドマーケティングプラットフォーム</h3>
-            <p class="tl-org">カハール株式会社 · 70人月 / 自社7名 / ベンダー3社</p>
+            <div class="tl-meta"><span class="tl-period">2025.04 – 2025.08</span></div>
+            <h3>大規模言語モデルを用いた FAQ / 自動応答</h3>
+            <p class="tl-org">某通信事業</p>
             <ul>
-              <li>消費者データをリアルタイム分析し最適広告を配信するAIエンジン・セグメンテーションモデルを開発。</li>
-              <li>NLPによるソーシャルメディア分析、A/Bテスト自動化、エッジAIによる配信高速化。GDPR/CCPA準拠設計。</li>
+              <li>ドメイン特化のファインチューニングと RAG による問い合わせ対応支援。</li>
             </ul>
-            <div class="result-chips">
-              <span class="rc">CTR +25%</span>
-              <span class="rc">CVR +30%</span>
-              <span class="rc">分析工数 -40%</span>
-            </div>
           </div>
         </div>
 
-        <!-- 法律文書検索 -->
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2021.01 – 2021.12 · 12ヶ月</span></div>
-            <h3>大規模トランスフォーマーを活用した法律文書検索システム</h3>
-            <p class="tl-org">カハール株式会社 · 75人月 / 自社7名 / ベンダー2社</p>
+            <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01</span></div>
+            <h3>ブロックチェーンデータ分析（香港）</h3>
+            <p class="tl-org">DREAM FINANCE 株式会社</p>
             <ul>
-              <li>BERT / GPT-3 を活用した検索アルゴリズムと、法律特化型BERTを構築。質問応答型検索を開発。</li>
-              <li>類似判例検索の埋め込みモデルを開発。オンプレ運用でセキュリティに配慮した契約リスク分析を提供。</li>
+              <li>機械学習による取引監視・異常検知、ウォレット関係のネットワーク分析。</li>
             </ul>
-            <div class="result-chips">
-              <span class="rc">検索精度 +20%</span>
-              <span class="rc">読解時間 -50%</span>
-              <span class="rc">検索効率 +30%</span>
-            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2021.04 – 2024.05（主な案件期間）</span></div>
+            <h3>カハール株式会社（代表取締役・一人法人）</h3>
+            <p class="tl-org">資本金100万円 · 在任は2017年11月〜現在</p>
+            <ul>
+              <li>ヘルスケア向けローカルLLM、マーケティング分析、法律文書検索などの受託開発。</li>
+              <li>実働は本人中心。必要に応じて外部協力者と進めた。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2017.10 – 現在</span></div>
+            <h3>株式会社NAM（代表取締役）</h3>
+            <p class="tl-org">医療AI領域で設立。2017年12月〜2018年1月にICOを実施。現在は事業を実質休止。</p>
+            <ul>
+              <li>会社設立と資金調達（ICO）を実施。その後は事業を継続せず、実務の中心は他案件へ移行。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2018.04 – 2021.03</span></div>
+            <h3>東京大学医学系研究科 卓越研究員</h3>
+            <p class="tl-org">電子カルテ要約など、医療×機械学習の研究</p>
+            <ul>
+              <li>Transformer / BERT 系による電子カルテ自動要約の研究・実装。</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -780,7 +694,7 @@
       <div class="sec-head reveal">
         <div class="kicker">// publications</div>
         <h2>論文 / Bioinformatics</h2>
-        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。読んだ論文のメモは <a href="reading/index.html" style="color:var(--accent-2)">こちら</a>。</p>
+        <p>がんヘテロジェニティ・臨床テキスト・医用画像など、機械学習 × 生命医科学の研究。</p>
       </div>
       <div class="pubs">
         <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
@@ -802,40 +716,9 @@
           <div class="when">2017.03</div>
         </div>
         <div class="edu-card reveal">
-          <div class="deg">東京大学大学院 医学系研究科・医学部</div>
-          <div class="when">2021.03 中途自主退学</div>
+          <div class="deg">東京大学大学院 医学系研究科・医学部（卓越研究員として研究）</div>
+          <div class="when">〜2021.03 中途自主退学</div>
         </div>
-      </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="blog">
-      <div class="sec-head reveal">
-        <div class="kicker">// blog</div>
-        <h2>ブログ</h2>
-        <p>医療×機械学習と、閉域網のローカルLLMについてのメモ。</p>
-      </div>
-      <div class="home-blog-label reveal">医療 × 機械学習</div>
-      <div id="home-blog-med" class="home-blog-grid"></div>
-      <div class="home-blog-label reveal" style="margin-top:28px;">ローカルLLM / 基盤</div>
-      <div id="home-blog-llm" class="home-blog-grid"></div>
-      <div class="home-blog-more reveal">
-        <a href="blog/medical.html" class="btn btn-ghost">医療MLの読み順</a>
-        <a href="blog/llm.html" class="btn btn-ghost">ローカルLLMの読み順</a>
-        <a href="blog/index.html" class="btn btn-primary">すべての記事 →</a>
-      </div>
-    </section>
-
-    <section id="reading">
-      <div class="sec-head reveal">
-        <div class="kicker">// reading</div>
-        <h2>読んだ論文</h2>
-        <p>要旨の再掲ではなく、現場に持ち帰る一点だけを残しています。</p>
-      </div>
-      <div id="home-reading"></div>
-      <div class="home-blog-more reveal">
-        <a href="reading/index.html?tag=Medical" class="btn btn-ghost">医療の論文</a>
-        <a href="reading/index.html" class="btn btn-primary">論文メモ一覧 →</a>
       </div>
     </section>
 
@@ -846,8 +729,6 @@
         <h2>アウトプット</h2>
       </div>
       <div class="link-grid">
-        <a class="link-card reveal" href="blog/index.html">ブログ<span class="sub">このサイト</span><span class="arw">→</span></a>
-        <a class="link-card reveal" href="reading/index.html">読んだ論文<span class="sub">このサイト</span><span class="arw">→</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">開発日記<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">技術メモ<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">ブログ<span class="sub">note</span><span class="arw">↗</span></a>
@@ -860,22 +741,10 @@
 
   <footer>
     <div>© 2026 中野哲平 — Teppei Nakano</div>
-    <div class="meta">Last updated: 2026-08-15</div>
+    <div class="meta">Last updated: 2026-11-03</div>
   </footer>
 
   <script>
-    // Latest blog posts
-    (function () {
-      const s = document.createElement("script");
-      s.src = "blog/assets/blog.js";
-      s.onload = function () {
-        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-med", tag: "Medical", limit: 3 });
-        SiteBlog.renderHomePreview({ lang: "ja", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
-        SiteBlog.renderHomeReading({ lang: "ja", targetId: "home-reading", limit: 4 });
-      };
-      document.body.appendChild(s);
-    })();
-
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -938,9 +807,6 @@
       window.addEventListener('mouseout', () => { mouse.x = -999; mouse.y = -999; });
       resize(); step();
     })();
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"中野哲平","alternateName":"Teppei Nakano","url":"https://kekeke29341.github.io/","jobTitle":"Software Engineer","knowsAbout":["Machine Learning","Local LLM","Bioinformatics","Medical ML"]}
   </script>
 </body>
 </html>

@@ -129,7 +129,13 @@ visualization of tumor heterogeneity.
 \paragraph{Visualizing tumor evolution.} Clonal evolution is commonly depicted with
 fish plots and phylogenetic trees \citep{Deshwar2015}. These encode composition and
 ancestry but not the geometry of populations or their motion; dynamic flow is
-complementary, foregrounding exactly the dynamics they suppress.
+complementary, foregrounding exactly the dynamics they suppress. That the motion had
+not been drawn before is less an oversight than a missing prerequisite: each stage was
+customarily embedded on its own, leaving no shared coordinate system in which a
+velocity could even be defined, and only the recent entropically regularized transport
+of \citet{Cuturi2013} made the stage-to-stage coupling cheap and noise-robust enough to
+estimate and smooth into a field. Supplying the shared embedding and folding in that
+transport is what lets the question be asked at all.
 
 \section{Method}
 
@@ -147,7 +153,11 @@ velocity field drawn over the embedding.
 
 We embed the pooled mutations with t-SNE \citep{Maaten2008} on the prevalence profiles
 $\{u_j\}$, producing coordinates $y_j \in \mathbb{R}^2$ that are shared across all
-stages. Embedding once, jointly, is what makes stage-to-stage motion well defined:
+stages. t-SNE fits the low-dimensional map by minimizing the Kullback--Leibler
+divergence from Gaussian affinities in profile space to a heavy-tailed Student-$t$
+similarity in the map, with a perplexity that sets the effective neighborhood size;
+the heavy-tailed kernel counters the crowding problem and yields the well-separated
+clusters over which a velocity field can then be read. Embedding once, jointly, is what makes stage-to-stage motion well defined:
 each mutation occupies a single location, and a stage is represented by the weighted
 cloud of mutations present in it, with weights $w^{(s)}_j = u_{j,s}$ proportional to
 cellular prevalence at that stage. Let $\mu_s = \sum_j \bar w^{(s)}_j \,\delta_{y_j}$ be
@@ -169,9 +179,15 @@ mass leaving $y_j$ is
 \begin{equation}
 v^{(s)}_j = \frac{1}{\sum_k P^{(s)}_{jk}} \sum_k P^{(s)}_{jk}\,(y_k - y_j).
 \end{equation}
-Entropic regularization both accelerates the computation and, by smoothing the
-coupling, prevents the visually distracting fragmentation that exact transport
-produces under sampling noise.
+The vector $v^{(s)}_j$ is the \emph{barycentric projection} of the coupling---the
+conditional mean destination of the mass leaving $y_j$---and under the
+squared-Euclidean cost it is the discrete analogue of the Monge map that underlies
+displacement interpolation \citep{McCann1997,Bonneel2011}. Entropic regularization adds
+a Kullback--Leibler penalty toward the product coupling, turning the transport linear
+program into a strictly convex problem that Sinkhorn's algorithm solves as alternating
+Bregman (KL) projections onto the two marginal constraints \citep{Cuturi2013,Benamou2015};
+beyond its near-linear-time iterations, the smoothing it induces prevents the visually
+distracting fragmentation that exact transport produces under sampling noise.
 
 \subsection{From displacements to a field}
 
@@ -350,6 +366,11 @@ reconstruction, and colleagues in oncology for feedback on the visualizations.
 \bibliographystyle{icml2017}
 \begin{thebibliography}{}
 
+\bibitem[Benamou et al.(2015)]{Benamou2015}
+Benamou, J.-D., Carlier, G., Cuturi, M., Nenna, L., and Peyr\'e, G.
+\newblock Iterative Bregman projections for regularized transportation problems.
+\newblock {\em SIAM Journal on Scientific Computing}, 37(2):A1111--A1138, 2015.
+
 \bibitem[Bonneel et al.(2011)]{Bonneel2011}
 Bonneel, N., van de Panne, M., Paris, S., and Heidrich, W.
 \newblock Displacement interpolation using Lagrangian mass transport.
@@ -386,6 +407,11 @@ sequencing.
 van der Maaten, L. and Hinton, G.
 \newblock Visualizing data using t-SNE.
 \newblock {\em Journal of Machine Learning Research}, 9:2579--2605, 2008.
+
+\bibitem[McCann(1997)]{McCann1997}
+McCann, R.~J.
+\newblock A convexity principle for interacting gases.
+\newblock {\em Advances in Mathematics}, 128(1):153--179, 1997.
 
 \bibitem[McGranahan \& Swanton(2015)]{McGranahan2015}
 McGranahan, N. and Swanton, C.

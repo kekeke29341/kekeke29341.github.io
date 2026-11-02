@@ -4,12 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Teppei Nakano — Software engineer specializing in machine learning, on-prem local LLMs, and bioinformatics.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Teppei Nakano — Software Engineer / ML · LLM · Bioinformatics">
-  <meta property="og:description" content="Air-gapped local LLMs and medical ML. Portfolio and notes.">
-  <meta property="og:url" content="https://kekeke29341.github.io/english_index.html">
-  <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://kekeke29341.github.io/english_index.html">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
   <title>Teppei Nakano — Software Engineer / ML · LLM · Bioinformatics</title>
@@ -71,7 +65,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links .lang { border: 1px solid var(--panel-border); padding: 6px 14px; border-radius: 999px; color: var(--text); }
     .nav-links .lang:hover { border-color: var(--accent); }
-    @media (max-width: 720px) { .nav-links a:not(.lang):not(.nav-keep) { display: none; } }
+    @media (max-width: 720px) { .nav-links a:not(.lang) { display: none; } }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
     .hero { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 60px; }
     .eyebrow {
@@ -112,7 +106,7 @@
     .skill-card h3 { margin: 0 0 8px; font-size: 1.2rem; position: relative; }
     .skill-card p { margin: 0 0 16px; color: var(--text-dim); font-size: 0.92rem; position: relative; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
-    .tag { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border); color: var(--text-dim); text-decoration: none; }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border); color: var(--text-dim); }
     .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
     .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
     .skill-card.ml  { --glow: rgba(168,85,247,0.22); --chip: rgba(168,85,247,0.14); }
@@ -180,41 +174,6 @@
     .link-card:hover { transform: translateY(-3px); border-color: var(--accent); }
     .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
     .link-card .arw { color: var(--accent-2); }
-    .home-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 880px) { .home-blog-grid { grid-template-columns: 1fr; } }
-    .blog-card {
-      display: block; text-decoration: none; color: inherit;
-      background: var(--panel); border: 1px solid var(--panel-border);
-      border-radius: var(--radius); padding: 26px 28px;
-      backdrop-filter: blur(8px); transition: transform 0.25s, border-color 0.25s;
-    }
-    .blog-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
-    .blog-card .meta { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 10px; }
-    .blog-card .date { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
-    .blog-card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
-    .blog-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
-    .blog-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .home-blog-more { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .paper-row {
-      display: block; text-decoration: none; color: inherit;
-      background: var(--panel); border: 1px solid var(--panel-border);
-      border-radius: var(--radius); padding: 20px 22px; margin-bottom: 12px;
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .paper-row:hover { transform: translateY(-3px); border-color: rgba(120,160,255,0.4); }
-    .paper-kicker { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 8px; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
-    .paper-kicker .yr { color: var(--accent-2); }
-    .paper-row h2 { margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; }
-    .paper-row p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
-    .paper-row .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .home-blog-label {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      color: var(--accent-2);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 8px 0 14px;
-    }
     footer { padding: 50px 0 40px; text-align: center; color: var(--text-faint); font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 40px; }
     footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -234,8 +193,6 @@
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
       <a href="#pubs">Papers</a>
-      <a href="blog/en.html" class="nav-keep">Blog</a>
-      <a href="reading/en.html" class="nav-keep">Reading</a>
       <a href="index.html" class="lang">日本語</a>
     </div>
   </nav>
@@ -243,24 +200,16 @@
   <div class="wrap">
     <header class="hero">
       <div class="eyebrow reveal"><span class="pulse"></span>OPEN TO WORK · ML / LLM / Bioinformatics</div>
-      <h1 class="reveal">Building private AI &amp;<br><span class="grad">LLMs, in-house.</span></h1>
+      <h1 class="reveal">Teppei <span class="grad">Nakano</span></h1>
       <p class="role reveal">Software Engineer <span>/ Machine Learning · Local LLMs · Bioinformatics</span></p>
       <p class="lede reveal">
-        Engineer with a MITOU (未踏) project selection and NeurIPS / ICML Workshop papers.
-        I design and build local LLM platforms for fully air-gapped, high-security environments,
-        lead AI adoption in contact centers, and work across bioinformatics —
-        owning the whole path from data pipeline and model optimization to production operation.
+        After research in machine learning for medicine, I work on LLMs, document AI, and generative-AI apps on Azure.
+        Background includes MITOU selection and NeurIPS / ICML Workshop papers.
+        See experience and publications below for hiring or project inquiries.
       </p>
       <div class="cta-row reveal">
         <a href="#career" class="btn btn-primary">View experience →</a>
-        <a href="blog/en.html" class="btn btn-ghost">Read the blog</a>
         <a href="https://zenn.dev/nakano_teppei" class="btn btn-ghost" target="_blank" rel="noopener">Tech notes (Zenn)</a>
-      </div>
-      <div class="stats">
-        <div class="stat reveal"><div class="num">6</div><div class="lbl">Major projects delivered</div></div>
-        <div class="stat reveal"><div class="num">7+</div><div class="lbl">Peer-reviewed / workshop papers</div></div>
-        <div class="stat reveal"><div class="num">100+</div><div class="lbl">Concurrent users at 1.5s latency</div></div>
-        <div class="stat reveal"><div class="num">500h</div><div class="lbl">Monthly hours saved (DX unit)</div></div>
       </div>
     </header>
 
@@ -271,21 +220,15 @@
       </div>
       <div class="reveal" style="max-width:760px;color:var(--text-dim);font-size:1.02rem;">
         <p>
-          After graduating, I researched machine learning models and their application to healthcare data
-          in graduate school, with papers accepted at NeurIPS and ICML workshops.
-          Over roughly six years I have led development and operations across six projects.
+          After graduating from Keio University School of Medicine, I studied ML for healthcare
+          at the University of Tokyo graduate school, with papers accepted at NeurIPS and ICML workshops.
+          I am also CEO of Kahal Inc. (a one-person company) and work on client projects in LLMs,
+          document understanding, and Azure generative-AI applications.
         </p>
         <p>
-          Beyond large-scale transformers for NLP and vision, my current focus is
-          <strong style="color:var(--text)">fully air-gapped local LLM platforms</strong> and
-          <strong style="color:var(--text)">AI adoption in contact centers</strong>.
-          I take responsibility all the way to real-world usage — not just building a model, but making sure
-          it is adopted on the floor. Bioinformatics — cancer heterogeneity and RNA-seq analysis — remains
-          a core strength backed by publications.
-          Short notes on the same topics live in the
-          <a href="blog/medical-en.html" style="color:var(--accent-2)">medical ML reading order</a>
-          and the
-          <a href="blog/llm-en.html" style="color:var(--accent-2)">local LLM reading order</a>.
+          Areas I have worked in include on-prem / air-gapped local LLMs, VLM/LLM extraction from forms,
+          contact-center response support, and analytics in healthcare, legal, and finance.
+          I also have publications in bioinformatics (cancer heterogeneity, RNA-seq).
         </p>
       </div>
     </section>
@@ -294,44 +237,44 @@
       <div class="sec-head reveal">
         <div class="kicker">// expertise</div>
         <h2>Expertise</h2>
-        <p>Research-grade theory paired with implementation under strict on-prem, air-gapped constraints.</p>
+        <p>Technical areas from research and client work.</p>
       </div>
       <div class="skills">
         <div class="skill-card llm reveal">
           <div class="ico">🔒</div>
-          <h3>Local LLM / Air-gapped AI</h3>
-          <p>Design, build and optimize on-prem LLM stacks that never touch an external API — privacy-preserving RAG and inference acceleration.</p>
-          <div class="tags"><span class="tag">Llama 3.1</span><span class="tag">Mistral Large 2</span><span class="tag">vLLM</span><span class="tag">TensorRT-LLM</span><span class="tag">SFT / DPO</span><span class="tag">FP8 / AWQ</span></div>
+          <h3>Local LLM / Air-gapped</h3>
+          <p>On-prem GPU LLM stacks, quantization, inference optimization, and air-gapped RAG.</p>
+          <div class="tags"><span class="tag">Llama</span><span class="tag">Mistral</span><span class="tag">vLLM</span><span class="tag">TensorRT-LLM</span><span class="tag">SFT / DPO</span><span class="tag">FP8 / AWQ</span></div>
         </div>
         <div class="skill-card bio reveal">
           <div class="ico">🧬</div>
           <h3>Bioinformatics</h3>
-          <p>Cancer heterogeneity prediction &amp; visualization, tumor-microenvironment analysis from RNA-seq, and ML on biomedical data.</p>
-          <div class="tags"><span class="tag">RNA-seq</span><span class="tag">Single-cell</span><span class="tag">Cancer Genomics</span><span class="tag">Self-Supervised</span><span class="tag">Medical Imaging</span></div>
+          <p>Cancer heterogeneity, RNA-seq, medical imaging — ML on biomedical data.</p>
+          <div class="tags"><span class="tag">RNA-seq</span><span class="tag">Cancer Genomics</span><span class="tag">Medical Imaging</span><span class="tag">Self-Supervised</span></div>
         </div>
         <div class="skill-card cx reveal">
           <div class="ico">🎧</div>
-          <h3>Contact-center AI</h3>
-          <p>Inquiry automation, agent-assist, summarization and knowledge search — production-grade RAG with proper evaluation.</p>
-          <div class="tags"><span class="tag">RAG</span><span class="tag">Voice / Dialogue</span><span class="tag">FAQ automation</span><span class="tag">Agent assist</span></div>
+          <h3>Document AI / Contact center</h3>
+          <p>Form PDF extraction, FAQ / agent assist, summarization, and knowledge search (RAG).</p>
+          <div class="tags"><span class="tag">VLM</span><span class="tag">RAG</span><span class="tag">FAQ</span><span class="tag">Document understanding</span></div>
         </div>
         <div class="skill-card ml reveal">
           <div class="ico">🤖</div>
           <h3>Machine Learning / NLP</h3>
-          <p>Large transformers for NLP and vision. Anomaly detection, embedding search, self-supervised learning.</p>
+          <p>Transformer NLP, embedding search, LoRA fine-tuning.</p>
           <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">LoRA</span><span class="tag">Embedding Search</span></div>
         </div>
         <div class="skill-card mlops reveal">
           <div class="ico">⚙️</div>
-          <h3>MLOps / Infrastructure</h3>
-          <p>In-house from GPU server selection to deployment. CUDA/Docker, quantization, inference tuning, vector DB ops.</p>
-          <div class="tags"><span class="tag">A100 / H100 / L40S</span><span class="tag">CUDA</span><span class="tag">Docker</span><span class="tag">Milvus</span></div>
+          <h3>Infra / Azure</h3>
+          <p>GPU servers, Docker, vector DBs, Azure OpenAI / Logic Apps / Bicep.</p>
+          <div class="tags"><span class="tag">CUDA</span><span class="tag">Docker</span><span class="tag">Milvus</span><span class="tag">Azure</span></div>
         </div>
         <div class="skill-card pm reveal">
           <div class="ico">🧭</div>
-          <h3>AI-driven dev / PM</h3>
-          <p>PM for teams up to 10. Established AI-first workflows, drove organizational adoption, and built quality-assurance processes.</p>
-          <div class="tags"><span class="tag">AI-assisted dev</span><span class="tag">Cursor</span><span class="tag">Prompt design</span><span class="tag">Review design</span></div>
+          <h3>Delivery</h3>
+          <p>From requirements through implementation, review, and production rollout; sometimes with multi-person teams.</p>
+          <div class="tags"><span class="tag">Requirements</span><span class="tag">Review</span><span class="tag">Production</span><span class="tag">Cursor</span></div>
         </div>
       </div>
     </section>
@@ -340,98 +283,100 @@
       <div class="sec-head reveal">
         <div class="kicker">// experience</div>
         <h2>Experience</h2>
-        <p>Most recent first. Figures are outcomes delivered in each project.</p>
+        <p>Most recent first. See the CV for full detail.</p>
       </div>
 
       <div class="timeline">
         <div class="tl-item current reveal">
           <div class="tl-card current">
-            <div class="tl-meta"><span class="tl-period">2025.09 – 2026.06 · 5 mo</span><span class="tl-badge now">Latest</span></div>
-            <h3>Local LLM for personal &amp; confidential data</h3>
-            <p class="tl-org">Major manufacturer (1000+ employees) · 40 person-months / 5 in-house / 1 vendor</p>
+            <div class="tl-meta"><span class="tl-period">2026.01 – 2026.09</span><span class="tl-badge now">Recent</span></div>
+            <h3>VLM / LLM structured extraction from form PDFs</h3>
+            <p class="tl-org">AI startup</p>
             <ul>
-              <li><strong>In-house infra</strong>: selected on-prem GPU servers with NVIDIA A100/H100/L40S; set up CUDA/Docker.</li>
-              <li><strong>Model optimization</strong>: accelerated Llama 3.1 (70B/405B) and Mistral Large 2 with vLLM / TensorRT-LLM.</li>
-              <li><strong>Domain tuning</strong>: anonymized confidential docs and PII logs, then fine-tuned via SFT and DPO.</li>
-              <li><strong>Privacy-preserving RAG</strong>: built Milvus inside the air-gapped network with ACL-based authorization.</li>
-              <li><strong>Quantization</strong>: FP8 / AWQ tripled inference throughput while preserving accuracy.</li>
+              <li>Designed and implemented pipelines to extract fields from Japanese form PDFs.</li>
+              <li>Form detection, layout routing, service APIs, and evaluation harnesses.</li>
+              <li>Incremental merges into the shared product codebase.</li>
             </ul>
-            <div class="result-chips">
-              <span class="rc">Zero external egress · 100% policy compliance</span>
-              <span class="rc">+60% accuracy on in-house jargon</span>
-              <span class="rc">1.5s avg latency at 100 concurrent users</span>
-              <span class="rc">500h/mo saved in DX unit</span>
-            </div>
-            <details class="more">
-              <summary>Embedding AI-driven development in the organization</summary>
-              <div class="body">
-                <div class="callout">
-                  <h3>Shifting a "hand-coded + human-reviewed" culture to AI-first</h3>
-                  <div class="qa">
-                    <p class="q">Veteran engineers rejected and distrusted AI-generated code</p>
-                    <p class="a">Demonstrated legacy-code analysis/refactoring and bulk boilerplate generation with AI, showing the speed gap in numbers. Defined an <strong style="color:var(--text)">AI collaboration guideline</strong> — "use AI as a junior, humans focus on architecture" — to drive a mindset shift.</p>
-                  </div>
-                  <div class="qa">
-                    <p class="q">AI made design work hollow and degraded code quality</p>
-                    <p class="a">Made a "precise prompt spec for the AI to implement against" a deliverable of detailed design, and added a <strong style="color:var(--text)">pre-coding review</strong> step that uses an LLM to detect spec contradictions before Cursor generation — keeping speed while assuring quality.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01 · 8 mo</span></div>
-            <h3>ML-based blockchain analytics business (Hong Kong)</h3>
-            <p class="tl-org">Crypto-asset transaction monitoring · 85 person-months / 9 in-house / 3 vendors</p>
+            <div class="tl-meta"><span class="tl-period">2026.02 – 2026.09</span></div>
+            <h3>Teams meeting AI minutes app (Azure)</h3>
+            <p class="tl-org">Major HR / staffing company</p>
             <ul>
-              <li>Designed an ML anomaly-detection system flagging suspicious transactions in real time.</li>
-              <li>Built network-analysis tooling to visualize relationships between wallet addresses.</li>
-              <li>Implemented risk scoring from transaction history and automated smart-contract security risk detection.</li>
+              <li>Generate meeting minutes from Teams transcripts with Azure OpenAI; save to SharePoint.</li>
+              <li>Production setup with Bicep / Logic Apps / Key Vault / managed identities.</li>
             </ul>
-            <div class="result-chips"><span class="rc">+35% detection accuracy</span><span class="rc">Uncovered large fraud networks, worked with law enforcement</span></div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2023.01 – 2024.05 · 14 mo</span></div>
-            <h3>Privacy-focused local LLM</h3>
-            <p class="tl-org">Cajal Inc. · insurance &amp; healthcare · 60 person-months / 6 in-house / 2 vendors</p>
+            <div class="tl-meta"><span class="tl-period">2025.09 – 2025.12</span></div>
+            <h3>Air-gapped local LLM platform</h3>
+            <p class="tl-org">Major manufacturer</p>
             <ul>
-              <li>Evaluated Llama / Gemma / Qwen, selected Llama-3-8B-Instruct; LoRA fine-tuning with PyTorch + Hugging Face.</li>
-              <li>Curated medical-terminology datasets; optimized inference on constrained devices via Llama.cpp quantization.</li>
-              <li>Built medical-document summarization and QA; deployed to hospitals with no external data egress.</li>
+              <li>On-prem GPU LLM environment, quantization, and inference tuning.</li>
+              <li>SFT / DPO for internal documents and air-gapped RAG (Milvus).</li>
             </ul>
-            <div class="result-chips"><span class="rc">Cut specialist review time</span><span class="rc">Successful hospital deployment</span></div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2022.01 – 2023.12 · 12 mo</span></div>
-            <h3>AI-powered personalized marketing platform</h3>
-            <p class="tl-org">Cajal Inc. · 70 person-months / 7 in-house / 3 vendors</p>
+            <div class="tl-meta"><span class="tl-period">2025.04 – 2025.08</span></div>
+            <h3>LLM-based FAQ / auto-response</h3>
+            <p class="tl-org">Telecom company</p>
             <ul>
-              <li>Built a real-time ad-targeting AI engine and customer-segmentation models.</li>
-              <li>NLP-based social listening, automated A/B testing, edge-AI delivery. GDPR/CCPA-compliant design.</li>
+              <li>Domain fine-tuning and RAG for customer-support inquiry assistance.</li>
             </ul>
-            <div class="result-chips"><span class="rc">CTR +25%</span><span class="rc">CVR +30%</span><span class="rc">Analysis effort -40%</span></div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2021.01 – 2021.12 · 12 mo</span></div>
-            <h3>Legal-document search with large transformers</h3>
-            <p class="tl-org">Cajal Inc. · 75 person-months / 7 in-house / 2 vendors</p>
+            <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01</span></div>
+            <h3>Blockchain data analytics (Hong Kong)</h3>
+            <p class="tl-org">DREAM FINANCE Inc.</p>
             <ul>
-              <li>Built search algorithms on BERT / GPT-3 and a law-specialized BERT; developed a QA-style search system.</li>
-              <li>Created embedding models for similar-precedent retrieval; on-prem, security-conscious contract risk analysis.</li>
+              <li>ML transaction monitoring / anomaly detection and wallet network analysis.</li>
             </ul>
-            <div class="result-chips"><span class="rc">+20% search accuracy</span><span class="rc">-50% reading time</span><span class="rc">+30% search efficiency</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2021.04 – 2024.05 (main project period)</span></div>
+            <h3>Kahal Inc. (CEO · one-person company)</h3>
+            <p class="tl-org">Capital ¥1M · director since Nov 2017</p>
+            <ul>
+              <li>Contract work including healthcare local LLMs, marketing analytics, and legal-document search.</li>
+              <li>Primarily solo, with external collaborators as needed.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2017.10 – present</span></div>
+            <h3>NAM Inc. (CEO)</h3>
+            <p class="tl-org">Founded for medical AI. ICO Dec 2017–Jan 2018. Operations substantially paused.</p>
+            <ul>
+              <li>Company formation and ICO fundraising; afterward, core work moved to other projects.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2018.04 – 2021.03</span></div>
+            <h3>University of Tokyo · Excellent Young Researcher</h3>
+            <p class="tl-org">Medical × ML research, including EHR summarization</p>
+            <ul>
+              <li>Research and implementation of Transformer/BERT-based EHR summarization.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -441,7 +386,7 @@
       <div class="sec-head reveal">
         <div class="kicker">// publications</div>
         <h2>Papers / Bioinformatics</h2>
-        <p>Machine learning × biomedicine — cancer heterogeneity, clinical text, and medical imaging. Notes on papers I have read are <a href="reading/en.html" style="color:var(--accent-2)">here</a>.</p>
+        <p>Machine learning × biomedicine — cancer heterogeneity, clinical text, and medical imaging.</p>
       </div>
       <div class="pubs">
         <div class="pub reveal"><span class="yr">2017</span><span class="cit">T. Nakano, K. Ikeda, <em>“Predicting Cancer Heterogeneity from One-shot Biopsy,”</em> ICML Workshop on Computational Biology.</span><a class="pdf-link" href="mypapers/pdf/2017_ICML_Nakano-Ikeda_Predicting-Cancer-Heterogeneity-from-One-shot-Biopsy.pdf" target="_blank" rel="noopener">PDF</a></div>
@@ -459,37 +404,7 @@
       </div>
       <div class="edu-grid">
         <div class="edu-card reveal"><div class="deg">Keio University, School of Medicine — B.M.</div><div class="when">2017.03</div></div>
-        <div class="edu-card reveal"><div class="deg">The University of Tokyo, Graduate School of Medicine</div><div class="when">2021.03 · withdrew</div></div>
-      </div>
-    </section>
-
-    <section id="blog">
-      <div class="sec-head reveal">
-        <div class="kicker">// blog</div>
-        <h2>Blog</h2>
-        <p>Notes on medical ML and air-gapped local LLMs.</p>
-      </div>
-      <div class="home-blog-label reveal">Medical × ML</div>
-      <div id="home-blog-med" class="home-blog-grid"></div>
-      <div class="home-blog-label reveal" style="margin-top:28px;">Local LLMs / systems</div>
-      <div id="home-blog-llm" class="home-blog-grid"></div>
-      <div class="home-blog-more reveal">
-        <a href="blog/medical-en.html" class="btn btn-ghost">Medical ML path</a>
-        <a href="blog/llm-en.html" class="btn btn-ghost">Local LLM path</a>
-        <a href="blog/en.html" class="btn btn-primary">All posts →</a>
-      </div>
-    </section>
-
-    <section id="reading">
-      <div class="sec-head reveal">
-        <div class="kicker">// reading</div>
-        <h2>Papers I have read</h2>
-        <p>Not restated abstracts — one takeaway I would carry into the work.</p>
-      </div>
-      <div id="home-reading"></div>
-      <div class="home-blog-more reveal">
-        <a href="reading/en.html?tag=Medical" class="btn btn-ghost">Medical papers</a>
-        <a href="reading/en.html" class="btn btn-primary">All reading notes →</a>
+        <div class="edu-card reveal"><div class="deg">The University of Tokyo, Graduate School of Medicine (Excellent Young Researcher)</div><div class="when">through 2021.03 · withdrew</div></div>
       </div>
     </section>
 
@@ -499,8 +414,6 @@
         <h2>Output</h2>
       </div>
       <div class="link-grid">
-        <a class="link-card reveal" href="blog/en.html">Blog<span class="sub">This site</span><span class="arw">→</span></a>
-        <a class="link-card reveal" href="reading/en.html">Reading notes<span class="sub">This site</span><span class="arw">→</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">Dev diary<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Tech notes<span class="sub">Zenn</span><span class="arw">↗</span></a>
         <a class="link-card reveal" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">Blog<span class="sub">note</span><span class="arw">↗</span></a>
@@ -513,20 +426,10 @@
 
   <footer>
     <div>© 2026 Teppei Nakano · 中野哲平</div>
-    <div class="meta">Last updated: 2026-08-15</div>
+    <div class="meta">Last updated: 2026-11-03</div>
   </footer>
 
   <script>
-    (function () {
-      const s = document.createElement("script");
-      s.src = "blog/assets/blog.js";
-      s.onload = function () {
-        SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog-med", tag: "Medical", limit: 3 });
-        SiteBlog.renderHomePreview({ lang: "en", targetId: "home-blog-llm", tag: "LLM", excludeTag: "Medical", limit: 3 });
-        SiteBlog.renderHomeReading({ lang: "en", targetId: "home-reading", limit: 4 });
-      };
-      document.body.appendChild(s);
-    })();
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
@@ -584,9 +487,6 @@
       window.addEventListener('mouseout', () => { mouse.x = -999; mouse.y = -999; });
       resize(); step();
     })();
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Teppei Nakano","alternateName":"中野哲平","url":"https://kekeke29341.github.io/english_index.html","jobTitle":"Software Engineer","knowsAbout":["Machine Learning","Local LLM","Bioinformatics","Medical ML"]}
   </script>
 </body>
 </html>
