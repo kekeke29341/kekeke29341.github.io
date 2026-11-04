@@ -112,7 +112,7 @@
     }
     .nav-links .lang:hover { border-color: var(--accent); }
     @media (max-width: 720px) {
-      .nav-links a:not(.lang):not(.nav-contact) { display: none; }
+      .nav-links a:not(.lang):not(.nav-contact):not(.nav-extra) { display: none; }
     }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
@@ -539,8 +539,9 @@
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
       <a href="#contact" class="nav-contact">お問い合わせ</a>
-      <a href="papers.html">論文</a>
-      <a href="notes.html">メモ</a>
+      <a href="papers.html" class="nav-extra">論文</a>
+      <a href="notes.html" class="nav-extra">メモ</a>
+      <a href="blog.html" class="nav-extra">ブログ</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>

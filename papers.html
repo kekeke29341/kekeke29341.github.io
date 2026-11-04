@@ -110,7 +110,7 @@
     }
     .nav-links .lang:hover { border-color: var(--accent); }
     @media (max-width: 720px) {
-      .nav-links a:not(.lang) { display: none; }
+      .nav-links a:not(.lang):not(.nav-contact):not(.nav-extra) { display: none; }
     }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
@@ -484,7 +484,7 @@
     .note-card p { color: var(--text-dim); margin: 0 0 10px; font-size: 0.95rem; }
     .note-card a { color: var(--accent-2); }
 
-    @media (max-width: 720px) { .nav-links a:not(.lang) { display: inline; font-size: 0.8rem; } .nav-links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; } }
+    @media (max-width: 720px) { .nav-links a { display: inline; font-size: 0.78rem; } .nav-links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; } }
   </style>
 </head>
 <body>
@@ -492,12 +492,14 @@
   <div class="grain"></div>
   <nav>
     <div class="brand"><a href="index.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px"><span class="dot"></span>中野哲平</a></div>
-    <div class="nav-links">
+        <div class="nav-links">
       <a href="index.html#about">About</a>
       <a href="index.html#skills">Skills</a>
       <a href="index.html#career">Career</a>
-      <a href="papers.html">論文</a>
-      <a href="notes.html">メモ</a>
+      <a href="index.html#contact" class="nav-contact">お問い合わせ</a>
+      <a href="papers.html" class="nav-extra">論文</a>
+      <a href="notes.html" class="nav-extra">メモ</a>
+      <a href="blog.html" class="nav-extra">ブログ</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>

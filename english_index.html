@@ -65,7 +65,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links .lang { border: 1px solid var(--panel-border); padding: 6px 14px; border-radius: 999px; color: var(--text); }
     .nav-links .lang:hover { border-color: var(--accent); }
-    @media (max-width: 720px) { .nav-links a:not(.lang):not(.nav-contact) { display: none; } }
+    @media (max-width: 720px) { .nav-links a:not(.lang):not(.nav-contact):not(.nav-extra) { display: none; } }
     .btn-linkedin { color: #04060d; background: #0a66c2; box-shadow: 0 8px 28px rgba(10, 102, 194, 0.35); }
     .btn-linkedin:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(10, 102, 194, 0.5); }
     .btn-facebook { color: #fff; background: #1877f2; box-shadow: 0 8px 28px rgba(24, 119, 242, 0.35); }
@@ -214,8 +214,9 @@
       <a href="#skills">Skills</a>
       <a href="#career">Career</a>
       <a href="#contact" class="nav-contact">Contact</a>
-      <a href="papers_en.html">Papers</a>
-      <a href="notes_en.html">Notes</a>
+      <a href="papers_en.html" class="nav-extra">Papers</a>
+      <a href="notes_en.html" class="nav-extra">Notes</a>
+      <a href="blog_en.html" class="nav-extra">Blog</a>
       <a href="index.html" class="lang">日本語</a>
     </div>
   </nav>
