@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A local-LLM autonomous pentest tool. No fee. Distributed only to people who request it by email, to reduce misuse.">
-  <title>Local-LLM pentest tool | Free distribution | Teppei Nakano</title>
+  <meta name="description" content="A local-LLM-driven penetration-testing tool. No fee. Distributed only to email applicants to reduce misuse.">
+  <title>Verification tool | Free distribution | Teppei Nakano</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,16 +21,7 @@
     .free-banner{margin:8px 0 26px;padding:22px 24px;border:1px solid color-mix(in srgb,var(--accent-2) 35%,var(--panel-border));border-radius:var(--radius);background:linear-gradient(120deg,#eff6ff,#f0fdfa)}
     .free-banner h2{margin:0 0 8px;font-size:1.25rem}
     .free-banner p{margin:0;color:var(--text-dim);font-size:.95rem}
-    .tool-shots{display:grid;gap:18px;margin:18px 0 8px}
-    .tool-shot{margin:0;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden}
-    .tool-shot img{display:block;width:100%;height:auto}
-    .tool-shot figcaption{padding:12px 16px 14px;color:var(--text-dim);font-size:.88rem}
     .authorization-note{padding:16px 18px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;color:#7c2d12;font-size:.9rem;margin:18px 0}
-    .howto-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:12px}
-    .howto-list li{padding:16px 18px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);color:var(--text-dim);font-size:.93rem}
-    .howto-list strong{display:block;color:var(--text);margin-bottom:4px;font-size:.98rem}
-    .stack-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
-    .stack-row span{font-family:"JetBrains Mono",monospace;font-size:.72rem;padding:4px 9px;border-radius:6px;background:var(--bg-soft);border:1px solid var(--panel-border);color:var(--text-dim)}
     @media(max-width:700px){.security-grid{grid-template-columns:1fr}}
   </style>
 </head>
@@ -44,9 +35,7 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract_en.html">AI contract work</a>
       <a href="ai-lecture_en.html">AI training</a>
-      <a href="security-audit_en.html">Pentest tool</a>
-      <a href="#howto">How to use</a>
-      <a href="#shots">Screens</a>
+      <a href="security-audit_en.html">Verification tool</a>
       <a href="english_index.html#career">Career</a>
       <a href="#inquiry">Request by email</a>
       <a href="security-audit.html" class="lang">日本語</a>
@@ -55,15 +44,14 @@
 
   <main class="wrap">
     <header class="services-hero">
-      <span class="security-kicker">LOCAL LLM / AUTONOMOUS PENTEST</span>
-      <h1>A local-LLM autonomous<br>penetration-testing tool.</h1>
+      <span class="security-kicker">PRIVATE DISTRIBUTION</span>
+      <h1>A local-LLM-driven<br>penetration-testing tool.</h1>
       <p class="lede">
-        Multiple LLM agents decompose goals, run real tools, and accumulate assets and findings on one screen.
-        I develop and extend it as a personal project. There is no fee. To reduce misuse, I distribute it only to people who request it by email.
+        A verification tool I develop and extend as a personal project.
+        There is no fee. To reduce misuse, I distribute it only to people who request it by email.
       </p>
       <div class="security-cta">
         <a href="#inquiry" class="btn-submit">Request distribution by email</a>
-        <a href="#howto" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">See how to use</a>
       </div>
       <p class="page-note">This is not a commercial security-assessment service. Use only on systems you own or for which you have written authorization.</p>
     </header>
@@ -73,132 +61,46 @@
         <span class="security-kicker">EMAIL REQUIRED</span>
         <h2 id="dist-heading">No fee. Distributed only after an email request.</h2>
         <p>
-          I do not publish a direct public download link. After reviewing your request, I share the usage conditions (authorized environments only) and email the tool package.
-          That limit exists to reduce misuse. There is no paid-plan funnel.
+          There is no public download link. After reviewing your request, I share the usage conditions and email the package.
+          That limit exists to reduce misuse.
         </p>
       </div>
       <div class="security-grid">
         <article class="security-card">
           <h3>What you get</h3>
-          <p>A runnable package (Docker Compose assumed), example config, local-LLM connection steps, and first-login setup.</p>
+          <p>A runnable package and setup notes. Details are shared after the request is accepted.</p>
         </article>
         <article class="security-card">
           <h3>Who it is for</h3>
-          <p>People who want to try local-LLM autonomous testing on their own lab, or on targets with written authorization.</p>
+          <p>People who will use it on their own lab, or on targets with written authorization.</p>
         </article>
         <article class="security-card">
           <h3>What I will not do</h3>
-          <p>Unauthorized attacks on third-party assets, destructive operations on your behalf, paid assessment contracts, or distribution without a request.</p>
+          <p>Unauthorized third-party targeting, destructive operations on your behalf, paid assessments, or distribution without a request.</p>
         </article>
         <article class="security-card">
           <h3>How delivery works</h3>
-          <p>Form → review → share conditions → email the tool package.</p>
+          <p>Form → review → share conditions → email the package.</p>
         </article>
       </div>
-    </section>
-
-    <section class="security-section">
-      <div class="sec-head">
-        <h2>What the tool does</h2>
-        <p>Go backend, Next.js frontend, PostgreSQL storage. It also connects to local LLMs through OpenAI-compatible endpoints.</p>
-      </div>
-      <div class="security-grid">
-        <article class="security-card">
-          <h3>Multi-agent execution</h3>
-          <p>Agents for goal breakdown, planning, execution, and retesting run tools within an authorized scope and store findings.</p>
-        </article>
-        <article class="security-card">
-          <h3>Local LLM support</h3>
-          <p>Works with frontier models and with local LLMs through OpenAI-compatible endpoints.</p>
-        </article>
-        <article class="security-card">
-          <h3>Findings overview</h3>
-          <p>Group by severity, asset, and task; export to CSV. Follow progress in the activity feed.</p>
-        </article>
-        <article class="security-card">
-          <h3>Human-in-the-loop</h3>
-          <p>Inject hints mid-run via chat while the agent summarizes the attack chain.</p>
-        </article>
-      </div>
-      <div class="stack-row">
-        <span>Go</span>
-        <span>Next.js</span>
-        <span>PostgreSQL</span>
-        <span>Docker Compose</span>
-        <span>OpenAI-compatible LLM</span>
-      </div>
-    </section>
-
-    <section id="howto" class="security-section">
-      <div class="sec-head">
-        <h2>How to use (after delivery)</h2>
-        <p>Run the emailed package in an isolated local environment. Do not point it at unauthorized external assets.</p>
-      </div>
-      <ol class="howto-list">
-        <li>
-          <strong>1. Prepare the environment</strong>
-          Install Docker and Docker Compose. PostgreSQL comes up with compose. Prepare an LLM API key, or a local OpenAI-compatible endpoint.
-        </li>
-        <li>
-          <strong>2. Start the stack</strong>
-          Follow the package instructions: create `.env`, then `docker compose up -d`. Open the admin UI and set the first admin password.
-        </li>
-        <li>
-          <strong>3. Connect an LLM</strong>
-          In settings, choose the provider and model. For a local LLM, enter the OpenAI-compatible base URL and model name.
-        </li>
-        <li>
-          <strong>4. Define authorized scope</strong>
-          Register only systems you own, or targets covered by written authorization. Decide exclusions and stop conditions first.
-        </li>
-        <li>
-          <strong>5. Run a task</strong>
-          Write the goal and start the agents. Watch the dashboard and activity feed. Add guidance in chat when needed.
-        </li>
-        <li>
-          <strong>6. Review results</strong>
-          Inspect findings by severity and asset, export CSV, and retest after fixes from the same UI.
-        </li>
-      </ol>
       <p class="authorization-note">
-        <strong>Authorized use only:</strong> Use only on systems you own or for which you have explicit written authorization. Unauthorized scanning, intrusion, or data exfiltration is a crime. Intended for learning, research, and isolated local environments.
+        <strong>Authorized use only:</strong> Use only on systems you own or for which you have explicit written authorization. Unauthorized use is a crime. Intended for learning, research, and isolated local environments.
       </p>
-    </section>
-
-    <section id="shots" class="security-section">
-      <div class="sec-head">
-        <h2>Screens</h2>
-        <p>Data comes from a local isolated sandbox. Targets are fictional domains and private address ranges.</p>
-      </div>
-      <div class="tool-shots">
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/dashboard.png" alt="Dashboard screen" width="900" height="520" loading="lazy">
-          <figcaption>Dashboard — active tasks, confirmed findings, asset nodes, LLM token spend, activity feed</figcaption>
-        </figure>
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/findings.png" alt="Findings screen" width="900" height="520" loading="lazy">
-          <figcaption>Findings — aggregated by severity, status, asset, and task; exportable to CSV</figcaption>
-        </figure>
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/chat.png" alt="Chat screen" width="900" height="520" loading="lazy">
-          <figcaption>Chat — human hints mid-run while the agent summarizes the attack chain</figcaption>
-        </figure>
-      </div>
     </section>
 
     <section id="inquiry" style="padding-top:8px;border:0;padding-bottom:48px;">
       <div class="contact-form">
         <h2>Request distribution by email</h2>
         <p class="form-lede">
-          There is no fee. To reduce misuse, I distribute the tool only to people who request it through this form (email).
-          Describe the environment and purpose. After review, I share the conditions and send the package.
+          There is no fee. To reduce misuse, I distribute the tool only to people who request it through this form.
+          Describe the environment and purpose.
         </p>
         <form class="js-contact-form" data-next="thanks_en.html" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
-          <input type="hidden" name="subject" value="[Local-LLM pentest tool] Distribution request">
+          <input type="hidden" name="subject" value="[Verification tool] Distribution request">
           <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks_en.html">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
-          <input type="hidden" name="service" value="Local-LLM pentest tool distribution">
+          <input type="hidden" name="service" value="Verification tool distribution">
           <div class="form-grid">
             <div class="form-field">
               <label for="name">Name</label>
@@ -223,7 +125,7 @@
             </div>
             <div class="form-field full">
               <label for="message">Purpose / notes</label>
-              <textarea id="message" name="message" required placeholder="Why you need it, whether you have a local LLM, preferred delivery"></textarea>
+              <textarea id="message" name="message" required placeholder="Why you need it, preferred delivery"></textarea>
             </div>
           </div>
           <div class="form-actions">

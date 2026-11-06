@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Teppei Nakano — open for AI contract development and AI training. Free local-LLM pentest tool distributed only to email applicants.">
+  <meta name="description" content="Teppei Nakano — open for AI contract development and AI training.">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>Teppei Nakano | AI contract work, AI training, pentest tool</title>
+  <title>Teppei Nakano | AI contract work, AI training</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -219,17 +219,6 @@
       font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 24px;
     }
     footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; font-size: 0.78rem; }
-    .tool-shots { display: grid; gap: 18px; margin: 22px 0 0; }
-    .tool-shot {
-      margin: 0; background: var(--panel); border: 1px solid var(--panel-border);
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .tool-shot img { display: block; width: 100%; height: auto; }
-    .tool-shot figcaption { padding: 12px 16px 14px; color: var(--text-dim); font-size: 0.88rem; }
-    .tool-note {
-      margin: 18px 0 0; padding: 16px 18px; border-radius: 10px;
-      border: 1px solid #fed7aa; background: #fff7ed; color: #7c2d12; font-size: 0.9rem;
-    }
   </style>
 </head>
 <body>
@@ -243,8 +232,7 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract_en.html">AI contract work</a>
       <a href="ai-lecture_en.html">AI training</a>
-      <a href="security-audit_en.html">Pentest tool</a>
-      <a href="#pentest-tool">Tool overview</a>
+      <a href="security-audit_en.html">Verification tool</a>
       <a href="#career">Career</a>
       <a href="#awards">Selections</a>
       <a href="#contact">Contact</a>
@@ -274,9 +262,9 @@
             <span class="offer-go">Discuss training →</span>
           </a>
           <a class="offer-card tone-warm" href="security-audit_en.html">
-            <h2>Pentest tool | Free distribution</h2>
-            <p>A local-LLM autonomous pentest tool I develop and extend as a personal project. No fee. Distributed only to people who request it by email, to reduce misuse.</p>
-            <span class="offer-go">Distribution page →</span>
+            <h2>Verification tool | Free distribution</h2>
+            <p>A verification tool I develop and extend as a personal project. No fee. Details and requests are on the dedicated page.</p>
+            <span class="offer-go">Dedicated page →</span>
           </a>
         </div>
       </div>
@@ -293,62 +281,9 @@
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">Discuss a project</a>
-        <a href="#pentest-tool" class="btn btn-ghost">See the tool</a>
         <a href="#career" class="btn btn-ghost">View experience</a>
       </div>
     </header>
-
-    <section id="pentest-tool">
-      <div class="sec-head">
-        <h2>Local-LLM autonomous pentest tool</h2>
-        <p>
-          Multiple LLM agents run penetration-test workflows on their own — breaking down goals, running real tools, and accumulating assets and findings.
-          Go backend and Next.js frontend. I develop and extend it as a personal project.
-          There is no fee. To reduce misuse, I distribute it only to people who request it by email.
-        </p>
-      </div>
-      <div class="info-list">
-        <div class="info-item">
-          <h3>What it does</h3>
-          <div>
-            <p>Agents decompose goals, execute tools, and accumulate assets and findings. Findings, activity, and human-in-the-loop chat live on one screen.</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <h3>Distribution rule</h3>
-          <div>
-            <p>No public download link. After reviewing the request, I share authorized-use conditions and email the package.</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <h3>How to request</h3>
-          <div>
-            <p>This is not a commercial security-assessment service. <a href="security-audit_en.html#inquiry">Request distribution by email</a>. Usage steps are on the distribution page.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tool-shots">
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/dashboard.png" alt="Dashboard screen" width="900" height="520" loading="lazy">
-          <figcaption>Dashboard — active tasks, findings, assets, token spend, activity feed</figcaption>
-        </figure>
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/findings.png" alt="Findings screen" width="900" height="520" loading="lazy">
-          <figcaption>Findings — grouped by severity, asset, and task; exportable to CSV</figcaption>
-        </figure>
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/chat.png" alt="Chat screen" width="900" height="520" loading="lazy">
-          <figcaption>Chat — inject hints mid-run while the agent summarizes the attack chain</figcaption>
-        </figure>
-      </div>
-      <p class="tool-note">
-        <strong>Authorized use only:</strong> Use only on systems you own or for which you have written authorization. Unauthorized scanning or intrusion is a crime. Intended for learning, research, and isolated local environments.
-      </p>
-      <div class="cta-row" style="margin-top:22px;">
-        <a href="security-audit_en.html" class="btn btn-primary">Distribution page</a>
-        <a href="security-audit_en.html#inquiry" class="btn btn-ghost">Request by email</a>
-      </div>
-    </section>
 
     <section id="about">
       <div class="sec-head"><h2>About</h2></div>
@@ -638,7 +573,7 @@
         <h2>Projects and contact</h2>
         <p class="lead">
           I am looking for contract projects on AI development and AI training.
-          The local-LLM pentest tool is free and distributed only to people who request it by email.
+          Requests for the verification tool are on the dedicated page.
         </p>
         <div class="contact-points">
           <div class="contact-point">
@@ -650,14 +585,14 @@
             <span>Internal training under contract. Evening 90-minute sessions</span>
           </div>
           <div class="contact-point">
-            <strong>Pentest tool</strong>
-            <span>Email applicants only, to reduce misuse. Dedicated page</span>
+            <strong>Verification tool</strong>
+            <span>Personal verification tool. Details on the dedicated page</span>
           </div>
         </div>
         <div class="cta-row">
           <a href="ai-contract_en.html" class="btn btn-primary">AI contract work</a>
           <a href="ai-lecture_en.html" class="btn btn-ghost">AI training</a>
-          <a href="security-audit_en.html" class="btn btn-ghost">Tool distribution</a>
+          <a href="security-audit_en.html" class="btn btn-ghost">Verification tool</a>
           <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平 — 業務委託でAI受託開発・AI講義の案件を募集。ローカルLLM駆動のペネトレーションテストツールをメール申込者に無料配布。">
+  <meta name="description" content="中野哲平 — 業務委託でAI受託開発・AI講義の案件を募集。">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>中野哲平｜AI業務委託・AI講義・ペネトレーションツール</title>
+  <title>中野哲平｜AI業務委託・AI講義</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -539,37 +539,6 @@
       font-size: 0.78rem;
     }
 
-    .tool-shots {
-      display: grid;
-      gap: 18px;
-      margin: 22px 0 0;
-    }
-    .tool-shot {
-      margin: 0;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .tool-shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    .tool-shot figcaption {
-      padding: 12px 16px 14px;
-      color: var(--text-dim);
-      font-size: 0.88rem;
-    }
-    .tool-note {
-      margin: 18px 0 0;
-      padding: 16px 18px;
-      border-radius: 10px;
-      border: 1px solid #fed7aa;
-      background: #fff7ed;
-      color: #7c2d12;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
 <body>
@@ -583,8 +552,7 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract.html">AI受託開発</a>
       <a href="ai-lecture.html">AI講義</a>
-      <a href="security-audit.html">ペネトレーションツール</a>
-      <a href="#pentest-tool">ツール紹介</a>
+      <a href="security-audit.html">検証ツール</a>
       <a href="#career">職務経歴</a>
       <a href="#awards">採択</a>
       <a href="#contact">お問い合わせ</a>
@@ -614,9 +582,9 @@
             <span class="offer-go">講義の相談へ →</span>
           </a>
           <a class="offer-card tone-warm" href="security-audit.html">
-            <h2>ペネトレーションツール｜無料配布</h2>
-            <p>趣味で開発・拡張している、ローカルLLM駆動の自律型ペネトレーションテストツール。料金は取りません。悪用防止のため、メール申込者のみに配布します。</p>
-            <span class="offer-go">配布ページへ →</span>
+            <h2>検証ツール｜無料配布</h2>
+            <p>趣味で開発・拡張している検証用ツールです。料金は取りません。詳細と申し込みは専用ページへ。</p>
+            <span class="offer-go">専用ページへ →</span>
           </a>
         </div>
       </div>
@@ -632,62 +600,9 @@
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">案件の相談をする</a>
-        <a href="#pentest-tool" class="btn btn-ghost">ツール紹介を見る</a>
         <a href="#career" class="btn btn-ghost">職務経歴を見る</a>
       </div>
     </header>
-
-    <section id="pentest-tool">
-      <div class="sec-head">
-        <h2>ローカルLLM駆動のペネトレーションテストツール</h2>
-        <p>
-          複数の LLM エージェントが、偵察から検出結果の整理までを自律的に進めるツールです。
-          Go バックエンドと Next.js フロントエンドで構成し、趣味として開発と拡張を続けています。
-          料金は取りません。悪用防止のため、メールで申し込んだ方のみに配布します。
-        </p>
-      </div>
-      <div class="info-list">
-        <div class="info-item">
-          <h3>できること</h3>
-          <div>
-            <p>複数エージェントが目標を分解し、実ツールを実行し、資産と脆弱性を画面に積み上げます。検出結果の一覧、活動フィード、人が途中で指示を入れるチャットを一つの画面で扱います。</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <h3>配布の条件</h3>
-          <div>
-            <p>公開リンクでの配布はしません。申し込み内容を確認し、利用条件（許可された環境のみ）を伝えたうえで、メールでツール一式を送ります。</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <h3>申し込み</h3>
-          <div>
-            <p>商用のセキュリティ診断サービスではありません。<a href="security-audit.html#inquiry">メールで配布を申し込む</a>からどうぞ。使い方の説明も配布ページにあります。</p>
-          </div>
-        </div>
-      </div>
-      <div class="tool-shots">
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/dashboard.png" alt="ダッシュボード画面" width="900" height="520" loading="lazy">
-          <figcaption>ダッシュボード — 進行中タスク、検出結果、資産、トークン消費、活動フィード</figcaption>
-        </figure>
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/findings.png" alt="検出結果画面" width="900" height="520" loading="lazy">
-          <figcaption>検出結果 — 深刻度・資産・タスクごとに集計し、CSV に出力</figcaption>
-        </figure>
-        <figure class="tool-shot">
-          <img src="assets/local-llm-pentest/chat.png" alt="チャット画面" width="900" height="520" loading="lazy">
-          <figcaption>チャット — 実行中に人がヒントを入れ、エージェントが攻撃チェーンを要約</figcaption>
-        </figure>
-      </div>
-      <p class="tool-note">
-        <strong>利用範囲：</strong>所有する環境、または書面で許可を得た対象に限って使ってください。無許可のスキャン・侵入は犯罪になります。学習・研究・隔離されたローカル環境での検証を前提とします。
-      </p>
-      <div class="cta-row" style="margin-top:22px;">
-        <a href="security-audit.html" class="btn btn-primary">配布ページへ</a>
-        <a href="security-audit.html#inquiry" class="btn btn-ghost">メールで申し込む</a>
-      </div>
-    </section>
 
     <section id="about">
       <div class="sec-head">
@@ -1348,7 +1263,7 @@
         <h2>案件・お問い合わせ</h2>
         <p class="lead">
           業務委託の案件は、AI受託開発とAI講義を募集しています。
-          ローカルLLM駆動のペネトレーションテストツールは、料金なしで、メール申込者のみに配布します。
+          検証用ツールの配布は専用ページから申し込めます。
         </p>
         <div class="contact-points">
           <div class="contact-point">
@@ -1360,14 +1275,14 @@
             <span>業務委託での社内研修。夜間90分。専用ページへ</span>
           </div>
           <div class="contact-point">
-            <strong>ペネトレーションツール</strong>
-            <span>悪用防止のためメール申込者のみ配布。専用ページへ</span>
+            <strong>検証ツール</strong>
+            <span>趣味の検証用ツール。詳細は専用ページへ</span>
           </div>
         </div>
         <div class="cta-row">
           <a href="ai-contract.html" class="btn btn-primary">AI受託開発へ</a>
           <a href="ai-lecture.html" class="btn btn-ghost">AI講義へ</a>
-          <a href="security-audit.html" class="btn btn-ghost">ツール配布へ</a>
+          <a href="security-audit.html" class="btn btn-ghost">検証ツールへ</a>
           <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>
