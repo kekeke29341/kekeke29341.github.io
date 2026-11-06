@@ -3,12 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Security review by Teppei Nakano — coming soon.">
-  <title>Security review | Teppei Nakano</title>
+  <meta name="description" content="Security testing by Teppei Nakano: web, cloud, and AI security reviews, LLM red teaming, and continuous validation planning.">
+  <title>Security Testing & AI Security | Teppei Nakano</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <style>
+    .security-kicker{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--accent-2);letter-spacing:.08em}
+    .security-cta{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
+    .security-cta a{display:inline-flex;align-items:center;text-decoration:none}
+    .security-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 30px}
+    .security-card,.security-step{padding:20px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .security-card h3,.security-step h3{margin:0 0 7px;font-size:1.04rem}
+    .security-card p,.security-step p{margin:0;color:var(--text-dim);font-size:.92rem}
+    .security-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+    .security-step .num{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--bg-soft);color:var(--accent-2);font-weight:800}
+    .security-callout{margin:22px 0;padding:22px 24px;border:1px solid color-mix(in srgb,var(--accent-2) 35%,var(--panel-border));border-radius:var(--radius);background:var(--panel)}
+    .security-callout h2{margin:0 0 8px;font-size:1.15rem}
+    .security-callout p{margin:0;color:var(--text-dim);font-size:.93rem}
+    .security-section{padding:24px 0;border:0}
+    .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+    .evidence-card{padding:20px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .evidence-card .metric{display:block;color:var(--accent);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;line-height:1.2}
+    .evidence-card h3{margin:10px 0 6px;font-size:1rem}
+    .evidence-card p{margin:0 0 12px;color:var(--text-dim);font-size:.9rem}
+    .evidence-card a,.source-note a{font-size:.82rem;font-weight:600}
+    .pattern-panel{margin:20px 0;padding:22px 24px;background:var(--bg-soft);border-radius:var(--radius)}
+    .pattern-panel h3{margin:0 0 12px;font-size:1.05rem}
+    .pattern-panel ul{margin:0;padding-left:1.3em;color:var(--text-dim)}
+    .pattern-panel li+li{margin-top:7px}
+    .source-note{margin:12px 0 0;color:var(--text-faint);font-size:.8rem}
+    .demo-panel{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:20px;padding:22px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .demo-controls{display:grid;align-content:start;gap:14px}
+    .demo-controls label{display:grid;gap:6px;font-weight:700;font-size:.88rem}
+    .demo-controls select{font:inherit;padding:10px 12px;border:1px solid var(--panel-border);border-radius:8px;background:#fff;color:var(--text)}
+    .demo-hint{margin:0;color:var(--text-faint);font-size:.8rem}
+    .demo-result{padding:18px;background:var(--bg-soft);border-radius:var(--radius)}
+    .demo-result[hidden]{display:none}
+    .demo-priority{display:inline-block;margin-bottom:8px;padding:4px 9px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:.78rem;font-weight:800}
+    .demo-result h3{margin:0 0 7px;font-size:1.05rem}
+    .demo-result p{margin:0;color:var(--text-dim);font-size:.9rem}
+    .demo-result ul{padding-left:1.25em;color:var(--text-dim);font-size:.88rem}
+    .demo-result li+li{margin-top:5px}
+    .demo-result .demo-actions{margin-top:14px}
+    .demo-result .demo-actions a{display:inline-flex;text-decoration:none}
+    @media(max-width:800px){.research-grid{grid-template-columns:1fr}.demo-panel{grid-template-columns:1fr}}
+    @media(max-width:700px){.security-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <div class="bg-fx"></div>
@@ -20,26 +62,269 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract_en.html">AI contract work</a>
       <a href="ai-lecture_en.html">AI training</a>
-      <a href="security-audit_en.html">Security review</a>
+      <a href="security-audit_en.html">Security testing</a>
+      <a href="#evidence">Research</a>
+      <a href="#demo">Demo</a>
       <a href="english_index.html#contact">Contact</a>
-      <a href="index.html" class="lang">日本語</a>
+      <a href="security-audit.html" class="lang">日本語</a>
     </div>
   </nav>
-  <div class="wrap">
+
+  <main class="wrap">
     <header class="services-hero">
-      <h1>Security review</h1>
-      <p class="lede">Details are being prepared.</p>
-    </header>
-    <div class="soon-panel">
-      <h2>Coming soon</h2>
-      <p>Service details, pricing, and booking will appear here later.<br>For other work, use AI contract development or AI training.</p>
-      <div style="margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="english_index.html" class="btn-submit" style="text-decoration:none;">Back to home</a>
-        <a href="ai-contract_en.html" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;background:#fff;">AI contract work</a>
+      <span class="security-kicker">SECURITY VALIDATION / AI SECURITY</span>
+      <h1>Security testing for systems that keep changing.</h1>
+      <p class="lede">
+        I help assess web, cloud, and AI risks and turn findings into practical improvements.
+        As an independent consultant, I can support scoping, authorized testing, reporting, and retesting.
+      </p>
+      <div class="security-cta">
+        <a href="#inquiry" class="btn-submit">Discuss a security review</a>
+        <a href="#demo" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">Try the demo</a>
       </div>
-    </div>
-  </div>
-  <footer><div>© 2026 Teppei Nakano</div><div class="meta">Last updated: 2026-11-06</div></footer>
+      <p class="page-note">Active testing starts only after written authorization and agreement on targets, dates, methods, and stop conditions.</p>
+    </header>
+
+    <section id="services" class="security-section">
+      <div class="sec-head"><h2>Ways I can help</h2><p>Services can be scoped individually to fit your environment and operational constraints.</p></div>
+      <div class="security-grid">
+        <article class="security-card">
+          <h3>Web and cloud security reviews</h3>
+          <p>Review agreed applications and exposed assets, then document impact, priorities, and practical remediation guidance.</p>
+        </article>
+        <article class="security-card">
+          <h3>LLM and AI-agent security</h3>
+          <p>Evaluate prompt-injection risks, unintended disclosure, and tool permissions against agreed test plans and scope.</p>
+        </article>
+        <article class="security-card">
+          <h3>Local-LLM-assisted analysis</h3>
+          <p>Analyze findings from authorized engagements in a local environment without sending raw assessment data to external generative-AI APIs. A human reviews the results.</p>
+        </article>
+        <article class="security-card">
+          <h3>Continuous validation planning</h3>
+          <p>Design controlled, recurring security validation with agreed targets, frequency, exclusions, monitoring, and stop procedures.</p>
+        </article>
+      </div>
+      <div class="security-callout">
+        <h2>Continuous defense validation—not uncontrolled 24/7 attacks.</h2>
+        <p>I do not run unrestricted automated attacks or scan unapproved environments. Continuous testing must be paired with agreed safety limits, impact monitoring, and a clear way to stop.</p>
+      </div>
+    </section>
+
+    <section id="evidence" class="security-section">
+      <div class="sec-head">
+        <span class="security-kicker">RESEARCH NOTES</span>
+        <h2>Incidents point to overlooked operational gaps—not just technical flaws.</h2>
+        <p>Public incident reports and official data reveal patterns that a one-time checklist can miss.</p>
+      </div>
+      <div class="research-grid">
+        <article class="evidence-card">
+          <span class="metric">~87%</span>
+          <h3>Remote access was the leading ransomware entry route</h3>
+          <p>In Japan’s 2025 National Police Agency survey, VPN devices accounted for 61 of 92 responses (66%) and RDP for 19 (21%). Asset inventories must include exceptions and vendor access.</p>
+          <a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R7/R07_cyber_jousei.pdf" target="_blank" rel="noopener">NPA, 2025 Cyber Threat Report (PDF) ↗</a>
+        </article>
+        <article class="evidence-card">
+          <span class="metric">91% → 20%</span>
+          <h3>Having backups does not guarantee recovery</h3>
+          <p>In the same survey, 105/116 organizations reported having backups (91%); only 20/99 restored data to its pre-incident level (20%). Isolation and restore testing both matter.</p>
+          <a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R7/R07_cyber_jousei.pdf" target="_blank" rel="noopener">NPA, 2025 Cyber Threat Report (PDF) ↗</a>
+        </article>
+        <article class="evidence-card">
+          <span class="metric">87 cases → 23 patterns</span>
+          <h3>Different incidents often share the same failure modes</h3>
+          <p>An independent review of 87 public cases grouped recurring issues into 23 patterns, including forgotten assets and exceptions, policy/configuration gaps, and single-person controls.</p>
+          <span class="source-note">Independent case review, October 2026</span>
+        </article>
+        <article class="evidence-card">
+          <span class="metric">15 industries + 8 combinations</span>
+          <h3>Look across business boundaries</h3>
+          <p>Industry-specific reviews also consider risks created where operations meet—for example, manufacturing and e-commerce, or hospitals and care providers.</p>
+          <span class="source-note">Independent industry and cross-industry research</span>
+        </article>
+      </div>
+      <div class="pattern-panel">
+        <h3>What a useful security review should verify</h3>
+        <ul>
+          <li>Whether stale assets, vendor access, and MFA exceptions are actually tracked.</li>
+          <li>Whether written policies match production settings and tested recovery procedures.</li>
+          <li>Whether critical changes, outbound actions, and deletions require appropriate approval and leave audit trails.</li>
+          <li>Whether AI agents combine untrusted content with excessive access. OWASP identifies excessive agency as a key LLM risk.</li>
+        </ul>
+        <p class="source-note"><a href="https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" target="_blank" rel="noopener">OWASP GenAI Security Project, LLM06:2025 Excessive Agency ↗</a></p>
+      </div>
+      <p class="source-note">Percentages reflect the cited survey responses, not the prevalence across all organizations. The case-pattern review is an independent analysis, not a comprehensive statistical sample.</p>
+    </section>
+
+    <section id="demo" class="security-section">
+      <div class="sec-head">
+        <span class="security-kicker">INTERACTIVE DEMO</span>
+        <h2>Preview what to verify in your environment.</h2>
+        <p>Choose an area and current control status to see a research-informed set of review questions.</p>
+      </div>
+      <div class="demo-panel">
+        <div class="demo-controls">
+          <label for="demo-area">Area to review
+            <select id="demo-area">
+              <option value="agent">Internal AI or AI agent</option>
+              <option value="remote">VPN or remote access</option>
+              <option value="backup">Backup and recovery</option>
+            </select>
+          </label>
+          <label for="demo-status">Current status
+            <select id="demo-status">
+              <option value="unknown">Not confirmed yet</option>
+              <option value="partial">Partially implemented</option>
+              <option value="managed">Documented and reviewed regularly</option>
+            </select>
+          </label>
+          <button type="button" class="btn-submit" id="demo-run">Show review points</button>
+          <p class="demo-hint">This is a fixed sample. Your selections stay in this browser; no target is contacted or scanned.</p>
+        </div>
+        <div class="demo-result" id="demo-result" aria-live="polite" hidden>
+          <span class="demo-priority" id="demo-priority"></span>
+          <h3 id="demo-title"></h3>
+          <p id="demo-summary"></p>
+          <ul id="demo-checks"></ul>
+          <div class="demo-actions">
+            <a href="#inquiry" class="btn-submit" id="demo-inquiry">Discuss this area</a>
+          </div>
+        </div>
+      </div>
+      <p class="source-note">The demo is not a security score or a result from your systems. A real assessment requires authorization and an agreed scope.</p>
+    </section>
+
+    <section class="security-section">
+      <div class="sec-head"><h2>How an engagement works</h2></div>
+      <div class="security-grid">
+        <div class="security-step"><span class="num">1</span><div><h3>Discuss your goals</h3><p>We clarify the systems, information, and concerns in scope.</p></div></div>
+        <div class="security-step"><span class="num">2</span><div><h3>Agree on scope and safeguards</h3><p>Document targets, dates, methods, exclusions, stop conditions, and emergency contacts.</p></div></div>
+        <div class="security-step"><span class="num">3</span><div><h3>Test only with authorization</h3><p>Active testing begins only after written approval and stays within the agreed scope.</p></div></div>
+        <div class="security-step"><span class="num">4</span><div><h3>Prioritize and improve</h3><p>Review findings, remediation priorities, and options for retesting.</p></div></div>
+      </div>
+    </section>
+
+    <section class="security-section">
+      <div class="security-callout">
+        <h2>Start with a conversation.</h2>
+        <p>You do not need a finalized scope or budget to get in touch. Fees are estimated after we discuss the targets, duration, and testing requirements.</p>
+      </div>
+    </section>
+
+    <section id="inquiry" class="security-section">
+      <div class="contact-form">
+        <h2>Security review inquiry</h2>
+        <p class="form-lede">Please do not include credentials, confidential data, or sensitive technical details in this initial form.</p>
+        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="[Security review] Website inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks_en.html">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="type" value="Security review">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="security-name">Name</label>
+              <input id="security-name" name="Name" type="text" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="security-email">Email</label>
+              <input id="security-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="security-company">Company (optional)</label>
+              <input id="security-company" name="Company" type="text" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="security-topic">Topic</label>
+              <select id="security-topic" name="Topic">
+                <option value="web-cloud">Web or cloud security review</option>
+                <option value="llm">LLM or AI-agent security</option>
+                <option value="continuous">Continuous validation planning</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="security-message">How can I help?</label>
+              <textarea id="security-message" name="Message" required placeholder="A high-level description of your concern and preferred timing. Please omit confidential information."></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-submit" type="submit">Send inquiry</button>
+            <a href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">Contact on LinkedIn</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Teppei Nakano</div>
+    <div class="meta">Last updated: 2026-11-06</div>
+  </footer>
   <script src="assets/nav.js"></script>
+  <script>
+    const demoScenarios = {
+      agent: {
+        title: "AI-agent permission boundaries",
+        topic: "llm",
+        summary: "An agent that reads untrusted content can create risk when it also has access to sensitive data or outbound actions.",
+        checks: ["Inventory connected tools, tokens, and read/write permissions", "Require human approval for irreversible actions", "Keep external content and high-impact permissions separated"],
+        next: {
+          unknown: "Start with an inventory of tools and access",
+          partial: "Review exceptions and data flows",
+          managed: "Retest after model, tool, or permission changes"
+        }
+      },
+      remote: {
+        title: "VPN and remote-access controls",
+        topic: "web-cloud",
+        summary: "Untracked vendor access, old accounts, or MFA exceptions can remain outside the main security baseline.",
+        checks: ["Inventory VPN, RDP, vendor, and branch connections", "Review stale accounts and MFA exceptions", "Define session revocation and incident review procedures"],
+        next: {
+          unknown: "Inventory every external access path",
+          partial: "Check vendor paths and exceptions",
+          managed: "Compare the inventory with real configurations after changes"
+        }
+      },
+      backup: {
+        title: "Backup and recovery readiness",
+        topic: "continuous",
+        summary: "A backup is useful only if it remains protected and can restore the data and services needed to resume operations.",
+        checks: ["Test recovery of a representative critical system", "Separate backup administration from production access", "Record recovery time, data integrity, and unresolved gaps"],
+        next: {
+          unknown: "Run a restore test for one critical system",
+          partial: "Compare protected assets with business priorities",
+          managed: "Retest after changes to systems, storage, or owners"
+        }
+      }
+    };
+
+    const demoArea = document.getElementById("demo-area");
+    const demoStatus = document.getElementById("demo-status");
+    const demoResult = document.getElementById("demo-result");
+    const demoPriority = document.getElementById("demo-priority");
+    const demoTitle = document.getElementById("demo-title");
+    const demoSummary = document.getElementById("demo-summary");
+    const demoChecks = document.getElementById("demo-checks");
+    const demoInquiry = document.getElementById("demo-inquiry");
+    const securityTopic = document.getElementById("security-topic");
+
+    document.getElementById("demo-run").addEventListener("click", () => {
+      const scenario = demoScenarios[demoArea.value];
+      demoPriority.textContent = `Next step: ${scenario.next[demoStatus.value]}`;
+      demoTitle.textContent = scenario.title;
+      demoSummary.textContent = scenario.summary;
+      demoChecks.replaceChildren(...scenario.checks.map((check) => {
+        const item = document.createElement("li");
+        item.textContent = check;
+        return item;
+      }));
+      demoResult.hidden = false;
+      demoInquiry.onclick = () => {
+        securityTopic.value = scenario.topic;
+      };
+    });
+  </script>
 </body>
 </html>

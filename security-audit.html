@@ -3,12 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平のセキュリティ診断。準備中。">
-  <title>セキュリティ診断｜中野哲平</title>
+  <meta name="description" content="中野哲平によるセキュリティ検証。Web・クラウド・AIの診断、LLMレッドチーム、継続的な防御検証の設計を支援します。">
+  <title>セキュリティ検証・AIセキュリティ｜中野哲平</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <style>
+    .security-kicker{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--accent-2);letter-spacing:.08em}
+    .security-cta{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
+    .security-cta a{display:inline-flex;align-items:center;text-decoration:none}
+    .security-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 30px}
+    .security-card,.security-step{padding:20px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .security-card h3,.security-step h3{margin:0 0 7px;font-size:1.04rem}
+    .security-card p,.security-step p{margin:0;color:var(--text-dim);font-size:.92rem}
+    .security-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+    .security-step .num{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--bg-soft);color:var(--accent-2);font-weight:800}
+    .security-callout{margin:22px 0;padding:22px 24px;border:1px solid color-mix(in srgb,var(--accent-2) 35%,var(--panel-border));border-radius:var(--radius);background:var(--panel)}
+    .security-callout h2{margin:0 0 8px;font-size:1.15rem}
+    .security-callout p{margin:0;color:var(--text-dim);font-size:.93rem}
+    .security-section{padding:24px 0;border:0}
+    .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+    .evidence-card{padding:20px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .evidence-card .metric{display:block;color:var(--accent);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;line-height:1.2}
+    .evidence-card h3{margin:10px 0 6px;font-size:1rem}
+    .evidence-card p{margin:0 0 12px;color:var(--text-dim);font-size:.9rem}
+    .evidence-card a,.source-note a{font-size:.82rem;font-weight:600}
+    .pattern-panel{margin:20px 0;padding:22px 24px;background:var(--bg-soft);border-radius:var(--radius)}
+    .pattern-panel h3{margin:0 0 12px;font-size:1.05rem}
+    .pattern-panel ul{margin:0;padding-left:1.3em;color:var(--text-dim)}
+    .pattern-panel li+li{margin-top:7px}
+    .source-note{margin:12px 0 0;color:var(--text-faint);font-size:.8rem}
+    .demo-panel{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:20px;padding:22px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .demo-controls{display:grid;align-content:start;gap:14px}
+    .demo-controls label{display:grid;gap:6px;font-weight:700;font-size:.88rem}
+    .demo-controls select{font:inherit;padding:10px 12px;border:1px solid var(--panel-border);border-radius:8px;background:#fff;color:var(--text)}
+    .demo-hint{margin:0;color:var(--text-faint);font-size:.8rem}
+    .demo-result{padding:18px;background:var(--bg-soft);border-radius:var(--radius)}
+    .demo-result[hidden]{display:none}
+    .demo-priority{display:inline-block;margin-bottom:8px;padding:4px 9px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:.78rem;font-weight:800}
+    .demo-result h3{margin:0 0 7px;font-size:1.05rem}
+    .demo-result p{margin:0;color:var(--text-dim);font-size:.9rem}
+    .demo-result ul{padding-left:1.25em;color:var(--text-dim);font-size:.88rem}
+    .demo-result li+li{margin-top:5px}
+    .demo-result .demo-actions{margin-top:14px}
+    .demo-result .demo-actions a{display:inline-flex;text-decoration:none}
+    @media(max-width:800px){.research-grid{grid-template-columns:1fr}.demo-panel{grid-template-columns:1fr}}
+    @media(max-width:700px){.security-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <div class="bg-fx"></div>
@@ -20,36 +62,309 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract.html">AI受託開発</a>
       <a href="ai-lecture.html">AI講義</a>
-      <a href="security-audit.html">セキュリティ診断</a>
+      <a href="security-audit.html">セキュリティ検証</a>
+      <a href="#evidence">調査結果</a>
+      <a href="#demo">デモ</a>
       <a href="index.html#career">職務経歴</a>
-      <a href="index.html#contact">お問い合わせ</a>
-      <a href="english_index.html" class="lang">EN</a>
+      <a href="#inquiry">相談する</a>
+      <a href="security-audit_en.html" class="lang">EN</a>
     </div>
   </nav>
 
-  <div class="wrap">
+  <main class="wrap">
     <header class="services-hero">
-      <h1>セキュリティ診断</h1>
-      <p class="lede">サービスの内容はこれから用意します。</p>
+      <span class="security-kicker">SECURITY VALIDATION / AI SECURITY</span>
+      <h1>年に一度の診断で終わらせず、<br>変化し続ける守りを検証する。</h1>
+      <p class="lede">
+        Web・クラウド・AIのリスクを、攻撃者の視点で評価し、改善につなげます。
+        個人として、目的整理から安全な検証計画、報告、修正後の確認まで一貫してご相談をお受けします。
+      </p>
+      <div class="security-cta">
+        <a href="#inquiry" class="btn-submit">セキュリティの相談をする</a>
+        <a href="#demo" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">デモを見る</a>
+      </div>
+      <p class="page-note">能動的な検証は、対象・期間・手法を合意し、書面で許可をいただいた後に限って実施します。</p>
     </header>
 
-    <div class="soon-panel">
-      <h2>準備中です</h2>
-      <p>
-        セキュリティ診断の詳細・料金・申し込み方法は、もう少し待ってください。<br>
-        先に相談したい場合は、トップの連絡先か他のサービスページからご連絡ください。
-      </p>
-      <div class="cta-row" style="justify-content:center;margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="index.html" class="btn-submit" style="text-decoration:none;">トップへ戻る</a>
-        <a href="ai-contract.html" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;background:#fff;">AI受託開発を見る</a>
+    <section id="services" class="security-section">
+      <div class="sec-head">
+        <h2>支援できること</h2>
+        <p>既存の診断を置き換えるのではなく、検証から改善までを必要に応じて組み合わせます。</p>
       </div>
-    </div>
-  </div>
+      <div class="security-grid">
+        <article class="security-card">
+          <h3>Web・クラウドのセキュリティ診断</h3>
+          <p>合意した範囲のアプリケーションや公開資産を確認し、リスク、影響、優先度、改善の方向性を整理します。</p>
+        </article>
+        <article class="security-card">
+          <h3>LLM・AIエージェントの安全性評価</h3>
+          <p>プロンプトインジェクションや意図しない情報開示、ツール権限の設計などを、対象とテスト計画を合意したうえで評価します。</p>
+        </article>
+        <article class="security-card">
+          <h3>ローカルLLMによる診断データ分析</h3>
+          <p>許諾済み案件の所見・診断データをローカル環境で解析。生データを外部の生成AI APIへ送らず、分析や報告の整理を支援し、結果は人が確認します。</p>
+        </article>
+        <article class="security-card">
+          <h3>継続的な防御検証の設計</h3>
+          <p>BASなどの考え方を取り入れ、対象・頻度・除外条件・停止手順を定めた継続検証の導入や運用設計を支援します。</p>
+        </article>
+      </div>
+      <div class="security-callout">
+        <h2>「24時間365日攻撃」ではなく、許可された範囲で防御力を継続して確かめる。</h2>
+        <p>無制限の自動攻撃や、未合意の環境へのスキャンは行いません。継続検証は、業務への影響を抑えるルール・監視・停止手順とセットで設計します。</p>
+      </div>
+    </section>
+
+    <section id="evidence" class="security-section">
+      <div class="sec-head">
+        <span class="security-kicker">RESEARCH NOTES</span>
+        <h2>調査で見えたのは、「侵入」よりも見落とされた運用の穴。</h2>
+        <p>国内外の公表事例と公的統計を整理すると、ひとつの製品を入れるだけでは埋まらない共通課題が浮かびます。</p>
+      </div>
+      <div class="research-grid">
+        <article class="evidence-card">
+          <span class="metric">約87%</span>
+          <h3>ランサムウェアの入口はリモートアクセスに集中</h3>
+          <p>警察庁の令和7年調査では、感染経路の回答92件中、VPN機器61件（約66%）、リモートデスクトップ19件（約21%）。古い機器や例外アカウントを含めた棚卸しが重要です。</p>
+          <a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R7/R07_cyber_jousei.pdf" target="_blank" rel="noopener">警察庁「令和7年の脅威情勢」統計資料 ↗</a>
+        </article>
+        <article class="evidence-card">
+          <span class="metric">91% → 20%</span>
+          <h3>バックアップの保有と、実際に戻せることは別</h3>
+          <p>同調査でバックアップ保有は105/116件（約91%）。一方、被害直前の水準まで復元できたのは20/99件（約20%）でした。分離・保護だけでなく復元テストが欠かせません。</p>
+          <a href="https://www.npa.go.jp/publications/statistics/cybersecurity/data/R7/R07_cyber_jousei.pdf" target="_blank" rel="noopener">警察庁「令和7年の脅威情勢」統計資料 ↗</a>
+        </article>
+        <article class="evidence-card">
+          <span class="metric">87事例 → 23パターン</span>
+          <h3>違う事件でも、繰り返す失敗の形がある</h3>
+          <p>2026年10月時点の公開事例87件を独自に分類。放置資産・例外、規程と実設定のずれ、ひとりで完結する権限など、複数の業種に共通する型が見つかりました。</p>
+          <span class="source-note">出典：公開事例の独自整理（2026-10-18）</span>
+        </article>
+        <article class="evidence-card">
+          <span class="metric">15業種 + 8複合業態</span>
+          <h3>業種だけでなく、業務のつながりも見る</h3>
+          <p>製造とEC、病院と介護など、複数の事業がつながることで増える委託先・権限・停止リスクも整理しています。</p>
+          <span class="source-note">出典：業種別・複合業態別の独自調査整理</span>
+        </article>
+      </div>
+      <div class="pattern-panel">
+        <h3>だから、検証では「設定」だけでなく運用の実態まで確かめます。</h3>
+        <ul>
+          <li>使われなくなった資産、委託先の接続、MFAなどの例外が台帳に残っているか。</li>
+          <li>規程や契約で決めた対策が、本番の設定や復旧手順でも実際に動くか。</li>
+          <li>重要な変更・送信・削除をひとりで完結できず、必要な承認とログが残るか。</li>
+          <li>AIエージェントに外部コンテンツと強い権限を同時に渡していないか。OWASPも過剰な権限を主要リスクとして整理しています。</li>
+        </ul>
+        <p class="source-note">
+          <a href="https://genai.owasp.org/llmrisk/llm062025-excessive-agency/" target="_blank" rel="noopener">OWASP GenAI Security Project「LLM06:2025 Excessive Agency」↗</a>
+        </p>
+      </div>
+      <p class="source-note">統計の割合は警察庁調査の回答数を分母にした値で、すべての企業の発生率を示すものではありません。公開事例の分類も網羅的な統計ではなく、検証観点を整理するための独自調査です。</p>
+    </section>
+
+    <section id="demo" class="security-section">
+      <div class="sec-head">
+        <span class="security-kicker">INTERACTIVE DEMO</span>
+        <h2>自社で確かめたい観点を、1分でプレビュー。</h2>
+        <p>対象と現在の対策状況を選ぶと、調査知見に基づく確認ポイントを表示します。</p>
+      </div>
+      <div class="demo-panel">
+        <div class="demo-controls">
+          <label for="demo-area">確認したい領域
+            <select id="demo-area">
+              <option value="agent">社内AI・AIエージェント</option>
+              <option value="remote">VPN・リモートアクセス</option>
+              <option value="backup">バックアップ・復旧</option>
+            </select>
+          </label>
+          <label for="demo-status">対策の状況
+            <select id="demo-status">
+              <option value="unknown">まだ確認できていない</option>
+              <option value="partial">一部は確認・整備している</option>
+              <option value="managed">ルール化し、定期的に確認している</option>
+            </select>
+          </label>
+          <button type="button" class="btn-submit" id="demo-run">確認ポイントを表示</button>
+          <p class="demo-hint">デモ用の固定シナリオです。入力や選択内容は送信されず、実システムへの通信・スキャンも行いません。</p>
+        </div>
+        <div class="demo-result" id="demo-result" aria-live="polite" hidden>
+          <span class="demo-priority" id="demo-priority"></span>
+          <h3 id="demo-title"></h3>
+          <p id="demo-summary"></p>
+          <ul id="demo-checks"></ul>
+          <div class="demo-actions">
+            <a href="#inquiry" class="btn-submit" id="demo-inquiry">この観点を相談する</a>
+          </div>
+        </div>
+      </div>
+      <p class="source-note">このデモは実環境の診断結果・安全性スコアではありません。正式な評価には、対象の許可と範囲の合意が必要です。</p>
+    </section>
+
+    <section class="security-section">
+      <div class="sec-head">
+        <h2>ご相談から改善確認まで</h2>
+      </div>
+      <div class="security-grid">
+        <div class="security-step"><span class="num">1</span><div><h3>目的と課題を確認</h3><p>対象システム、守りたい情報、いま困っていることを伺います。</p></div></div>
+        <div class="security-step"><span class="num">2</span><div><h3>対象と安全ルールを合意</h3><p>資産・期間・手法・除外対象・停止条件・緊急連絡先を明確にします。</p></div></div>
+        <div class="security-step"><span class="num">3</span><div><h3>許可された範囲で検証</h3><p>書面合意後に、合意した範囲だけを対象に検証します。</p></div></div>
+        <div class="security-step"><span class="num">4</span><div><h3>結果を改善につなげる</h3><p>リスクと優先順位を報告し、修正後の確認方法もご提案します。</p></div></div>
+      </div>
+    </section>
+
+    <section class="security-section">
+      <div class="security-callout">
+        <h2>まずは課題の整理からご相談ください。</h2>
+        <p>対象やご予算が固まっていなくても構いません。内容を伺い、対応範囲と進め方をご案内します。料金は対象・期間・検証内容を確認したうえで個別にお見積もりします。</p>
+      </div>
+    </section>
+
+    <section id="inquiry" class="security-section">
+      <div class="contact-form">
+        <h2>セキュリティ検証のご相談</h2>
+        <p class="form-lede">内容を確認のうえ返信します。機密情報や認証情報は、初回フォームには記載しないでください。</p>
+        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="【セキュリティ検証】サイトからのお問い合わせ">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks.html">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="種別" value="セキュリティ検証">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="security-name">お名前</label>
+              <input id="security-name" name="お名前" type="text" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="security-email">メールアドレス</label>
+              <input id="security-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="security-company">会社名（任意）</label>
+              <input id="security-company" name="会社名" type="text" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="security-topic">相談したい内容</label>
+              <select id="security-topic" name="相談種別">
+                <option value="web-cloud">Web・クラウドのセキュリティ診断</option>
+                <option value="llm">LLM・AIエージェントの安全性評価</option>
+                <option value="continuous">継続的な防御検証の設計</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="security-message">ご相談内容</label>
+              <textarea id="security-message" name="相談内容" required placeholder="課題や対象の概要、希望時期などをご記入ください。機密情報は記載しないでください。"></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-submit" type="submit">相談を送信する</button>
+            <a href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">LinkedInで連絡</a>
+          </div>
+          <p class="form-note">送信後、確認画面に移動します。初回の送信時はフォームサービス側の確認が必要な場合があります。</p>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div>© 2026 中野哲平</div>
     <div class="meta">Last updated: 2026-11-06</div>
   </footer>
   <script src="assets/nav.js"></script>
+  <script>
+    const demoScenarios = {
+      agent: {
+        title: "AIエージェントの権限境界",
+        topic: "llm",
+        states: {
+          unknown: {
+            next: "まず権限と接続先を棚卸し",
+            summary: "外部文書を読むAIに、機密データへのアクセスや外部送信の権限が集中していないかを確認します。",
+            checks: ["接続先・トークン・読み書き権限を一覧化する", "送信・削除など戻せない操作に人の承認を置く", "外部コンテンツを読むAIの権限を必要最小限にする"]
+          },
+          partial: {
+            next: "連携先と例外を照合",
+            summary: "一部の制御があっても、追加した連携先や例外アカウントに同じ制限が適用されているかを確認します。",
+            checks: ["本番データ・外部コンテンツ・外部送信の組み合わせを見直す", "読み取り専用の範囲と承認が必要な操作を分ける", "テスト用の指示と実データを分離して評価する"]
+          },
+          managed: {
+            next: "変更後の挙動を再評価",
+            summary: "ルールがあっても、モデル・ツール・権限の変更後に想定した境界が保たれているかを確認します。",
+            checks: ["モデルやMCP連携の更新を検証対象に含める", "拒否・承認・監査ログが期待どおり働くか確認する", "異常時に連携を止める担当と手順を確認する"]
+          }
+        }
+      },
+      remote: {
+        title: "VPN・リモートアクセスの管理",
+        topic: "web-cloud",
+        states: {
+          unknown: {
+            next: "外部接続の入口を棚卸し",
+            summary: "自社・委託先・拠点の接続口や古いアカウントが、把握した台帳と一致しているかを確認します。",
+            checks: ["VPN・RDP・保守用接続の資産と管理者を確認する", "MFA例外や使われていないアカウントを洗い出す", "パッチ適用後の侵害確認・セッション失効手順を定める"]
+          },
+          partial: {
+            next: "例外と委託先の抜けを確認",
+            summary: "主要な接続口を守れていても、委託先や拠点の例外が同じ基準に沿っているかを照合します。",
+            checks: ["例外の承認者・期限・見直し日を記録する", "接続ログを確認できる担当者と保管先を決める", "機器の入れ替え・解約時に接続設定も廃止する"]
+          },
+          managed: {
+            next: "変更時の差分を再確認",
+            summary: "定期運用に加え、機器更新や委託先変更の後に台帳・設定・ログの差分を確認します。",
+            checks: ["公開資産の台帳と実際の接続設定を突き合わせる", "認証情報の漏えいを想定した失効手順を確認する", "停止・連絡手順を関係者と定期的に確認する"]
+          }
+        }
+      },
+      backup: {
+        title: "バックアップと復元可能性",
+        topic: "continuous",
+        states: {
+          unknown: {
+            next: "復元テストを一つ実施",
+            summary: "バックアップが存在するかだけでなく、本番環境に影響されず、必要なデータを実際に戻せるかを確認します。",
+            checks: ["復元対象・所要時間・責任者を決める", "本番と異なる権限・場所に保護されたコピーを持つ", "復元後の整合性と業務再開条件を確認する"]
+          },
+          partial: {
+            next: "保護範囲と復元条件を照合",
+            summary: "一部の復旧手順があっても、バックアップ対象・保存期間・管理権限が重要システム全体をカバーするかを確かめます。",
+            checks: ["重要システムとバックアップの対応表を作る", "本番の管理者権限だけで削除できない設計を確認する", "復元テストで手順書と実際の所要時間を更新する"]
+          },
+          managed: {
+            next: "変更後も復元できるか確認",
+            summary: "定期テストに加えて、システム・保存先・担当者の変更が復旧計画に反映されているかを見直します。",
+            checks: ["復元テストの結果と未解決事項を記録する", "バックアップの隔離・改ざん防止を定期確認する", "業務停止時の代替手順と連絡網を更新する"]
+          }
+        }
+      }
+    };
+
+    const demoArea = document.getElementById("demo-area");
+    const demoStatus = document.getElementById("demo-status");
+    const demoResult = document.getElementById("demo-result");
+    const demoPriority = document.getElementById("demo-priority");
+    const demoTitle = document.getElementById("demo-title");
+    const demoSummary = document.getElementById("demo-summary");
+    const demoChecks = document.getElementById("demo-checks");
+    const demoInquiry = document.getElementById("demo-inquiry");
+    const securityTopic = document.getElementById("security-topic");
+
+    document.getElementById("demo-run").addEventListener("click", () => {
+      const scenario = demoScenarios[demoArea.value];
+      const result = scenario.states[demoStatus.value];
+      demoPriority.textContent = `次の一手：${result.next}`;
+      demoTitle.textContent = scenario.title;
+      demoSummary.textContent = result.summary;
+      demoChecks.replaceChildren(...result.checks.map((check) => {
+        const item = document.createElement("li");
+        item.textContent = check;
+        return item;
+      }));
+      demoResult.hidden = false;
+      demoInquiry.onclick = () => {
+        securityTopic.value = scenario.topic;
+      };
+    });
+  </script>
 </body>
 </html>
