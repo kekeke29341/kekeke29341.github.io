@@ -215,13 +215,16 @@
       <div class="contact-form">
         <h2>Security review inquiry</h2>
         <p class="form-lede">Please do not include credentials, confidential data, or sensitive technical details in this form.</p>
-        <form class="js-contact-form" data-next="thanks_en.html" action="thanks_en.html" method="post">
-          <input type="hidden" name="_subject" value="[Security review] Website inquiry">
-          <input type="hidden" name="type" value="Security review">
+        <form class="js-contact-form" data-next="thanks_en.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="[Security review] Website inquiry">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks_en.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="Security review">
           <div class="form-grid">
             <div class="form-field">
               <label for="security-name">Name</label>
-              <input id="security-name" name="Name" type="text" required autocomplete="name">
+              <input id="security-name" name="name" type="text" required autocomplete="name">
             </div>
             <div class="form-field">
               <label for="security-email">Email</label>
@@ -229,11 +232,11 @@
             </div>
             <div class="form-field">
               <label for="security-company">Company (optional)</label>
-              <input id="security-company" name="Company" type="text" autocomplete="organization">
+              <input id="security-company" name="company" type="text" autocomplete="organization">
             </div>
             <div class="form-field">
               <label for="security-topic">Topic</label>
-              <select id="security-topic" name="Topic">
+              <select id="security-topic" name="topic">
                 <option value="web-cloud">Web or cloud security review</option>
                 <option value="llm">LLM or AI-agent security</option>
                 <option value="continuous">Continuous validation planning</option>
@@ -242,7 +245,7 @@
             </div>
             <div class="form-field full">
               <label for="security-message">How can I help?</label>
-              <textarea id="security-message" name="Message" required placeholder="A high-level description of your concern and preferred timing. Please omit confidential information."></textarea>
+              <textarea id="security-message" name="message" required placeholder="A high-level description of your concern and preferred timing. Please omit confidential information."></textarea>
             </div>
           </div>
           <div class="form-actions">

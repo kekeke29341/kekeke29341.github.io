@@ -223,13 +223,16 @@
       <div class="contact-form">
         <h2>セキュリティ検証のご相談</h2>
         <p class="form-lede">内容を確認のうえ返信します。機密情報や認証情報はフォームに記載しないでください。</p>
-        <form class="js-contact-form" data-next="thanks.html" action="thanks.html" method="post">
-          <input type="hidden" name="_subject" value="【セキュリティ検証】サイトからのお問い合わせ">
-          <input type="hidden" name="種別" value="セキュリティ検証">
+        <form class="js-contact-form" data-next="thanks.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="【セキュリティ検証】サイトからのお問い合わせ">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="セキュリティ検証">
           <div class="form-grid">
             <div class="form-field">
               <label for="security-name">お名前</label>
-              <input id="security-name" name="お名前" type="text" required autocomplete="name">
+              <input id="security-name" name="name" type="text" required autocomplete="name">
             </div>
             <div class="form-field">
               <label for="security-email">メールアドレス</label>
@@ -237,11 +240,11 @@
             </div>
             <div class="form-field">
               <label for="security-company">会社名（任意）</label>
-              <input id="security-company" name="会社名" type="text" autocomplete="organization">
+              <input id="security-company" name="company" type="text" autocomplete="organization">
             </div>
             <div class="form-field">
               <label for="security-topic">相談したい内容</label>
-              <select id="security-topic" name="相談種別">
+              <select id="security-topic" name="topic">
                 <option value="web-cloud">Web・クラウドのセキュリティ診断</option>
                 <option value="llm">LLM・AIエージェントの安全性評価</option>
                 <option value="continuous">継続的な防御検証の設計</option>
@@ -250,7 +253,7 @@
             </div>
             <div class="form-field full">
               <label for="security-message">ご相談内容</label>
-              <textarea id="security-message" name="相談内容" required placeholder="課題や対象の概要、希望時期などをご記入ください。機密情報は記載しないでください。"></textarea>
+              <textarea id="security-message" name="message" required placeholder="課題や対象の概要、希望時期などをご記入ください。機密情報は記載しないでください。"></textarea>
             </div>
           </div>
           <div class="form-actions">

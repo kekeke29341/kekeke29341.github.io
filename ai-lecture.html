@@ -105,13 +105,16 @@
       <div class="contact-form">
         <h2>お問い合わせ</h2>
         <p class="form-lede">AI講義・社内研修のご相談は、下のフォームから送れます。回数と対象者を書いてください。</p>
-        <form class="js-contact-form" data-next="thanks.html" action="thanks.html" method="post">
-          <input type="hidden" name="_subject" value="【AI講義】サイトからのお問い合わせ">
-          <input type="hidden" name="種別" value="AI講義">
+        <form class="js-contact-form" data-next="thanks.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="【AI講義】サイトからのお問い合わせ">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="AI講義">
           <div class="form-grid">
             <div class="form-field">
               <label for="name">お名前</label>
-              <input id="name" name="お名前" type="text" required autocomplete="name">
+              <input id="name" name="name" type="text" required autocomplete="name">
             </div>
             <div class="form-field">
               <label for="email">メールアドレス</label>
@@ -119,11 +122,11 @@
             </div>
             <div class="form-field">
               <label for="company">会社名（任意）</label>
-              <input id="company" name="会社名" type="text" autocomplete="organization">
+              <input id="company" name="company" type="text" autocomplete="organization">
             </div>
             <div class="form-field">
               <label for="sessions">希望回数（任意）</label>
-              <select id="sessions" name="希望回数">
+              <select id="sessions" name="sessions">
                 <option value="">これから決める</option>
                 <option value="1回">1回（お試し）</option>
                 <option value="2〜4回">2〜4回</option>
@@ -133,7 +136,7 @@
             </div>
             <div class="form-field full">
               <label for="message">ご相談内容</label>
-              <textarea id="message" name="相談内容" required placeholder="対象者、業種、扱ってほしいテーマ、夜間開催の可否"></textarea>
+              <textarea id="message" name="message" required placeholder="対象者、業種、扱ってほしいテーマ、夜間開催の可否"></textarea>
             </div>
           </div>
           <div class="form-actions">
