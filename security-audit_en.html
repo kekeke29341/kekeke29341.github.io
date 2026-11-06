@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ARTEX — a local-LLM autonomous pentest platform that Teppei Nakano develops and extends as a personal project. Contact if you want the tool.">
-  <title>ARTEX | Local-LLM pentest platform | Teppei Nakano</title>
+  <meta name="description" content="An ARTEX-based local-LLM pentest platform. No fee. Request the tool and I will distribute it.">
+  <title>ARTEX | Free distribution | Teppei Nakano</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,6 +18,9 @@
     .security-card h3{margin:0 0 7px;font-size:1.04rem}
     .security-card p{margin:0;color:var(--text-dim);font-size:.92rem}
     .security-section{padding:24px 0;border:0}
+    .free-banner{margin:8px 0 26px;padding:22px 24px;border:1px solid color-mix(in srgb,var(--accent-2) 35%,var(--panel-border));border-radius:var(--radius);background:linear-gradient(120deg,#eff6ff,#f0fdfa)}
+    .free-banner h2{margin:0 0 8px;font-size:1.25rem}
+    .free-banner p{margin:0;color:var(--text-dim);font-size:.95rem}
     .artex-shots{display:grid;gap:18px;margin:18px 0 8px}
     .artex-shot{margin:0;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden}
     .artex-shot img{display:block;width:100%;height:auto}
@@ -41,30 +44,59 @@
       <a href="security-audit_en.html">ARTEX</a>
       <a href="#shots">Screens</a>
       <a href="english_index.html#career">Career</a>
-      <a href="#inquiry">Contact</a>
+      <a href="#inquiry">Request the tool</a>
       <a href="security-audit.html" class="lang">日本語</a>
     </div>
   </nav>
 
   <main class="wrap">
     <header class="services-hero">
-      <span class="security-kicker">ARTEX / LOCAL LLM PENTEST</span>
-      <h1>An autonomous pentest platform<br>that runs on local LLMs.</h1>
+      <span class="security-kicker">ARTEX / FREE DISTRIBUTION</span>
+      <h1>An ARTEX-based pentest platform,<br>distributed at no charge.</h1>
       <p class="lede">
-        ARTEX is an LLM multi-agent system that decomposes goals, runs real tools, and accumulates assets and vulnerabilities into a graph.
-        Teppei Nakano develops and extends it as a personal project. If you want the tool, use the form below.
+        I develop and extend an autonomous penetration-testing platform based on open-source ARTEX, runnable with local LLMs.
+        I do not sell it. If you want the tool, request it with the form below and I will send it.
       </p>
       <div class="security-cta">
-        <a href="#inquiry" class="btn-submit">Ask about the tool</a>
+        <a href="#inquiry" class="btn-submit">Request free distribution</a>
         <a href="#shots" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">See screens</a>
       </div>
       <p class="page-note">This is not a commercial security-assessment service. Use only on systems you own or for which you have written authorization.</p>
     </header>
 
+    <section class="security-section" aria-labelledby="free-heading">
+      <div class="free-banner">
+        <span class="security-kicker">NO FEE</span>
+        <h2 id="free-heading">No fee. I distribute it to people who want it.</h2>
+        <p>
+          After I review your request, I share the usage conditions (authorized environments only) and then send the tool package.
+          There is no paid plan funnel and no paid assessment service attached.
+        </p>
+      </div>
+      <div class="security-grid">
+        <article class="security-card">
+          <h3>What you get</h3>
+          <p>An ARTEX-based runtime (Docker Compose assumed), example config, and steps for local-LLM connection.</p>
+        </article>
+        <article class="security-card">
+          <h3>Who it is for</h3>
+          <p>People who want to try local-LLM autonomous testing on their own lab, or on targets with written authorization.</p>
+        </article>
+        <article class="security-card">
+          <h3>What I will not do</h3>
+          <p>Unauthorized attacks on third-party assets, destructive operations on your behalf, or paid assessment contracts.</p>
+        </article>
+        <article class="security-card">
+          <h3>How delivery works</h3>
+          <p>Form → review → share conditions → distribute the tool. Replies go by email or LinkedIn.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="security-section">
       <div class="sec-head">
-        <h2>What I am building</h2>
-        <p>Development and extension of a global edition based on the open-source ARTEX project. A single Go binary embeds the Next.js frontend; data lives in PostgreSQL.</p>
+        <h2>What the ARTEX-based stack does</h2>
+        <p>LLM multi-agents decompose goals, run real tools, and accumulate assets and vulnerabilities into a graph. Go backend, Next.js frontend, PostgreSQL storage.</p>
       </div>
       <div class="security-grid">
         <article class="security-card">
@@ -85,36 +117,12 @@
         </article>
       </div>
       <div class="stack-row">
+        <span>ARTEX-based</span>
         <span>Go</span>
         <span>Next.js</span>
         <span>PostgreSQL</span>
         <span>Docker Compose</span>
         <span>OpenAI-compatible LLM</span>
-      </div>
-    </section>
-
-    <section class="security-section">
-      <div class="sec-head">
-        <h2>Extensions I keep working on</h2>
-        <p>I keep polishing the global edition. Internal agent reasoning prompts stay in the original language for performance; user-facing output is forced into the selected language.</p>
-      </div>
-      <div class="security-grid">
-        <article class="security-card">
-          <h3>Language and docs</h3>
-          <p>UI messages, date locales, settings screens, and multilingual README updates including Japanese.</p>
-        </article>
-        <article class="security-card">
-          <h3>Local operation</h3>
-          <p>Startup in isolated local environments, LLM wiring, and persistence for skills and data.</p>
-        </article>
-        <article class="security-card">
-          <h3>Findings and reports</h3>
-          <p>Grouping by severity, asset, and task; CSV export; clearer activity feeds.</p>
-        </article>
-        <article class="security-card">
-          <h3>Defender reading</h3>
-          <p>Notes that help defenders understand autonomous AI attacks. Unauthorized use is out of scope.</p>
-        </article>
       </div>
     </section>
 
@@ -144,17 +152,17 @@
 
     <section id="inquiry" style="padding-top:8px;border:0;padding-bottom:48px;">
       <div class="contact-form">
-        <h2>Ask about the tool</h2>
+        <h2>Request free distribution</h2>
         <p class="form-lede">
-          For people interested in ARTEX itself, installation, or extensions — not a security-assessment booking form.
-          Describe the environment (local / air-gapped internal) and what you want to do.
+          There is no fee. Describe the environment (local / air-gapped internal) and your purpose.
+          After review, I share the conditions and send the tool.
         </p>
         <form class="js-contact-form" data-next="thanks_en.html" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
-          <input type="hidden" name="subject" value="[ARTEX] Inquiry from site">
+          <input type="hidden" name="subject" value="[ARTEX free distribution] Request from site">
           <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks_en.html">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
-          <input type="hidden" name="service" value="ARTEX">
+          <input type="hidden" name="service" value="ARTEX free distribution">
           <div class="form-grid">
             <div class="form-field">
               <label for="name">Name</label>
@@ -169,25 +177,24 @@
               <input id="company" name="company" type="text" autocomplete="organization">
             </div>
             <div class="form-field">
-              <label for="interest">Interest (optional)</label>
-              <select id="interest" name="interest">
-                <option value="">Not sure yet</option>
-                <option value="Want the tool">Want the tool</option>
-                <option value="Install / setup help">Install / setup help</option>
-                <option value="Feature extension">Feature extension</option>
-                <option value="Local LLM wiring">Local LLM wiring</option>
+              <label for="environment">Environment</label>
+              <select id="environment" name="environment" required>
+                <option value="">Select one</option>
+                <option value="Local isolated lab">Local isolated lab</option>
+                <option value="Internal air-gapped lab">Internal air-gapped lab</option>
+                <option value="Own verification machine">Own verification machine</option>
               </select>
             </div>
             <div class="form-field full">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required placeholder="Environment, goal, what you need"></textarea>
+              <label for="message">Purpose / notes</label>
+              <textarea id="message" name="message" required placeholder="Why you need it, whether you have a local LLM, preferred delivery"></textarea>
             </div>
           </div>
           <div class="form-actions">
-            <button class="btn-submit" type="submit">Send</button>
+            <button class="btn-submit" type="submit">Request free distribution</button>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">Message on LinkedIn</a>
           </div>
-          <p class="form-note">If nothing arrives, contact me on LinkedIn or Facebook. I do not take requests for unauthorized use.</p>
+          <p class="form-note">No fee. I do not take requests for unauthorized use.</p>
         </form>
       </div>
     </section>

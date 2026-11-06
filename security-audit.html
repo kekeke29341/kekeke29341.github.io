@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平が趣味で開発・拡張している ARTEX。ローカルLLM駆動の自律型ペネトレーションテスト基盤。欲しい方はお問い合わせください。">
-  <title>ARTEX｜ローカルLLM駆動ペネトレーションテスト｜中野哲平</title>
+  <meta name="description" content="ARTEX ベースのローカルLLM駆動ペネトレーションテスト基盤。料金は取りません。欲しい方にツールを配布します。">
+  <title>ARTEX｜無料配布｜中野哲平</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,6 +18,9 @@
     .security-card h3{margin:0 0 7px;font-size:1.04rem}
     .security-card p{margin:0;color:var(--text-dim);font-size:.92rem}
     .security-section{padding:24px 0;border:0}
+    .free-banner{margin:8px 0 26px;padding:22px 24px;border:1px solid color-mix(in srgb,var(--accent-2) 35%,var(--panel-border));border-radius:var(--radius);background:linear-gradient(120deg,#eff6ff,#f0fdfa)}
+    .free-banner h2{margin:0 0 8px;font-size:1.25rem}
+    .free-banner p{margin:0;color:var(--text-dim);font-size:.95rem}
     .artex-shots{display:grid;gap:18px;margin:18px 0 8px}
     .artex-shot{margin:0;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden}
     .artex-shot img{display:block;width:100%;height:auto}
@@ -41,30 +44,59 @@
       <a href="security-audit.html">ARTEX</a>
       <a href="#shots">画面</a>
       <a href="index.html#career">職務経歴</a>
-      <a href="#inquiry">お問い合わせ</a>
+      <a href="#inquiry">配布を申し込む</a>
       <a href="security-audit_en.html" class="lang">EN</a>
     </div>
   </nav>
 
   <main class="wrap">
     <header class="services-hero">
-      <span class="security-kicker">ARTEX / LOCAL LLM PENTEST</span>
-      <h1>ローカルLLMで動く、<br>自律型ペネトレーションテスト基盤。</h1>
+      <span class="security-kicker">ARTEX / FREE DISTRIBUTION</span>
+      <h1>ARTEX ベースのペネトレーションテスト基盤を、<br>料金なしで配布します。</h1>
       <p class="lede">
-        ARTEX は、LLM マルチエージェントが目標を分解し、実ツールを実行し、資産と脆弱性をグラフに積み上げるシステムです。
-        中野哲平が趣味で開発と拡張を続けています。ツールが欲しい方は、下のフォームから問い合わせてください。
+        オープンソースの ARTEX をベースに、ローカルLLMでも動く自律型ペネトレーションテスト基盤を趣味で開発・拡張しています。
+        販売しません。欲しい方にツールを渡します。下のフォームから申し込んでください。
       </p>
       <div class="security-cta">
-        <a href="#inquiry" class="btn-submit">ツールについて問い合わせる</a>
+        <a href="#inquiry" class="btn-submit">無料で配布を申し込む</a>
         <a href="#shots" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">画面を見る</a>
       </div>
       <p class="page-note">商用のセキュリティ診断サービスではありません。所有環境、または書面で許可を得た対象での利用を前提とします。</p>
     </header>
 
+    <section class="security-section" aria-labelledby="free-heading">
+      <div class="free-banner">
+        <span class="security-kicker">NO FEE</span>
+        <h2 id="free-heading">料金は取りません。欲しい人に配ります。</h2>
+        <p>
+          申し込みを確認したあと、利用条件（許可された環境のみ）を伝えたうえで、ツール一式を渡します。
+          有料プランへの誘導や、診断サービスの販売はありません。
+        </p>
+      </div>
+      <div class="security-grid">
+        <article class="security-card">
+          <h3>渡すもの</h3>
+          <p>ARTEX ベースの実行環境（Docker Compose 起動を想定）、設定例、ローカルLLM接続の手順。</p>
+        </article>
+        <article class="security-card">
+          <h3>対象</h3>
+          <p>自分の検証環境、または書面で許可を得た対象で、ローカルLLM駆動の自律テストを試したい人。</p>
+        </article>
+        <article class="security-card">
+          <h3>やらないこと</h3>
+          <p>無許可の第三者資産への攻撃依頼、破壊的操作の代行、有料の診断請負。</p>
+        </article>
+        <article class="security-card">
+          <h3>受け取り方</h3>
+          <p>フォーム送信 → 内容確認 → 利用条件の共有 → ツール配布。返信はメールまたは LinkedIn で行います。</p>
+        </article>
+      </div>
+    </section>
+
     <section class="security-section">
       <div class="sec-head">
-        <h2>なにを作っているか</h2>
-        <p>中国発のオープンソース ARTEX をベースにしたグローバル版の開発・拡張です。Go の単一バイナリに Next.js フロントエンドを埋め込み、データは PostgreSQL に保存します。</p>
+        <h2>ARTEX ベースで何ができるか</h2>
+        <p>LLM マルチエージェントが目標を分解し、実ツールを実行し、資産と脆弱性をグラフに積み上げます。Go バックエンドと Next.js フロントエンド、データは PostgreSQL です。</p>
       </div>
       <div class="security-grid">
         <article class="security-card">
@@ -85,36 +117,12 @@
         </article>
       </div>
       <div class="stack-row">
+        <span>ARTEX-based</span>
         <span>Go</span>
         <span>Next.js</span>
         <span>PostgreSQL</span>
         <span>Docker Compose</span>
         <span>OpenAI-compatible LLM</span>
-      </div>
-    </section>
-
-    <section class="security-section">
-      <div class="sec-head">
-        <h2>いま手がけている拡張</h2>
-        <p>グローバル版としての整備を続けています。エージェントの内部推論プロンプトは性能維持のため原語のままにし、ユーザー向け出力だけを選択言語に揃えています。</p>
-      </div>
-      <div class="security-grid">
-        <article class="security-card">
-          <h3>言語とドキュメント</h3>
-          <p>UI メッセージ、日付ロケール、設定画面、README の日本語を含む多言語スタックの更新。</p>
-        </article>
-        <article class="security-card">
-          <h3>ローカル運用</h3>
-          <p>隔離されたローカル環境での起動、LLM 接続、スキルとデータの永続化。</p>
-        </article>
-        <article class="security-card">
-          <h3>検出結果とレポート</h3>
-          <p>深刻度・資産・タスクごとの集計、CSV 出力、活動フィードの見え方の改善。</p>
-        </article>
-        <article class="security-card">
-          <h3>防御側の読み方</h3>
-          <p>自律型 AI 攻撃を理解し、検知・遮断の材料として読むための整理。無許可利用は対象外です。</p>
-        </article>
       </div>
     </section>
 
@@ -144,17 +152,17 @@
 
     <section id="inquiry" style="padding-top:8px;border:0;padding-bottom:48px;">
       <div class="contact-form">
-        <h2>ツールについてのお問い合わせ</h2>
+        <h2>無料配布の申し込み</h2>
         <p class="form-lede">
-          ARTEX 本体や導入・改修に関心がある方向けです。診断サービスの申込みフォームではありません。
-          利用したい環境（ローカル / 社内隔離）と目的を書いてください。
+          料金は不要です。使いたい環境（ローカル / 社内隔離）と目的を書いてください。
+          確認後、利用条件を伝えたうえでツールを渡します。
         </p>
         <form class="js-contact-form" data-next="thanks.html" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
-          <input type="hidden" name="subject" value="【ARTEX】サイトからのお問い合わせ">
+          <input type="hidden" name="subject" value="【ARTEX無料配布】サイトからの申し込み">
           <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks.html">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
-          <input type="hidden" name="service" value="ARTEX">
+          <input type="hidden" name="service" value="ARTEX無料配布">
           <div class="form-grid">
             <div class="form-field">
               <label for="name">お名前</label>
@@ -169,25 +177,24 @@
               <input id="company" name="company" type="text" autocomplete="organization">
             </div>
             <div class="form-field">
-              <label for="interest">関心（任意）</label>
-              <select id="interest" name="interest">
-                <option value="">これから決める</option>
-                <option value="ツール本体が欲しい">ツール本体が欲しい</option>
-                <option value="導入・構築の相談">導入・構築の相談</option>
-                <option value="機能拡張の相談">機能拡張の相談</option>
-                <option value="ローカルLLM接続">ローカルLLM接続</option>
+              <label for="environment">利用環境</label>
+              <select id="environment" name="environment" required>
+                <option value="">選択してください</option>
+                <option value="ローカル隔離環境">ローカル隔離環境</option>
+                <option value="社内隔離環境">社内隔離環境</option>
+                <option value="自分所有の検証用マシン">自分所有の検証用マシン</option>
               </select>
             </div>
             <div class="form-field full">
-              <label for="message">内容</label>
-              <textarea id="message" name="message" required placeholder="使いたい環境、目的、いま困っていること"></textarea>
+              <label for="message">目的・補足</label>
+              <textarea id="message" name="message" required placeholder="何のために使うか、ローカルLLMの有無、希望する受け取り方法"></textarea>
             </div>
           </div>
           <div class="form-actions">
-            <button class="btn-submit" type="submit">送信する</button>
+            <button class="btn-submit" type="submit">無料配布を申し込む</button>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">LinkedInでも連絡</a>
           </div>
-          <p class="form-note">届かない場合は LinkedIn か Facebook から連絡してください。無許可利用の依頼には応じません。</p>
+          <p class="form-note">料金は発生しません。無許可利用の依頼には応じません。</p>
         </form>
       </div>
     </section>
