@@ -65,7 +65,6 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links .lang { border: 1px solid var(--panel-border); padding: 6px 14px; border-radius: 999px; color: var(--text); }
     .nav-links .lang:hover { border-color: var(--accent); }
-    @media (max-width: 720px) { .nav-links a:not(.lang):not(.nav-contact):not(.nav-extra) { display: none; } }
     .btn-linkedin { color: #04060d; background: #0a66c2; box-shadow: 0 8px 28px rgba(10, 102, 194, 0.35); }
     .btn-linkedin:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(10, 102, 194, 0.5); }
     .btn-facebook { color: #fff; background: #1877f2; box-shadow: 0 8px 28px rgba(24, 119, 242, 0.35); }
@@ -87,6 +86,62 @@
     .contact-point strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 0.95rem; }
     .contact-point span { color: var(--text-dim); font-size: 0.9rem; }
     .contact-note { margin-top: 18px; color: var(--text-faint); font-size: 0.88rem; }
+
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        top: calc(100% + 8px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        background: rgba(10, 16, 30, 0.98);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        padding: 12px 14px;
+        border-radius: 10px;
+        white-space: normal;
+        font-size: 0.95rem;
+      }
+      .nav-links a:hover { background: rgba(91,140,255,0.12); color: var(--text); }
+      .nav-links .lang { margin: 6px 8px 8px; text-align: center; }
+    }
+
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
     .hero { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 60px; }
     .eyebrow {
@@ -207,16 +262,19 @@
   <canvas id="particles"></canvas>
   <div class="grain"></div>
 
-  <nav>
+    <nav>
     <div class="brand"><span class="dot"></span>Teppei Nakano</div>
-    <div class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
       <a href="#career">Career</a>
-      <a href="#contact" class="nav-contact">Contact</a>
-      <a href="papers_en.html" class="nav-extra">Papers</a>
-      <a href="notes_en.html" class="nav-extra">Notes</a>
-      <a href="blog_en.html" class="nav-extra">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="papers_en.html">Papers</a>
+      <a href="blog_en.html">Tech blog</a>
+      <a href="notes_en.html">Notes</a>
+      <a href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Zenn</a>
       <a href="index.html" class="lang">日本語</a>
     </div>
   </nav>
@@ -525,5 +583,6 @@
       resize(); step();
     })();
   </script>
+  <script src="assets/nav.js"></script>
 </body>
 </html>

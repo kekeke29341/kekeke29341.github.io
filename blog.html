@@ -3,545 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ブログ・外部投稿へのリンク。仕事の成果ではありません。">
-  <title>ブログ｜中野哲平</title>
+  <meta name="description" content="中野哲平の技術ブログ・外部投稿一覧（Zenn / note / Qiita）。">
+  <title>技術ブログ｜中野哲平</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #070b16;
-      --bg-soft: #0d1526;
-      --panel: rgba(20, 30, 52, 0.55);
-      --panel-border: rgba(120, 160, 255, 0.14);
-      --text: #e8edf7;
-      --text-dim: #9aa8c4;
-      --text-faint: #64729180;
-      --accent: #5b8cff;
-      --accent-2: #22d3ee;
-      --accent-3: #a855f7;
-      --accent-bio: #34d399;
-      --radius: 18px;
-      --maxw: 1080px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* animated background */
-    .bg-fx {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(900px 600px at 15% -5%, rgba(91,140,255,0.22), transparent 60%),
-        radial-gradient(800px 700px at 100% 0%, rgba(168,85,247,0.16), transparent 55%),
-        radial-gradient(700px 700px at 50% 120%, rgba(34,211,238,0.14), transparent 60%),
-        var(--bg);
-    }
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      opacity: 0.7;
-    }
-    .grain {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    /* nav */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px clamp(18px, 5vw, 48px);
-      backdrop-filter: blur(14px);
-      background: rgba(7, 11, 22, 0.6);
-      border-bottom: 1px solid var(--panel-border);
-    }
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 14px var(--accent);
-    }
-    .nav-links { display: flex; gap: 26px; align-items: center; }
-    .nav-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links .lang {
-      border: 1px solid var(--panel-border);
-      padding: 6px 14px;
-      border-radius: 999px;
-      color: var(--text);
-    }
-    .nav-links .lang:hover { border-color: var(--accent); }
-    @media (max-width: 720px) {
-      .nav-links a:not(.lang):not(.nav-contact):not(.nav-extra) { display: none; }
-    }
-
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 5vw, 32px); }
-
-    /* hero */
-    .hero {
-      min-height: 82vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 0 60px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.8rem;
-      color: var(--accent-2);
-      letter-spacing: 0.06em;
-      border: 1px solid var(--panel-border);
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: var(--panel);
-      width: fit-content;
-      margin-bottom: 26px;
-    }
-    .pulse {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent-bio);
-      box-shadow: 0 0 0 0 rgba(52,211,153,0.6);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); }
-      100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
-    }
-    .hero h1 {
-      font-size: clamp(2.6rem, 7vw, 5rem);
-      line-height: 1.05;
-      margin: 0 0 22px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 .grad {
-      background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 45%, var(--accent-3) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero .role {
-      font-size: clamp(1rem, 2.4vw, 1.35rem);
-      color: var(--text);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-    .hero .role span { color: var(--text-dim); font-weight: 400; }
-    .hero .lede {
-      max-width: 680px;
-      color: var(--text-dim);
-      font-size: 1.05rem;
-      margin-bottom: 34px;
-    }
-    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 13px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-      cursor: pointer;
-    }
-    .btn-primary {
-      color: #04060d;
-      background: linear-gradient(120deg, var(--accent-2), var(--accent));
-      box-shadow: 0 8px 30px rgba(91,140,255,0.35);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(91,140,255,0.5); }
-    .btn-ghost {
-      color: var(--text);
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-    }
-    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--accent); }
-
-    /* stats strip */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 54px;
-    }
-    .stat {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 22px 20px;
-      backdrop-filter: blur(8px);
-    }
-    .stat .num {
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-      font-weight: 800;
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-    }
-    .stat .lbl { color: var(--text-dim); font-size: 0.82rem; margin-top: 6px; }
-    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-
-    /* sections */
-    section { padding: 74px 0; }
-    .sec-head { margin-bottom: 42px; }
-    .sec-head .kicker {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.82rem;
-      color: var(--accent-2);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .sec-head h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin: 10px 0 0;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .sec-head p { color: var(--text-dim); margin: 12px 0 0; max-width: 640px; }
-
-    /* skills grid */
-    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    @media (max-width: 880px) { .skills { grid-template-columns: 1fr; } }
-    .skill-card {
-      position: relative;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 28px;
-      backdrop-filter: blur(8px);
-      overflow: hidden;
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .skill-card:hover { transform: translateY(-4px); border-color: rgba(120,160,255,0.4); }
-    .skill-card::before {
-      content: "";
-      position: absolute; inset: 0;
-      background: radial-gradient(400px 200px at 100% 0%, var(--glow), transparent 70%);
-      opacity: 0.5;
-    }
-    .skill-card .ico {
-      width: 46px; height: 46px;
-      display: grid; place-items: center;
-      border-radius: 12px;
-      background: var(--chip);
-      margin-bottom: 18px;
-      font-size: 1.4rem;
-      position: relative;
-    }
-    .skill-card h3 { margin: 0 0 8px; font-size: 1.2rem; position: relative; }
-    .skill-card p { margin: 0 0 16px; color: var(--text-dim); font-size: 0.92rem; position: relative; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
-    .tag {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      padding: 5px 10px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-      color: var(--text-dim);
-    }
-    .skill-card.bio { --glow: rgba(52,211,153,0.22); --chip: rgba(52,211,153,0.14); }
-    .skill-card.llm { --glow: rgba(91,140,255,0.22); --chip: rgba(91,140,255,0.14); }
-    .skill-card.ml  { --glow: rgba(168,85,247,0.22); --chip: rgba(168,85,247,0.14); }
-    .skill-card.cx  { --glow: rgba(34,211,238,0.22); --chip: rgba(34,211,238,0.14); }
-    .skill-card.mlops { --glow: rgba(251,146,60,0.22); --chip: rgba(251,146,60,0.14); }
-    .skill-card.pm  { --glow: rgba(244,114,182,0.22); --chip: rgba(244,114,182,0.14); }
-
-    /* timeline */
-    .timeline { position: relative; }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 14px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: linear-gradient(var(--accent), var(--accent-3), transparent);
-      opacity: 0.4;
-    }
-    .tl-item { position: relative; padding: 0 0 34px 52px; }
-    .tl-item::before {
-      content: "";
-      position: absolute;
-      left: 6px; top: 6px;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 14px rgba(91,140,255,0.6);
-    }
-    .tl-item.current::before { border-color: var(--accent-bio); box-shadow: 0 0 16px rgba(52,211,153,0.7); }
-    .tl-card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 26px 28px;
-      backdrop-filter: blur(8px);
-      transition: border-color 0.25s;
-    }
-    .tl-card:hover { border-color: rgba(120,160,255,0.4); }
-    .tl-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 12px; }
-    .tl-period {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.8rem;
-      color: var(--accent-2);
-    }
-    .tl-badge {
-      font-size: 0.72rem;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-    .tl-badge.now { background: rgba(52,211,153,0.16); color: var(--accent-bio); border: 1px solid rgba(52,211,153,0.3); }
-    .tl-card h3 { margin: 0 0 4px; font-size: 1.22rem; }
-    .tl-org { color: var(--text-dim); font-size: 0.9rem; margin: 0 0 14px; }
-    .tl-card ul { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 0.93rem; }
-    .tl-card ul li { margin-bottom: 7px; }
-    .tl-card ul li strong { color: var(--text); font-weight: 600; }
-    .result-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .result-chips .rc {
-      font-size: 0.78rem;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: rgba(91,140,255,0.1);
-      border: 1px solid rgba(91,140,255,0.22);
-      color: #b9cbff;
-    }
-    .tl-card.current .rc { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.25); color: #8ef0c6; }
-
-    details.more { margin-top: 14px; }
-    details.more summary {
-      cursor: pointer;
-      color: var(--accent-2);
-      font-size: 0.86rem;
-      font-weight: 600;
-      list-style: none;
-    }
-    details.more summary::-webkit-details-marker { display: none; }
-    details.more summary::before { content: "▸ "; }
-    details.more[open] summary::before { content: "▾ "; }
-    details.more .body { margin-top: 12px; }
-
-    /* highlight callout for AI-driven dev */
-    .callout {
-      background: linear-gradient(135deg, rgba(91,140,255,0.08), rgba(168,85,247,0.08));
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 30px;
-      margin-top: 26px;
-    }
-    .callout h3 { margin: 0 0 14px; font-size: 1.15rem; }
-    .callout .qa { margin-bottom: 18px; }
-    .callout .qa:last-child { margin-bottom: 0; }
-    .callout .q { font-weight: 600; color: var(--text); margin: 0 0 6px; }
-    .callout .a { color: var(--text-dim); font-size: 0.93rem; margin: 0; }
-    .callout .q::before { content: "課題 — "; color: var(--accent-3); font-family: "JetBrains Mono", monospace; font-size: 0.82rem; }
-
-    /* publications */
-    .pubs { display: grid; gap: 10px; }
-    .pub {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 20px;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: 12px;
-      font-size: 0.9rem;
-    }
-    .pub .yr { font-family: "JetBrains Mono", monospace; color: var(--accent-2); font-weight: 500; white-space: nowrap; }
-    .pub .cit { flex: 1; color: var(--text-dim); }
-    .pub .cit em { color: var(--text); font-style: normal; font-weight: 500; }
-    .pub .pdf-link {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 6px 12px;
-      border: 1px solid var(--panel-border);
-      border-radius: 8px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .pub .pdf-link:hover { border-color: var(--accent); background: rgba(91,140,255,0.1); }
-
-    /* education */
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    @media (max-width: 720px) { .edu-grid { grid-template-columns: 1fr; } }
-    .edu-card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-    .edu-card .deg { font-weight: 600; margin-bottom: 4px; }
-    .edu-card .when { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-2); }
-
-    /* links / footer */
-    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px; }
-    .link-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 22px;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: 14px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .link-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .link-card .sub { display: block; color: var(--text-dim); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
-    .link-card .arw { color: var(--accent-2); }
-
-    footer {
-      padding: 50px 0 40px;
-      text-align: center;
-      color: var(--text-faint);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--panel-border);
-      margin-top: 40px;
-    }
-    footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; }
-
-    /* reveal animation */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      #particles { display: none; }
-    }
-  
-    .page-hero { padding: 72px 0 24px; }
-    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 14px; }
-    .page-hero .lede { max-width: 680px; color: var(--text-dim); margin: 0 0 18px; }
-    .callout-plain {
-      border: 1px solid var(--panel-border);
-      background: var(--panel);
-      border-radius: 14px;
-      padding: 16px 18px;
-      color: var(--text-dim);
-      font-size: 0.95rem;
-      margin: 18px 0 36px;
-      max-width: 760px;
-    }
-    .note-card {
-      border: 1px solid var(--panel-border);
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 22px 22px 18px;
-      margin-bottom: 16px;
-    }
-    .note-card h3 { margin: 0 0 8px; font-size: 1.05rem; }
-    .note-card .meta { color: var(--text-faint); font-size: 0.82rem; margin-bottom: 10px; font-family: "JetBrains Mono", monospace; }
-    .note-card p { color: var(--text-dim); margin: 0 0 10px; font-size: 0.95rem; }
-    .note-card a { color: var(--accent-2); }
-
-    @media (max-width: 720px) { .nav-links a { display: inline; font-size: 0.78rem; } .nav-links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; } }
-  </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <div class="bg-fx"></div>
-  <div class="grain"></div>
   <nav>
-    <div class="brand"><a href="index.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px"><span class="dot"></span>中野哲平</a></div>
-        <div class="nav-links">
-      <a href="index.html#about">About</a>
-      <a href="index.html#skills">Skills</a>
+    <a class="brand" href="index.html"><span class="dot"></span>中野哲平</a>
+    <button class="nav-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
       <a href="index.html#career">Career</a>
-      <a href="index.html#contact" class="nav-contact">お問い合わせ</a>
-      <a href="papers.html" class="nav-extra">論文</a>
-      <a href="notes.html" class="nav-extra">メモ</a>
-      <a href="blog.html" class="nav-extra">ブログ</a>
+      <a href="index.html#contact">お問い合わせ</a>
+      <a href="papers.html">論文</a>
+      <a href="blog.html">技術ブログ</a>
+      <a href="notes.html">メモ</a>
+      <a href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Zenn</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>
-  <div class="wrap">
 
+  <div class="wrap wrap-blog">
     <header class="page-hero">
-      <div class="kicker">// blog</div>
-      <h1>ブログ・外部投稿</h1>
-      <p class="lede">Zenn / note / Qiita などに書いた文章への入り口です。仕事の案件成果ではありません。</p>
-      <div class="callout-plain">文体が古いものや、まだ直していないものもあります。読んだ論文の短いメモは「メモ」ページに分けています。</div>
+      <div class="kicker">// tech blog</div>
+      <h1>技術ブログ</h1>
+      <p class="lede">実装メモや外部サービスの投稿一覧です。案件の成果物ではありません。</p>
     </header>
-    <section>
-      <div class="note-card">
-        <h3>Zenn</h3>
-        <div class="meta">技術メモ・記事</div>
-        <p>LLM や実装まわりの記事を置いています。</p>
-        <p><a href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">zenn.dev/nakano_teppei ↗</a></p>
-        <p><a href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">開発日記の一例 ↗</a></p>
-      </div>
-      <div class="note-card">
-        <h3>note</h3>
-        <div class="meta">ブログ</div>
-        <p>個人ブログです。</p>
-        <p><a href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">note.com/nakano_teppei1 ↗</a></p>
-      </div>
-      <div class="note-card">
-        <h3>Qiita</h3>
-        <div class="meta">技術記事</div>
-        <p>公開している技術記事です。</p>
-        <p><a href="https://qiita.com/teppei_nakano" target="_blank" rel="noopener">qiita.com/teppei_nakano ↗</a></p>
-      </div>
-      <div class="note-card">
-        <h3>関連ページ</h3>
-        <div class="meta">このサイト内</div>
-        <p><a href="notes.html">読んだもののメモ</a> · <a href="papers.html">自分が出した論文</a></p>
-      </div>
-    </section>
 
+    <p class="page-note">メインの投稿先は Zenn です。下のリンクから各プラットフォームへ飛べます。</p>
+
+    <div class="link-grid">
+      <a class="link-card" href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">
+        <strong>Zenn</strong>
+        <span>技術記事・実装メモのメイン置き場</span>
+      </a>
+      <a class="link-card" href="https://zenn.dev/nakano_teppei51/articles/cc4ec45fb6917f" target="_blank" rel="noopener">
+        <strong>開発日記（Zenn）</strong>
+        <span>作業ログの一例</span>
+      </a>
+      <a class="link-card" href="https://qiita.com/teppei_nakano" target="_blank" rel="noopener">
+        <strong>Qiita</strong>
+        <span>公開している技術記事</span>
+      </a>
+      <a class="link-card" href="https://note.com/nakano_teppei1" target="_blank" rel="noopener">
+        <strong>note</strong>
+        <span>個人ブログ</span>
+      </a>
+    </div>
+
+    <header class="page-hero" style="padding-top:48px;">
+      <div class="kicker">// recent on zenn</div>
+      <h1 style="font-size:1.35rem;">最近の記事</h1>
+    </header>
+
+    <div class="post-list">
+      <article class="post-item">
+        <div class="post-meta">Zenn</div>
+        <h2><a href="https://zenn.dev/nakano_teppei/articles/0f0b99d0c322d1" target="_blank" rel="noopener">Qwen3.5 を触ってみたメモ（サイズ差と量子化）</a></h2>
+        <p>手元でサイズ違いを回したときの所感。用途ごとに見るポイントだけ整理。</p>
+        <a class="more" href="https://zenn.dev/nakano_teppei/articles/0f0b99d0c322d1" target="_blank" rel="noopener">記事を読む →</a>
+      </article>
+      <article class="post-item">
+        <div class="post-meta">Zenn</div>
+        <h2><a href="https://zenn.dev/nakano_teppei/articles/cbeddedfbba8b1" target="_blank" rel="noopener">DeepSeek-V3.2 の公開情報メモ</a></h2>
+        <p>公開資料ベースの整理。長文・ツール利用まわりで気になった点。</p>
+        <a class="more" href="https://zenn.dev/nakano_teppei/articles/cbeddedfbba8b1" target="_blank" rel="noopener">記事を読む →</a>
+      </article>
+      <article class="post-item">
+        <div class="post-meta">Zenn</div>
+        <h2><a href="https://zenn.dev/nakano_teppei/articles/9db5348af0e6e3" target="_blank" rel="noopener">GPU 名称の覚え書き</a></h2>
+        <p>A100 / H100 / L40S など、調達や検証のときに見返す用。</p>
+        <a class="more" href="https://zenn.dev/nakano_teppei/articles/9db5348af0e6e3" target="_blank" rel="noopener">記事を読む →</a>
+      </article>
+      <article class="post-item">
+        <div class="post-meta">Zenn</div>
+        <h2><a href="https://zenn.dev/nakano_teppei/articles/219a7c733c2797" target="_blank" rel="noopener">ローカル LLM の並列化・スループットメモ</a></h2>
+        <p>GPU を遊ばせないための並列まわりのメモ。</p>
+        <a class="more" href="https://zenn.dev/nakano_teppei/articles/219a7c733c2797" target="_blank" rel="noopener">記事を読む →</a>
+      </article>
+    </div>
+
+    <p style="margin-top:28px;color:var(--text-dim);font-size:0.92rem;">
+      読んだ論文の短いメモは <a href="notes.html">メモ</a> へ。著者論文は <a href="papers.html">論文</a> へ。
+    </p>
   </div>
+
   <footer>
-    <div>© 2026 中野哲平 — Teppei Nakano</div>
-    <div class="meta">Last updated: 2026-11-03</div>
+    <div>© 2026 中野哲平</div>
+    <div class="meta">Last updated: 2026-11-06</div>
   </footer>
+  <script src="assets/nav.js"></script>
 </body>
 </html>
