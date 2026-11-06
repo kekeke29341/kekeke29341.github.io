@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Security testing by Teppei Nakano: web, cloud, and AI security reviews, LLM red teaming, and continuous validation planning.">
-  <title>Security Testing & AI Security | Teppei Nakano</title>
+  <meta name="description" content="A seven-day free security-testing trial with daily reports for authorized web, cloud, and AI assessments by Teppei Nakano.">
+  <title>7-Day Free Security Testing Trial | Teppei Nakano</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -48,8 +48,20 @@
     .demo-result li+li{margin-top:5px}
     .demo-result .demo-actions{margin-top:14px}
     .demo-result .demo-actions a{display:inline-flex;text-decoration:none}
+    .trial-banner{margin:18px 0 26px;padding:24px;background:linear-gradient(120deg,#eff6ff,#f0fdfa);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .trial-banner h2{margin:0 0 8px;font-size:1.35rem}
+    .trial-banner p{margin:0;color:var(--text-dim)}
+    .trial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+    .trial-card{padding:18px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .trial-card strong{display:block;margin-bottom:6px;color:var(--accent-2)}
+    .trial-card p{margin:0;color:var(--text-dim);font-size:.9rem}
+    .consent-list{display:grid;gap:12px;margin:16px 0}
+    .consent-item{display:flex;gap:10px;align-items:flex-start;color:var(--text-dim);font-size:.9rem}
+    .consent-item input{margin-top:5px;flex:none}
+    .required-label{color:#b91c1c;font-size:.78rem;font-weight:700}
+    .authorization-note{padding:16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;color:#7c2d12;font-size:.9rem}
     @media(max-width:800px){.research-grid{grid-template-columns:1fr}.demo-panel{grid-template-columns:1fr}}
-    @media(max-width:700px){.security-grid{grid-template-columns:1fr}}
+    @media(max-width:700px){.security-grid{grid-template-columns:1fr}.trial-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -62,7 +74,7 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract_en.html">AI contract work</a>
       <a href="ai-lecture_en.html">AI training</a>
-      <a href="security-audit_en.html">Security testing</a>
+      <a href="security-audit_en.html">7-day free trial</a>
       <a href="#evidence">Research</a>
       <a href="#demo">Demo</a>
       <a href="english_index.html#contact">Contact</a>
@@ -73,17 +85,31 @@
   <main class="wrap">
     <header class="services-hero">
       <span class="security-kicker">SECURITY VALIDATION / AI SECURITY</span>
-      <h1>Security testing for systems that keep changing.</h1>
+      <h1>Seven days of authorized testing.<br><span style="color:var(--accent);">A report every day.</span></h1>
       <p class="lede">
-        I help assess web, cloud, and AI risks and turn findings into practical improvements.
-        As an independent consultant, I can support scoping, authorized testing, reporting, and retesting.
+        I test agreed web, cloud, and AI assets using non-destructive methods and send a daily status and findings report.
+        After the free trial, paid continuation is available only after I provide the scope and price and you explicitly agree.
       </p>
       <div class="security-cta">
-        <a href="#inquiry" class="btn-submit">Discuss a security review</a>
+        <a href="#inquiry" class="btn-submit">Apply for the 7-day free trial</a>
         <a href="#demo" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">Try the demo</a>
       </div>
-      <p class="page-note">Active testing starts only after written authorization and agreement on targets, dates, methods, and stop conditions.</p>
+      <p class="page-note">Submitting the form does not authorize or start testing. Testing begins only after verifying authority and signing written rules of engagement covering scope, exclusions, and stop conditions.</p>
     </header>
+
+    <section class="security-section" aria-labelledby="trial-heading">
+      <div class="trial-banner">
+        <span class="security-kicker">7-DAY AUTHORIZED TRIAL</span>
+        <h2>Seven days free, with a daily report.</h2>
+        <p>We agree on the target and safeguards before starting, and testing begins only after written authorization. On day seven, you receive a summary and recommendations. Paid continuation requires a separate proposal and your explicit agreement.</p>
+      </div>
+      <div class="trial-grid">
+        <div class="trial-card"><strong>Before starting | Confirm scope and permission</strong><p>We verify authority and agree in writing on assets, dates, test intensity, exclusions, and emergency stop procedures.</p></div>
+        <div class="trial-card"><strong>Days 1–7 | Daily reports</strong><p>Non-destructive checks stay within the agreed scope. Each day’s report covers activity, observations, findings, and next steps.</p></div>
+        <div class="trial-card"><strong>After day 7 | You decide</strong><p>You receive a final report and remediation guidance. Any paid continuation requires a quoted scope, price, and separate agreement. No automatic billing or renewal.</p></div>
+      </div>
+      <p class="authorization-note"><strong>Trial safety limits:</strong> Unapproved third-party assets, denial-of-service or other service-disrupting tests, destructive actions, data exfiltration, and persistence are not included. They will not be performed without a separate risk review and written agreement.</p>
+    </section>
 
     <section id="services" class="security-section">
       <div class="sec-head"><h2>Ways I can help</h2><p>Services can be scoped individually to fit your environment and operational constraints.</p></div>
@@ -195,33 +221,34 @@
     </section>
 
     <section class="security-section">
-      <div class="sec-head"><h2>How an engagement works</h2></div>
+      <div class="sec-head"><h2>Permission is confirmed before testing begins</h2></div>
       <div class="security-grid">
-        <div class="security-step"><span class="num">1</span><div><h3>Discuss your goals</h3><p>We clarify the systems, information, and concerns in scope.</p></div></div>
-        <div class="security-step"><span class="num">2</span><div><h3>Agree on scope and safeguards</h3><p>Document targets, dates, methods, exclusions, stop conditions, and emergency contacts.</p></div></div>
-        <div class="security-step"><span class="num">3</span><div><h3>Test only with authorization</h3><p>Active testing begins only after written approval and stays within the agreed scope.</p></div></div>
-        <div class="security-step"><span class="num">4</span><div><h3>Prioritize and improve</h3><p>Review findings, remediation priorities, and options for retesting.</p></div></div>
+        <div class="security-step"><span class="num">1</span><div><h3>Apply and verify authority</h3><p>We confirm your organization and authority to request testing. No technical testing happens at this stage.</p></div></div>
+        <div class="security-step"><span class="num">2</span><div><h3>Define scope and safeguards</h3><p>Agree on assets, dates, permitted methods, exclusions, testing frequency, stop conditions, and contacts.</p></div></div>
+        <div class="security-step"><span class="num">3</span><div><h3>Sign written rules of engagement</h3><p>Verify authorization for the target and document the Rules of Engagement (ROE) before any active testing.</p></div></div>
+        <div class="security-step"><span class="num">4</span><div><h3>Test for 7 days and report daily</h3><p>Testing stays within the signed scope; daily reports summarize activity and observations.</p></div></div>
+        <div class="security-step"><span class="num">5</span><div><h3>Review results and decide</h3><p>Receive the final report on day seven. Paid continuation starts only after a separate agreement on scope and price.</p></div></div>
       </div>
     </section>
 
     <section class="security-section">
       <div class="security-callout">
-        <h2>Start with a conversation.</h2>
-        <p>You do not need a finalized scope or budget to get in touch. Fees are estimated after we discuss the targets, duration, and testing requirements.</p>
+        <h2>Apply for the seven-day free trial.</h2>
+        <p>Do not put target domains, IP addresses, URLs, credentials, or confidential data in the form. We will arrange a secure way to discuss target details after verifying your authority.</p>
       </div>
     </section>
 
     <section id="inquiry" class="security-section">
       <div class="contact-form">
-        <h2>Security review inquiry</h2>
-        <p class="form-lede">Please do not include credentials, confidential data, or sensitive technical details in this initial form.</p>
+        <h2>Trial application and authorization pre-check</h2>
+        <p class="form-lede">This is an application, not final authorization or a contract. No active testing, including scanning, begins until authority is verified and both parties sign written rules of engagement.</p>
         <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="[Security review] Website inquiry">
+          <input type="hidden" name="_subject" value="[7-day free trial application] Security testing">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks_en.html">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="type" value="Security review">
+          <input type="hidden" name="type" value="7-day free security-testing trial">
           <div class="form-grid">
             <div class="form-field">
               <label for="security-name">Name</label>
@@ -232,11 +259,15 @@
               <input id="security-email" name="email" type="email" required autocomplete="email">
             </div>
             <div class="form-field">
-              <label for="security-company">Company (optional)</label>
-              <input id="security-company" name="Company" type="text" autocomplete="organization">
+              <label for="security-company">Company or organization</label>
+              <input id="security-company" name="Company or organization" type="text" required autocomplete="organization">
             </div>
             <div class="form-field">
-              <label for="security-topic">Topic</label>
+              <label for="security-role">Your role</label>
+              <input id="security-role" name="Role" type="text" required placeholder="e.g., system owner or authorized delegate">
+            </div>
+            <div class="form-field">
+              <label for="security-topic">Area to assess</label>
               <select id="security-topic" name="Topic">
                 <option value="web-cloud">Web or cloud security review</option>
                 <option value="llm">LLM or AI-agent security</option>
@@ -245,14 +276,20 @@
               </select>
             </div>
             <div class="form-field full">
-              <label for="security-message">How can I help?</label>
-              <textarea id="security-message" name="Message" required placeholder="A high-level description of your concern and preferred timing. Please omit confidential information."></textarea>
+              <label for="security-message">Concern and preferred timing (no target identifiers)</label>
+              <textarea id="security-message" name="Concern and preferred timing" required placeholder="e.g., Review permissions for our internal AI assistant; hoping to start next month. Do not include domains, IPs, URLs, credentials, or personal data."></textarea>
             </div>
           </div>
+          <div class="consent-list">
+            <label class="consent-item"><input type="checkbox" name="Authority confirmation" value="Owner, administrator, or formally authorized applicant" required><span>I own or administer the system, or have been formally authorized to request testing. I will cooperate with the target-authorization verification process.<span class="required-label"> (Required)</span></span></label>
+            <label class="consent-item"><input type="checkbox" name="Start condition confirmation" value="Understands testing begins only after separate written agreement" required><span>I understand this application does not start testing. Testing begins only after both parties sign written terms covering targets, dates, methods, exclusions, and stop conditions.<span class="required-label"> (Required)</span></span></label>
+            <label class="consent-item"><input type="checkbox" name="Trial pricing confirmation" value="Understands post-trial paid work requires separate agreement" required><span>I understand the first seven days are free. Afterward, paid continuation requires a proposal with scope and price and my separate agreement. There is no automatic billing or renewal.<span class="required-label"> (Required)</span></span></label>
+          </div>
           <div class="form-actions">
-            <button class="btn-submit" type="submit">Send inquiry</button>
+            <button class="btn-submit" type="submit">Apply for the free trial</button>
             <a href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">Contact on LinkedIn</a>
           </div>
+          <p class="form-note">After reviewing your application, I will reply about authority, scope, and safeguards. Do not send target details through this form or by email before written agreement.</p>
         </form>
       </div>
     </section>

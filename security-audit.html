@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平によるセキュリティ検証。Web・クラウド・AIの診断、LLMレッドチーム、継続的な防御検証の設計を支援します。">
-  <title>セキュリティ検証・AIセキュリティ｜中野哲平</title>
+  <meta name="description" content="許可された対象を7日間検証し、毎日レポート。Web・クラウド・AIのペネトレーションテストを中野哲平が個人で提供します。">
+  <title>7日間無料・日次レポート付きセキュリティ検証｜中野哲平</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -48,6 +48,19 @@
     .demo-result li+li{margin-top:5px}
     .demo-result .demo-actions{margin-top:14px}
     .demo-result .demo-actions a{display:inline-flex;text-decoration:none}
+    .trial-banner{margin:18px 0 26px;padding:24px;background:linear-gradient(120deg,#eff6ff,#f0fdfa);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .trial-banner h2{margin:0 0 8px;font-size:1.35rem}
+    .trial-banner p{margin:0;color:var(--text-dim)}
+    .trial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+    .trial-card{padding:18px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius)}
+    .trial-card strong{display:block;margin-bottom:6px;color:var(--accent-2)}
+    .trial-card p{margin:0;color:var(--text-dim);font-size:.9rem}
+    .consent-list{display:grid;gap:12px;margin:16px 0}
+    .consent-item{display:flex;gap:10px;align-items:flex-start;color:var(--text-dim);font-size:.9rem}
+    .consent-item input{margin-top:5px;flex:none}
+    .required-label{color:#b91c1c;font-size:.78rem;font-weight:700}
+    .authorization-note{padding:16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;color:#7c2d12;font-size:.9rem}
+    @media(max-width:700px){.trial-grid{grid-template-columns:1fr}}
     @media(max-width:800px){.research-grid{grid-template-columns:1fr}.demo-panel{grid-template-columns:1fr}}
     @media(max-width:700px){.security-grid{grid-template-columns:1fr}}
   </style>
@@ -62,7 +75,7 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract.html">AI受託開発</a>
       <a href="ai-lecture.html">AI講義</a>
-      <a href="security-audit.html">セキュリティ検証</a>
+      <a href="security-audit.html">7日間無料検証</a>
       <a href="#evidence">調査結果</a>
       <a href="#demo">デモ</a>
       <a href="index.html#career">職務経歴</a>
@@ -74,17 +87,31 @@
   <main class="wrap">
     <header class="services-hero">
       <span class="security-kicker">SECURITY VALIDATION / AI SECURITY</span>
-      <h1>年に一度の診断で終わらせず、<br>変化し続ける守りを検証する。</h1>
+      <h1>許可された範囲を、7日間検証。<br><span style="color:var(--accent);">毎日レポートします。</span></h1>
       <p class="lede">
-        Web・クラウド・AIのリスクを、攻撃者の視点で評価し、改善につなげます。
-        個人として、目的整理から安全な検証計画、報告、修正後の確認まで一貫してご相談をお受けします。
+        Web・クラウド・AIの対象を事前に合意し、非破壊の検証を7日間実施。見つかった課題やその日の検証状況を毎日レポートします。
+        無料期間終了後は、有料継続の範囲と料金を提示し、別途同意をいただいた場合にのみ継続します。
       </p>
       <div class="security-cta">
-        <a href="#inquiry" class="btn-submit">セキュリティの相談をする</a>
+        <a href="#inquiry" class="btn-submit">7日間無料トライアルを申し込む</a>
         <a href="#demo" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">デモを見る</a>
       </div>
-      <p class="page-note">能動的な検証は、対象・期間・手法を合意し、書面で許可をいただいた後に限って実施します。</p>
+      <p class="page-note">フォーム送信だけではテストを開始しません。対象の権限確認と、実施範囲・除外事項・停止条件を定めた書面合意後に開始します。</p>
     </header>
+
+    <section class="security-section" aria-labelledby="trial-heading">
+      <div class="trial-banner">
+        <span class="security-kicker">7-DAY AUTHORIZED TRIAL</span>
+        <h2 id="trial-heading">最初の7日間は無料。検証状況を毎日お届け。</h2>
+        <p>申込み後に対象・実施条件をすり合わせ、正式な許可書を締結してから開始します。7日目に結果と改善案をまとめ、有料での継続は料金提示後の明示的な同意がある場合のみです。</p>
+      </div>
+      <div class="trial-grid">
+        <div class="trial-card"><strong>開始前｜対象と許可を確認</strong><p>所有・管理権限、対象資産、期間、検証強度、除外対象、緊急停止手順を書面で合意します。</p></div>
+        <div class="trial-card"><strong>1〜7日目｜毎日レポート</strong><p>合意した範囲の非破壊検証を実施し、実施内容・確認事項・発見事項・次の対応を日次で共有します。</p></div>
+        <div class="trial-card"><strong>7日目以降｜結果を見て選択</strong><p>最終報告と改善案を提出。有料継続の範囲・料金を提示し、別途契約後に継続します。自動課金・自動延長はありません。</p></div>
+      </div>
+      <p class="authorization-note"><strong>安全上の範囲：</strong>未承認の第三者資産、サービス停止を目的とする負荷試験、破壊的操作、データ持ち出し、永続化は標準トライアルに含みません。必要な場合も、別途のリスク審査と書面合意なしには実施しません。</p>
+    </section>
 
     <section id="services" class="security-section">
       <div class="sec-head">
@@ -202,34 +229,35 @@
 
     <section class="security-section">
       <div class="sec-head">
-        <h2>ご相談から改善確認まで</h2>
+        <h2>申込みから開始まで、許可を段階的に確認</h2>
       </div>
       <div class="security-grid">
-        <div class="security-step"><span class="num">1</span><div><h3>目的と課題を確認</h3><p>対象システム、守りたい情報、いま困っていることを伺います。</p></div></div>
-        <div class="security-step"><span class="num">2</span><div><h3>対象と安全ルールを合意</h3><p>資産・期間・手法・除外対象・停止条件・緊急連絡先を明確にします。</p></div></div>
-        <div class="security-step"><span class="num">3</span><div><h3>許可された範囲で検証</h3><p>書面合意後に、合意した範囲だけを対象に検証します。</p></div></div>
-        <div class="security-step"><span class="num">4</span><div><h3>結果を改善につなげる</h3><p>リスクと優先順位を報告し、修正後の確認方法もご提案します。</p></div></div>
+        <div class="security-step"><span class="num">1</span><div><h3>申込み・権限確認</h3><p>申請者の所属と、対象を検証する権限があることを確認します。ここでは技術的な検証は行いません。</p></div></div>
+        <div class="security-step"><span class="num">2</span><div><h3>対象と実施条件を確定</h3><p>資産、期間、許可する検証、除外事項、頻度、停止条件、連絡体制を定めます。</p></div></div>
+        <div class="security-step"><span class="num">3</span><div><h3>書面の許可・ルールに合意</h3><p>対象の権限を確認し、Rules of Engagement（実施許可書）を双方で締結します。</p></div></div>
+        <div class="security-step"><span class="num">4</span><div><h3>7日間の検証と日次報告</h3><p>合意した条件の範囲でのみ検証し、毎日、実施状況と所見を報告します。</p></div></div>
+        <div class="security-step"><span class="num">5</span><div><h3>最終報告・継続判断</h3><p>7日目にまとめを提出。有料継続は条件と料金を提示し、別途合意した場合だけ開始します。</p></div></div>
       </div>
     </section>
 
     <section class="security-section">
       <div class="security-callout">
-        <h2>まずは課題の整理からご相談ください。</h2>
-        <p>対象やご予算が固まっていなくても構いません。内容を伺い、対応範囲と進め方をご案内します。料金は対象・期間・検証内容を確認したうえで個別にお見積もりします。</p>
+        <h2>7日間の無料検証を申し込む</h2>
+        <p>申込みフォームには、対象のドメイン・IPアドレス・認証情報などを書かないでください。対象の詳細は、権限確認後に安全な方法で共有いただきます。</p>
       </div>
     </section>
 
     <section id="inquiry" class="security-section">
       <div class="contact-form">
-        <h2>セキュリティ検証のご相談</h2>
-        <p class="form-lede">内容を確認のうえ返信します。機密情報や認証情報は、初回フォームには記載しないでください。</p>
+        <h2>無料トライアル申込み・検証許可の事前確認</h2>
+        <p class="form-lede">以下は事前申込みです。送信だけで攻撃許可や契約が成立するものではなく、個別の書面合意と対象権限の確認が完了するまで、スキャンを含む能動的な検証は開始しません。</p>
         <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="【セキュリティ検証】サイトからのお問い合わせ">
+          <input type="hidden" name="_subject" value="【7日間無料トライアル申込み】セキュリティ検証">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks.html">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="種別" value="セキュリティ検証">
+          <input type="hidden" name="種別" value="7日間無料セキュリティ検証トライアル">
           <div class="form-grid">
             <div class="form-field">
               <label for="security-name">お名前</label>
@@ -240,11 +268,15 @@
               <input id="security-email" name="email" type="email" required autocomplete="email">
             </div>
             <div class="form-field">
-              <label for="security-company">会社名（任意）</label>
-              <input id="security-company" name="会社名" type="text" autocomplete="organization">
+              <label for="security-company">会社・組織名</label>
+              <input id="security-company" name="会社・組織名" type="text" required autocomplete="organization">
             </div>
             <div class="form-field">
-              <label for="security-topic">相談したい内容</label>
+              <label for="security-role">申請者の立場</label>
+              <input id="security-role" name="役職・立場" type="text" required placeholder="例：システム管理者、委任を受けた担当者">
+            </div>
+            <div class="form-field">
+              <label for="security-topic">検証したい領域</label>
               <select id="security-topic" name="相談種別">
                 <option value="web-cloud">Web・クラウドのセキュリティ診断</option>
                 <option value="llm">LLM・AIエージェントの安全性評価</option>
@@ -253,15 +285,20 @@
               </select>
             </div>
             <div class="form-field full">
-              <label for="security-message">ご相談内容</label>
-              <textarea id="security-message" name="相談内容" required placeholder="課題や対象の概要、希望時期などをご記入ください。機密情報は記載しないでください。"></textarea>
+              <label for="security-message">課題・希望時期（対象の識別情報は記入しないでください）</label>
+              <textarea id="security-message" name="課題・希望時期" required placeholder="例：社内AIの権限設計を確認したい／来月開始を希望。ドメイン、IP、URL、認証情報、個人情報は記載しないでください。"></textarea>
             </div>
           </div>
+          <div class="consent-list">
+            <label class="consent-item"><input type="checkbox" name="権限確認" value="対象の所有者または正式な委任を受けた申請者" required><span>私は対象システムの所有者、管理者、または正式な委任を受けた申請者です。対象の権限を確認する手続きに協力します。<span class="required-label">（必須）</span></span></label>
+            <label class="consent-item"><input type="checkbox" name="開始条件の確認" value="個別の書面合意後に開始することを理解した" required><span>この申込みだけで検証が始まらないことを理解しました。対象・期間・手法・除外事項・停止条件を定めた書面に双方が合意した後にのみ開始します。<span class="required-label">（必須）</span></span></label>
+            <label class="consent-item"><input type="checkbox" name="料金条件の確認" value="無料7日後の有料継続は別途同意する" required><span>最初の7日間は無料で、8日目以降の継続は料金と条件の提示を受け、別途同意した場合のみ有料になることを理解しました。自動課金・自動延長はありません。<span class="required-label">（必須）</span></span></label>
+          </div>
           <div class="form-actions">
-            <button class="btn-submit" type="submit">相談を送信する</button>
+            <button class="btn-submit" type="submit">無料トライアルを申し込む</button>
             <a href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">LinkedInで連絡</a>
           </div>
-          <p class="form-note">送信後、確認画面に移動します。初回の送信時はフォームサービス側の確認が必要な場合があります。</p>
+          <p class="form-note">申込みを確認後、権限・対象範囲・実施条件の確認について返信します。対象の詳細は、書面合意前にこのフォームやメールで送らないでください。</p>
         </form>
       </div>
     </section>
