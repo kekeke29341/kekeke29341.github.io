@@ -251,17 +251,16 @@
       <div class="contact-form">
         <h2>無料トライアル申込み・検証許可の事前確認</h2>
         <p class="form-lede">以下は事前申込みです。送信だけで攻撃許可や契約が成立するものではなく、個別の書面合意と対象権限の確認が完了するまで、スキャンを含む能動的な検証は開始しません。</p>
-        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="【7日間無料トライアル申込み】セキュリティ検証">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks.html">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="種別" value="7日間無料セキュリティ検証トライアル">
+        <form class="js-contact-form" data-next="thanks.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="【7日間無料トライアル申込み】セキュリティ検証">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="7日間無料セキュリティ検証トライアル">
           <div class="form-grid">
             <div class="form-field">
               <label for="security-name">お名前</label>
-              <input id="security-name" name="お名前" type="text" required autocomplete="name">
+              <input id="security-name" name="name" type="text" required autocomplete="name">
             </div>
             <div class="form-field">
               <label for="security-email">メールアドレス</label>
@@ -269,15 +268,15 @@
             </div>
             <div class="form-field">
               <label for="security-company">会社・組織名</label>
-              <input id="security-company" name="会社・組織名" type="text" required autocomplete="organization">
+              <input id="security-company" name="company" type="text" required autocomplete="organization">
             </div>
             <div class="form-field">
               <label for="security-role">申請者の立場</label>
-              <input id="security-role" name="役職・立場" type="text" required placeholder="例：システム管理者、委任を受けた担当者">
+              <input id="security-role" name="role" type="text" required placeholder="例：システム管理者、委任を受けた担当者">
             </div>
             <div class="form-field">
               <label for="security-topic">検証したい領域</label>
-              <select id="security-topic" name="相談種別">
+              <select id="security-topic" name="topic">
                 <option value="web-cloud">Web・クラウドのセキュリティ診断</option>
                 <option value="llm">LLM・AIエージェントの安全性評価</option>
                 <option value="continuous">継続的な防御検証の設計</option>
@@ -309,6 +308,7 @@
     <div class="meta">Last updated: 2026-11-06</div>
   </footer>
   <script src="assets/nav.js"></script>
+  <script src="assets/contact-form.js"></script>
   <script>
     const demoScenarios = {
       agent: {

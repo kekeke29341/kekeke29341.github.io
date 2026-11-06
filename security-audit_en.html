@@ -242,17 +242,16 @@
       <div class="contact-form">
         <h2>Trial application and authorization pre-check</h2>
         <p class="form-lede">This is an application, not final authorization or a contract. No active testing, including scanning, begins until authority is verified and both parties sign written rules of engagement.</p>
-        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="[7-day free trial application] Security testing">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks_en.html">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="type" value="7-day free security-testing trial">
+        <form class="js-contact-form" data-next="thanks_en.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="[7-day free trial application] Security testing">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks_en.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="7-day free security-testing trial">
           <div class="form-grid">
             <div class="form-field">
               <label for="security-name">Name</label>
-              <input id="security-name" name="Name" type="text" required autocomplete="name">
+              <input id="security-name" name="name" type="text" required autocomplete="name">
             </div>
             <div class="form-field">
               <label for="security-email">Email</label>
@@ -260,15 +259,15 @@
             </div>
             <div class="form-field">
               <label for="security-company">Company or organization</label>
-              <input id="security-company" name="Company or organization" type="text" required autocomplete="organization">
+              <input id="security-company" name="company" type="text" required autocomplete="organization">
             </div>
             <div class="form-field">
               <label for="security-role">Your role</label>
-              <input id="security-role" name="Role" type="text" required placeholder="e.g., system owner or authorized delegate">
+              <input id="security-role" name="role" type="text" required placeholder="e.g., system owner or authorized delegate">
             </div>
             <div class="form-field">
               <label for="security-topic">Area to assess</label>
-              <select id="security-topic" name="Topic">
+              <select id="security-topic" name="topic">
                 <option value="web-cloud">Web or cloud security review</option>
                 <option value="llm">LLM or AI-agent security</option>
                 <option value="continuous">Continuous validation planning</option>
@@ -300,6 +299,7 @@
     <div class="meta">Last updated: 2026-11-06</div>
   </footer>
   <script src="assets/nav.js"></script>
+  <script src="assets/contact-form.js"></script>
   <script>
     const demoScenarios = {
       agent: {

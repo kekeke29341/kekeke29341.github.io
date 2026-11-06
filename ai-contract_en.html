@@ -66,13 +66,12 @@
       <div class="contact-form">
         <h2>Inquiry</h2>
         <p class="form-lede">Send a message about AI contract work. I will reply after reviewing your message.</p>
-        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="[AI contract] Inquiry from site">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks_en.html">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="type" value="AI contract development">
+        <form class="js-contact-form" data-next="thanks_en.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="[AI contract] Inquiry from site">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks_en.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="AI contract development">
           <div class="form-grid">
             <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
             <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
@@ -89,5 +88,6 @@
   </div>
   <footer><div>© 2026 Teppei Nakano</div><div class="meta">Last updated: 2026-11-06</div></footer>
   <script src="assets/nav.js"></script>
+  <script src="assets/contact-form.js"></script>
 </body>
 </html>

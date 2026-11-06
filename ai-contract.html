@@ -136,17 +136,16 @@
       <div class="contact-form">
         <h2>お問い合わせ</h2>
         <p class="form-lede">AI受託開発のご相談は、下のフォームから送れます。内容を確認のうえ返信します。</p>
-        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="【AI受託開発】サイトからのお問い合わせ">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks.html">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="種別" value="AI受託開発">
+        <form class="js-contact-form" data-next="thanks.html" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
+          <input type="hidden" name="subject" value="【AI受託開発】サイトからのお問い合わせ">
+          <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="hidden" name="service" value="AI受託開発">
           <div class="form-grid">
             <div class="form-field">
               <label for="name">お名前</label>
-              <input id="name" name="お名前" type="text" required autocomplete="name">
+              <input id="name" name="name" type="text" required autocomplete="name">
             </div>
             <div class="form-field">
               <label for="email">メールアドレス</label>
@@ -154,22 +153,22 @@
             </div>
             <div class="form-field">
               <label for="company">会社名（任意）</label>
-              <input id="company" name="会社名" type="text" autocomplete="organization">
+              <input id="company" name="company" type="text" autocomplete="organization">
             </div>
             <div class="form-field">
               <label for="budget">ご希望の時期（任意）</label>
-              <input id="budget" name="希望時期" type="text" placeholder="例：来月から / 相談して決めたい">
+              <input id="budget" name="timing" type="text" placeholder="例：来月から / 相談して決めたい">
             </div>
             <div class="form-field full">
               <label for="message">ご相談内容</label>
-              <textarea id="message" name="相談内容" required placeholder="やりたいこと、いま困っていること、希望開始時期"></textarea>
+              <textarea id="message" name="message" required placeholder="やりたいこと、いま困っていること、希望開始時期"></textarea>
             </div>
           </div>
           <div class="form-actions">
             <button class="btn-submit" type="submit">送信する</button>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">LinkedInでも連絡</a>
           </div>
-          <p class="form-note">送信後、確認用の画面に移動します。届かない場合は LinkedIn か Facebook から連絡してください。</p>
+          <p class="form-note">届かない場合は LinkedIn か Facebook から連絡してください。</p>
         </form>
       </div>
     </section>
@@ -180,5 +179,6 @@
     <div class="meta">Last updated: 2026-11-06</div>
   </footer>
   <script src="assets/nav.js"></script>
+  <script src="assets/contact-form.js"></script>
 </body>
 </html>
