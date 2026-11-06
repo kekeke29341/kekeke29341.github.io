@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平 — AI開発まわりの仕事。お問い合わせは LinkedIn / Facebook から。">
+  <meta name="description" content="中野哲平 — AI受託開発・AI講義・セキュリティ診断（準備中）。">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
   <title>中野哲平</title>
@@ -176,7 +176,65 @@
       font-size: 1.02rem;
       max-width: 42em;
     }
-    .intro .lede:last-of-type { margin-bottom: 26px; }
+    .intro .lede:last-of-type { margin-bottom: 18px; }
+    .offer-block { margin: 28px 0 8px; }
+    .offer-block .offer-title {
+      margin: 0 0 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--accent-2);
+      text-transform: uppercase;
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 800px) {
+      .offer-grid { grid-template-columns: 1fr; }
+    }
+    .offer-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 22px 20px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      min-height: 100%;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .offer-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+      text-decoration: none;
+    }
+    .offer-card h2 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 800;
+      color: var(--text);
+    }
+    .offer-card p {
+      margin: 0;
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      flex: 1;
+    }
+    .offer-card .offer-go {
+      margin-top: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+    .offer-card.tone-blue { border-top: 3px solid var(--accent); }
+    .offer-card.tone-teal { border-top: 3px solid var(--accent-2); }
+    .offer-card.tone-warm { border-top: 3px solid var(--accent-warm); }
+    .offer-card.is-soon .offer-go { color: var(--accent-warm); }
     .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex;
@@ -491,14 +549,14 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="site-nav">
-      <a href="#about">プロフィール</a>
-      <a href="#work">仕事内容</a>
+      <a href="ai-contract.html">AI受託開発</a>
+      <a href="ai-lecture.html">AI講義</a>
+      <a href="security-audit.html">セキュリティ診断</a>
       <a href="#career">職務経歴</a>
       <a href="#contact">お問い合わせ</a>
       <a href="papers.html">論文</a>
       <a href="blog.html">技術ブログ</a>
       <a href="notes.html">メモ</a>
-      <a href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Zenn</a>
       <a href="english_index.html" class="lang">EN</a>
     </div>
   </nav>
@@ -506,16 +564,37 @@
   <div class="wrap">
     <header class="intro">
       <h1>中野哲平</h1>
-      <p class="tagline">AI開発まわりの仕事をしています。</p>
+      <p class="tagline">生成AIの実装と講義をしています。</p>
+
+      <div class="offer-block" id="services">
+        <p class="offer-title">頼める仕事</p>
+        <div class="offer-grid">
+          <a class="offer-card tone-blue" href="ai-contract.html">
+            <h2>AI受託開発</h2>
+            <p>生成AIの実装を、要件整理から本番投入まで請け負います。</p>
+            <span class="offer-go">詳しく見る →</span>
+          </a>
+          <a class="offer-card tone-teal" href="ai-lecture.html">
+            <h2>AI講義</h2>
+            <p>夜間90分の現場向け講義。使い方から業務への当てはめまで。</p>
+            <span class="offer-go">詳しく見る →</span>
+          </a>
+          <a class="offer-card tone-warm is-soon" href="security-audit.html">
+            <h2>セキュリティ診断</h2>
+            <p>サービスの内容はこれから用意します。</p>
+            <span class="offer-go">準備中 →</span>
+          </a>
+        </div>
+      </div>
+
       <p class="lede">
-        一人法人の代表として、企業案件から自分のプロダクトまで、幅広く実装しています。
-        生成AI（LLM・文書AI・Azure・閉域網LLM・研修）に加え、Ruby on Rails の Web アプリや、React / React Native のフロントエンドも日常的に書いています。
+        一人で法人を運営し、企業の案件と自分のプロダクトの両方を実装しています。
+        生成AIの導入、社内向けの仕組み、Ruby on Rails の Web アプリ、スマホ／Webの画面開発を担当しています。
       </p>
       <p class="lede">
-        手元の開発を見ると、帳票PDFの構造化抽出、Teams 議事録の Azure 本番化、RAG／ファインチューニング基盤、
-        Rails のサービス開発（物販・求人・検索・クリプト系など）、マッチングアプリ、ラボ／バイオ系の UI、
-        ダイナミックプライシングや取引監視ツール、生成AI研修資料まで並んでいます。
-        詳細は下に整理しています。お問い合わせは LinkedIn か Facebook からお願いします。
+        直近の実績には、帳票PDFの項目抽出、Teams 会議の自動議事録、社内文書検索、
+        Rails の物販・求人・検索サービス、マッチングアプリ、料金最適化、取引監視、生成AI研修の資料があります。
+        詳細は下にあります。
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">お問い合わせ</a>
@@ -529,27 +608,27 @@
       </div>
       <div class="prose">
         <p>
-          慶應義塾大学医学部を卒業後、東京大学医学系研究科で医療×機械学習の研究に携わりました。
-          その後は受託・客先常駐に近い形で、生成AI・機械学習の実装を続けています。
-          いまは一人法人を運営しつつ、各社のプロダクト開発や社内導入の現場に入ります。
+          慶應義塾大学医学部を卒業後、東京大学医学系研究科で医療と機械学習の研究に携わりました。
+          その後は企業案件で生成AI・機械学習の実装を続けています。
+          いまは法人の代表として、各社のプロダクト開発と社内導入を担当しています。
         </p>
         <p>
           得意な土台のひとつが <strong>Ruby on Rails</strong> です。
-          決済なしのクリエイター物販、求人・検索、クリプト／NFT まわりなど、複数の Rails サービスを設計・実装・Fly.io 等へのデプロイまで手がけてきました。
-          並行して、帳票PDF解析（VLM／ゲート設計）、Teams 議事録の Azure 本番構成、RAG／ファインチューニング、
-          React・Expo のマッチングアプリ、ラボ向けフロント、価格最適化や取引監視の実験コードなども開発しています。
+          クリエイター向け物販、求人、検索、暗号資産関連の Web サービスを、設計から公開まで担当してきました。
+          並行して、帳票PDFの読み取り、Teams 議事録の Azure 本番化、社内向け生成AI、マッチングアプリ、
+          ラボ向け画面、料金最適化、取引監視の試作を開発しています。
         </p>
         <p>
-          仕事の進め方としては、要件の整理から設計・実装・レビュー・本番投入までを通して担当することが多いです。
-          PoCだけで終わらせず、評価・権限・運用・コストまで含めて「現場で使える形」に落とすところを意識しています。
+          要件の整理から設計・実装・レビュー・本番投入まで通して担当します。
+          試作で止めず、精度確認・権限・運用・費用まで含めて本番に載せます。
         </p>
         <p>
-          数字や契約上の正式な正本は職務経歴書側です。このページは公開用の要約です。
-          仕事のご相談・ご質問は
+          数値の正本は職務経歴書です。このページは公開用の要約です。
+          仕事の相談は
           <a href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener">LinkedIn</a>
           か
           <a href="https://www.facebook.com/dcdct/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
-          からお願いします。
+          、または各サービスページのフォームからお願いします。
         </p>
       </div>
     </section>
@@ -557,76 +636,76 @@
     <section id="work">
       <div class="sec-head">
         <h2>いま手がけている仕事の例</h2>
-        <p>肩書きで区切るより、実際にPC上で進めているテーマの方がわかりやすいので、得意分野と直近の実務を並べています。</p>
+        <p>得意分野と直近の実務です。</p>
       </div>
       <div class="info-list">
         <div class="info-item">
           <h3>Ruby on Rails</h3>
           <div>
-            <p>Webサービスの設計・実装・運用が得意です。物販・求人・検索・クリプト／NFT など、複数の Rails アプリを Hotwire（Turbo / Stimulus）や Devise、S3、PostgreSQL、Fly.io デプロイまで含めて手がけています。</p>
+            <p>Webサービスの設計・実装・公開が得意です。物販、求人、検索、暗号資産関連のサービスで、ログイン、ファイル保存、データベース、本番公開まで担当してきました。</p>
             <div class="tags">
-              <span class="tag">Ruby on Rails 7</span><span class="tag">Hotwire</span>
-              <span class="tag">PostgreSQL</span><span class="tag">Fly.io / S3</span>
+              <span class="tag">Ruby on Rails</span><span class="tag">PostgreSQL</span>
+              <span class="tag">Webアプリ</span><span class="tag">本番公開</span>
             </div>
           </div>
         </div>
         <div class="info-item">
-          <h3>生成AIの本番化</h3>
+          <h3>生成AIを本番で使える形にする</h3>
           <div>
-            <p>PoCで止めず、機能フラグ付きの投入、サービスAPI化、情シスが承認できる本番構成まで進めます。AI駆動開発の推進支援もします。</p>
+            <p>試作で止めず、製品への組み込み、他システムから呼べるAPI、情報システム部門が承認できる本番構成まで進めます。開発手順の整備も支援します。</p>
             <div class="tags">
-              <span class="tag">LLM / VLM</span><span class="tag">評価ゲート</span>
-              <span class="tag">製品組み込み</span><span class="tag">機能フラグ</span>
+              <span class="tag">生成AI</span><span class="tag">製品組み込み</span>
+              <span class="tag">本番運用</span><span class="tag">評価・検証</span>
             </div>
           </div>
         </div>
         <div class="info-item">
-          <h3>文書AI × VLM / PDF解析</h3>
+          <h3>帳票・PDFの自動読み取り</h3>
           <div>
-            <p>帳票判定、様式ルーター、Blueprint割当、Parsing 共通処理。検出率と費用を両立するハイブリッド設計です。</p>
+            <p>帳票かどうかを判定し、どの様式かを見分け、必要な項目を抜き出します。精度と費用の両方を見ながら、共通処理として使える形にまとめます。</p>
             <div class="tags">
-              <span class="tag">VLM Router</span><span class="tag">帳票抽出</span>
-              <span class="tag">Computer Vision</span><span class="tag">評価コーパス</span>
+              <span class="tag">帳票PDF</span><span class="tag">項目抽出</span>
+              <span class="tag">画像認識</span><span class="tag">精度評価</span>
             </div>
           </div>
         </div>
         <div class="info-item">
           <h3>Azure 上の生成AI</h3>
           <div>
-            <p>Teams 議事録など、Bicep / Logic Apps / Managed Identity / Azure OpenAI。大企業テナント向けの本番展開です。</p>
+            <p>Microsoft Azure 上で動く社内向け生成AI（Teams 議事録を含む）を、大企業のルールに合う本番構成で組み立てます。</p>
             <div class="tags">
-              <span class="tag">Bicep</span><span class="tag">MSI / RBAC</span>
-              <span class="tag">Key Vault</span><span class="tag">Azure OpenAI</span>
+              <span class="tag">Azure</span><span class="tag">Teams</span>
+              <span class="tag">議事録</span><span class="tag">権限設計</span>
             </div>
           </div>
         </div>
         <div class="info-item">
-          <h3>プライベート / オンプレLLM · RAG</h3>
+          <h3>社内専用の生成AI</h3>
           <div>
-            <p>閉域網、量子化、SFT／DPO、ACL付きRAG。外部API送信ゼロの社内LLM基盤や、ファインチューニング／評価の実験基盤も作ります。</p>
+            <p>インターネットに出さない社内ネットワーク上で動く生成AIや、社内文書を検索して答える仕組みを作ります。データを外に送らずに使えることが前提です。</p>
             <div class="tags">
-              <span class="tag">vLLM</span><span class="tag">SFT / DPO</span>
-              <span class="tag">RAG</span><span class="tag">Milvus</span>
+              <span class="tag">社内専用AI</span><span class="tag">文書検索</span>
+              <span class="tag">社内サーバー</span><span class="tag">追加学習</span>
             </div>
           </div>
         </div>
         <div class="info-item">
-          <h3>Web / モバイルプロダクト</h3>
+          <h3>Web / スマホの画面</h3>
           <div>
-            <p>React・Vite・Expo（React Native）でのフロント実装もします。マッチング、手順アプリ、会社サイト、PWA など、プロダクト側の画面をまとめて作ることが多いです。</p>
+            <p>Webとスマホアプリの画面を作ります。マッチング、手順アプリ、会社サイトのUIを担当します。</p>
             <div class="tags">
-              <span class="tag">React</span><span class="tag">Vite</span>
-              <span class="tag">Expo</span><span class="tag">Next.js / PWA</span>
+              <span class="tag">React</span><span class="tag">スマホアプリ</span>
+              <span class="tag">Webフロント</span><span class="tag">会社サイト</span>
             </div>
           </div>
         </div>
         <div class="info-item">
           <h3>技術リード / 講師</h3>
           <div>
-            <p>混成チームでの設計主導と、現場向け生成AI研修（Prompt / RAG / ローカルLLM / AI駆動開発）も担当します。</p>
+            <p>複数社が参加するチームで設計を主導し、現場向けの生成AI研修（使い方・社内文書の活用・社内専用モデル・AIを使った開発）を担当します。</p>
             <div class="tags">
-              <span class="tag">分割PR</span><span class="tag">AI駆動開発</span>
-              <span class="tag">研修講師</span><span class="tag">Cursor</span>
+              <span class="tag">設計主導</span><span class="tag">レビュー</span>
+              <span class="tag">研修講師</span><span class="tag">現場導入</span>
             </div>
           </div>
         </div>
@@ -650,21 +729,166 @@
               </div>
               <h3>ネットワーク・インフラ向け生成AI研修（講師）</h3>
               <p class="tl-org">ActiveIT 第4ターム · 90分 × 8回</p>
-              <p class="tl-blurb">ネットワーク設計・運用メンバー向けに、LLM基礎から Prompt / RAG / AI駆動開発 / ローカルLLMまで実演中心で担当。</p>
+              <p class="tl-blurb">ネットワーク設計・運用のメンバー向けに、生成AIの基礎から、指示の出し方、社内文書の活用、AIを使った開発、社内専用モデルまで、実演中心で担当。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li><strong>テーマ：</strong>ネットワーク・インフラ業務における生成AI活用と、AI駆動開発・ローカルLLMの基礎。</li>
-                <li><strong>Day1–2：</strong>LLMの仕組み・Attention、Prompt Engineering（ログ解析・Ansible / Terraformレビュー題材）。</li>
-                <li><strong>Day3–4：</strong>運用支援RAG、Codex系によるAI駆動開発（調査→計画→差分→承認境界）。</li>
-                <li><strong>Day5–6：</strong>構成・手順書のコンテキスト整備、MCP / Subagents / Skills の使い分け。</li>
-                <li><strong>Day7–8：</strong>ローカルLLMの実行・量子化・業務当てはめ。現場制約では講師実演を基本とする方針。</li>
+                <li><strong>テーマ：</strong>ネットワーク・インフラ業務での生成AIの使い方と、AIを使った開発・社内専用モデルの基礎。</li>
+                <li><strong>Day1–2：</strong>生成AIの仕組み、上手な指示の出し方（ログ解析や設定ファイルのレビュー題材）。</li>
+                <li><strong>Day3–4：</strong>運用向けの文書検索、AIを使った開発の進め方（調べる→計画→差分→人が承認する境界）。</li>
+                <li><strong>Day5–6：</strong>手順書や構成情報の整え方、ツールの使い分け。</li>
+                <li><strong>Day7–8：</strong>社内専用モデルの動かし方と業務への当てはめ。現場の制約では講師の実演を基本とする方針。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">講師実演中心</span>
-                <span class="rc">Copilot Business 前提</span>
-                <span class="rc">業務適用判断まで</span>
+                <span class="rc">Microsoft Copilot 前提</span>
+                <span class="rc">業務への当てはめまで</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
+          <details class="tl-card current">
+            <summary>
+              <div class="tl-meta">
+                <span class="tl-period">2026.07 – 現在</span>
+                <span class="tl-badge now">進行中</span>
+              </div>
+              <h3>企業向け AI駆動開発の推進支援</h3>
+              <p class="tl-org">クライアント企業向け · Linear / GitHub を軸にした開発フロー改善</p>
+              <p class="tl-blurb">Claude でコードは書けるが組織の生産性に繋がっていない企業向けに、開発フロー全体へAIを組み込む推進素案と調査を担当。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li>現状診断、ギャップ分析、推進素案（提出用インフォグラフィック）を作成。</li>
+                <li>外部調査（他社事例・公式ドキュメント）と社内資料の突合で、導入論点を整理。</li>
+                <li>機械的な関門チェックの試作など、開発プロセスへの組み込み案を提示。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">推進素案</span>
+                <span class="rc">現状診断</span>
+                <span class="rc">フロー設計</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
+          <details class="tl-card">
+            <summary>
+              <div class="tl-meta"><span class="tl-period">2026.03 – 2026.10</span></div>
+              <h3>HyperEVM 向け代理 LP / DeFi フロント</h3>
+              <p class="tl-org">Hyperpool（Project X）· スマートコントラクトと Next.js</p>
+              <p class="tl-blurb">HyperEVM 上の代理 LP、自動リバランス、ブリッジ UI を含むモノレポを設計・実装。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li>代理 LP と keeper によるリバランス、Cashdrop / ブリッジ連携の UI を実装。</li>
+                <li>ローカル開発（Anvil）、コントラクト試験、フロントの型チェックまで一式を整備。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">HyperEVM</span>
+                <span class="rc">Next.js</span>
+                <span class="rc">スマートコントラクト</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
+          <details class="tl-card">
+            <summary>
+              <div class="tl-meta"><span class="tl-period">2025.04 – 2026.10</span></div>
+              <h3>ゴルフ場の価格・需要分析基盤</h3>
+              <p class="tl-org">楽天GORA 等の公開データ · 需要予測・変動料金・類似検索</p>
+              <p class="tl-blurb">ゴルフ場の価格・空き枠の収集、需要予測、変動料金、類似コース検索を一連のシステムとして開発。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li>公開ページからの価格・空き枠の日次収集（向こう3ヶ月分）。</li>
+                <li>需要予測と変動料金のシミュレーション、効果の評価モジュール。</li>
+                <li>全国コースの類似検索（数値特徴とテキスト埋め込みの組み合わせ）。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">需要予測</span>
+                <span class="rc">変動料金</span>
+                <span class="rc">類似検索</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
+          <details class="tl-card">
+            <summary>
+              <div class="tl-meta"><span class="tl-period">2025.11 – 2026.05</span></div>
+              <h3>建設現場向け生成AI（現場AI）</h3>
+              <p class="tl-org">音声報告・写真による危険予知・社内文書検索</p>
+              <p class="tl-blurb">建設現場向けに、音声からの報告書作成、写真による危険予知、社内ナレッジ検索を提供するプラットフォームを設計・実装。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li>FastAPI バックエンド（報告書生成・安全分析・文書検索 API）。</li>
+                <li>React フロント（音声入力・写真アップロード・チャット画面）。</li>
+                <li>提案用の静的ランディングも用意。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">音声報告</span>
+                <span class="rc">危険予知</span>
+                <span class="rc">文書検索</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
+          <details class="tl-card">
+            <summary>
+              <div class="tl-meta"><span class="tl-period">2025.11 – 2026.05</span></div>
+              <h3>法務向け文書・起案支援（Legal-Architect）</h3>
+              <p class="tl-org">PDF分割・証拠番号リネーム・引用付き起案</p>
+              <p class="tl-blurb">大容量 PDF の分割、証拠番号付きリネーム、書籍を根拠にした引用付き起案の検証実装を担当。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li>Next.js の作業画面（分割ツール、一問一答、引用付き起案）。</li>
+                <li>PDF 分割・リネーム API（FastAPI）。</li>
+                <li>書籍インデックスと引用付き検索エンジン。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">PDF分割</span>
+                <span class="rc">証拠番号</span>
+                <span class="rc">引用付き起案</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
+          <details class="tl-card">
+            <summary>
+              <div class="tl-meta"><span class="tl-period">2025.09 – 2026.05</span></div>
+              <h3>画像・動画アノテーション基盤（CVAT）</h3>
+              <p class="tl-org">Computer Vision Annotation Tool の導入・開発作業</p>
+              <p class="tl-blurb">コンピュータビジョン向けの画像・動画アノテーションツール CVAT の環境構築と開発・改修を担当。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li>CVAT のローカル／開発環境の立ち上げ。</li>
+                <li>アノテーション業務向けの設定・改修作業。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">画像アノテーション</span>
+                <span class="rc">動画アノテーション</span>
+                <span class="rc">CVAT</span>
               </div>
             </div>
           </details>
@@ -677,21 +901,21 @@
                 <span class="tl-period">2026.01 – 2026.09</span>
                 <span class="tl-badge now">直近</span>
               </div>
-              <h3>帳票PDFの VLM / LLM 構造化抽出</h3>
-              <p class="tl-org">某AIスタートアップ · 36人月 / 4名</p>
-              <p class="tl-blurb">日本語帳票PDFから key-value を自動抽出するパイプラインを主導し、共有プロダクトへ中核機能を段階投入。</p>
+              <h3>帳票PDFからの項目自動抽出</h3>
+              <p class="tl-org">AIスタートアップ · 36人月 / 4名</p>
+              <p class="tl-blurb">日本語の帳票PDFから必要な項目を自動で抜き出す仕組みを主導し、共有プロダクトへ組み込みました。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>帳票/非帳票のページ選定ゲート、VLM様式ルーター、サービス公開API、再現可能評価基盤を設計・実装。</li>
-                <li>積み上げPRで関連変更7本をマージ。機能フラグ付きで本番ソースへ定着。</li>
-                <li>テキスト確定＋VLMフォールバックのハイブリッドで、人手の様式指定なしに抽出経路を自動化。</li>
-                <li>前段フィルタ設計でクラウド判定呼び出しを約8割削減・判定費用を約1/5に抑制する構成を実証。</li>
+                <li>帳票かどうかの判定、様式の自動判定、他システムから呼べるAPI、何度でも測り直せる評価の仕組みを設計・実装。</li>
+                <li>変更を小さく分けて7本取り込み。設定でON/OFFできる形で本番のソースに載せた。</li>
+                <li>文字情報で様式が分かるものは文字で確定し、迷うときだけ画像も見るAIに回す流れで、人手の指定なしに抽出を自動化。</li>
+                <li>前段の軽い判定で、クラウド側の呼び出しを約8割減らし、判定費用を約1/5にする構成を実証。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">検出率 97.9%</span>
-                <span class="rc">マージ 7本</span>
+                <span class="rc">取り込み 7本</span>
                 <span class="rc">費用 約1/5</span>
                 <span class="rc">テスト 240件超</span>
               </div>
@@ -704,20 +928,20 @@
             <summary>
               <div class="tl-meta"><span class="tl-period">2026.02 – 2026.09</span></div>
               <h3>Teams 会議の AI 議事録アプリ（Azure）</h3>
-              <p class="tl-org">某大手人材サービス企業 · 対象テナント約1,500名</p>
-              <p class="tl-blurb">Teams文字起こし→Azure OpenAI→SharePoint保存・通知までを、情シス基準準拠の本番構成で一気通貫。</p>
+              <p class="tl-org">大手人材サービス企業 · 対象テナント約1,500名</p>
+              <p class="tl-blurb">Teamsの文字起こしから議事録を作り、SharePointへ保存・通知するまでを、情報システム部門の基準に合う本番構成で担当。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>Bicep で IaC化。Service Bus / Logic Apps / Functions / Key Vault / Application Insights を連携。</li>
-                <li>マネージドID＋RBAC、参加者限定の SharePoint 権限で、組織ワイドリンクを作らない設計。</li>
-                <li>会議種別プロンプト切替、モデル世代追従、検証環境合格後のみ本番適用のリリース規律を整備。</li>
+                <li>Azure の構成をコードで管理し、メッセージ連携・自動処理・秘密情報の保管・監視をつないだ。</li>
+                <li>アプリごとの権限を最小限にし、SharePoint は会議参加者だけが読める設計（社内全体に開くリンクは作らない）。</li>
+                <li>会議の種類ごとに指示文を切り替え、モデル更新への追従、検証環境で合格してから本番へ出す手順を整備。</li>
               </ul>
               <div class="result-chips">
-                <span class="rc">Azure OpenAI · MSI</span>
-                <span class="rc">Bicep IaC</span>
-                <span class="rc">情シス承認構成</span>
+                <span class="rc">Azure 上の生成AI</span>
+                <span class="rc">構成をコード管理</span>
+                <span class="rc">情報システム部門が承認</span>
               </div>
             </div>
           </details>
@@ -727,16 +951,16 @@
           <details class="tl-card">
             <summary>
               <div class="tl-meta"><span class="tl-period">2025.09 – 2025.12</span></div>
-              <h3>閉域網向けローカルLLM基盤</h3>
-              <p class="tl-org">某大手製造業 · 20人月 / 5名</p>
-              <p class="tl-blurb">外部API禁止の前提で、オンプレGPU上の社内LLM・量子化・ACL付きRAGを設計・構築。</p>
+              <h3>社内専用の生成AI基盤</h3>
+              <p class="tl-org">大手製造業 · 20人月 / 5名</p>
+              <p class="tl-blurb">外部サービスへ送れない前提で、社内サーバー上の生成AIと、権限付きの文書検索を設計・構築。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>A100 / H100 / L40S 環境の選定と、vLLM / TensorRT-LLM による推論加速。</li>
-                <li>匿名化データでの SFT / DPO、Milvus 上の認可制御付き RAG。</li>
-                <li>FP8 / AWQ 量子化でスループット改善。外部API送信ゼロで社内基準を充足。</li>
+                <li>社内GPUサーバーの選定と、応答を速くする実行環境の整備。</li>
+                <li>個人情報を除いたデータでの追加学習、人ごとの閲覧権限を付けた社内文書検索。</li>
+                <li>モデルを軽くして処理量を改善。外部へデータを送らず社内基準を満たした。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">外部送信ゼロ</span>
@@ -752,15 +976,15 @@
             <summary>
               <div class="tl-meta"><span class="tl-period">2025.04 – 2025.08</span></div>
               <h3>大規模言語モデルを用いた FAQ / 自動応答</h3>
-              <p class="tl-org">某通信事業 · 45人月 / 9名 / 3社</p>
-              <p class="tl-blurb">ドメイン特化ファインチューニングと RAG で、問い合わせ半自動解決を引き上げ。</p>
+              <p class="tl-org">通信事業 · 45人月 / 9名 / 3社</p>
+              <p class="tl-blurb">通信向けにモデルを追加学習し、社内FAQを検索して答える仕組みで、問い合わせの半自動解決を引き上げ。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>Llama 系モデルの通信領域適応、DeepSpeed / QLoRA による分散学習基盤。</li>
-                <li>社内FAQ知識ベースとの RAG 統合、Multi-GPU 推論の最適化。</li>
-                <li>多ベンダー混成チームへ、プロンプト資産と性能モニタリングゲートを導入。</li>
+                <li>通信分野向けの追加学習と、複数GPUでの学習・実行環境の整備。</li>
+                <li>社内FAQとの連携、複数GPUでの応答高速化。</li>
+                <li>複数社が混ざるチームへ、指示文の資産化と性能の見守り方を導入。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">半自動解決 78.5%</span>
@@ -776,15 +1000,15 @@
             <summary>
               <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01</span></div>
               <h3>ブロックチェーンデータ分析（香港）</h3>
-              <p class="tl-org">某金融・ブロックチェーン関連企業 · 70人月 / 9名 / 3社</p>
-              <p class="tl-blurb">暗号資産の取引監視・異常検知とウォレット関係分析。AI駆動開発の品質ゲートも導入。</p>
+              <p class="tl-org">金融・ブロックチェーン関連企業 · 70人月 / 9名 / 3社</p>
+              <p class="tl-blurb">暗号資産の取引監視・異常検知とウォレット関係の分析。AIが書いたコードの品質チェックも導入。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>リアルタイム取引の異常検知、リスクスコアリング、ウォレットネットワーク可視化。</li>
-                <li>スマートコントラクトのセキュリティリスク自動検出。</li>
-                <li>AI Guardrail による生成コードの保守性・セキュリティ評価パイプラインを設計。</li>
+                <li>リアルタイム取引の異常検知、リスクの点数化、ウォレット同士のつながりの可視化。</li>
+                <li>スマートコントラクトのセキュリティリスクの自動検出。</li>
+                <li>AIが書いたコードについて、保守しやすさ・安全性を自動で見る仕組みを設計。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">検知精度 +35%</span>
@@ -794,27 +1018,22 @@
           </details>
         </div>
 
-        <div class="tl-group-note">
-          <strong>某AI受託開発 株式会社</strong>（代表取締役・一人法人／在任 2017.11〜現在 · 資本金100万円）。
-          主な実務案件は 2021.04〜2024.05。以下はその案件ごとのカードです。
-        </div>
 
         <div class="tl-item">
           <details class="tl-card">
             <summary>
               <div class="tl-meta">
                 <span class="tl-period">2023.01 – 2024.05</span>
-                <span class="tl-badge contract">受託</span>
               </div>
-              <h3>ヘルスケア向けローカルLLM</h3>
-              <p class="tl-org">医療機関向け · 概算60人月相当（本人中心）</p>
-              <p class="tl-blurb">機密性の高い医療環境向けに、オンプレで動くローカルLLMと要約・QAを設計・開発。</p>
+              <h3>医療機関向けの社内生成AI</h3>
+              <p class="tl-org">医療機関向け · 60人月</p>
+              <p class="tl-blurb">機密性の高い医療環境向けに、院内サーバーで動く生成AIと、要約・質問応答を設計・開発。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>Llama 2 / Mistral 等を比較評価し、LoRA で医療用語に適応。</li>
-                <li>llama.cpp 量子化でリソース制約デバイス向けに推論最適化。</li>
+                <li>複数のモデルを比較し、医療用語向けに追加学習。</li>
+                <li>機器の性能が限られる環境でも動くよう、モデルを軽くして最適化。</li>
                 <li>医療文書の自動要約・質問応答を実装し、病院導入まで支援。</li>
               </ul>
               <div class="result-chips">
@@ -831,21 +1050,20 @@
             <summary>
               <div class="tl-meta">
                 <span class="tl-period">2022.01 – 2023.12</span>
-                <span class="tl-badge contract">受託</span>
               </div>
-              <h3>パーソナライズドマーケティング基盤</h3>
-              <p class="tl-org">企業マーケ向け · 概算70人月相当（本人中心）</p>
+              <h3>個別最適化のマーケティング基盤</h3>
+              <p class="tl-org">企業マーケ向け · 70人月</p>
               <p class="tl-blurb">消費者行動分析とパーソナライズ広告配信、効果測定ダッシュボードを開発。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>セグメンテーションモデル、SNSトレンド分析、A/Bテスト自動化。</li>
-                <li>広告パフォーマンス可視化ダッシュボードと、GDPR / CCPA を意識した設計。</li>
+                <li>顧客のグループ分け、SNSの動向分析、施策の比較テストの自動化。</li>
+                <li>広告効果の見える化画面と、個人情報保護を意識した設計。</li>
               </ul>
               <div class="result-chips">
-                <span class="rc">CTR +25%</span>
-                <span class="rc">CVR +30%超</span>
+                <span class="rc">クリック率 +25%</span>
+                <span class="rc">成約率 +30%超</span>
                 <span class="rc">分析時間 40%削減</span>
               </div>
             </div>
@@ -857,17 +1075,16 @@
             <summary>
               <div class="tl-meta">
                 <span class="tl-period">2021.04 – 2021.12</span>
-                <span class="tl-badge contract">受託</span>
               </div>
               <h3>法律文書検索・要約システム</h3>
-              <p class="tl-org">法務・コンプライアンス向け · 概算60人月相当（本人中心）</p>
-              <p class="tl-blurb">Transformer系モデルによる法律文書の検索・要約・類似判例探索を開発。</p>
+              <p class="tl-org">法務・コンプライアンス向け · 60人月</p>
+              <p class="tl-blurb">法律文書の検索・要約・似た判例を探す仕組みを開発。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>法律特化BERTと埋め込み検索、質問応答型のリサーチUI。</li>
-                <li>要約・ランキング機能と、オンプレ運用を前提としたセキュリティ設計。</li>
+                <li>法律向けに調整した検索モデル、意味の近い文書を探す仕組み、質問形式で調べられる画面。</li>
+                <li>要約・並び替え機能と、社内サーバー運用を前提としたセキュリティ設計。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">検索精度 +20%</span>
@@ -908,17 +1125,17 @@
               <p class="tl-org">所属：
                 <a href="https://www.m.u-tokyo.ac.jp/" target="_blank" rel="noopener">東京大学大学院医学系研究科</a>
               </p>
-              <p class="tl-blurb">電子カルテ要約など、医療×機械学習の研究。Transformer / BERT 系の要約モデルを実装。</p>
+              <p class="tl-blurb">電子カルテの要約を含む、医療と機械学習の研究。要約モデルを実装。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>電子カルテ自動要約モデルの設計・実装（Seq2Seq / BERT、自己教師あり学習）。</li>
-                <li>匿名化データ整備、病院との実用性検証、ROUGE等での改善サイクル。</li>
+                <li>電子カルテを自動要約するモデルの設計・実装。</li>
+                <li>個人情報を除いたデータの整備、病院での実用性の確認、要約の質を測りながらの改善。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">整理時間 40%削減</span>
-                <span class="rc">ROUGE +15%</span>
+                <span class="rc">要約精度の改善</span>
               </div>
             </div>
           </details>
@@ -964,29 +1181,30 @@
       <div class="contact-band">
         <h2>お問い合わせをお願いします</h2>
         <p class="lead">
-          仕事のご相談、技術的なご質問、協業の打診などがあれば、LinkedIn か Facebook にメッセージください。
-          生成AIまわりの実装・導入・研修について、幅広く対応しています。
+          頼める仕事は、AI受託開発・AI講義・セキュリティ診断（準備中）の三つです。
+          各ページのフォームから相談できます。LinkedIn / Facebook でも構いません。
         </p>
         <div class="contact-points">
           <div class="contact-point">
-            <strong>相談しやすいテーマ</strong>
-            <span>Ruby on Rails、ローカルLLM、帳票PDF抽出、Teams議事録、FAQ／RAG、Azure OpenAI、生成AI研修、Web／モバイル実装</span>
+            <strong>AI受託開発</strong>
+            <span>実装の請負。過去実績とフォームは専用ページへ</span>
           </div>
           <div class="contact-point">
-            <strong>入り方</strong>
-            <span>要件整理から実装・本番投入まで。短期間の立ち上げも相談可</span>
+            <strong>AI講義</strong>
+            <span>夜間90分の現場向け講義。テーマとフォームは専用ページへ</span>
           </div>
           <div class="contact-point">
-            <strong>返事</strong>
-            <span>LinkedIn / Facebook にメッセージをください。できるだけ早く返します</span>
+            <strong>セキュリティ診断</strong>
+            <span>準備中。詳細は後日掲載します</span>
           </div>
         </div>
         <div class="cta-row">
-          <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn で問い合わせる</a>
-          <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook で問い合わせる</a>
-          <a href="#career" class="btn btn-ghost">先に経歴を見る</a>
+          <a href="ai-contract.html" class="btn btn-primary">AI受託開発へ</a>
+          <a href="ai-lecture.html" class="btn btn-ghost">AI講義へ</a>
+          <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>
-        <p class="contact-note">メールフォームは置いていません。お問い合わせは LinkedIn か Facebook からお願いします。</p>
+        <p class="contact-note">フォーム送信先は keiohigh2nd@gmail.com です。初回送信時は確認メールへの承認が必要です。</p>
       </div>
     </section>
   </div>

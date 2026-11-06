@@ -111,7 +111,28 @@
     }
     .intro .tagline { margin: 0 0 22px; font-size: 1.12rem; font-weight: 600; color: var(--accent-2); }
     .intro .lede { margin: 0 0 14px; color: var(--text-dim); font-size: 1.02rem; max-width: 42em; }
-    .intro .lede:last-of-type { margin-bottom: 26px; }
+    .intro .lede:last-of-type { margin-bottom: 18px; }
+    .offer-block { margin: 28px 0 8px; }
+    .offer-block .offer-title {
+      margin: 0 0 12px; font-size: 0.82rem; font-weight: 800;
+      letter-spacing: 0.06em; color: var(--accent-2); text-transform: uppercase;
+    }
+    .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 800px) { .offer-grid { grid-template-columns: 1fr; } }
+    .offer-card {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+      padding: 22px 20px; background: var(--panel); border: 1px solid var(--panel-border);
+      border-radius: var(--radius); text-decoration: none; color: inherit; min-height: 100%;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .offer-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(37,99,235,0.08); text-decoration: none; }
+    .offer-card h2 { margin: 0; font-size: clamp(1.15rem, 2.5vw, 1.35rem); font-weight: 800; color: var(--text); }
+    .offer-card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; flex: 1; }
+    .offer-card .offer-go { margin-top: 6px; font-weight: 700; font-size: 0.9rem; color: var(--accent); }
+    .offer-card.tone-blue { border-top: 3px solid var(--accent); }
+    .offer-card.tone-teal { border-top: 3px solid var(--accent-2); }
+    .offer-card.tone-warm { border-top: 3px solid var(--accent-warm); }
+    .offer-card.is-soon .offer-go { color: var(--accent-warm); }
     .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -209,14 +230,14 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="site-nav">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
+      <a href="ai-contract_en.html">AI contract work</a>
+      <a href="ai-lecture_en.html">AI training</a>
+      <a href="security-audit_en.html">Security review</a>
       <a href="#career">Career</a>
       <a href="#contact">Contact</a>
       <a href="papers_en.html">Papers</a>
       <a href="blog_en.html">Tech blog</a>
       <a href="notes_en.html">Notes</a>
-      <a href="https://zenn.dev/nakano_teppei" target="_blank" rel="noopener">Zenn</a>
       <a href="index.html" class="lang">日本語</a>
     </div>
   </nav>
@@ -225,16 +246,37 @@
     <header class="intro">
       <h1>Teppei Nakano</h1>
       <p class="tagline">I work on AI development.</p>
+
+      <div class="offer-block" id="services">
+        <p class="offer-title">How you can work with me</p>
+        <div class="offer-grid">
+          <a class="offer-card tone-blue" href="ai-contract_en.html">
+            <h2>AI contract work</h2>
+            <p>Generative-AI implementation from requirements to production.</p>
+            <span class="offer-go">Learn more →</span>
+          </a>
+          <a class="offer-card tone-teal" href="ai-lecture_en.html">
+            <h2>AI training</h2>
+            <p>Evening 90-minute sessions for teams — hands-on and practical.</p>
+            <span class="offer-go">Learn more →</span>
+          </a>
+          <a class="offer-card tone-warm is-soon" href="security-audit_en.html">
+            <h2>Security review</h2>
+            <p>Details are being prepared.</p>
+            <span class="offer-go">Coming soon →</span>
+          </a>
+        </div>
+      </div>
+
       <p class="lede">
         Through my one-person company I build across client work and my own products —
-        generative AI (LLMs, document AI, Azure, air-gapped LLMs, training), plus Ruby on Rails web apps
-        and React / React Native front ends.
+        generative AI systems for companies, Ruby on Rails web apps, and web / mobile screens.
       </p>
       <p class="lede">
-        Looking at what lives on this machine, the work spans form-PDF extraction, Teams minutes on Azure,
-        RAG / fine-tuning platforms, Rails services (commerce, jobs, search, crypto-adjacent), matching apps,
-        lab / bio UIs, pricing and market-monitoring tools, and generative-AI training materials.
-        Details are organized below. Please contact me via LinkedIn or Facebook.
+        Recent work includes reading fields from form PDFs, automatic Teams meeting minutes on Azure,
+        in-house document search, Rails services (commerce, jobs, search), matching apps,
+        lab-facing screens, pricing and market-monitoring tools, and generative-AI training materials.
+        Details are organized below.
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">Contact</a>
@@ -252,15 +294,14 @@
           internal-adoption projects as needed.
         </p>
         <p>
-          One of my core strengths is <strong>Ruby on Rails</strong>. I have designed and shipped multiple Rails
-          services — creator commerce, job boards, search, crypto / NFT-adjacent apps — including Hotwire,
-          Devise, S3, PostgreSQL, and Fly.io deploys. Alongside that I work on form-PDF / VLM pipelines,
-          Azure production for Teams minutes, RAG / fine-tuning, React and Expo matching apps, lab front ends,
-          and pricing / monitoring experiments.
+          One of my core strengths is <strong>Ruby on Rails</strong>. I have designed and shipped multiple web
+          services — creator commerce, job boards, search, crypto-adjacent apps — from implementation through
+          production hosting. Alongside that I work on form-PDF reading, Teams minutes on Azure,
+          in-house generative AI, matching apps, lab-facing screens, and pricing / monitoring experiments.
         </p>
         <p>
           I usually cover the full path from requirements through design, implementation, review, and production rollout.
-          I try not to stop at a PoC — evaluation, permissions, operations, and cost are part of making something usable.
+          I try not to stop at a trial build — checking quality, permissions, operations, and cost are part of making something usable.
         </p>
         <p>
           Formal numbers live in the CV; this page is a public summary.
@@ -281,50 +322,50 @@
         <div class="info-item">
           <h3>Ruby on Rails</h3>
           <div>
-            <p>Full-stack web services: design, implementation, and ops. Commerce, jobs, search, crypto/NFT-adjacent apps with Hotwire, Devise, S3, PostgreSQL, and Fly.io.</p>
-            <div class="tags"><span class="tag">Rails 7</span><span class="tag">Hotwire</span><span class="tag">PostgreSQL</span><span class="tag">Fly.io / S3</span></div>
+            <p>I design, build, and ship web services — commerce, jobs, search, crypto-adjacent apps — including login, file storage, databases, and production hosting.</p>
+            <div class="tags"><span class="tag">Ruby on Rails</span><span class="tag">PostgreSQL</span><span class="tag">Web apps</span><span class="tag">Production</span></div>
           </div>
         </div>
         <div class="info-item">
-          <h3>Production generative AI</h3>
+          <h3>Putting generative AI into production</h3>
           <div>
-            <p>Beyond PoCs: feature-flagged rollout, service APIs, production setups that pass IT review, and AI-driven development support.</p>
-            <div class="tags"><span class="tag">LLM / VLM</span><span class="tag">Eval gates</span><span class="tag">Product integration</span></div>
+            <p>Beyond trial builds: product integration, APIs other systems can call, and setups that pass IT review. I also help teams improve how they use AI while developing.</p>
+            <div class="tags"><span class="tag">Generative AI</span><span class="tag">Product integration</span><span class="tag">Production</span><span class="tag">Evaluation</span></div>
           </div>
         </div>
         <div class="info-item">
-          <h3>Document AI × VLM / PDF parsing</h3>
+          <h3>Form / PDF reading</h3>
           <div>
-            <p>Form detection, layout routing, Blueprint assignment, and shared parsing pipelines that balance recall with cost.</p>
-            <div class="tags"><span class="tag">VLM Router</span><span class="tag">Form extraction</span><span class="tag">Eval corpora</span></div>
+            <p>Detect whether a page is a form, choose the right template, and extract the needed fields — balancing accuracy with cost.</p>
+            <div class="tags"><span class="tag">Form PDFs</span><span class="tag">Field extraction</span><span class="tag">Image recognition</span><span class="tag">Evaluation</span></div>
           </div>
         </div>
         <div class="info-item">
           <h3>Generative AI on Azure</h3>
           <div>
-            <p>Teams minutes and similar: Bicep / Logic Apps / Managed Identity / Azure OpenAI for large-tenant production.</p>
-            <div class="tags"><span class="tag">Bicep</span><span class="tag">MSI / RBAC</span><span class="tag">Key Vault</span></div>
+            <p>Team apps such as Teams meeting minutes on Microsoft Azure, built for large-company production rules.</p>
+            <div class="tags"><span class="tag">Azure</span><span class="tag">Teams</span><span class="tag">Meeting minutes</span><span class="tag">Permissions</span></div>
           </div>
         </div>
         <div class="info-item">
-          <h3>Private / on-prem LLMs · RAG</h3>
+          <h3>In-house generative AI</h3>
           <div>
-            <p>Air-gapped stacks, quantization, SFT / DPO, ACL-aware RAG, plus fine-tuning / evaluation experiment platforms.</p>
-            <div class="tags"><span class="tag">vLLM</span><span class="tag">SFT / DPO</span><span class="tag">RAG</span><span class="tag">Milvus</span></div>
+            <p>Models that run on company servers without sending data outside, plus search over internal documents with per-user access control.</p>
+            <div class="tags"><span class="tag">On-prem</span><span class="tag">Document search</span><span class="tag">Additional training</span><span class="tag">No external send</span></div>
           </div>
         </div>
         <div class="info-item">
-          <h3>Web / mobile products</h3>
+          <h3>Web / mobile screens</h3>
           <div>
-            <p>React, Vite, and Expo (React Native) front ends — matching apps, protocol tools, company sites, PWAs.</p>
-            <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Expo</span><span class="tag">Next.js / PWA</span></div>
+            <p>I also build product UI — matching apps, protocol tools, company sites, and mobile screens.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Mobile apps</span><span class="tag">Web front end</span><span class="tag">Company sites</span></div>
           </div>
         </div>
         <div class="info-item">
           <h3>Tech lead / instructor</h3>
           <div>
-            <p>Design leadership in mixed teams, plus generative-AI training (Prompt / RAG / local LLM / AI-driven development).</p>
-            <div class="tags"><span class="tag">Delivery</span><span class="tag">Training</span><span class="tag">Cursor</span></div>
+            <p>Design leadership in mixed vendor teams, plus hands-on generative-AI training for operators.</p>
+            <div class="tags"><span class="tag">Design leadership</span><span class="tag">Review</span><span class="tag">Training</span><span class="tag">Adoption</span></div>
           </div>
         </div>
       </div>
@@ -342,18 +383,18 @@
             <h3>Generative-AI training for network / infrastructure teams</h3>
             <p class="tl-org">ActiveIT · 90 min × 8 sessions</p>
             <ul>
-              <li>Hands-on sessions covering LLM basics, Prompt / RAG, AI-assisted development, and local LLMs.</li>
+              <li>Hands-on sessions covering generative-AI basics, how to give instructions, searching internal docs, AI-assisted development, and on-prem models.</li>
             </ul>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2026.01 – 2026.09</span><span class="tl-badge">Recent</span></div>
-            <h3>VLM / LLM structured extraction from form PDFs</h3>
+            <h3>Automatic field extraction from form PDFs</h3>
             <p class="tl-org">AI startup</p>
             <ul>
-              <li>Pipelines to extract fields from Japanese form PDFs; form detection, layout routing, APIs, evaluation.</li>
-              <li>Incremental merges into the shared product codebase.</li>
+              <li>Pipelines to extract fields from Japanese form PDFs: decide if a page is a form, choose the template, expose APIs, and measure quality.</li>
+              <li>Landed the core pieces into the shared product in small, reviewable steps.</li>
             </ul>
           </div>
         </div>
@@ -364,27 +405,27 @@
             <p class="tl-org">Major HR / staffing company</p>
             <ul>
               <li>Minutes from Teams transcripts with Azure OpenAI; SharePoint save / notify.</li>
-              <li>Production setup with Bicep / Logic Apps / Key Vault / managed identities.</li>
+              <li>Production setup on Azure with coded infrastructure, automated workflows, secret storage, and least-privilege access.</li>
             </ul>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2025.09 – 2025.12</span></div>
-            <h3>Air-gapped local LLM platform</h3>
+            <h3>In-house generative AI platform</h3>
             <p class="tl-org">Major manufacturer</p>
             <ul>
-              <li>On-prem GPU LLM environment, quantization, inference tuning, SFT / DPO, air-gapped RAG.</li>
+              <li>On-prem GPU generative AI, faster serving, additional training on anonymized data, and document search with access control — no data sent outside.</li>
             </ul>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2025.04 – 2025.08</span></div>
-            <h3>LLM-based FAQ / auto-response</h3>
+            <h3>FAQ / auto-response with generative AI</h3>
             <p class="tl-org">Telecom company</p>
             <ul>
-              <li>Domain fine-tuning and RAG for customer-support inquiry assistance.</li>
+              <li>Additional training for the telecom domain and FAQ search to help resolve support inquiries.</li>
             </ul>
           </div>
         </div>
@@ -404,7 +445,7 @@
             <h3>AI contracting company (CEO · one-person)</h3>
             <p class="tl-org">Capital ¥1M · director since Nov 2017</p>
             <ul>
-              <li>Contract work including healthcare local LLMs, marketing analytics, and legal-document search.</li>
+              <li>Contract work including healthcare on-prem generative AI, marketing analytics, and legal-document search.</li>
             </ul>
           </div>
         </div>
@@ -432,7 +473,7 @@
               · medical × ML, including EHR summarization
             </p>
             <ul>
-              <li>Design and implementation of Transformer / BERT-based EHR summarization.</li>
+              <li>Design and implementation of electronic medical record summarization models.</li>
             </ul>
           </div>
         </div>
@@ -473,7 +514,7 @@
         <div class="contact-points">
           <div class="contact-point">
             <strong>Easy to discuss</strong>
-            <span>Ruby on Rails, local LLMs, form-PDF extraction, Teams minutes, FAQ/RAG, Azure OpenAI, generative-AI training, web/mobile</span>
+            <span>Ruby on Rails, in-house generative AI, form-PDF reading, Teams minutes, FAQ automation, Azure, generative-AI training, web/mobile</span>
           </div>
           <div class="contact-point">
             <strong>How I engage</strong>

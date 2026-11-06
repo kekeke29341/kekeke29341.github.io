@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI training by Teppei Nakano — evening 90-minute sessions.">
+  <title>AI training | Teppei Nakano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="bg-fx"></div>
+  <nav>
+    <a class="brand" href="english_index.html"><span class="dot"></span>Teppei Nakano</a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="site-nav">
+      <a href="ai-contract_en.html">AI contract work</a>
+      <a href="ai-lecture_en.html">AI training</a>
+      <a href="security-audit_en.html">Security review</a>
+      <a href="english_index.html#career">Career</a>
+      <a href="#inquiry">Contact</a>
+      <a href="index.html" class="lang">日本語</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="services-hero">
+      <h1>AI training</h1>
+      <p class="lede">
+        Hands-on generative-AI training for engineers and operators.
+        Evening sessions of 90 minutes, focused on what you can actually use at work.
+      </p>
+    </header>
+
+    <div class="meta-row">
+      <div class="meta-box"><div class="k">Length</div><div class="v">90 minutes / evening</div></div>
+      <div class="meta-box"><div class="k">Sessions</div><div class="v">1 to 8</div></div>
+      <div class="meta-box"><div class="k">Style</div><div class="v">Instructor demo first</div></div>
+    </div>
+
+    <section style="padding-top:8px;border:0;">
+      <div class="sec-head" style="margin-bottom:14px;">
+        <h2 style="font-size:1.35rem;margin:0;font-weight:800;">Themes</h2>
+      </div>
+      <div class="theme-grid">
+        <div class="theme-item"><strong>Generative AI basics</strong><span>What it can and cannot do, and where it helps at work</span></div>
+        <div class="theme-item"><strong>Giving clear instructions</strong><span>Practice with log review and config review examples</span></div>
+        <div class="theme-item"><strong>Search over internal docs</strong><span>Answering from procedures and design notes</span></div>
+        <div class="theme-item"><strong>AI-assisted development</strong><span>Investigate → plan → diff → human approval</span></div>
+        <div class="theme-item"><strong>Preparing context for AI</strong><span>How to structure docs and choose tools</span></div>
+        <div class="theme-item"><strong>In-house models</strong><span>Basics of running models inside the company</span></div>
+      </div>
+    </section>
+
+    <section id="inquiry" style="padding-top:8px;border:0;padding-bottom:48px;">
+      <div class="contact-form">
+        <h2>Inquiry</h2>
+        <p class="form-lede">Ask about AI training or internal workshops. Include audience and topics you want covered.</p>
+        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="[AI training] Inquiry from site">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks_en.html">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="type" value="AI training">
+          <div class="form-grid">
+            <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+            <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+            <div class="form-field"><label for="company">Company (optional)</label><input id="company" name="company" type="text"></div>
+            <div class="form-field">
+              <label for="sessions">Sessions (optional)</label>
+              <select id="sessions" name="sessions">
+                <option value="">To be decided</option>
+                <option value="1">1 (trial)</option>
+                <option value="2-4">2–4</option>
+                <option value="~8">About 8</option>
+              </select>
+            </div>
+            <div class="form-field full"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+          </div>
+          <div class="form-actions"><button class="btn-submit" type="submit">Send</button></div>
+        </form>
+      </div>
+    </section>
+  </div>
+  <footer><div>© 2026 Teppei Nakano</div><div class="meta">Last updated: 2026-11-06</div></footer>
+  <script src="assets/nav.js"></script>
+</body>
+</html>
