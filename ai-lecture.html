@@ -105,12 +105,8 @@
       <div class="contact-form">
         <h2>お問い合わせ</h2>
         <p class="form-lede">AI講義・社内研修のご相談は、下のフォームから送れます。回数と対象者を書いてください。</p>
-        <form action="https://formsubmit.co/keiohigh2nd@gmail.com" method="POST">
+        <form class="js-contact-form" data-next="thanks.html" action="thanks.html" method="post">
           <input type="hidden" name="_subject" value="【AI講義】サイトからのお問い合わせ">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://kekeke29341.github.io/thanks.html">
-          <input type="text" name="_honey" style="display:none">
           <input type="hidden" name="種別" value="AI講義">
           <div class="form-grid">
             <div class="form-field">
@@ -144,7 +140,7 @@
             <button class="btn-submit" type="submit">送信する</button>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">LinkedInでも連絡</a>
           </div>
-          <p class="form-note">送信後、確認用の画面に移動します。届かない場合は LinkedIn か Facebook からもご連絡ください。</p>
+          <p class="form-note">届かない場合は LinkedIn か Facebook からもご連絡ください。</p>
         </form>
       </div>
     </section>
@@ -155,5 +151,6 @@
     <div class="meta">Last updated: 2026-11-06</div>
   </footer>
   <script src="assets/nav.js"></script>
+  <script src="assets/contact-form.js"></script>
 </body>
 </html>
