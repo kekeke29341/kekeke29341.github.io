@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平 — AI受託開発・AI講義・Web/クラウド/AIのセキュリティ検証。">
+  <meta name="description" content="中野哲平 — 業務委託でAI受託開発・AI講義の案件を募集。趣味でローカルLLM駆動のARTEXを開発・拡張。">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>中野哲平</title>
+  <title>中野哲平｜AI業務委託・AI講義・ARTEX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -538,6 +538,38 @@
       margin-top: 8px;
       font-size: 0.78rem;
     }
+
+    .artex-shots {
+      display: grid;
+      gap: 18px;
+      margin: 22px 0 0;
+    }
+    .artex-shot {
+      margin: 0;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .artex-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .artex-shot figcaption {
+      padding: 12px 16px 14px;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+    .artex-note {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border-radius: 10px;
+      border: 1px solid #fed7aa;
+      background: #fff7ed;
+      color: #7c2d12;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -551,7 +583,8 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract.html">AI受託開発</a>
       <a href="ai-lecture.html">AI講義</a>
-      <a href="security-audit.html">7日間無料セキュリティ検証</a>
+      <a href="security-audit.html">ARTEX</a>
+      <a href="#artex">ARTEX開発</a>
       <a href="#career">職務経歴</a>
       <a href="#awards">採択</a>
       <a href="#contact">お問い合わせ</a>
@@ -565,31 +598,31 @@
   <div class="wrap">
     <header class="intro">
       <h1>中野哲平</h1>
-      <p class="tagline">生成AIの実装・講義と、セキュリティ検証を支援しています。</p>
+      <p class="tagline">業務委託で、生成AIの実装と講義の案件を募集しています。</p>
 
       <div class="offer-block" id="services">
         <p class="offer-title">頼める仕事</p>
         <div class="offer-grid">
           <a class="offer-card tone-blue" href="ai-contract.html">
             <h2>AI受託開発</h2>
-            <p>生成AIの実装を、要件整理から本番投入まで請け負います。</p>
-            <span class="offer-go">詳しく見る →</span>
+            <p>業務委託で、生成AIの実装を要件整理から本番投入まで請け負います。案件を募集しています。</p>
+            <span class="offer-go">案件の相談へ →</span>
           </a>
           <a class="offer-card tone-teal" href="ai-lecture.html">
             <h2>AI講義</h2>
-            <p>夜間90分の現場向け講義。使い方から業務への当てはめまで。</p>
-            <span class="offer-go">詳しく見る →</span>
+            <p>業務委託で、夜間90分の現場向け講義を担当します。社内研修の案件を募集しています。</p>
+            <span class="offer-go">講義の相談へ →</span>
           </a>
           <a class="offer-card tone-warm" href="security-audit.html">
-            <h2>7日間無料・セキュリティ検証</h2>
-            <p>許可済みの対象を7日間検証し、毎日レポート。開始前に実施条件を書面で合意し、有料継続は別途同意後のみ。</p>
-            <span class="offer-go">無料トライアルを申し込む →</span>
+            <h2>ARTEX</h2>
+            <p>趣味で、ローカルLLM駆動の自律型ペネトレーションテスト基盤 ARTEX を開発・拡張しています。欲しい方はお問い合わせください。</p>
+            <span class="offer-go">ツールの詳細へ →</span>
           </a>
         </div>
       </div>
 
       <p class="lede">
-        一人で法人を運営し、企業の案件と自分のプロダクトの両方を実装しています。
+        一人で法人を運営し、企業の業務委託案件と自分のプロダクトの両方を実装しています。
         生成AIの導入、社内向けの仕組み、Ruby on Rails の Web アプリ、スマホ／Webの画面開発を担当しています。
       </p>
       <p class="lede">
@@ -598,10 +631,63 @@
         詳細は下にあります。
       </p>
       <div class="cta-row">
-        <a href="#contact" class="btn btn-primary">お問い合わせ</a>
+        <a href="#contact" class="btn btn-primary">案件の相談をする</a>
+        <a href="#artex" class="btn btn-ghost">ARTEXの開発を見る</a>
         <a href="#career" class="btn btn-ghost">職務経歴を見る</a>
       </div>
     </header>
+
+    <section id="artex">
+      <div class="sec-head">
+        <h2>ARTEX — 開発・拡張を続けている基盤</h2>
+        <p>
+          LLM マルチエージェントが、偵察から検出結果の整理までを自律的に進めるペネトレーションテスト基盤です。
+          Go バックエンドと Next.js フロントエンドで構成し、ローカルLLM（OpenAI互換エンドポイント）でも動かせます。
+          趣味として開発と拡張を続けています。
+        </p>
+      </div>
+      <div class="info-list">
+        <div class="info-item">
+          <h3>いま手がけていること</h3>
+          <div>
+            <p>グローバル版（英語既定、日本語・韓国語・中国語・スペイン語切替）の整備、ローカルLLM向けの接続、エージェント出力とレポートの扱い、検知・防御向けの資料整理。</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3>できること</h3>
+          <div>
+            <p>複数エージェントが目標を分解し、実ツールを実行し、資産と脆弱性をグラフに積み上げます。検出結果の一覧、日次の活動、人が途中で指示を入れるチャットを一つの画面で扱います。</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3>欲しい方へ</h3>
+          <div>
+            <p>商用のセキュリティ診断サービスではありません。ツール本体や導入・改修に関心がある方は、<a href="security-audit.html#inquiry">お問い合わせ</a>ください。</p>
+          </div>
+        </div>
+      </div>
+      <div class="artex-shots">
+        <figure class="artex-shot">
+          <img src="assets/artex/dashboard.png" alt="ARTEX ダッシュボード画面" width="900" height="520" loading="lazy">
+          <figcaption>ダッシュボード — 進行中タスク、検出結果、資産、トークン消費、活動フィード</figcaption>
+        </figure>
+        <figure class="artex-shot">
+          <img src="assets/artex/findings.png" alt="ARTEX 検出結果画面" width="900" height="520" loading="lazy">
+          <figcaption>検出結果 — 深刻度・資産・タスクごとに集計し、CSV に出力</figcaption>
+        </figure>
+        <figure class="artex-shot">
+          <img src="assets/artex/chat.png" alt="ARTEX チャット画面" width="900" height="520" loading="lazy">
+          <figcaption>チャット — 実行中に人がヒントを入れ、エージェントが攻撃チェーンを要約</figcaption>
+        </figure>
+      </div>
+      <p class="artex-note">
+        <strong>利用範囲：</strong>所有する環境、または書面で許可を得た対象に限って使ってください。無許可のスキャン・侵入は犯罪になります。学習・研究・隔離されたローカル環境での検証を前提とします。
+      </p>
+      <div class="cta-row" style="margin-top:22px;">
+        <a href="security-audit.html" class="btn btn-primary">ARTEXの詳細ページへ</a>
+        <a href="security-audit.html#inquiry" class="btn btn-ghost">ツールの問い合わせ</a>
+      </div>
+    </section>
 
     <section id="about">
       <div class="sec-head">
@@ -1255,29 +1341,29 @@
 
     <section id="contact">
       <div class="contact-band">
-        <h2>お問い合わせをお願いします</h2>
+        <h2>案件・お問い合わせ</h2>
         <p class="lead">
-          頼める仕事は、AI受託開発・AI講義・セキュリティ検証の三つです。
-          各ページのフォームから相談できます。LinkedIn / Facebook でも構いません。
+          業務委託の案件は、AI受託開発とAI講義を募集しています。
+          ARTEX は趣味の開発・拡張です。ツールが欲しい方は専用ページから問い合わせてください。
         </p>
         <div class="contact-points">
           <div class="contact-point">
             <strong>AI受託開発</strong>
-            <span>実装の請負。過去実績とフォームは専用ページへ</span>
+            <span>業務委託での実装。実績とフォームは専用ページへ</span>
           </div>
           <div class="contact-point">
             <strong>AI講義</strong>
-            <span>夜間90分の現場向け講義。テーマとフォームは専用ページへ</span>
+            <span>業務委託での社内研修。夜間90分。専用ページへ</span>
           </div>
           <div class="contact-point">
-            <strong>セキュリティ検証</strong>
-            <span>Web・クラウド・LLMの安全性評価。詳細・相談フォームは専用ページへ</span>
+            <strong>ARTEX</strong>
+            <span>ローカルLLM駆動のペネトレーションテスト基盤。欲しい方はお問い合わせ</span>
           </div>
         </div>
         <div class="cta-row">
           <a href="ai-contract.html" class="btn btn-primary">AI受託開発へ</a>
           <a href="ai-lecture.html" class="btn btn-ghost">AI講義へ</a>
-          <a href="security-audit.html" class="btn btn-ghost">7日間無料検証へ</a>
+          <a href="security-audit.html" class="btn btn-ghost">ARTEXへ</a>
           <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>

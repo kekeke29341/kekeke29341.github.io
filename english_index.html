@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Teppei Nakano — AI development, training, and security testing for web, cloud, and AI systems.">
+  <meta name="description" content="Teppei Nakano — open for AI contract development and AI training. Building and extending ARTEX, a local-LLM pentest platform, as a personal project.">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>Teppei Nakano</title>
+  <title>Teppei Nakano | AI contract work, AI training, ARTEX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -219,6 +219,17 @@
       font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 24px;
     }
     footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; font-size: 0.78rem; }
+    .artex-shots { display: grid; gap: 18px; margin: 22px 0 0; }
+    .artex-shot {
+      margin: 0; background: var(--panel); border: 1px solid var(--panel-border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .artex-shot img { display: block; width: 100%; height: auto; }
+    .artex-shot figcaption { padding: 12px 16px 14px; color: var(--text-dim); font-size: 0.88rem; }
+    .artex-note {
+      margin: 18px 0 0; padding: 16px 18px; border-radius: 10px;
+      border: 1px solid #fed7aa; background: #fff7ed; color: #7c2d12; font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -232,7 +243,8 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract_en.html">AI contract work</a>
       <a href="ai-lecture_en.html">AI training</a>
-      <a href="security-audit_en.html">7-day free security trial</a>
+      <a href="security-audit_en.html">ARTEX</a>
+      <a href="#artex">ARTEX work</a>
       <a href="#career">Career</a>
       <a href="#awards">Selections</a>
       <a href="#contact">Contact</a>
@@ -246,31 +258,31 @@
   <div class="wrap">
     <header class="intro">
       <h1>Teppei Nakano</h1>
-      <p class="tagline">I build AI systems, teach teams, and help validate security.</p>
+      <p class="tagline">Open for contract work on generative-AI implementation and training.</p>
 
       <div class="offer-block" id="services">
         <p class="offer-title">How you can work with me</p>
         <div class="offer-grid">
           <a class="offer-card tone-blue" href="ai-contract_en.html">
             <h2>AI contract work</h2>
-            <p>Generative-AI implementation from requirements to production.</p>
-            <span class="offer-go">Learn more →</span>
+            <p>Contract engagements for generative-AI implementation from requirements to production. Looking for new projects.</p>
+            <span class="offer-go">Discuss a project →</span>
           </a>
           <a class="offer-card tone-teal" href="ai-lecture_en.html">
             <h2>AI training</h2>
-            <p>Evening 90-minute sessions for teams — hands-on and practical.</p>
-            <span class="offer-go">Learn more →</span>
+            <p>Contract evening sessions of 90 minutes for teams. Looking for internal training projects.</p>
+            <span class="offer-go">Discuss training →</span>
           </a>
           <a class="offer-card tone-warm" href="security-audit_en.html">
-            <h2>7-Day Free Security Trial</h2>
-            <p>Authorized testing with daily reports. Written scope before testing; paid continuation only by separate agreement.</p>
-            <span class="offer-go">Apply for the free trial →</span>
+            <h2>ARTEX</h2>
+            <p>As a personal project I develop and extend ARTEX, a local-LLM autonomous pentest platform. Contact me if you want the tool.</p>
+            <span class="offer-go">See the tool →</span>
           </a>
         </div>
       </div>
 
       <p class="lede">
-        Through my one-person company I build across client work and my own products —
+        Through my one-person company I take contract projects and build my own products —
         generative AI systems for companies, Ruby on Rails web apps, and web / mobile screens.
       </p>
       <p class="lede">
@@ -280,10 +292,63 @@
         Details are organized below.
       </p>
       <div class="cta-row">
-        <a href="#contact" class="btn btn-primary">Contact</a>
+        <a href="#contact" class="btn btn-primary">Discuss a project</a>
+        <a href="#artex" class="btn btn-ghost">See ARTEX work</a>
         <a href="#career" class="btn btn-ghost">View experience</a>
       </div>
     </header>
+
+    <section id="artex">
+      <div class="sec-head">
+        <h2>ARTEX — the platform I keep building</h2>
+        <p>
+          An LLM multi-agent platform that runs penetration-test workflows on its own — breaking down goals, running real tools, and accumulating assets and findings into a graph.
+          Go backend and Next.js frontend; it also runs against local LLMs via OpenAI-compatible endpoints.
+          I develop and extend it as a personal project.
+        </p>
+      </div>
+      <div class="info-list">
+        <div class="info-item">
+          <h3>What I work on</h3>
+          <div>
+            <p>The global edition (English default; Japanese, Korean, Chinese, Spanish selectable), local-LLM wiring, agent output and reports, and defense/detection notes.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3>What it does</h3>
+          <div>
+            <p>Multiple agents decompose goals, execute tools, and build an asset/vulnerability graph. Findings, activity, and human-in-the-loop chat live on one screen.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3>If you want the tool</h3>
+          <div>
+            <p>This is not a commercial security-assessment service. If you want the tool itself, or help installing / extending it, <a href="security-audit_en.html#inquiry">contact me</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="artex-shots">
+        <figure class="artex-shot">
+          <img src="assets/artex/dashboard.png" alt="ARTEX dashboard" width="900" height="520" loading="lazy">
+          <figcaption>Dashboard — active tasks, findings, assets, token spend, activity feed</figcaption>
+        </figure>
+        <figure class="artex-shot">
+          <img src="assets/artex/findings.png" alt="ARTEX findings" width="900" height="520" loading="lazy">
+          <figcaption>Findings — grouped by severity, asset, and task; exportable to CSV</figcaption>
+        </figure>
+        <figure class="artex-shot">
+          <img src="assets/artex/chat.png" alt="ARTEX chat" width="900" height="520" loading="lazy">
+          <figcaption>Chat — inject hints mid-run while the agent summarizes the attack chain</figcaption>
+        </figure>
+      </div>
+      <p class="artex-note">
+        <strong>Authorized use only:</strong> Use only on systems you own or for which you have written authorization. Unauthorized scanning or intrusion is a crime. Intended for learning, research, and isolated local environments.
+      </p>
+      <div class="cta-row" style="margin-top:22px;">
+        <a href="security-audit_en.html" class="btn btn-primary">ARTEX details</a>
+        <a href="security-audit_en.html#inquiry" class="btn btn-ghost">Ask about the tool</a>
+      </div>
+    </section>
 
     <section id="about">
       <div class="sec-head"><h2>About</h2></div>
@@ -565,31 +630,32 @@
 
     <section id="contact">
       <div class="contact-band">
-        <h2>Please get in touch</h2>
+        <h2>Projects and contact</h2>
         <p class="lead">
-          For work discussions, technical questions, or collaboration ideas, message me on LinkedIn or Facebook.
-          I handle a broad range of generative-AI implementation, adoption, and training work.
+          I am looking for contract projects on AI development and AI training.
+          ARTEX is a personal project — contact me on its page if you want the tool.
         </p>
         <div class="contact-points">
           <div class="contact-point">
-            <strong>Easy to discuss</strong>
-            <span>Ruby on Rails, in-house generative AI, form-PDF reading, Teams minutes, FAQ automation, Azure, generative-AI training, web/mobile</span>
+            <strong>AI contract work</strong>
+            <span>Implementation under contract. Past work and form on the dedicated page</span>
           </div>
           <div class="contact-point">
-            <strong>How I engage</strong>
-            <span>From requirements through implementation and production rollout</span>
+            <strong>AI training</strong>
+            <span>Internal training under contract. Evening 90-minute sessions</span>
           </div>
           <div class="contact-point">
-            <strong>Reply</strong>
-            <span>Message me on LinkedIn or Facebook — I respond as soon as I can</span>
+            <strong>ARTEX</strong>
+            <span>Local-LLM autonomous pentest platform. Contact if you want the tool</span>
           </div>
         </div>
         <div class="cta-row">
-          <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">Contact on LinkedIn</a>
-          <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Contact on Facebook</a>
-          <a href="#career" class="btn btn-ghost">See experience first</a>
+          <a href="ai-contract_en.html" class="btn btn-primary">AI contract work</a>
+          <a href="ai-lecture_en.html" class="btn btn-ghost">AI training</a>
+          <a href="security-audit_en.html" class="btn btn-ghost">ARTEX</a>
+          <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>
-        <p class="contact-note">No email form here. Please use LinkedIn or Facebook.</p>
       </div>
     </section>
   </div>
