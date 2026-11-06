@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中野哲平 — 業務委託でAI受託開発・AI講義の案件を募集。趣味でローカルLLM駆動のARTEXを開発・拡張。">
+  <meta name="description" content="中野哲平 — 業務委託でAI受託開発・AI講義の案件を募集。ローカルLLM駆動のペネトレーションテストツールをメール申込者に無料配布。">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>中野哲平｜AI業務委託・AI講義・ARTEX</title>
+  <title>中野哲平｜AI業務委託・AI講義・ペネトレーションツール</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -539,29 +539,29 @@
       font-size: 0.78rem;
     }
 
-    .artex-shots {
+    .tool-shots {
       display: grid;
       gap: 18px;
       margin: 22px 0 0;
     }
-    .artex-shot {
+    .tool-shot {
       margin: 0;
       background: var(--panel);
       border: 1px solid var(--panel-border);
       border-radius: var(--radius);
       overflow: hidden;
     }
-    .artex-shot img {
+    .tool-shot img {
       display: block;
       width: 100%;
       height: auto;
     }
-    .artex-shot figcaption {
+    .tool-shot figcaption {
       padding: 12px 16px 14px;
       color: var(--text-dim);
       font-size: 0.88rem;
     }
-    .artex-note {
+    .tool-note {
       margin: 18px 0 0;
       padding: 16px 18px;
       border-radius: 10px;
@@ -583,8 +583,8 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract.html">AI受託開発</a>
       <a href="ai-lecture.html">AI講義</a>
-      <a href="security-audit.html">ARTEX｜無料配布</a>
-      <a href="#artex">ARTEX開発</a>
+      <a href="security-audit.html">ペネトレーションツール</a>
+      <a href="#pentest-tool">ツール紹介</a>
       <a href="#career">職務経歴</a>
       <a href="#awards">採択</a>
       <a href="#contact">お問い合わせ</a>
@@ -614,9 +614,9 @@
             <span class="offer-go">講義の相談へ →</span>
           </a>
           <a class="offer-card tone-warm" href="security-audit.html">
-            <h2>ARTEX｜無料配布</h2>
-            <p>ARTEX ベースのローカルLLM駆動ペネトレーションテスト基盤。料金は取りません。欲しい方にツールを配布します。</p>
-            <span class="offer-go">無料配布のページへ →</span>
+            <h2>ペネトレーションツール｜無料配布</h2>
+            <p>ローカルLLM駆動の自律型ペネトレーションテストツール。料金は取りません。悪用防止のため、メール申込者のみに配布します。</p>
+            <span class="offer-go">配布ページへ →</span>
           </a>
         </div>
       </div>
@@ -632,60 +632,60 @@
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">案件の相談をする</a>
-        <a href="#artex" class="btn btn-ghost">ARTEXの開発を見る</a>
+        <a href="#pentest-tool" class="btn btn-ghost">ツール紹介を見る</a>
         <a href="#career" class="btn btn-ghost">職務経歴を見る</a>
       </div>
     </header>
 
-    <section id="artex">
+    <section id="pentest-tool">
       <div class="sec-head">
-        <h2>ARTEX — 料金なしで配布する基盤</h2>
+        <h2>ローカルLLM駆動のペネトレーションテストツール</h2>
         <p>
-          オープンソース ARTEX をベースにした、ローカルLLM駆動のペネトレーションテスト基盤です。
+          複数の LLM エージェントが、偵察から検出結果の整理までを自律的に進めるツールです。
           Go バックエンドと Next.js フロントエンドで構成し、趣味として開発と拡張を続けています。
-          販売せず、欲しい方にツールを渡します。
+          料金は取りません。悪用防止のため、メールで申し込んだ方のみに配布します。
         </p>
       </div>
       <div class="info-list">
         <div class="info-item">
-          <h3>いま手がけていること</h3>
-          <div>
-            <p>グローバル版（英語既定、日本語・韓国語・中国語・スペイン語切替）の整備、ローカルLLM向けの接続、エージェント出力とレポートの扱い、検知・防御向けの資料整理。</p>
-          </div>
-        </div>
-        <div class="info-item">
           <h3>できること</h3>
           <div>
-            <p>複数エージェントが目標を分解し、実ツールを実行し、資産と脆弱性をグラフに積み上げます。検出結果の一覧、日次の活動、人が途中で指示を入れるチャットを一つの画面で扱います。</p>
+            <p>複数エージェントが目標を分解し、実ツールを実行し、資産と脆弱性を画面に積み上げます。検出結果の一覧、活動フィード、人が途中で指示を入れるチャットを一つの画面で扱います。</p>
           </div>
         </div>
         <div class="info-item">
-          <h3>配布</h3>
+          <h3>配布の条件</h3>
           <div>
-            <p>料金は取りません。欲しい方にツールを渡します。商用のセキュリティ診断サービスではありません。<a href="security-audit.html#inquiry">無料配布の申し込み</a>からどうぞ。</p>
+            <p>公開リンクでの配布はしません。申し込み内容を確認し、利用条件（許可された環境のみ）を伝えたうえで、メールでツール一式を送ります。</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3>申し込み</h3>
+          <div>
+            <p>商用のセキュリティ診断サービスではありません。<a href="security-audit.html#inquiry">メールで配布を申し込む</a>からどうぞ。使い方の説明も配布ページにあります。</p>
           </div>
         </div>
       </div>
-      <div class="artex-shots">
-        <figure class="artex-shot">
-          <img src="assets/artex/dashboard.png" alt="ARTEX ダッシュボード画面" width="900" height="520" loading="lazy">
+      <div class="tool-shots">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/dashboard.png" alt="ダッシュボード画面" width="900" height="520" loading="lazy">
           <figcaption>ダッシュボード — 進行中タスク、検出結果、資産、トークン消費、活動フィード</figcaption>
         </figure>
-        <figure class="artex-shot">
-          <img src="assets/artex/findings.png" alt="ARTEX 検出結果画面" width="900" height="520" loading="lazy">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/findings.png" alt="検出結果画面" width="900" height="520" loading="lazy">
           <figcaption>検出結果 — 深刻度・資産・タスクごとに集計し、CSV に出力</figcaption>
         </figure>
-        <figure class="artex-shot">
-          <img src="assets/artex/chat.png" alt="ARTEX チャット画面" width="900" height="520" loading="lazy">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/chat.png" alt="チャット画面" width="900" height="520" loading="lazy">
           <figcaption>チャット — 実行中に人がヒントを入れ、エージェントが攻撃チェーンを要約</figcaption>
         </figure>
       </div>
-      <p class="artex-note">
+      <p class="tool-note">
         <strong>利用範囲：</strong>所有する環境、または書面で許可を得た対象に限って使ってください。無許可のスキャン・侵入は犯罪になります。学習・研究・隔離されたローカル環境での検証を前提とします。
       </p>
       <div class="cta-row" style="margin-top:22px;">
-        <a href="security-audit.html" class="btn btn-primary">ARTEXの無料配布ページへ</a>
-        <a href="security-audit.html#inquiry" class="btn btn-ghost">配布を申し込む</a>
+        <a href="security-audit.html" class="btn btn-primary">配布ページへ</a>
+        <a href="security-audit.html#inquiry" class="btn btn-ghost">メールで申し込む</a>
       </div>
     </section>
 
@@ -1344,7 +1344,7 @@
         <h2>案件・お問い合わせ</h2>
         <p class="lead">
           業務委託の案件は、AI受託開発とAI講義を募集しています。
-          ARTEX は趣味の開発・拡張です。料金は取らず、欲しい方にツールを配布します。
+          ローカルLLM駆動のペネトレーションテストツールは、料金なしで、メール申込者のみに配布します。
         </p>
         <div class="contact-points">
           <div class="contact-point">
@@ -1356,14 +1356,14 @@
             <span>業務委託での社内研修。夜間90分。専用ページへ</span>
           </div>
           <div class="contact-point">
-            <strong>ARTEX</strong>
-            <span>ARTEX ベースの基盤。料金なしで配布。専用ページへ</span>
+            <strong>ペネトレーションツール</strong>
+            <span>悪用防止のためメール申込者のみ配布。専用ページへ</span>
           </div>
         </div>
         <div class="cta-row">
           <a href="ai-contract.html" class="btn btn-primary">AI受託開発へ</a>
           <a href="ai-lecture.html" class="btn btn-ghost">AI講義へ</a>
-          <a href="security-audit.html" class="btn btn-ghost">ARTEXへ</a>
+          <a href="security-audit.html" class="btn btn-ghost">ツール配布へ</a>
           <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>

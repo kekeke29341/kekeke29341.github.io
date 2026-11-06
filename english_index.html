@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Teppei Nakano — open for AI contract development and AI training. Building and extending ARTEX, a local-LLM pentest platform, as a personal project.">
+  <meta name="description" content="Teppei Nakano — open for AI contract development and AI training. Free local-LLM pentest tool distributed only to email applicants.">
   <link rel="alternate" hreflang="ja" href="https://kekeke29341.github.io/index.html">
   <link rel="alternate" hreflang="en" href="https://kekeke29341.github.io/english_index.html">
-  <title>Teppei Nakano | AI contract work, AI training, ARTEX</title>
+  <title>Teppei Nakano | AI contract work, AI training, pentest tool</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -219,14 +219,14 @@
       font-size: 0.85rem; border-top: 1px solid var(--panel-border); margin-top: 24px;
     }
     footer .meta { font-family: "JetBrains Mono", monospace; margin-top: 8px; font-size: 0.78rem; }
-    .artex-shots { display: grid; gap: 18px; margin: 22px 0 0; }
-    .artex-shot {
+    .tool-shots { display: grid; gap: 18px; margin: 22px 0 0; }
+    .tool-shot {
       margin: 0; background: var(--panel); border: 1px solid var(--panel-border);
       border-radius: var(--radius); overflow: hidden;
     }
-    .artex-shot img { display: block; width: 100%; height: auto; }
-    .artex-shot figcaption { padding: 12px 16px 14px; color: var(--text-dim); font-size: 0.88rem; }
-    .artex-note {
+    .tool-shot img { display: block; width: 100%; height: auto; }
+    .tool-shot figcaption { padding: 12px 16px 14px; color: var(--text-dim); font-size: 0.88rem; }
+    .tool-note {
       margin: 18px 0 0; padding: 16px 18px; border-radius: 10px;
       border: 1px solid #fed7aa; background: #fff7ed; color: #7c2d12; font-size: 0.9rem;
     }
@@ -243,8 +243,8 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract_en.html">AI contract work</a>
       <a href="ai-lecture_en.html">AI training</a>
-      <a href="security-audit_en.html">ARTEX | Free</a>
-      <a href="#artex">ARTEX work</a>
+      <a href="security-audit_en.html">Pentest tool</a>
+      <a href="#pentest-tool">Tool overview</a>
       <a href="#career">Career</a>
       <a href="#awards">Selections</a>
       <a href="#contact">Contact</a>
@@ -274,9 +274,9 @@
             <span class="offer-go">Discuss training →</span>
           </a>
           <a class="offer-card tone-warm" href="security-audit_en.html">
-            <h2>ARTEX | Free distribution</h2>
-            <p>An ARTEX-based local-LLM pentest platform. No fee — I distribute the tool to people who want it.</p>
-            <span class="offer-go">Free distribution page →</span>
+            <h2>Pentest tool | Free distribution</h2>
+            <p>A local-LLM autonomous pentest tool. No fee. Distributed only to people who request it by email, to reduce misuse.</p>
+            <span class="offer-go">Distribution page →</span>
           </a>
         </div>
       </div>
@@ -293,59 +293,60 @@
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">Discuss a project</a>
-        <a href="#artex" class="btn btn-ghost">See ARTEX work</a>
+        <a href="#pentest-tool" class="btn btn-ghost">See the tool</a>
         <a href="#career" class="btn btn-ghost">View experience</a>
       </div>
     </header>
 
-    <section id="artex">
+    <section id="pentest-tool">
       <div class="sec-head">
-        <h2>ARTEX — distributed at no charge</h2>
+        <h2>Local-LLM autonomous pentest tool</h2>
         <p>
-          An ARTEX-based local-LLM platform that runs penetration-test workflows on its own — breaking down goals, running real tools, and accumulating assets and findings into a graph.
-          Go backend and Next.js frontend. I develop and extend it as a personal project, and I distribute the tool at no fee.
+          Multiple LLM agents run penetration-test workflows on their own — breaking down goals, running real tools, and accumulating assets and findings.
+          Go backend and Next.js frontend. I develop and extend it as a personal project.
+          There is no fee. To reduce misuse, I distribute it only to people who request it by email.
         </p>
       </div>
       <div class="info-list">
         <div class="info-item">
-          <h3>What I work on</h3>
-          <div>
-            <p>The global edition (English default; Japanese, Korean, Chinese, Spanish selectable), local-LLM wiring, agent output and reports, and defense/detection notes.</p>
-          </div>
-        </div>
-        <div class="info-item">
           <h3>What it does</h3>
           <div>
-            <p>Multiple agents decompose goals, execute tools, and build an asset/vulnerability graph. Findings, activity, and human-in-the-loop chat live on one screen.</p>
+            <p>Agents decompose goals, execute tools, and accumulate assets and findings. Findings, activity, and human-in-the-loop chat live on one screen.</p>
           </div>
         </div>
         <div class="info-item">
-          <h3>Distribution</h3>
+          <h3>Distribution rule</h3>
           <div>
-            <p>No fee. I send the tool to people who want it. This is not a commercial security-assessment service. <a href="security-audit_en.html#inquiry">Request free distribution</a>.</p>
+            <p>No public download link. After reviewing the request, I share authorized-use conditions and email the package.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <h3>How to request</h3>
+          <div>
+            <p>This is not a commercial security-assessment service. <a href="security-audit_en.html#inquiry">Request distribution by email</a>. Usage steps are on the distribution page.</p>
           </div>
         </div>
       </div>
-      <div class="artex-shots">
-        <figure class="artex-shot">
-          <img src="assets/artex/dashboard.png" alt="ARTEX dashboard" width="900" height="520" loading="lazy">
+      <div class="tool-shots">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/dashboard.png" alt="Dashboard screen" width="900" height="520" loading="lazy">
           <figcaption>Dashboard — active tasks, findings, assets, token spend, activity feed</figcaption>
         </figure>
-        <figure class="artex-shot">
-          <img src="assets/artex/findings.png" alt="ARTEX findings" width="900" height="520" loading="lazy">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/findings.png" alt="Findings screen" width="900" height="520" loading="lazy">
           <figcaption>Findings — grouped by severity, asset, and task; exportable to CSV</figcaption>
         </figure>
-        <figure class="artex-shot">
-          <img src="assets/artex/chat.png" alt="ARTEX chat" width="900" height="520" loading="lazy">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/chat.png" alt="Chat screen" width="900" height="520" loading="lazy">
           <figcaption>Chat — inject hints mid-run while the agent summarizes the attack chain</figcaption>
         </figure>
       </div>
-      <p class="artex-note">
+      <p class="tool-note">
         <strong>Authorized use only:</strong> Use only on systems you own or for which you have written authorization. Unauthorized scanning or intrusion is a crime. Intended for learning, research, and isolated local environments.
       </p>
       <div class="cta-row" style="margin-top:22px;">
-        <a href="security-audit_en.html" class="btn btn-primary">Free distribution page</a>
-        <a href="security-audit_en.html#inquiry" class="btn btn-ghost">Request the tool</a>
+        <a href="security-audit_en.html" class="btn btn-primary">Distribution page</a>
+        <a href="security-audit_en.html#inquiry" class="btn btn-ghost">Request by email</a>
       </div>
     </section>
 
@@ -632,7 +633,7 @@
         <h2>Projects and contact</h2>
         <p class="lead">
           I am looking for contract projects on AI development and AI training.
-          ARTEX is a personal project. No fee — I distribute the tool to people who want it.
+          The local-LLM pentest tool is free and distributed only to people who request it by email.
         </p>
         <div class="contact-points">
           <div class="contact-point">
@@ -644,14 +645,14 @@
             <span>Internal training under contract. Evening 90-minute sessions</span>
           </div>
           <div class="contact-point">
-            <strong>ARTEX</strong>
-            <span>ARTEX-based platform. Free distribution on the dedicated page</span>
+            <strong>Pentest tool</strong>
+            <span>Email applicants only, to reduce misuse. Dedicated page</span>
           </div>
         </div>
         <div class="cta-row">
           <a href="ai-contract_en.html" class="btn btn-primary">AI contract work</a>
           <a href="ai-lecture_en.html" class="btn btn-ghost">AI training</a>
-          <a href="security-audit_en.html" class="btn btn-ghost">ARTEX</a>
+          <a href="security-audit_en.html" class="btn btn-ghost">Tool distribution</a>
           <a href="https://www.linkedin.com/in/teppei-nakano-nam" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/dcdct/?locale=ja_JP" class="btn btn-facebook" target="_blank" rel="noopener">Facebook</a>
         </div>

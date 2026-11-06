@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ARTEX ベースのローカルLLM駆動ペネトレーションテスト基盤。料金は取りません。欲しい方にツールを配布します。">
-  <title>ARTEX｜無料配布｜中野哲平</title>
+  <meta name="description" content="ローカルLLM駆動の自律型ペネトレーションテストツール。料金は取りません。悪用防止のため、メール申込者のみに配布します。">
+  <title>ローカルLLMペネトレーションテストツール｜無料配布｜中野哲平</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,11 +21,14 @@
     .free-banner{margin:8px 0 26px;padding:22px 24px;border:1px solid color-mix(in srgb,var(--accent-2) 35%,var(--panel-border));border-radius:var(--radius);background:linear-gradient(120deg,#eff6ff,#f0fdfa)}
     .free-banner h2{margin:0 0 8px;font-size:1.25rem}
     .free-banner p{margin:0;color:var(--text-dim);font-size:.95rem}
-    .artex-shots{display:grid;gap:18px;margin:18px 0 8px}
-    .artex-shot{margin:0;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden}
-    .artex-shot img{display:block;width:100%;height:auto}
-    .artex-shot figcaption{padding:12px 16px 14px;color:var(--text-dim);font-size:.88rem}
+    .tool-shots{display:grid;gap:18px;margin:18px 0 8px}
+    .tool-shot{margin:0;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden}
+    .tool-shot img{display:block;width:100%;height:auto}
+    .tool-shot figcaption{padding:12px 16px 14px;color:var(--text-dim);font-size:.88rem}
     .authorization-note{padding:16px 18px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;color:#7c2d12;font-size:.9rem;margin:18px 0}
+    .howto-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+    .howto-list li{padding:16px 18px;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);color:var(--text-dim);font-size:.93rem}
+    .howto-list strong{display:block;color:var(--text);margin-bottom:4px;font-size:.98rem}
     .stack-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
     .stack-row span{font-family:"JetBrains Mono",monospace;font-size:.72rem;padding:4px 9px;border-radius:6px;background:var(--bg-soft);border:1px solid var(--panel-border);color:var(--text-dim)}
     @media(max-width:700px){.security-grid{grid-template-columns:1fr}}
@@ -41,7 +44,8 @@
     <div class="nav-links" id="site-nav">
       <a href="ai-contract.html">AI受託開発</a>
       <a href="ai-lecture.html">AI講義</a>
-      <a href="security-audit.html">ARTEX</a>
+      <a href="security-audit.html">ペネトレーションツール</a>
+      <a href="#howto">使い方</a>
       <a href="#shots">画面</a>
       <a href="index.html#career">職務経歴</a>
       <a href="#inquiry">配布を申し込む</a>
@@ -51,32 +55,32 @@
 
   <main class="wrap">
     <header class="services-hero">
-      <span class="security-kicker">ARTEX / FREE DISTRIBUTION</span>
-      <h1>ARTEX ベースのペネトレーションテスト基盤を、<br>料金なしで配布します。</h1>
+      <span class="security-kicker">LOCAL LLM / AUTONOMOUS PENTEST</span>
+      <h1>ローカルLLMで動く、<br>自律型ペネトレーションテストツール。</h1>
       <p class="lede">
-        オープンソースの ARTEX をベースに、ローカルLLMでも動く自律型ペネトレーションテスト基盤を趣味で開発・拡張しています。
-        販売しません。欲しい方にツールを渡します。下のフォームから申し込んでください。
+        LLM の複数エージェントが目標を分解し、実ツールを実行し、資産と脆弱性を画面に積み上げる基盤です。
+        料金は取りません。悪用防止のため、メールで申し込んだ方のみに配布します。
       </p>
       <div class="security-cta">
-        <a href="#inquiry" class="btn-submit">無料で配布を申し込む</a>
-        <a href="#shots" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">画面を見る</a>
+        <a href="#inquiry" class="btn-submit">メールで配布を申し込む</a>
+        <a href="#howto" class="btn btn-ghost" style="padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;">使い方を見る</a>
       </div>
       <p class="page-note">商用のセキュリティ診断サービスではありません。所有環境、または書面で許可を得た対象での利用を前提とします。</p>
     </header>
 
-    <section class="security-section" aria-labelledby="free-heading">
+    <section class="security-section" aria-labelledby="dist-heading">
       <div class="free-banner">
-        <span class="security-kicker">NO FEE</span>
-        <h2 id="free-heading">料金は取りません。欲しい人に配ります。</h2>
+        <span class="security-kicker">EMAIL REQUIRED</span>
+        <h2 id="dist-heading">料金は取りません。メール申込者のみに渡します。</h2>
         <p>
-          申し込みを確認したあと、利用条件（許可された環境のみ）を伝えたうえで、ツール一式を渡します。
-          有料プランへの誘導や、診断サービスの販売はありません。
+          公開リポジトリへの直リンク配布はしません。申し込み内容を確認し、利用条件（許可された環境のみ）を伝えたうえで、ツール一式をメールで送ります。
+          悪用防止のための制限です。有料プランへの誘導はありません。
         </p>
       </div>
       <div class="security-grid">
         <article class="security-card">
           <h3>渡すもの</h3>
-          <p>ARTEX ベースの実行環境（Docker Compose 起動を想定）、設定例、ローカルLLM接続の手順。</p>
+          <p>実行環境（Docker Compose 起動を想定）、設定例、ローカルLLM接続の手順、起動後の初期設定手順。</p>
         </article>
         <article class="security-card">
           <h3>対象</h3>
@@ -84,19 +88,19 @@
         </article>
         <article class="security-card">
           <h3>やらないこと</h3>
-          <p>無許可の第三者資産への攻撃依頼、破壊的操作の代行、有料の診断請負。</p>
+          <p>無許可の第三者資産への攻撃依頼、破壊的操作の代行、有料の診断請負、申込なしの配布。</p>
         </article>
         <article class="security-card">
           <h3>受け取り方</h3>
-          <p>フォーム送信 → 内容確認 → 利用条件の共有 → ツール配布。返信はメールまたは LinkedIn で行います。</p>
+          <p>フォーム送信 → 内容確認 → 利用条件の共有 → メールでツール配布。</p>
         </article>
       </div>
     </section>
 
     <section class="security-section">
       <div class="sec-head">
-        <h2>ARTEX ベースで何ができるか</h2>
-        <p>LLM マルチエージェントが目標を分解し、実ツールを実行し、資産と脆弱性をグラフに積み上げます。Go バックエンドと Next.js フロントエンド、データは PostgreSQL です。</p>
+        <h2>このツールでできること</h2>
+        <p>Go バックエンドと Next.js フロントエンド、データは PostgreSQL。ローカルLLM（OpenAI互換エンドポイント）にも接続できます。</p>
       </div>
       <div class="security-grid">
         <article class="security-card">
@@ -108,8 +112,8 @@
           <p>フロンティアモデルだけでなく、OpenAI互換エンドポイント経由でローカルLLMにも接続できます。</p>
         </article>
         <article class="security-card">
-          <h3>多言語の出力</h3>
-          <p>英語を既定にし、日本語・韓国語・中国語・スペイン語へ切替。レポート・要約・チャットの表示言語を揃えます。</p>
+          <h3>検出結果の整理</h3>
+          <p>深刻度・資産・タスクごとに集計し、CSV に出力できます。活動フィードで実行状況を追えます。</p>
         </article>
         <article class="security-card">
           <h3>人が途中で介入できる</h3>
@@ -117,7 +121,6 @@
         </article>
       </div>
       <div class="stack-row">
-        <span>ARTEX-based</span>
         <span>Go</span>
         <span>Next.js</span>
         <span>PostgreSQL</span>
@@ -126,43 +129,76 @@
       </div>
     </section>
 
-    <section id="shots" class="security-section">
+    <section id="howto" class="security-section">
       <div class="sec-head">
-        <h2>画面</h2>
-        <p>データはローカルに隔離したサンドボックスのものです。標的は架空のドメインとプライベートアドレス帯です。</p>
+        <h2>使い方（配布後の流れ）</h2>
+        <p>メールで受け取った一式を、隔離されたローカル環境で動かします。許可のない外部資産には向けないでください。</p>
       </div>
-      <div class="artex-shots">
-        <figure class="artex-shot">
-          <img src="assets/artex/dashboard.png" alt="ARTEX ダッシュボード" width="900" height="520" loading="lazy">
-          <figcaption>ダッシュボード — 進行中タスク、確定した検出結果、資産ノード、LLM トークン消費、活動フィード</figcaption>
-        </figure>
-        <figure class="artex-shot">
-          <img src="assets/artex/findings.png" alt="ARTEX 検出結果一覧" width="900" height="520" loading="lazy">
-          <figcaption>検出結果 — 深刻度・ステータス・資産・担当タスクごとに集計し、CSV にエクスポート</figcaption>
-        </figure>
-        <figure class="artex-shot">
-          <img src="assets/artex/chat.png" alt="ARTEX チャット" width="900" height="520" loading="lazy">
-          <figcaption>チャット — 自律実行の途中に人が割り込み、エージェントが攻撃チェーンを要約</figcaption>
-        </figure>
-      </div>
+      <ol class="howto-list">
+        <li>
+          <strong>1. 環境を用意する</strong>
+          Docker と Docker Compose を入れます。PostgreSQL は compose が起動します。LLM 用の API キー、またはローカルの OpenAI互換エンドポイントを用意します。
+        </li>
+        <li>
+          <strong>2. 起動する</strong>
+          配布物の手順どおりに `.env` を用意し、`docker compose up -d` で起動します。ブラウザで管理画面を開き、初回の管理者パスワードを設定します。
+        </li>
+        <li>
+          <strong>3. LLM を接続する</strong>
+          設定画面でプロバイダとモデルを指定します。ローカルLLMの場合は OpenAI互換のベース URL とモデル名を入れます。
+        </li>
+        <li>
+          <strong>4. 対象と許可範囲を決める</strong>
+          所有する検証環境、または書面で許可を得た対象だけを登録します。除外対象と停止条件も先に決めます。
+        </li>
+        <li>
+          <strong>5. タスクを実行する</strong>
+          目標を書いてエージェントを走らせます。進行中はダッシュボードと活動フィードで状況を見ます。必要ならチャットで指示を追加します。
+        </li>
+        <li>
+          <strong>6. 結果を確認する</strong>
+          検出結果を深刻度と資産ごとに確認し、CSV に出力します。修正後の再検証も同じ画面から進められます。
+        </li>
+      </ol>
       <p class="authorization-note">
         <strong>利用範囲：</strong>所有する環境、または明示的な書面許可がある対象に限って使ってください。無許可のスキャン・侵入・データ持ち出しは犯罪になります。学習・研究・隔離されたローカル環境での検証を前提とします。
       </p>
     </section>
 
+    <section id="shots" class="security-section">
+      <div class="sec-head">
+        <h2>画面</h2>
+        <p>データはローカルに隔離したサンドボックスのものです。標的は架空のドメインとプライベートアドレス帯です。</p>
+      </div>
+      <div class="tool-shots">
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/dashboard.png" alt="ダッシュボード画面" width="900" height="520" loading="lazy">
+          <figcaption>ダッシュボード — 進行中タスク、確定した検出結果、資産ノード、LLM トークン消費、活動フィード</figcaption>
+        </figure>
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/findings.png" alt="検出結果一覧画面" width="900" height="520" loading="lazy">
+          <figcaption>検出結果 — 深刻度・ステータス・資産・担当タスクごとに集計し、CSV にエクスポート</figcaption>
+        </figure>
+        <figure class="tool-shot">
+          <img src="assets/local-llm-pentest/chat.png" alt="チャット画面" width="900" height="520" loading="lazy">
+          <figcaption>チャット — 自律実行の途中に人が割り込み、エージェントが攻撃チェーンを要約</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section id="inquiry" style="padding-top:8px;border:0;padding-bottom:48px;">
       <div class="contact-form">
-        <h2>無料配布の申し込み</h2>
+        <h2>メールで配布を申し込む</h2>
         <p class="form-lede">
-          料金は不要です。使いたい環境（ローカル / 社内隔離）と目的を書いてください。
-          確認後、利用条件を伝えたうえでツールを渡します。
+          料金は不要です。悪用防止のため、このフォーム（メール）で申し込んだ方のみに配布します。
+          利用環境と目的を書いてください。確認後、利用条件を伝えたうえでツールを送ります。
         </p>
         <form class="js-contact-form" data-next="thanks.html" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="bd36b481-7015-40ca-8d48-b9ec804ae6b6">
-          <input type="hidden" name="subject" value="【ARTEX無料配布】サイトからの申し込み">
+          <input type="hidden" name="subject" value="【ローカルLLMペネトレーションツール】配布申し込み">
           <input type="hidden" name="redirect" value="https://kekeke29341.github.io/thanks.html">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
-          <input type="hidden" name="service" value="ARTEX無料配布">
+          <input type="hidden" name="service" value="ローカルLLMペネトレーションツール配布">
           <div class="form-grid">
             <div class="form-field">
               <label for="name">お名前</label>
@@ -191,10 +227,10 @@
             </div>
           </div>
           <div class="form-actions">
-            <button class="btn-submit" type="submit">無料配布を申し込む</button>
+            <button class="btn-submit" type="submit">メールで申し込む</button>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/teppei-nakano-nam" target="_blank" rel="noopener" style="display:inline-flex;padding:11px 18px;border:1px solid var(--panel-border);border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;">LinkedInでも連絡</a>
           </div>
-          <p class="form-note">料金は発生しません。無許可利用の依頼には応じません。</p>
+          <p class="form-note">料金は発生しません。申込なしでの配布はしません。無許可利用の依頼には応じません。</p>
         </form>
       </div>
     </section>
