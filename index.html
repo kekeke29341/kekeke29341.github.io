@@ -610,8 +610,21 @@
           その後は企業案件で機械学習と LLM の実装を続け、いまは法人の代表として各社のプロダクト開発と社内導入を担当しています。
         </p>
         <p>
-          得意な土台は <strong>機械学習</strong> と <strong>LLM</strong> です。
-          モデル選定、学習・推論の最適化、RAG、評価、本番投入まで自分で進めます。
+          査読付きの国際学会ワークショップと国際誌への投稿・発表があります。
+          発表先は
+          ICML Workshop on Computational Biology（2017）、
+          NeurIPS（当時の名称は NIPS）Workshop on Machine Learning for Health（2016）、
+          NeurIPS（当時の名称は NIPS）Clinical Workshop（2015）、
+          BioMed Research International（2016）
+          です。
+          国内では日本医療情報学会（JAMI）と人工知能学会（JSAI）にも発表しています。
+          一覧と PDF は
+          <a href="papers.html">論文</a>
+          にあります。
+        </p>
+        <p>
+          得意な土台は <strong>機械学習</strong>、<strong>LLM</strong>、<strong>Physical AI</strong> です。
+          モデル選定、学習・推論の最適化、RAG、評価、本番投入に加え、RGB-D知覚とロボット操作の閉ループ検証まで自分で進めます。
           あわせて、プロジェクトマネジメント、AI駆動開発の導入、クラウドとオンプレのサーバー構築も担当します。
           フロント、API、インフラ、セキュリティの権限設計まで、案件に必要な範囲を通して引き受けます。
         </p>
@@ -673,7 +686,7 @@
           <details class="tl-card current">
             <summary>
               <div class="tl-meta">
-                <span class="tl-period">2026.07 – 現在</span>
+                <span class="tl-period">2026.10 – 現在</span>
                 <span class="tl-badge now">進行中</span>
               </div>
               <h3>企業向け AI駆動開発の推進支援</h3>
@@ -685,7 +698,7 @@
               <ul>
                 <li>現状診断、ギャップ分析、推進素案（提出用インフォグラフィック）を作成。</li>
                 <li>外部調査（他社事例・公式ドキュメント）と社内資料の突合で、導入論点を整理。</li>
-                <li>機械的な関門チェックの試作など、開発プロセスへの組み込み案を提示。</li>
+                <li>機械的な関門チェックの試作を含む、開発プロセスへの組み込み案を提示。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">Claude</span>
@@ -697,9 +710,39 @@
         </div>
 
         <div class="tl-item">
+          <details class="tl-card current">
+            <summary>
+              <div class="tl-meta">
+                <span class="tl-period">2026.09 – 現在</span>
+                <span class="tl-badge now">進行中</span>
+              </div>
+              <h3>BioSpatial OS（Physical AI）</h3>
+              <p class="tl-org">個人開発 · ライフサイエンス向け · 知覚・操作・閉ループ検証のミドルウェア（シミュレーション検証）</p>
+              <p class="tl-blurb">自然言語プロトコルと RGB-D から、教示なしでラボウェアを 6DoF 認識し、pick〜place〜検証〜自動リトライまでを閉ループで実行する Physical AI 基盤を構想からシミュレーション上のプロトタイプ検証まで推進（実機検証は未実施）。</p>
+              <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
+            </summary>
+            <div class="project-detail">
+              <ul>
+                <li><strong>構成：</strong>自然言語→タスクグラフ、RGB-D 知覚（検出・深度・点群・6DoF）、動作計画、把持／配置の閉ループ検証、ハッシュ連鎖監査ログ。</li>
+                <li><strong>検証：</strong>乱数レイアウトとセンサノイズ条件下の ablation。測定→根因特定→修正→回帰ベンチのサイクルで改善。</li>
+                <li><strong>実績（シミュレーション上）：</strong>PyBullet でランダム化した 2,080 エピソードを全件成功。姿勢誤差 1.9 mm（XY）／0.2 mm（Z）、配置オフセット中央値 7.8 mm。Isaac Sim でも 20/20 成功。</li>
+                <li><strong>継続学習：</strong>検証済み把持データを次の知覚改善へ還流するフライホイール構想と、データライセンスゲートを整理。</li>
+              </ul>
+              <div class="result-chips">
+                <span class="rc">Physical AI</span>
+                <span class="rc">Isaac Sim</span>
+                <span class="rc">RGB-D / 6DoF</span>
+                <span class="rc">閉ループ検証</span>
+                <span class="rc">MLOps設計</span>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tl-item">
           <details class="tl-card">
             <summary>
-              <div class="tl-meta"><span class="tl-period">2026.03 – 2026.10</span></div>
+              <div class="tl-meta"><span class="tl-period">2026.06 – 2026.10</span></div>
               <h3>HyperEVM 向け代理 LP / DeFi フロント</h3>
               <p class="tl-org">DeFi プロジェクト · スマートコントラクトと Next.js</p>
               <p class="tl-blurb">HyperEVM 上の代理 LP、自動リバランス、ブリッジ UI を含むモノレポを設計・実装。</p>
@@ -724,7 +767,7 @@
         <div class="tl-item">
           <details class="tl-card">
             <summary>
-              <div class="tl-meta"><span class="tl-period">2025.04 – 2026.10</span></div>
+              <div class="tl-meta"><span class="tl-period">2025.07 – 2026.07</span></div>
               <h3>ゴルフ場の価格・需要分析基盤</h3>
               <p class="tl-org">ゴルフ予約サイトの公開データ · 需要予測・変動料金・類似検索</p>
               <p class="tl-blurb">ゴルフ場の価格・空き枠の収集、需要予測、変動料金、類似コース検索を一連のシステムとして開発。</p>
@@ -750,7 +793,7 @@
         <div class="tl-item">
           <details class="tl-card">
             <summary>
-              <div class="tl-meta"><span class="tl-period">2025.11 – 2026.05</span></div>
+              <div class="tl-meta"><span class="tl-period">2026.02</span></div>
               <h3>建設現場向け生成AI</h3>
               <p class="tl-org">音声報告・写真による危険予知・社内文書検索</p>
               <p class="tl-blurb">建設現場向けに、音声からの報告書作成、写真による危険予知、社内ナレッジ検索を提供するプラットフォームを設計・実装。</p>
@@ -776,7 +819,7 @@
         <div class="tl-item">
           <details class="tl-card">
             <summary>
-              <div class="tl-meta"><span class="tl-period">2025.11 – 2026.05</span></div>
+              <div class="tl-meta"><span class="tl-period">2026.02</span></div>
               <h3>法務向け文書・起案支援</h3>
               <p class="tl-org">PDF分割・証拠番号リネーム・引用付き起案</p>
               <p class="tl-blurb">大容量 PDF の分割、証拠番号付きリネーム、書籍を根拠にした引用付き起案の検証実装を担当。</p>
@@ -802,7 +845,7 @@
         <div class="tl-item">
           <details class="tl-card">
             <summary>
-              <div class="tl-meta"><span class="tl-period">2025.09 – 2026.05</span></div>
+              <div class="tl-meta"><span class="tl-period">2025.12 – 2026.02</span></div>
               <h3>画像・動画アノテーション基盤（CVAT）</h3>
               <p class="tl-org">Computer Vision Annotation Tool の導入・開発作業</p>
               <p class="tl-blurb">コンピュータビジョン向けの画像・動画アノテーションツール CVAT の環境構築と開発・改修を担当。</p>
@@ -832,7 +875,7 @@
                 <span class="tl-badge now">直近</span>
               </div>
               <h3>帳票PDFからの項目自動抽出</h3>
-              <p class="tl-org">AIスタートアップ · 36人月 / 4名</p>
+              <p class="tl-org">AIスタートアップ · 36人月 / 4名 · 週3〜4日稼働</p>
               <p class="tl-blurb">日本語の帳票PDFから必要な項目を自動で抜き出す仕組みを主導し、共有プロダクトへ組み込みました。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
@@ -858,7 +901,7 @@
             <summary>
               <div class="tl-meta"><span class="tl-period">2026.02 – 2026.09</span></div>
               <h3>Teams 会議の AI 議事録アプリ（Azure）</h3>
-              <p class="tl-org">大手人材サービス企業 · 対象テナント約1,500名</p>
+              <p class="tl-org">大手人材サービス企業 · 対象テナント約1,500名 · 週3〜4日稼働</p>
               <p class="tl-blurb">Teamsの文字起こしから議事録を作り、SharePointへ保存・通知するまでを、情報システム部門の基準に合う本番構成で担当。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
@@ -883,16 +926,16 @@
           <details class="tl-card">
             <summary>
               <div class="tl-meta"><span class="tl-period">2025.09 – 2025.12</span></div>
-              <h3>社内専用の生成AI基盤</h3>
+              <h3>社内専用生成AIの GPU 環境構築・PoC 検証</h3>
               <p class="tl-org">大手製造業 · 20人月 / 5名</p>
-              <p class="tl-blurb">外部サービスへ送れない前提で、社内サーバー上の生成AIと、権限付きの文書検索を設計・構築。</p>
+              <p class="tl-blurb">外部サービスへ送れないデータでの生成AI活用に向け、社内GPUサーバーを立ち上げ、ローカルLLMが使えるかを検証。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>社内GPUサーバーの選定と、応答を速くする実行環境の整備。</li>
-                <li>個人情報を除いたデータでの追加学習、人ごとの閲覧権限を付けた社内文書検索。</li>
-                <li>モデルを軽くして処理量を改善。外部へデータを送らず社内基準を満たした。</li>
+                <li>社内GPUサーバー（A100 / H100 / L40S）のセットアップと推論環境の構築・性能計測。</li>
+                <li>モデル比較（Mistral Large 2 は比較評価のみ）、匿名化データでの追加学習、閲覧権限付き文書検索の試作。</li>
+                <li>量子化でスループット3倍以上を確認。本格導入に向けた構成案と評価レポートを作成。</li>
               </ul>
               <div class="result-chips">
                 <span class="rc">vLLM</span>
@@ -964,13 +1007,13 @@
                 <span class="tl-period">2023.01 – 2024.05</span>
               </div>
               <h3>医療機関向けの社内生成AI</h3>
-              <p class="tl-org">医療機関向け · 60人月</p>
+              <p class="tl-org">医療機関向け · 本人1名＋外部協力</p>
               <p class="tl-blurb">機密性の高い医療環境向けに、院内サーバーで動く生成AIと、要約・質問応答を設計・開発。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
               <ul>
-                <li>複数のモデルを比較し、医療用語向けに追加学習。</li>
+                <li>2023年前半に要件整理と医療用語データの整備、同年後半に公開された Llama 2・Mistral 7B 等を比較し、医療用語向けに追加学習。</li>
                 <li>機器の性能が限られる環境でも動くよう、モデルを軽くして最適化。</li>
                 <li>医療文書の自動要約・質問応答を実装し、病院導入まで支援。</li>
               </ul>
@@ -992,7 +1035,7 @@
                 <span class="tl-period">2022.01 – 2023.12</span>
               </div>
               <h3>個別最適化のマーケティング基盤</h3>
-              <p class="tl-org">企業マーケ向け · 70人月</p>
+              <p class="tl-org">企業マーケ向け · 本人1名＋外部協力</p>
               <p class="tl-blurb">消費者行動分析とパーソナライズ広告配信、効果測定ダッシュボードを開発。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
@@ -1018,7 +1061,7 @@
                 <span class="tl-period">2021.04 – 2021.12</span>
               </div>
               <h3>法律文書検索・要約システム</h3>
-              <p class="tl-org">法務・コンプライアンス向け · 60人月</p>
+              <p class="tl-org">法務・コンプライアンス向け · 本人1名＋外部協力</p>
               <p class="tl-blurb">法律文書の検索・要約・似た判例を探す仕組みを開発。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
@@ -1073,7 +1116,7 @@
               <p class="tl-org">所属：
                 <a href="https://www.m.u-tokyo.ac.jp/" target="_blank" rel="noopener">東京大学大学院医学系研究科</a>
               </p>
-              <p class="tl-blurb">電子カルテの要約を含む、医療と機械学習の研究。要約モデルを実装。</p>
+              <p class="tl-blurb">電子カルテの要約を含む、医療と機械学習の研究。要約モデルを実装。大学院での研究と並行して、企業からの業務委託（受託開発）と株式会社NAMの代表を兼務。</p>
               <span class="expand-hint"><span class="hint-closed">詳しく見る</span><span class="hint-open">閉じる</span></span>
             </summary>
             <div class="project-detail">
@@ -1204,8 +1247,8 @@
           <div class="when">2017.03</div>
         </div>
         <div class="edu-card">
-          <div class="deg"><a href="https://www.m.u-tokyo.ac.jp/" target="_blank" rel="noopener" style="color:inherit">東京大学大学院 医学系研究科</a>・医学部（卓越研究員）</div>
-          <div class="when">〜2021.03 中途自主退学</div>
+          <div class="deg"><a href="https://www.m.u-tokyo.ac.jp/" target="_blank" rel="noopener" style="color:inherit">東京大学大学院 医学系研究科</a>（卓越研究員）</div>
+          <div class="when">〜2021.03 中途退学</div>
         </div>
       </div>
     </section>
@@ -1244,7 +1287,7 @@
 
   <footer>
     <div>© 2026 中野哲平 — Teppei Nakano</div>
-    <div class="meta">Last updated: 2026-11-06</div>
+    <div class="meta">Last updated: 2026-11-12</div>
   </footer>
 
   <script src="assets/nav.js"></script>
