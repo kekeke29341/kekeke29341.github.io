@@ -270,14 +270,13 @@
       </div>
 
       <p class="lede">
-        Through my one-person company I take contract projects and build my own products —
-        generative AI systems for companies, Ruby on Rails web apps, and web / mobile screens.
+        Through my one-person company I take contract work on generative-AI and machine-learning systems,
+        from requirements through production.
       </p>
       <p class="lede">
-        Recent work includes reading fields from form PDFs, automatic Teams meeting minutes on Azure,
-        in-house document search, Rails services (commerce, jobs, search), matching apps,
-        lab-facing screens, pricing and market-monitoring tools, and generative-AI training materials.
-        Details are organized below.
+        Recent work includes field extraction from form PDFs, automatic Teams meeting minutes on Azure,
+        an on-prem LLM proof of concept, and generative-AI training for infrastructure teams.
+        Details are below.
       </p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">Discuss a project</a>
@@ -289,31 +288,30 @@
       <div class="sec-head"><h2>About</h2></div>
       <div class="prose">
         <p>
-          After graduating from Keio University School of Medicine, I worked on medical × machine-learning research
-          at the University of Tokyo. While a student I was selected for
+          While studying at Keio University School of Medicine and shortly after graduating, I was selected for
           <a href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" target="_blank" rel="noopener">IPA Mitou (FY2016)</a>
           and
           <a href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" target="_blank" rel="noopener">Mitou Advanced (FY2017)</a>.
-          Since then I have continued implementing generative AI and ML systems,
-          mostly through contract / embedded client work. I run a one-person company and join product and
-          internal-adoption projects as needed.
+          After graduating I did medical × machine-learning research at the University of Tokyo Graduate School of Medicine
+          as an Excellent Young Researcher. Since then I have built ML and LLM systems through client projects,
+          and I now run a one-person company that takes on product development and internal AI adoption under contract.
         </p>
         <p>
           I have peer-reviewed publications at international conference workshops and in an international journal:
           ICML Workshop on Computational Biology (2017),
           NeurIPS (then called NIPS) Workshop on Machine Learning for Health (2016),
           NeurIPS (then called NIPS) Clinical Workshop (2015),
-          and BioMed Research International (2016).
+          and BioMed Research International (2017).
           Domestically I also presented at JAMI and JSAI.
-          Titles and PDFs are on the
+          The full list is on the
           <a href="papers_en.html">Papers</a>
           page.
         </p>
         <p>
-          One of my core strengths is <strong>Ruby on Rails</strong>. I have designed and shipped multiple web
-          services — creator commerce, job boards, search, crypto-adjacent apps — from implementation through
-          production hosting. Alongside that I work on form-PDF reading, Teams minutes on Azure,
-          in-house generative AI, matching apps, lab-facing screens, and pricing / monitoring experiments.
+          My core areas are <strong>machine learning</strong>, <strong>LLMs</strong>, and <strong>Physical AI</strong>:
+          model selection, training and inference optimization, RAG, evaluation, and production rollout.
+          In a personal project I also test closed-loop RGB-D perception and robot manipulation in simulation.
+          I also handle project management, introducing AI-assisted development, and cloud / on-prem server setup.
         </p>
         <p>
           I usually cover the full path from requirements through design, implementation, review, and production rollout.
@@ -332,14 +330,14 @@
     <section id="work">
       <div class="sec-head">
         <h2>Examples of recent work</h2>
-        <p>Rather than job titles alone, here are themes that show up in the work on this machine.</p>
+        <p>Main themes in recent work.</p>
       </div>
       <div class="info-list">
         <div class="info-item">
-          <h3>Ruby on Rails</h3>
+          <h3>Training and inference optimization</h3>
           <div>
-            <p>I design, build, and ship web services — commerce, jobs, search, crypto-adjacent apps — including login, file storage, databases, and production hosting.</p>
-            <div class="tags"><span class="tag">Ruby on Rails</span><span class="tag">PostgreSQL</span><span class="tag">Web apps</span><span class="tag">Production</span></div>
+            <p>Distributed fine-tuning with DeepSpeed ZeRO-3 and QLoRA / LoRA, Flash Attention, quantization (FP8 / AWQ / llama.cpp), and serving with vLLM.</p>
+            <div class="tags"><span class="tag">DeepSpeed</span><span class="tag">QLoRA</span><span class="tag">Quantization</span><span class="tag">vLLM</span></div>
           </div>
         </div>
         <div class="info-item">
@@ -366,7 +364,7 @@
         <div class="info-item">
           <h3>In-house generative AI</h3>
           <div>
-            <p>Models that run on company servers without sending data outside, plus search over internal documents with per-user access control.</p>
+            <p>On-prem GPU setup and LLM proof-of-concept work for data that cannot leave the company, including access-controlled document search.</p>
             <div class="tags"><span class="tag">On-prem</span><span class="tag">Document search</span><span class="tag">Additional training</span><span class="tag">No external send</span></div>
           </div>
         </div>
@@ -377,7 +375,7 @@
               I implement product front ends with API integration, access control, and input validation.
               Recent work includes a construction-site generative-AI UI with voice, photo upload, and chat (React);
               legal work screens for PDF splitting and citation-backed drafting (Next.js);
-              and HyperEVM proxy-LP, auto-rebalance, and bridge UI (Next.js).
+              and HyperEVM LP-management, auto-rebalance, and bridge UI (Next.js).
             </p>
             <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Product UI</span></div>
           </div>
@@ -400,150 +398,258 @@
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2026.09 – present</span><span class="tl-badge">Ongoing</span></div>
-            <h3>Generative-AI training for network / infrastructure teams</h3>
-            <p class="tl-org">Corporate training · 90 min × 8 sessions</p>
+            <div class="tl-meta"><span class="tl-period">2026.10 – present</span><span class="tl-badge">Ongoing</span></div>
+            <h3>AI-assisted development adoption support</h3>
+            <p class="tl-org">Client company · development flow built around Linear / GitHub</p>
             <ul>
-              <li>Hands-on sessions covering generative-AI basics, how to give instructions, searching internal docs, AI-assisted development, and on-prem models.</li>
+              <li>Current-state assessment, gap analysis, and an adoption plan for bringing generative AI into the whole development flow.</li>
+              <li>Proposed process changes, including a prototype of automated pre-review checks.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2026.09 – present</span><span class="tl-badge">Ongoing</span></div>
-            <h3>BioSpatial OS (Physical AI)</h3>
-            <p class="tl-org">Personal project · life-sciences perception / manipulation middleware (simulation only)</p>
+            <div class="tl-meta"><span class="tl-period">2026.09 – present</span><span class="tl-badge">Ongoing</span><span class="tl-badge">Instructor</span></div>
+            <h3>Generative-AI training for network / infrastructure teams (instructor)</h3>
+            <p class="tl-org">Corporate training · 4th cohort · 90 min × 8 sessions</p>
             <ul>
-              <li>Designed and validated a closed-loop Physical AI stack: natural-language protocol → RGB-D 6DoF perception → motion → verified pick/place with auto-retry and hash-chained audit logs.</li>
-              <li>In simulation (no real-robot tests yet): 2,080 randomized PyBullet episodes, all successful; median pose error 1.9 mm XY / 0.2 mm Z; same stack verified 20/20 on NVIDIA Isaac Sim.</li>
+              <li>From LLM basics and prompting to RAG, AI-assisted development, and on-prem models — mostly instructor demos due to the trainees' tool restrictions.</li>
             </ul>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2026.01 – 2026.09</span><span class="tl-badge">Recent</span></div>
-            <h3>Automatic field extraction from form PDFs</h3>
-            <p class="tl-org">AI startup · ~3–4 days/week</p>
-            <ul>
-              <li>Pipelines to extract fields from Japanese form PDFs: decide if a page is a form, choose the template, expose APIs, and measure quality.</li>
-              <li>Landed the core pieces into the shared product in small, reviewable steps.</li>
-            </ul>
-          </div>
-        </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2026.02 – 2026.09</span></div>
             <h3>Teams meeting AI minutes app (Azure)</h3>
-            <p class="tl-org">Major HR / staffing company · ~3–4 days/week (concurrent)</p>
+            <p class="tl-org">Major HR / staffing company · ~1,500-user tenant · ~3–4 days/week</p>
             <ul>
-              <li>Minutes from Teams transcripts with Azure OpenAI; SharePoint save / notify.</li>
-              <li>Production setup on Azure with coded infrastructure, automated workflows, secret storage, and least-privilege access.</li>
+              <li>Minutes generated from Teams transcripts with Azure OpenAI, saved to SharePoint, and sent to the organizer.</li>
+              <li>Production setup with Bicep, managed identities, least-privilege RBAC, and SharePoint access limited to meeting participants.</li>
             </ul>
           </div>
         </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2026.01 – 2026.09</span></div>
+            <h3>Field extraction from form PDFs</h3>
+            <p class="tl-org">AI startup · ~3–4 days/week</p>
+            <ul>
+              <li>Led a VLM / LLM pipeline that extracts fields from Japanese form PDFs: form detection, template routing, service APIs, and reproducible evaluation.</li>
+              <li>Merged into the shared product as seven reviewable PRs behind a feature flag; 97.9% form-page recall.</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2025.09 – 2025.12</span></div>
             <h3>On-prem LLM: GPU setup and PoC</h3>
             <p class="tl-org">Major manufacturer</p>
             <ul>
-              <li>Set up on-prem GPU servers and evaluated whether local LLMs could serve sensitive data with nothing sent outside: model comparison (Mistral Large 2 for evaluation only), quantization, additional training on anonymized data, and an access-controlled RAG prototype. Delivered an evaluation report and deployment proposal.</li>
+              <li>Set up on-prem GPU servers and evaluated whether local LLMs could handle sensitive data with nothing sent outside: model comparison (Mistral Large 2 for evaluation only), quantization, additional training on anonymized data, and an access-controlled RAG prototype.</li>
+              <li>Delivered an evaluation report and a deployment proposal.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2025.04 – 2025.08</span></div>
-            <h3>FAQ / auto-response with generative AI</h3>
-            <p class="tl-org">Telecom company</p>
+            <h3>LLM-based FAQ / auto-response</h3>
+            <p class="tl-org">Telecom carrier</p>
             <ul>
-              <li>Additional training for the telecom domain and FAQ search to help resolve support inquiries.</li>
+              <li>Domain fine-tuning with DeepSpeed ZeRO-3 and QLoRA, plus RAG over the internal FAQ; semi-automatic resolution rate of 78.5%.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2024.06 – 2025.01</span></div>
             <h3>Blockchain data analytics (Hong Kong)</h3>
             <p class="tl-org">Fintech / blockchain analytics company</p>
             <ul>
-              <li>Transaction monitoring / anomaly detection and wallet network analysis.</li>
+              <li>Transaction monitoring, anomaly detection, risk scoring, and wallet network analysis.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">2021.04 – 2024.05 (main project period)</span></div>
-            <h3>AI contracting company (CEO · one-person)</h3>
-            <p class="tl-org">Capital ¥1M · director since Nov 2017</p>
+            <div class="tl-meta"><span class="tl-period">2017.11 – present</span></div>
+            <h3>AI contracting company (CEO, one-person)</h3>
+            <p class="tl-org">Capital ¥1M · director since Nov 2017 · main contract work 2021.04 – 2024.05</p>
             <ul>
-              <li>Contract work including healthcare on-prem generative AI, marketing analytics, and legal-document search.</li>
+              <li>Contract work including an on-prem LLM for healthcare, marketing analytics, and legal-document search (details below).</li>
             </ul>
           </div>
         </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2023.01 – 2024.05</span></div>
+            <h3>On-prem LLM for healthcare</h3>
+            <p class="tl-org">Contract · healthcare company serving hospitals · solo with outside collaborators</p>
+            <ul>
+              <li>Requirements and medical-terminology data in early 2023; compared newly released open models (Llama 2, Mistral 7B, Qwen) in late 2023 and fine-tuned Llama-2-13B-Chat with LoRA.</li>
+              <li>Quantized with llama.cpp; summarization and Q&A adopted by a hospital after a trial.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2022.01 – 2023.12</span></div>
+            <h3>Personalized marketing platform</h3>
+            <p class="tl-org">Contract · corporate marketing · solo with outside collaborators</p>
+            <ul>
+              <li>Customer segmentation, social-media trend analysis, automated A/B test evaluation, and a performance dashboard.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2021.04 – 2021.12</span></div>
+            <h3>Legal-document search and summarization</h3>
+            <p class="tl-org">Contract · legal / compliance · solo with outside collaborators</p>
+            <ul>
+              <li>BERT further pre-trained on legal text, embeddings for similar-case search, and a Q&A-style search screen; GPT-3 used only to evaluate summaries.</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2017.10 – present</span></div>
             <h3>NAM Inc. (CEO)</h3>
-            <p class="tl-org">Founded for medical AI; ICO in late 2017–early 2018. Operations are effectively paused.</p>
+            <p class="tl-org">Founded for medical AI · operations currently paused</p>
             <ul>
-              <li>Founded for medical AI software; conducted NAM Coin ICO. No active new sales / employment now.</li>
-              <li>Coverage:
-                <a href="https://www.nikkei.com/article/DGXMZO23984470Y7A121C1X11000/" target="_blank" rel="noopener">Nikkei</a>,
-                <a href="https://xtech.nikkei.com/dm/atcl/feature/15/327441/112800273/" target="_blank" rel="noopener">Nikkei CrossTech</a>,
-                <a href="https://xtrend.nikkei.com/atcl/contents/feature/00007/00002/" target="_blank" rel="noopener">Nikkei Cross Trend</a>
-              </li>
+              <li>Launched the LINE-based AI medical-interview bot “Doctor Q”, raised funds through the NAM Coin ICO (Dec 2017 – 2018), partnered with Weibo Japan, and held meetups in Korea.</li>
+              <li>Coverage: <a href="https://www.nikkei.com/article/DGXMZO23984470Y7A121C1X11000/" target="_blank" rel="noopener">Nikkei</a>, <a href="https://xtech.nikkei.com/dm/atcl/feature/15/327441/112800273/" target="_blank" rel="noopener">Nikkei CrossTech</a>, <a href="https://xtrend.nikkei.com/atcl/contents/feature/00007/00002/" target="_blank" rel="noopener">Nikkei Cross Trend</a></li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">2018.04 – 2021.03</span></div>
             <h3>University of Tokyo · Excellent Young Researcher</h3>
-            <p class="tl-org">
-              <a href="https://www.m.u-tokyo.ac.jp/" target="_blank" rel="noopener">Graduate School of Medicine</a>
-              · medical × ML, including EHR summarization
-            </p>
+            <p class="tl-org"><a href="https://www.m.u-tokyo.ac.jp/" target="_blank" rel="noopener">Graduate School of Medicine</a> · medical × ML, mainly EHR summarization</p>
             <ul>
-              <li>Design and implementation of electronic medical record summarization models.</li>
-              <li>Alongside graduate research, also did contract development work and served as CEO of NAM Inc.</li>
+              <li>Designed and implemented electronic medical record summarization models.</li>
+              <li>Alongside the research, also did contract development work and served as CEO of NAM Inc.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">FY2017</span></div>
+            <div class="tl-meta"><span class="tl-period">FY2017</span><span class="tl-badge">Selected</span></div>
             <h3>IPA Mitou Advanced — selected</h3>
-            <p class="tl-org">
-              Theme: software for physicians to track patient progress automatically · awarded ¥7,000,000.
-              Contract declined on 2017-08-01 (per IPA).
-              <a href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" target="_blank" rel="noopener">Official project page</a>
-            </p>
+            <p class="tl-org">Theme: software for physicians to track patient progress automatically · awarded ¥7,000,000. Contract declined on 2017-08-01 (per IPA). <a href="https://www.ipa.go.jp/jinzai/mitou/advanced/2017/gaiyou_o-1.html" target="_blank" rel="noopener">Official project page</a></p>
             <ul>
               <li>Selected as Teppei Nakano (CEO, AUGRIM Inc.) with three co-creators.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
-            <div class="tl-meta"><span class="tl-period">FY2016</span></div>
+            <div class="tl-meta"><span class="tl-period">FY2016</span><span class="tl-badge">Selected</span></div>
             <h3>IPA Mitou Program — selected</h3>
-            <p class="tl-org">
-              Theme: electronic medical record search system · awarded ¥2,304,000.
-              <a href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" target="_blank" rel="noopener">Official project page</a>
-            </p>
+            <p class="tl-org">Theme: electronic medical record search system · awarded ¥2,304,000. <a href="https://www.ipa.go.jp/jinzai/mitou/it/2016/gaiyou_f-2.html" target="_blank" rel="noopener">Official project page</a></p>
             <ul>
               <li>Selected as Teppei Nakano (Keio University) for EHR search using ML / NLP.</li>
             </ul>
           </div>
         </div>
+
         <div class="tl-item">
           <div class="tl-card">
             <div class="tl-meta"><span class="tl-period">Summer 2013</span></div>
-            <h3>Preferred Infrastructure (PFI) — Summer Intern</h3>
-            <p class="tl-org">Predecessor of Preferred Networks</p>
+            <h3>Preferred Infrastructure (PFI) — summer intern</h3>
+            <p class="tl-org">The company Preferred Networks grew out of</p>
             <ul>
-              <li>Development and evaluation work on business applications of machine learning and deep learning.</li>
+              <li>Development and evaluation work on business applications of machine learning.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="side-projects">
+      <div class="sec-head">
+        <h2>Personal and small projects</h2>
+        <p>Built alongside or between the work above. Periods follow the repositories' commit history.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2026.09 – present</span><span class="tl-badge">Ongoing</span></div>
+            <h3>BioSpatial OS (Physical AI)</h3>
+            <p class="tl-org">Personal project · life-sciences perception / manipulation middleware · simulation only</p>
+            <ul>
+              <li>Closed-loop stack: natural-language protocol → RGB-D 6DoF perception → motion → verified pick / place with auto-retry and hash-chained audit logs.</li>
+              <li>In simulation (no real-robot tests yet): 2,080 randomized PyBullet episodes, all successful; median pose error 1.9 mm XY / 0.2 mm Z; 20/20 on NVIDIA Isaac Sim.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2026.06 – 2026.10</span></div>
+            <h3>HyperEVM LP management / DeFi front end</h3>
+            <p class="tl-org">Personal / small project · smart contracts and Next.js</p>
+            <ul>
+              <li>Monorepo with LP-position management contracts, keeper-based rebalancing, and reward / bridge UI.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2026.02</span></div>
+            <h3>Generative AI for construction sites</h3>
+            <p class="tl-org">Personal / small project</p>
+            <ul>
+              <li>Voice-to-report, photo-based hazard prediction, and internal-document search (FastAPI + React).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2026.02</span></div>
+            <h3>Legal document and drafting tool</h3>
+            <p class="tl-org">Personal / small project</p>
+            <ul>
+              <li>PDF splitting, exhibit-number renaming, and citation-backed drafting (Next.js + FastAPI).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2025.12 – 2026.02</span></div>
+            <h3>Image / video annotation platform (CVAT)</h3>
+            <p class="tl-org">Personal / small project</p>
+            <ul>
+              <li>Set up and customized CVAT for annotation work.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-card">
+            <div class="tl-meta"><span class="tl-period">2025.07 – 2026.07</span></div>
+            <h3>Golf-course pricing and demand analytics</h3>
+            <p class="tl-org">Personal / small project</p>
+            <ul>
+              <li>Daily price / availability collection, demand forecasting, dynamic-pricing simulation, and similar-course search.</li>
             </ul>
           </div>
         </div>
